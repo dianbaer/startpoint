@@ -1,0 +1,13 @@
+syntax = "proto3";
+package protobuf.http;
+message UCError{
+	int32 hOpCode=1;
+	UCErrorCode errorCode=2;
+	int32 errorHOpCode=3;
+	string extraMsg=4;
+}
+enum UCErrorCode{
+	ERROR_CODE_0=0;//未知错误
+	ERROR_CODE_1=1;//token过期
+	ERROR_CODE_2=2;//token不许为空
+}

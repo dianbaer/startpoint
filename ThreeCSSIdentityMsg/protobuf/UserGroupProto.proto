@@ -1,0 +1,162 @@
+syntax = "proto3";
+package protobuf.http;
+message CreateUserGroupC{
+	int32 hOpCode=1;
+	string userGroupName=2;
+	string userGroupParentId=3;//空或""为顶级
+}
+message CreateUserGroupS{
+	int32 hOpCode=1;
+	UserGroupData userGroup=2;
+}
+message UpdateUserGroupC{
+	int32 hOpCode=1;
+	string userGroupId=2;
+	string userGroupName=3;//空或""为不修改名字
+	bool isUpdateUserGroupParent=4;//true修改，false不修改
+	string userGroupParentId=5;//空或""为顶级（在是true的状态下）
+	int32 userGroupState=6;//1：可用2：不可用3：逻辑删除，其他为不修改
+}
+message UpdateUserGroupS{
+	int32 hOpCode=1;
+	UserGroupData userGroup=2;
+}
+message GetUserGroupC{
+	int32 hOpCode=1;
+	string userGroupId=2;
+}
+message GetUserGroupS{
+	int32 hOpCode=1;
+	UserGroupData userGroup=2;
+}
+message GetUserGroupListC{
+	int32 hOpCode=1;
+	string userGroupParentId=2;//空或""为获取所有顶级
+	bool isUserGroupParentIsNull=3;
+	bool isRecursion=4;//是否递归
+	string userGroupTopId=5;
+	int32 userGroupState=6;
+}
+message GetUserGroupListS{
+	int32 hOpCode=1;
+	repeated UserGroupData userGroup=2;
+}
+message CreateUserC{
+	int32 hOpCode=1;
+	string userName=2;
+	string userPassword=3;
+	string userPhone=4;
+	string userEmail=5;
+	string userGroupId=6;
+	string userRealName=7;
+	int32 userSex=8;
+	int32 userAge=9;
+	int32 userRole=10;//传0,1是普通成员，2是组管理员
+}
+message CreateUserS{
+	int32 hOpCode=1;
+	UserData user=2;
+}
+message GetUserC{
+	int32 hOpCode=1;
+	string userId=2;//传空就是查看自己的
+}
+message GetUserS{
+	int32 hOpCode=1;
+	UserData user=2;
+}
+message GetUserByEmailC{
+	int32 hOpCode=1;
+	string userEmail=2;
+}
+message GetUserByEmailS{
+	int32 hOpCode=1;
+	UserData user=2;
+}
+message UpdateUserC{
+	int32 hOpCode=1;
+	string userId=2;
+	string userPassword=3;
+	string userPhone=4;
+	string userEmail=5;
+	int32 userState=6;//1：可用2：不可用3：逻辑删除，其他为不修改
+	bool isUpdateUserGroup=7;//true修改，false不修改
+	string userGroupId=8;//空或""为顶级（在是true的状态下）
+	string userRealName=9;
+	int32 userSex=10;//1：女2：男
+	int32 userAge=11;
+	int32 userRole=12;//传0是不修改，传1或2是修改
+}
+message UpdateUserS{
+	int32 hOpCode=1;
+	UserData user=2;
+}
+message GetUserListC{
+	int32 hOpCode=1;
+	string userGroupId=2;//存在时userGroupTopId没意义
+	bool isUserGroupIsNull=3;//是不是查用户组为空的用户
+	bool isRecursion=4;//是否递归获取组下树的所有人员
+	int32 userState=5;
+	int32 userSex=6;//1：女2：男
+	int32 userRole=7;//1：普通用户2：组管理员
+	string userGroupTopId=8;
+}
+message GetUserListS{
+	int32 hOpCode=1;
+	repeated UserData user=2;
+}
+message GetTokenC{
+	int32 hOpCode=1;
+	string userName=2;
+	string userPassword=3;
+}
+message GetTokenS{
+	int32 hOpCode=1;
+	string tokenId=2;
+	string tokenExpireTime=3;
+	UserData user=4;
+}
+message UpdateTokenC{
+	int32 hOpCode=1;
+}
+message UpdateTokenS{
+	int32 hOpCode=1;
+	string tokenId=2;
+	string tokenExpireTime=3;
+	UserData user=4;
+}
+message DeleteTokenC{
+	int32 hOpCode=1;
+}
+message DeleteTokenS{
+	int32 hOpCode=1;
+}
+message GetUserImgC{
+	int32 hOpCode=1;
+	string userId=2;//传空就是查看自己的
+}
+message UserData{
+	string userId=1;
+	string userName=2;
+	string userPhone=3;
+	string userEmail=4;
+	string userCreateTime=5;
+	string userUpdateTime=6;
+	int32 userState=7;
+	string userGroupId=8;
+	string userRealName=9;
+	int32 userSex=10;
+	int32 userAge=11;
+	string userGroupTopId=12;
+	int32 userRole=13;
+	string userImg=14;
+}
+message UserGroupData{
+	string userGroupId=1;
+	string userGroupName=2;
+	string userGroupParentId=3;
+	string userGroupCreateTime=4;
+	string userGroupUpdateTime=5;
+	int32 userGroupState=6;
+	string userGroupTopId=7;
+}
