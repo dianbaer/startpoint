@@ -1286,45 +1286,45 @@ $T.jugglerManager = new JugglerManager();
     }
     this.initLoad = function () {
         // 消息
-        this.loadScript("js/threec/mvc/Notification.js");
-        this.loadScript("js/threec/mvc/ViewManager.js");
+        this.loadScript("js/threecss-c/mvc/Notification.js");
+        this.loadScript("js/threecss-c/mvc/ViewManager.js");
         // http
-        this.loadScript("js/threec/http/HttpConfig.js");
-        this.loadScript("js/threec/http/HttpResultFilter.js");
-        this.loadScript("js/threec/http/SendParam.js");
-        this.loadScript("js/threec/http/TestFilter.js");
+        this.loadScript("js/threecss-c/http/HttpConfig.js");
+        this.loadScript("js/threecss-c/http/HttpResultFilter.js");
+        this.loadScript("js/threecss-c/http/SendParam.js");
+        this.loadScript("js/threecss-c/http/TestFilter.js");
 
         // 工具
-        this.loadScript("js/threec/tools/ArrayTools.js");
-        this.loadScript("js/threec/display/DisplayObject.js");
+        this.loadScript("js/threecss-c/tools/ArrayTools.js");
+        this.loadScript("js/threecss-c/display/DisplayObject.js");
         // 事件
-        this.loadScript("js/threec/event/Event.js");
-        this.loadScript("js/threec/event/EventPool.js");
-        this.loadScript("js/threec/event/EventDispatcher.js");
+        this.loadScript("js/threecss-c/event/Event.js");
+        this.loadScript("js/threecss-c/event/EventPool.js");
+        this.loadScript("js/threecss-c/event/EventDispatcher.js");
         // 动画
-        this.loadScript("js/threec/tween/TweenEventType.js");
-        this.loadScript("js/threec/tween/DelayedCall.js");
-        this.loadScript("js/threec/tween/DelayedCallPool.js");
-        this.loadScript("js/threec/tween/Transitions.js");
-        this.loadScript("js/threec/tween/Tween.js");
-        this.loadScript("js/threec/tween/TweenPool.js");
-        this.loadScript("js/threec/tween/Juggler.js");
-        this.loadScript("js/threec/tween/JugglerManager.js");
+        this.loadScript("js/threecss-c/tween/TweenEventType.js");
+        this.loadScript("js/threecss-c/tween/DelayedCall.js");
+        this.loadScript("js/threecss-c/tween/DelayedCallPool.js");
+        this.loadScript("js/threecss-c/tween/Transitions.js");
+        this.loadScript("js/threecss-c/tween/Tween.js");
+        this.loadScript("js/threecss-c/tween/TweenPool.js");
+        this.loadScript("js/threecss-c/tween/Juggler.js");
+        this.loadScript("js/threecss-c/tween/JugglerManager.js");
 
-        this.loadScript("js/threec/http/HttpUtil.js");
+        this.loadScript("js/threecss-c/http/HttpUtil.js");
         // 资源
-        this.loadScript("js/threec/resource/ResourceEventType.js");
-        this.loadScript("js/threec/resource/Loader.js");
-        this.loadScript("js/threec/resource/ResourceManager.js");
+        this.loadScript("js/threecss-c/resource/ResourceEventType.js");
+        this.loadScript("js/threecss-c/resource/Loader.js");
+        this.loadScript("js/threecss-c/resource/ResourceManager.js");
         // 注册
-        this.loadScript("js/threec/Register.js");
+        this.loadScript("js/threecss-c/Register.js");
         // 模块
-        this.loadScript("js/threec/module/ModuleData.js");
-        this.loadScript("js/threec/module/ModuleManager.js");
+        this.loadScript("js/threecss-c/module/ModuleData.js");
+        this.loadScript("js/threecss-c/module/ModuleManager.js");
         // websocket
-        this.loadScript("js/threec/websocket/WebSocketConfig.js");
-        this.loadScript("js/threec/websocket/WebSocketEventType.js");
-        this.loadScript("js/threec/websocket/WebSocketClient.js");
+        this.loadScript("js/threecss-c/websocket/WebSocketConfig.js");
+        this.loadScript("js/threecss-c/websocket/WebSocketEventType.js");
+        this.loadScript("js/threecss-c/websocket/WebSocketClient.js");
 
     }
     this.init = function () {
