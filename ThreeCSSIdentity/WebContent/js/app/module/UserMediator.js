@@ -47,7 +47,10 @@ function UserMediator() {
         var userSex = $("#userSex_list").val();
         var userRole = $("#userRole_list").val();
         var userGroupTopId = $("#userGroupTopId_list").val();
-        $T.userProxy.getUserList(userGroupId, isUserGroupIsNull, isRecursion, userState, userSex, userRole, userGroupTopId);
+        var userName = $("#userName_list").val();
+        var currentPage = $("#currentPage").val();
+        var pageSize = $("#pageSize").val();
+        $T.userProxy.getUserList(userGroupId, isUserGroupIsNull, isRecursion, userState, userSex, userRole, userGroupTopId,userName,currentPage,pageSize);
     }
 
 }

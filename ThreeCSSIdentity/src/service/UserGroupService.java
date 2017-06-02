@@ -18,6 +18,8 @@ import protobuf.http.UserGroupProto.GetUserGroupListS;
 import protobuf.http.UserGroupProto.GetUserGroupS;
 import protobuf.http.UserGroupProto.UpdateUserGroupC;
 import protobuf.http.UserGroupProto.UpdateUserGroupS;
+import tool.PageFormat;
+import tool.PageObj;
 
 public class UserGroupService implements IHttpListener {
 
@@ -81,11 +83,17 @@ public class UserGroupService implements IHttpListener {
 		GetUserGroupListC message = (GetUserGroupListC) hSession.httpPacket.getData();
 
 		List<UserGroup> userGroupList = UserGroupAction.getUserGroupList(message.getUserGroupParentId(), message.getIsUserGroupParentIsNull(), message.getIsRecursion(), message.getUserGroupTopId(), message.getUserGroupState());
+		int currentPage = message.getCurrentPage();
+		int pageSize = message.getPageSize();
+		PageObj pageObj = PageFormat.getStartAndEnd(currentPage, pageSize, userGroupList.size());
 		GetUserGroupListS.Builder builder = GetUserGroupListS.newBuilder();
 		builder.setHOpCode(hSession.headParam.hOpCode);
-
+		builder.setCurrentPage(pageObj.currentPage);
+		builder.setPageSize(pageObj.pageSize);
+		builder.setTotalPage(pageObj.totalPage);
+		builder.setAllNum(pageObj.allNum);
 		if (userGroupList != null) {
-			for (int i = 0; i < userGroupList.size(); i++) {
+			for (int i = pageObj.start; i < pageObj.end; i++) {
 				UserGroup userGroup = userGroupList.get(i);
 				builder.addUserGroup(UserGroupAction.getUserGroupDataBuilder(userGroup));
 			}

@@ -36,7 +36,9 @@ function CreateUserGroupMediator() {
         var isRecursion = $("#isRecursion_list").val();
         var userGroupTopId = $("#userGroupTopId_list").val();
         var userGroupState = $("#userGroupState_list").val();
-        $T.userGroupProxy.getUserGroupList(userGroupParentId, isUserGroupParentIsNull, isRecursion, userGroupTopId, userGroupState);
+        var currentPage = $("#currentPage").val();
+        var pageSize = $("#pageSize").val();
+        $T.userGroupProxy.getUserGroupList(userGroupParentId, isUserGroupParentIsNull, isRecursion, userGroupTopId, userGroupState,currentPage,pageSize);
     }
 }
 $T.createUserGroupMediator = new CreateUserGroupMediator();

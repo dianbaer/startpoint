@@ -336,14 +336,14 @@ public class UserAction {
 		return getUserById(user.getUserId());
 	}
 
-	public static List<User> getUserList(String userGroupId, boolean isRecursion, boolean isUserGroupIsNull, int userState, int userSex, int userRole, String userGroupTopId) {
+	public static List<User> getUserList(String userGroupId, boolean isRecursion, boolean isUserGroupIsNull, int userState, int userSex, int userRole, String userGroupTopId, String userName) {
 		SqlSession sqlSession = null;
 		List<User> userListAll = new ArrayList<>();
 		try {
 			sqlSession = MybatisManager.getSqlSession();
 			UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
 			UserGroupMapper userGroupMapper = sqlSession.getMapper(UserGroupMapper.class);
-			getUserListRecursion(userListAll, userGroupId, userState, userSex, userRole, userGroupMapper, userMapper, isRecursion, userGroupTopId, isUserGroupIsNull);
+			getUserListRecursion(userListAll, userGroupId, userState, userSex, userRole, userGroupMapper, userMapper, isRecursion, userGroupTopId, isUserGroupIsNull, userName);
 			return userListAll;
 		} catch (Exception e) {
 			if (sqlSession != null) {
@@ -358,7 +358,7 @@ public class UserAction {
 		}
 	}
 
-	public static void getUserListRecursion(List<User> userListAll, String userGroupId, int userState, int userSex, int userRole, UserGroupMapper userGroupMapper, UserMapper userMapper, boolean isRecursion, String userGroupTopId, boolean isUserGroupIsNull) {
+	public static void getUserListRecursion(List<User> userListAll, String userGroupId, int userState, int userSex, int userRole, UserGroupMapper userGroupMapper, UserMapper userMapper, boolean isRecursion, String userGroupTopId, boolean isUserGroupIsNull, String userName) {
 		UserCriteria userCriteria = new UserCriteria();
 		UserCriteria.Criteria criteria = userCriteria.createCriteria();
 		if (userState == UserConfig.STATE_DELETE || userState == UserConfig.STATE_DISABLED || userState == UserConfig.STATE_USABLE) {
@@ -369,6 +369,9 @@ public class UserAction {
 		}
 		if (userRole == UserConfig.ROLE_MEMBER || userRole == UserConfig.ROLE_GROUP_MANAGER) {
 			criteria.andUserRoleEqualTo((byte) userRole);
+		}
+		if (!StringUtil.stringIsNull(userName)) {
+			criteria.andUserNameLikeInsensitive("%" + userName + "%");
 		}
 		boolean isCanRecursion = false;
 		if (!StringUtil.stringIsNull(userGroupId)) {
@@ -402,7 +405,7 @@ public class UserAction {
 		if (userGroupList != null) {
 			for (int i = 0; i < userGroupList.size(); i++) {
 				UserGroup userGroup = userGroupList.get(i);
-				getUserListRecursion(userListAll, userGroup.getUserGroupId(), userState, userSex, userRole, userGroupMapper, userMapper, isRecursion, userGroupTopId, isUserGroupIsNull);
+				getUserListRecursion(userListAll, userGroup.getUserGroupId(), userState, userSex, userRole, userGroupMapper, userMapper, isRecursion, userGroupTopId, isUserGroupIsNull, userName);
 			}
 		}
 		return;

@@ -68,7 +68,7 @@ function UserGroupProxy() {
     this.getUserGroupFail = function (result, sendParam) {
 
     }
-    this.getUserGroupList = function (userGroupParentId, isUserGroupParentIsNull, isRecursion, userGroupTopId, userGroupState) {
+    this.getUserGroupList = function (userGroupParentId, isUserGroupParentIsNull, isRecursion, userGroupTopId, userGroupState,currentPage,pageSize) {
         var data = {
             "hOpCode": 4,
             "userGroupParentId": userGroupParentId,
@@ -76,6 +76,8 @@ function UserGroupProxy() {
             "isRecursion": isRecursion == "1" ? true : false,
             "userGroupTopId": userGroupTopId,
             "userGroupState": userGroupState,
+            "currentPage":currentPage,
+            "pageSize":pageSize
         };
 
         var sendParam = new SendParam();

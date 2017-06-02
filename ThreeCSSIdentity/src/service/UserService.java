@@ -24,6 +24,8 @@ import protobuf.http.UserGroupProto.GetUserS;
 import protobuf.http.UserGroupProto.UpdateUserC;
 import protobuf.http.UserGroupProto.UpdateUserS;
 import protobuf.http.UserGroupProto.UserData;
+import tool.PageFormat;
+import tool.PageObj;
 import tool.StringUtil;
 
 public class UserService implements IHttpListener, IService {
@@ -140,11 +142,18 @@ public class UserService implements IHttpListener, IService {
 
 	public HttpPacket getUserListHandle(HSession hSession) {
 		GetUserListC message = (GetUserListC) hSession.httpPacket.getData();
-		List<User> userList = UserAction.getUserList(message.getUserGroupId(), message.getIsRecursion(), message.getIsUserGroupIsNull(), message.getUserState(), message.getUserSex(), message.getUserRole(), message.getUserGroupTopId());
+		List<User> userList = UserAction.getUserList(message.getUserGroupId(), message.getIsRecursion(), message.getIsUserGroupIsNull(), message.getUserState(), message.getUserSex(), message.getUserRole(), message.getUserGroupTopId(), message.getUserName());
+		int currentPage = message.getCurrentPage();
+		int pageSize = message.getPageSize();
+		PageObj pageObj = PageFormat.getStartAndEnd(currentPage, pageSize, userList.size());
 		GetUserListS.Builder builder = GetUserListS.newBuilder();
 		builder.setHOpCode(hSession.headParam.hOpCode);
+		builder.setCurrentPage(pageObj.currentPage);
+		builder.setPageSize(pageObj.pageSize);
+		builder.setTotalPage(pageObj.totalPage);
+		builder.setAllNum(pageObj.allNum);
 		if (userList != null) {
-			for (int i = 0; i < userList.size(); i++) {
+			for (int i = pageObj.start; i < pageObj.end; i++) {
 				User user = userList.get(i);
 				builder.addUser(UserAction.getUserDataBuilder(user));
 			}
