@@ -4322,6 +4322,20 @@ public final class UserGroupProto {
      * <code>optional int32 userGroupState = 6;</code>
      */
     int getUserGroupState();
+
+    /**
+     * <code>optional int32 currentPage = 7;</code>
+     */
+    int getCurrentPage();
+
+    /**
+     * <pre>
+     *pageSize传0，说明不分页
+     * </pre>
+     *
+     * <code>optional int32 pageSize = 8;</code>
+     */
+    int getPageSize();
   }
   /**
    * Protobuf type {@code protobuf.http.GetUserGroupListC}
@@ -4341,6 +4355,8 @@ public final class UserGroupProto {
       isRecursion_ = false;
       userGroupTopId_ = "";
       userGroupState_ = 0;
+      currentPage_ = 0;
+      pageSize_ = 0;
     }
 
     @java.lang.Override
@@ -4398,6 +4414,16 @@ public final class UserGroupProto {
             case 48: {
 
               userGroupState_ = input.readInt32();
+              break;
+            }
+            case 56: {
+
+              currentPage_ = input.readInt32();
+              break;
+            }
+            case 64: {
+
+              pageSize_ = input.readInt32();
               break;
             }
           }
@@ -4539,6 +4565,28 @@ public final class UserGroupProto {
       return userGroupState_;
     }
 
+    public static final int CURRENTPAGE_FIELD_NUMBER = 7;
+    private int currentPage_;
+    /**
+     * <code>optional int32 currentPage = 7;</code>
+     */
+    public int getCurrentPage() {
+      return currentPage_;
+    }
+
+    public static final int PAGESIZE_FIELD_NUMBER = 8;
+    private int pageSize_;
+    /**
+     * <pre>
+     *pageSize传0，说明不分页
+     * </pre>
+     *
+     * <code>optional int32 pageSize = 8;</code>
+     */
+    public int getPageSize() {
+      return pageSize_;
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -4569,6 +4617,12 @@ public final class UserGroupProto {
       if (userGroupState_ != 0) {
         output.writeInt32(6, userGroupState_);
       }
+      if (currentPage_ != 0) {
+        output.writeInt32(7, currentPage_);
+      }
+      if (pageSize_ != 0) {
+        output.writeInt32(8, pageSize_);
+      }
     }
 
     public int getSerializedSize() {
@@ -4598,6 +4652,14 @@ public final class UserGroupProto {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(6, userGroupState_);
       }
+      if (currentPage_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(7, currentPage_);
+      }
+      if (pageSize_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(8, pageSize_);
+      }
       memoizedSize = size;
       return size;
     }
@@ -4626,6 +4688,10 @@ public final class UserGroupProto {
           .equals(other.getUserGroupTopId());
       result = result && (getUserGroupState()
           == other.getUserGroupState());
+      result = result && (getCurrentPage()
+          == other.getCurrentPage());
+      result = result && (getPageSize()
+          == other.getPageSize());
       return result;
     }
 
@@ -4650,6 +4716,10 @@ public final class UserGroupProto {
       hash = (53 * hash) + getUserGroupTopId().hashCode();
       hash = (37 * hash) + USERGROUPSTATE_FIELD_NUMBER;
       hash = (53 * hash) + getUserGroupState();
+      hash = (37 * hash) + CURRENTPAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getCurrentPage();
+      hash = (37 * hash) + PAGESIZE_FIELD_NUMBER;
+      hash = (53 * hash) + getPageSize();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -4780,6 +4850,10 @@ public final class UserGroupProto {
 
         userGroupState_ = 0;
 
+        currentPage_ = 0;
+
+        pageSize_ = 0;
+
         return this;
       }
 
@@ -4808,6 +4882,8 @@ public final class UserGroupProto {
         result.isRecursion_ = isRecursion_;
         result.userGroupTopId_ = userGroupTopId_;
         result.userGroupState_ = userGroupState_;
+        result.currentPage_ = currentPage_;
+        result.pageSize_ = pageSize_;
         onBuilt();
         return result;
       }
@@ -4868,6 +4944,12 @@ public final class UserGroupProto {
         }
         if (other.getUserGroupState() != 0) {
           setUserGroupState(other.getUserGroupState());
+        }
+        if (other.getCurrentPage() != 0) {
+          setCurrentPage(other.getCurrentPage());
+        }
+        if (other.getPageSize() != 0) {
+          setPageSize(other.getPageSize());
         }
         onChanged();
         return this;
@@ -5168,6 +5250,70 @@ public final class UserGroupProto {
         onChanged();
         return this;
       }
+
+      private int currentPage_ ;
+      /**
+       * <code>optional int32 currentPage = 7;</code>
+       */
+      public int getCurrentPage() {
+        return currentPage_;
+      }
+      /**
+       * <code>optional int32 currentPage = 7;</code>
+       */
+      public Builder setCurrentPage(int value) {
+        
+        currentPage_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 currentPage = 7;</code>
+       */
+      public Builder clearCurrentPage() {
+        
+        currentPage_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int pageSize_ ;
+      /**
+       * <pre>
+       *pageSize传0，说明不分页
+       * </pre>
+       *
+       * <code>optional int32 pageSize = 8;</code>
+       */
+      public int getPageSize() {
+        return pageSize_;
+      }
+      /**
+       * <pre>
+       *pageSize传0，说明不分页
+       * </pre>
+       *
+       * <code>optional int32 pageSize = 8;</code>
+       */
+      public Builder setPageSize(int value) {
+        
+        pageSize_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *pageSize传0，说明不分页
+       * </pre>
+       *
+       * <code>optional int32 pageSize = 8;</code>
+       */
+      public Builder clearPageSize() {
+        
+        pageSize_ = 0;
+        onChanged();
+        return this;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return this;
@@ -5249,6 +5395,38 @@ public final class UserGroupProto {
      */
     protobuf.http.UserGroupProto.UserGroupDataOrBuilder getUserGroupOrBuilder(
         int index);
+
+    /**
+     * <code>optional int32 currentPage = 3;</code>
+     */
+    int getCurrentPage();
+
+    /**
+     * <pre>
+     *pageSize传0，说明不分页
+     * </pre>
+     *
+     * <code>optional int32 pageSize = 4;</code>
+     */
+    int getPageSize();
+
+    /**
+     * <pre>
+     *总页数
+     * </pre>
+     *
+     * <code>optional int32 totalPage = 5;</code>
+     */
+    int getTotalPage();
+
+    /**
+     * <pre>
+     *总条数
+     * </pre>
+     *
+     * <code>optional int32 allNum = 6;</code>
+     */
+    int getAllNum();
   }
   /**
    * Protobuf type {@code protobuf.http.GetUserGroupListS}
@@ -5264,6 +5442,10 @@ public final class UserGroupProto {
     private GetUserGroupListS() {
       hOpCode_ = 0;
       userGroup_ = java.util.Collections.emptyList();
+      currentPage_ = 0;
+      pageSize_ = 0;
+      totalPage_ = 0;
+      allNum_ = 0;
     }
 
     @java.lang.Override
@@ -5303,6 +5485,26 @@ public final class UserGroupProto {
               }
               userGroup_.add(
                   input.readMessage(protobuf.http.UserGroupProto.UserGroupData.parser(), extensionRegistry));
+              break;
+            }
+            case 24: {
+
+              currentPage_ = input.readInt32();
+              break;
+            }
+            case 32: {
+
+              pageSize_ = input.readInt32();
+              break;
+            }
+            case 40: {
+
+              totalPage_ = input.readInt32();
+              break;
+            }
+            case 48: {
+
+              allNum_ = input.readInt32();
               break;
             }
           }
@@ -5376,6 +5578,54 @@ public final class UserGroupProto {
       return userGroup_.get(index);
     }
 
+    public static final int CURRENTPAGE_FIELD_NUMBER = 3;
+    private int currentPage_;
+    /**
+     * <code>optional int32 currentPage = 3;</code>
+     */
+    public int getCurrentPage() {
+      return currentPage_;
+    }
+
+    public static final int PAGESIZE_FIELD_NUMBER = 4;
+    private int pageSize_;
+    /**
+     * <pre>
+     *pageSize传0，说明不分页
+     * </pre>
+     *
+     * <code>optional int32 pageSize = 4;</code>
+     */
+    public int getPageSize() {
+      return pageSize_;
+    }
+
+    public static final int TOTALPAGE_FIELD_NUMBER = 5;
+    private int totalPage_;
+    /**
+     * <pre>
+     *总页数
+     * </pre>
+     *
+     * <code>optional int32 totalPage = 5;</code>
+     */
+    public int getTotalPage() {
+      return totalPage_;
+    }
+
+    public static final int ALLNUM_FIELD_NUMBER = 6;
+    private int allNum_;
+    /**
+     * <pre>
+     *总条数
+     * </pre>
+     *
+     * <code>optional int32 allNum = 6;</code>
+     */
+    public int getAllNum() {
+      return allNum_;
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -5394,6 +5644,18 @@ public final class UserGroupProto {
       for (int i = 0; i < userGroup_.size(); i++) {
         output.writeMessage(2, userGroup_.get(i));
       }
+      if (currentPage_ != 0) {
+        output.writeInt32(3, currentPage_);
+      }
+      if (pageSize_ != 0) {
+        output.writeInt32(4, pageSize_);
+      }
+      if (totalPage_ != 0) {
+        output.writeInt32(5, totalPage_);
+      }
+      if (allNum_ != 0) {
+        output.writeInt32(6, allNum_);
+      }
     }
 
     public int getSerializedSize() {
@@ -5408,6 +5670,22 @@ public final class UserGroupProto {
       for (int i = 0; i < userGroup_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, userGroup_.get(i));
+      }
+      if (currentPage_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, currentPage_);
+      }
+      if (pageSize_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, pageSize_);
+      }
+      if (totalPage_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(5, totalPage_);
+      }
+      if (allNum_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(6, allNum_);
       }
       memoizedSize = size;
       return size;
@@ -5429,6 +5707,14 @@ public final class UserGroupProto {
           == other.getHOpCode());
       result = result && getUserGroupList()
           .equals(other.getUserGroupList());
+      result = result && (getCurrentPage()
+          == other.getCurrentPage());
+      result = result && (getPageSize()
+          == other.getPageSize());
+      result = result && (getTotalPage()
+          == other.getTotalPage());
+      result = result && (getAllNum()
+          == other.getAllNum());
       return result;
     }
 
@@ -5445,6 +5731,14 @@ public final class UserGroupProto {
         hash = (37 * hash) + USERGROUP_FIELD_NUMBER;
         hash = (53 * hash) + getUserGroupList().hashCode();
       }
+      hash = (37 * hash) + CURRENTPAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getCurrentPage();
+      hash = (37 * hash) + PAGESIZE_FIELD_NUMBER;
+      hash = (53 * hash) + getPageSize();
+      hash = (37 * hash) + TOTALPAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getTotalPage();
+      hash = (37 * hash) + ALLNUM_FIELD_NUMBER;
+      hash = (53 * hash) + getAllNum();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -5572,6 +5866,14 @@ public final class UserGroupProto {
         } else {
           userGroupBuilder_.clear();
         }
+        currentPage_ = 0;
+
+        pageSize_ = 0;
+
+        totalPage_ = 0;
+
+        allNum_ = 0;
+
         return this;
       }
 
@@ -5606,6 +5908,10 @@ public final class UserGroupProto {
         } else {
           result.userGroup_ = userGroupBuilder_.build();
         }
+        result.currentPage_ = currentPage_;
+        result.pageSize_ = pageSize_;
+        result.totalPage_ = totalPage_;
+        result.allNum_ = allNum_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -5676,6 +5982,18 @@ public final class UserGroupProto {
               userGroupBuilder_.addAllMessages(other.userGroup_);
             }
           }
+        }
+        if (other.getCurrentPage() != 0) {
+          setCurrentPage(other.getCurrentPage());
+        }
+        if (other.getPageSize() != 0) {
+          setPageSize(other.getPageSize());
+        }
+        if (other.getTotalPage() != 0) {
+          setTotalPage(other.getTotalPage());
+        }
+        if (other.getAllNum() != 0) {
+          setAllNum(other.getAllNum());
         }
         onChanged();
         return this;
@@ -5968,6 +6286,146 @@ public final class UserGroupProto {
           userGroup_ = null;
         }
         return userGroupBuilder_;
+      }
+
+      private int currentPage_ ;
+      /**
+       * <code>optional int32 currentPage = 3;</code>
+       */
+      public int getCurrentPage() {
+        return currentPage_;
+      }
+      /**
+       * <code>optional int32 currentPage = 3;</code>
+       */
+      public Builder setCurrentPage(int value) {
+        
+        currentPage_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 currentPage = 3;</code>
+       */
+      public Builder clearCurrentPage() {
+        
+        currentPage_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int pageSize_ ;
+      /**
+       * <pre>
+       *pageSize传0，说明不分页
+       * </pre>
+       *
+       * <code>optional int32 pageSize = 4;</code>
+       */
+      public int getPageSize() {
+        return pageSize_;
+      }
+      /**
+       * <pre>
+       *pageSize传0，说明不分页
+       * </pre>
+       *
+       * <code>optional int32 pageSize = 4;</code>
+       */
+      public Builder setPageSize(int value) {
+        
+        pageSize_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *pageSize传0，说明不分页
+       * </pre>
+       *
+       * <code>optional int32 pageSize = 4;</code>
+       */
+      public Builder clearPageSize() {
+        
+        pageSize_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int totalPage_ ;
+      /**
+       * <pre>
+       *总页数
+       * </pre>
+       *
+       * <code>optional int32 totalPage = 5;</code>
+       */
+      public int getTotalPage() {
+        return totalPage_;
+      }
+      /**
+       * <pre>
+       *总页数
+       * </pre>
+       *
+       * <code>optional int32 totalPage = 5;</code>
+       */
+      public Builder setTotalPage(int value) {
+        
+        totalPage_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *总页数
+       * </pre>
+       *
+       * <code>optional int32 totalPage = 5;</code>
+       */
+      public Builder clearTotalPage() {
+        
+        totalPage_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int allNum_ ;
+      /**
+       * <pre>
+       *总条数
+       * </pre>
+       *
+       * <code>optional int32 allNum = 6;</code>
+       */
+      public int getAllNum() {
+        return allNum_;
+      }
+      /**
+       * <pre>
+       *总条数
+       * </pre>
+       *
+       * <code>optional int32 allNum = 6;</code>
+       */
+      public Builder setAllNum(int value) {
+        
+        allNum_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *总条数
+       * </pre>
+       *
+       * <code>optional int32 allNum = 6;</code>
+       */
+      public Builder clearAllNum() {
+        
+        allNum_ = 0;
+        onChanged();
+        return this;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -12898,6 +13356,38 @@ public final class UserGroupProto {
      */
     com.google.protobuf.ByteString
         getUserGroupTopIdBytes();
+
+    /**
+     * <pre>
+     *用户名模糊搜索
+     * </pre>
+     *
+     * <code>optional string userName = 9;</code>
+     */
+    java.lang.String getUserName();
+    /**
+     * <pre>
+     *用户名模糊搜索
+     * </pre>
+     *
+     * <code>optional string userName = 9;</code>
+     */
+    com.google.protobuf.ByteString
+        getUserNameBytes();
+
+    /**
+     * <code>optional int32 currentPage = 10;</code>
+     */
+    int getCurrentPage();
+
+    /**
+     * <pre>
+     *pageSize传0，说明不分页
+     * </pre>
+     *
+     * <code>optional int32 pageSize = 11;</code>
+     */
+    int getPageSize();
   }
   /**
    * Protobuf type {@code protobuf.http.GetUserListC}
@@ -12919,6 +13409,9 @@ public final class UserGroupProto {
       userSex_ = 0;
       userRole_ = 0;
       userGroupTopId_ = "";
+      userName_ = "";
+      currentPage_ = 0;
+      pageSize_ = 0;
     }
 
     @java.lang.Override
@@ -12986,6 +13479,22 @@ public final class UserGroupProto {
               java.lang.String s = input.readStringRequireUtf8();
 
               userGroupTopId_ = s;
+              break;
+            }
+            case 74: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              userName_ = s;
+              break;
+            }
+            case 80: {
+
+              currentPage_ = input.readInt32();
+              break;
+            }
+            case 88: {
+
+              pageSize_ = input.readInt32();
               break;
             }
           }
@@ -13157,6 +13666,70 @@ public final class UserGroupProto {
       }
     }
 
+    public static final int USERNAME_FIELD_NUMBER = 9;
+    private volatile java.lang.Object userName_;
+    /**
+     * <pre>
+     *用户名模糊搜索
+     * </pre>
+     *
+     * <code>optional string userName = 9;</code>
+     */
+    public java.lang.String getUserName() {
+      java.lang.Object ref = userName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        userName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *用户名模糊搜索
+     * </pre>
+     *
+     * <code>optional string userName = 9;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUserNameBytes() {
+      java.lang.Object ref = userName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CURRENTPAGE_FIELD_NUMBER = 10;
+    private int currentPage_;
+    /**
+     * <code>optional int32 currentPage = 10;</code>
+     */
+    public int getCurrentPage() {
+      return currentPage_;
+    }
+
+    public static final int PAGESIZE_FIELD_NUMBER = 11;
+    private int pageSize_;
+    /**
+     * <pre>
+     *pageSize传0，说明不分页
+     * </pre>
+     *
+     * <code>optional int32 pageSize = 11;</code>
+     */
+    public int getPageSize() {
+      return pageSize_;
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -13192,6 +13765,15 @@ public final class UserGroupProto {
       }
       if (!getUserGroupTopIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 8, userGroupTopId_);
+      }
+      if (!getUserNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 9, userName_);
+      }
+      if (currentPage_ != 0) {
+        output.writeInt32(10, currentPage_);
+      }
+      if (pageSize_ != 0) {
+        output.writeInt32(11, pageSize_);
       }
     }
 
@@ -13230,6 +13812,17 @@ public final class UserGroupProto {
       if (!getUserGroupTopIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, userGroupTopId_);
       }
+      if (!getUserNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, userName_);
+      }
+      if (currentPage_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(10, currentPage_);
+      }
+      if (pageSize_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(11, pageSize_);
+      }
       memoizedSize = size;
       return size;
     }
@@ -13262,6 +13855,12 @@ public final class UserGroupProto {
           == other.getUserRole());
       result = result && getUserGroupTopId()
           .equals(other.getUserGroupTopId());
+      result = result && getUserName()
+          .equals(other.getUserName());
+      result = result && (getCurrentPage()
+          == other.getCurrentPage());
+      result = result && (getPageSize()
+          == other.getPageSize());
       return result;
     }
 
@@ -13290,6 +13889,12 @@ public final class UserGroupProto {
       hash = (53 * hash) + getUserRole();
       hash = (37 * hash) + USERGROUPTOPID_FIELD_NUMBER;
       hash = (53 * hash) + getUserGroupTopId().hashCode();
+      hash = (37 * hash) + USERNAME_FIELD_NUMBER;
+      hash = (53 * hash) + getUserName().hashCode();
+      hash = (37 * hash) + CURRENTPAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getCurrentPage();
+      hash = (37 * hash) + PAGESIZE_FIELD_NUMBER;
+      hash = (53 * hash) + getPageSize();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -13424,6 +14029,12 @@ public final class UserGroupProto {
 
         userGroupTopId_ = "";
 
+        userName_ = "";
+
+        currentPage_ = 0;
+
+        pageSize_ = 0;
+
         return this;
       }
 
@@ -13454,6 +14065,9 @@ public final class UserGroupProto {
         result.userSex_ = userSex_;
         result.userRole_ = userRole_;
         result.userGroupTopId_ = userGroupTopId_;
+        result.userName_ = userName_;
+        result.currentPage_ = currentPage_;
+        result.pageSize_ = pageSize_;
         onBuilt();
         return result;
       }
@@ -13520,6 +14134,16 @@ public final class UserGroupProto {
         if (!other.getUserGroupTopId().isEmpty()) {
           userGroupTopId_ = other.userGroupTopId_;
           onChanged();
+        }
+        if (!other.getUserName().isEmpty()) {
+          userName_ = other.userName_;
+          onChanged();
+        }
+        if (other.getCurrentPage() != 0) {
+          setCurrentPage(other.getCurrentPage());
+        }
+        if (other.getPageSize() != 0) {
+          setPageSize(other.getPageSize());
         }
         onChanged();
         return this;
@@ -13908,6 +14532,159 @@ public final class UserGroupProto {
         onChanged();
         return this;
       }
+
+      private java.lang.Object userName_ = "";
+      /**
+       * <pre>
+       *用户名模糊搜索
+       * </pre>
+       *
+       * <code>optional string userName = 9;</code>
+       */
+      public java.lang.String getUserName() {
+        java.lang.Object ref = userName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          userName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *用户名模糊搜索
+       * </pre>
+       *
+       * <code>optional string userName = 9;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUserNameBytes() {
+        java.lang.Object ref = userName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          userName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *用户名模糊搜索
+       * </pre>
+       *
+       * <code>optional string userName = 9;</code>
+       */
+      public Builder setUserName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        userName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *用户名模糊搜索
+       * </pre>
+       *
+       * <code>optional string userName = 9;</code>
+       */
+      public Builder clearUserName() {
+        
+        userName_ = getDefaultInstance().getUserName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *用户名模糊搜索
+       * </pre>
+       *
+       * <code>optional string userName = 9;</code>
+       */
+      public Builder setUserNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        userName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int currentPage_ ;
+      /**
+       * <code>optional int32 currentPage = 10;</code>
+       */
+      public int getCurrentPage() {
+        return currentPage_;
+      }
+      /**
+       * <code>optional int32 currentPage = 10;</code>
+       */
+      public Builder setCurrentPage(int value) {
+        
+        currentPage_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 currentPage = 10;</code>
+       */
+      public Builder clearCurrentPage() {
+        
+        currentPage_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int pageSize_ ;
+      /**
+       * <pre>
+       *pageSize传0，说明不分页
+       * </pre>
+       *
+       * <code>optional int32 pageSize = 11;</code>
+       */
+      public int getPageSize() {
+        return pageSize_;
+      }
+      /**
+       * <pre>
+       *pageSize传0，说明不分页
+       * </pre>
+       *
+       * <code>optional int32 pageSize = 11;</code>
+       */
+      public Builder setPageSize(int value) {
+        
+        pageSize_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *pageSize传0，说明不分页
+       * </pre>
+       *
+       * <code>optional int32 pageSize = 11;</code>
+       */
+      public Builder clearPageSize() {
+        
+        pageSize_ = 0;
+        onChanged();
+        return this;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return this;
@@ -13989,6 +14766,38 @@ public final class UserGroupProto {
      */
     protobuf.http.UserGroupProto.UserDataOrBuilder getUserOrBuilder(
         int index);
+
+    /**
+     * <code>optional int32 currentPage = 3;</code>
+     */
+    int getCurrentPage();
+
+    /**
+     * <pre>
+     *pageSize传0，说明不分页
+     * </pre>
+     *
+     * <code>optional int32 pageSize = 4;</code>
+     */
+    int getPageSize();
+
+    /**
+     * <pre>
+     *总页数
+     * </pre>
+     *
+     * <code>optional int32 totalPage = 5;</code>
+     */
+    int getTotalPage();
+
+    /**
+     * <pre>
+     *总条数
+     * </pre>
+     *
+     * <code>optional int32 allNum = 6;</code>
+     */
+    int getAllNum();
   }
   /**
    * Protobuf type {@code protobuf.http.GetUserListS}
@@ -14004,6 +14813,10 @@ public final class UserGroupProto {
     private GetUserListS() {
       hOpCode_ = 0;
       user_ = java.util.Collections.emptyList();
+      currentPage_ = 0;
+      pageSize_ = 0;
+      totalPage_ = 0;
+      allNum_ = 0;
     }
 
     @java.lang.Override
@@ -14043,6 +14856,26 @@ public final class UserGroupProto {
               }
               user_.add(
                   input.readMessage(protobuf.http.UserGroupProto.UserData.parser(), extensionRegistry));
+              break;
+            }
+            case 24: {
+
+              currentPage_ = input.readInt32();
+              break;
+            }
+            case 32: {
+
+              pageSize_ = input.readInt32();
+              break;
+            }
+            case 40: {
+
+              totalPage_ = input.readInt32();
+              break;
+            }
+            case 48: {
+
+              allNum_ = input.readInt32();
               break;
             }
           }
@@ -14116,6 +14949,54 @@ public final class UserGroupProto {
       return user_.get(index);
     }
 
+    public static final int CURRENTPAGE_FIELD_NUMBER = 3;
+    private int currentPage_;
+    /**
+     * <code>optional int32 currentPage = 3;</code>
+     */
+    public int getCurrentPage() {
+      return currentPage_;
+    }
+
+    public static final int PAGESIZE_FIELD_NUMBER = 4;
+    private int pageSize_;
+    /**
+     * <pre>
+     *pageSize传0，说明不分页
+     * </pre>
+     *
+     * <code>optional int32 pageSize = 4;</code>
+     */
+    public int getPageSize() {
+      return pageSize_;
+    }
+
+    public static final int TOTALPAGE_FIELD_NUMBER = 5;
+    private int totalPage_;
+    /**
+     * <pre>
+     *总页数
+     * </pre>
+     *
+     * <code>optional int32 totalPage = 5;</code>
+     */
+    public int getTotalPage() {
+      return totalPage_;
+    }
+
+    public static final int ALLNUM_FIELD_NUMBER = 6;
+    private int allNum_;
+    /**
+     * <pre>
+     *总条数
+     * </pre>
+     *
+     * <code>optional int32 allNum = 6;</code>
+     */
+    public int getAllNum() {
+      return allNum_;
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -14134,6 +15015,18 @@ public final class UserGroupProto {
       for (int i = 0; i < user_.size(); i++) {
         output.writeMessage(2, user_.get(i));
       }
+      if (currentPage_ != 0) {
+        output.writeInt32(3, currentPage_);
+      }
+      if (pageSize_ != 0) {
+        output.writeInt32(4, pageSize_);
+      }
+      if (totalPage_ != 0) {
+        output.writeInt32(5, totalPage_);
+      }
+      if (allNum_ != 0) {
+        output.writeInt32(6, allNum_);
+      }
     }
 
     public int getSerializedSize() {
@@ -14148,6 +15041,22 @@ public final class UserGroupProto {
       for (int i = 0; i < user_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, user_.get(i));
+      }
+      if (currentPage_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, currentPage_);
+      }
+      if (pageSize_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, pageSize_);
+      }
+      if (totalPage_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(5, totalPage_);
+      }
+      if (allNum_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(6, allNum_);
       }
       memoizedSize = size;
       return size;
@@ -14169,6 +15078,14 @@ public final class UserGroupProto {
           == other.getHOpCode());
       result = result && getUserList()
           .equals(other.getUserList());
+      result = result && (getCurrentPage()
+          == other.getCurrentPage());
+      result = result && (getPageSize()
+          == other.getPageSize());
+      result = result && (getTotalPage()
+          == other.getTotalPage());
+      result = result && (getAllNum()
+          == other.getAllNum());
       return result;
     }
 
@@ -14185,6 +15102,14 @@ public final class UserGroupProto {
         hash = (37 * hash) + USER_FIELD_NUMBER;
         hash = (53 * hash) + getUserList().hashCode();
       }
+      hash = (37 * hash) + CURRENTPAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getCurrentPage();
+      hash = (37 * hash) + PAGESIZE_FIELD_NUMBER;
+      hash = (53 * hash) + getPageSize();
+      hash = (37 * hash) + TOTALPAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getTotalPage();
+      hash = (37 * hash) + ALLNUM_FIELD_NUMBER;
+      hash = (53 * hash) + getAllNum();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -14312,6 +15237,14 @@ public final class UserGroupProto {
         } else {
           userBuilder_.clear();
         }
+        currentPage_ = 0;
+
+        pageSize_ = 0;
+
+        totalPage_ = 0;
+
+        allNum_ = 0;
+
         return this;
       }
 
@@ -14346,6 +15279,10 @@ public final class UserGroupProto {
         } else {
           result.user_ = userBuilder_.build();
         }
+        result.currentPage_ = currentPage_;
+        result.pageSize_ = pageSize_;
+        result.totalPage_ = totalPage_;
+        result.allNum_ = allNum_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -14416,6 +15353,18 @@ public final class UserGroupProto {
               userBuilder_.addAllMessages(other.user_);
             }
           }
+        }
+        if (other.getCurrentPage() != 0) {
+          setCurrentPage(other.getCurrentPage());
+        }
+        if (other.getPageSize() != 0) {
+          setPageSize(other.getPageSize());
+        }
+        if (other.getTotalPage() != 0) {
+          setTotalPage(other.getTotalPage());
+        }
+        if (other.getAllNum() != 0) {
+          setAllNum(other.getAllNum());
         }
         onChanged();
         return this;
@@ -14708,6 +15657,146 @@ public final class UserGroupProto {
           user_ = null;
         }
         return userBuilder_;
+      }
+
+      private int currentPage_ ;
+      /**
+       * <code>optional int32 currentPage = 3;</code>
+       */
+      public int getCurrentPage() {
+        return currentPage_;
+      }
+      /**
+       * <code>optional int32 currentPage = 3;</code>
+       */
+      public Builder setCurrentPage(int value) {
+        
+        currentPage_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 currentPage = 3;</code>
+       */
+      public Builder clearCurrentPage() {
+        
+        currentPage_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int pageSize_ ;
+      /**
+       * <pre>
+       *pageSize传0，说明不分页
+       * </pre>
+       *
+       * <code>optional int32 pageSize = 4;</code>
+       */
+      public int getPageSize() {
+        return pageSize_;
+      }
+      /**
+       * <pre>
+       *pageSize传0，说明不分页
+       * </pre>
+       *
+       * <code>optional int32 pageSize = 4;</code>
+       */
+      public Builder setPageSize(int value) {
+        
+        pageSize_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *pageSize传0，说明不分页
+       * </pre>
+       *
+       * <code>optional int32 pageSize = 4;</code>
+       */
+      public Builder clearPageSize() {
+        
+        pageSize_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int totalPage_ ;
+      /**
+       * <pre>
+       *总页数
+       * </pre>
+       *
+       * <code>optional int32 totalPage = 5;</code>
+       */
+      public int getTotalPage() {
+        return totalPage_;
+      }
+      /**
+       * <pre>
+       *总页数
+       * </pre>
+       *
+       * <code>optional int32 totalPage = 5;</code>
+       */
+      public Builder setTotalPage(int value) {
+        
+        totalPage_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *总页数
+       * </pre>
+       *
+       * <code>optional int32 totalPage = 5;</code>
+       */
+      public Builder clearTotalPage() {
+        
+        totalPage_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int allNum_ ;
+      /**
+       * <pre>
+       *总条数
+       * </pre>
+       *
+       * <code>optional int32 allNum = 6;</code>
+       */
+      public int getAllNum() {
+        return allNum_;
+      }
+      /**
+       * <pre>
+       *总条数
+       * </pre>
+       *
+       * <code>optional int32 allNum = 6;</code>
+       */
+      public Builder setAllNum(int value) {
+        
+        allNum_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *总条数
+       * </pre>
+       *
+       * <code>optional int32 allNum = 6;</code>
+       */
+      public Builder clearAllNum() {
+        
+        allNum_ = 0;
+        onChanged();
+        return this;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -22542,64 +23631,70 @@ public final class UserGroupProto {
       "\017\n\007hOpCode\030\001 \001(\005\022\023\n\013userGroupId\030\002 \001(\t\"Q\n" +
       "\rGetUserGroupS\022\017\n\007hOpCode\030\001 \001(\005\022/\n\tuserG" +
       "roup\030\002 \001(\0132\034.protobuf.http.UserGroupData" +
-      "\"\245\001\n\021GetUserGroupListC\022\017\n\007hOpCode\030\001 \001(\005\022" +
+      "\"\314\001\n\021GetUserGroupListC\022\017\n\007hOpCode\030\001 \001(\005\022" +
       "\031\n\021userGroupParentId\030\002 \001(\t\022\037\n\027isUserGrou" +
       "pParentIsNull\030\003 \001(\010\022\023\n\013isRecursion\030\004 \001(\010" +
       "\022\026\n\016userGroupTopId\030\005 \001(\t\022\026\n\016userGroupSta" +
-      "te\030\006 \001(\005\"U\n\021GetUserGroupListS\022\017\n\007hOpCode",
+      "te\030\006 \001(\005\022\023\n\013currentPage\030\007 \001(\005\022\020\n\010pageSiz",
+      "e\030\010 \001(\005\"\237\001\n\021GetUserGroupListS\022\017\n\007hOpCode" +
       "\030\001 \001(\005\022/\n\tuserGroup\030\002 \003(\0132\034.protobuf.htt" +
-      "p.UserGroupData\"\313\001\n\013CreateUserC\022\017\n\007hOpCo" +
-      "de\030\001 \001(\005\022\020\n\010userName\030\002 \001(\t\022\024\n\014userPasswo" +
-      "rd\030\003 \001(\t\022\021\n\tuserPhone\030\004 \001(\t\022\021\n\tuserEmail" +
-      "\030\005 \001(\t\022\023\n\013userGroupId\030\006 \001(\t\022\024\n\014userRealN" +
-      "ame\030\007 \001(\t\022\017\n\007userSex\030\010 \001(\005\022\017\n\007userAge\030\t " +
-      "\001(\005\022\020\n\010userRole\030\n \001(\005\"E\n\013CreateUserS\022\017\n\007" +
-      "hOpCode\030\001 \001(\005\022%\n\004user\030\002 \001(\0132\027.protobuf.h" +
-      "ttp.UserData\"+\n\010GetUserC\022\017\n\007hOpCode\030\001 \001(" +
-      "\005\022\016\n\006userId\030\002 \001(\t\"B\n\010GetUserS\022\017\n\007hOpCode",
-      "\030\001 \001(\005\022%\n\004user\030\002 \001(\0132\027.protobuf.http.Use" +
-      "rData\"5\n\017GetUserByEmailC\022\017\n\007hOpCode\030\001 \001(" +
-      "\005\022\021\n\tuserEmail\030\002 \001(\t\"I\n\017GetUserByEmailS\022" +
-      "\017\n\007hOpCode\030\001 \001(\005\022%\n\004user\030\002 \001(\0132\027.protobu" +
-      "f.http.UserData\"\367\001\n\013UpdateUserC\022\017\n\007hOpCo" +
-      "de\030\001 \001(\005\022\016\n\006userId\030\002 \001(\t\022\024\n\014userPassword" +
-      "\030\003 \001(\t\022\021\n\tuserPhone\030\004 \001(\t\022\021\n\tuserEmail\030\005" +
-      " \001(\t\022\021\n\tuserState\030\006 \001(\005\022\031\n\021isUpdateUserG" +
-      "roup\030\007 \001(\010\022\023\n\013userGroupId\030\010 \001(\t\022\024\n\014userR" +
-      "ealName\030\t \001(\t\022\017\n\007userSex\030\n \001(\005\022\017\n\007userAg",
-      "e\030\013 \001(\005\022\020\n\010userRole\030\014 \001(\005\"E\n\013UpdateUserS" +
-      "\022\017\n\007hOpCode\030\001 \001(\005\022%\n\004user\030\002 \001(\0132\027.protob" +
-      "uf.http.UserData\"\262\001\n\014GetUserListC\022\017\n\007hOp" +
-      "Code\030\001 \001(\005\022\023\n\013userGroupId\030\002 \001(\t\022\031\n\021isUse" +
-      "rGroupIsNull\030\003 \001(\010\022\023\n\013isRecursion\030\004 \001(\010\022" +
-      "\021\n\tuserState\030\005 \001(\005\022\017\n\007userSex\030\006 \001(\005\022\020\n\010u" +
-      "serRole\030\007 \001(\005\022\026\n\016userGroupTopId\030\010 \001(\t\"F\n" +
-      "\014GetUserListS\022\017\n\007hOpCode\030\001 \001(\005\022%\n\004user\030\002" +
-      " \003(\0132\027.protobuf.http.UserData\"D\n\tGetToke" +
-      "nC\022\017\n\007hOpCode\030\001 \001(\005\022\020\n\010userName\030\002 \001(\t\022\024\n",
-      "\014userPassword\030\003 \001(\t\"m\n\tGetTokenS\022\017\n\007hOpC" +
-      "ode\030\001 \001(\005\022\017\n\007tokenId\030\002 \001(\t\022\027\n\017tokenExpir" +
-      "eTime\030\003 \001(\t\022%\n\004user\030\004 \001(\0132\027.protobuf.htt" +
-      "p.UserData\"\037\n\014UpdateTokenC\022\017\n\007hOpCode\030\001 " +
-      "\001(\005\"p\n\014UpdateTokenS\022\017\n\007hOpCode\030\001 \001(\005\022\017\n\007" +
-      "tokenId\030\002 \001(\t\022\027\n\017tokenExpireTime\030\003 \001(\t\022%" +
-      "\n\004user\030\004 \001(\0132\027.protobuf.http.UserData\"\037\n" +
-      "\014DeleteTokenC\022\017\n\007hOpCode\030\001 \001(\005\"\037\n\014Delete" +
-      "TokenS\022\017\n\007hOpCode\030\001 \001(\005\".\n\013GetUserImgC\022\017" +
-      "\n\007hOpCode\030\001 \001(\005\022\016\n\006userId\030\002 \001(\t\"\235\002\n\010User",
-      "Data\022\016\n\006userId\030\001 \001(\t\022\020\n\010userName\030\002 \001(\t\022\021" +
-      "\n\tuserPhone\030\003 \001(\t\022\021\n\tuserEmail\030\004 \001(\t\022\026\n\016" +
-      "userCreateTime\030\005 \001(\t\022\026\n\016userUpdateTime\030\006" +
-      " \001(\t\022\021\n\tuserState\030\007 \001(\005\022\023\n\013userGroupId\030\010" +
-      " \001(\t\022\024\n\014userRealName\030\t \001(\t\022\017\n\007userSex\030\n " +
-      "\001(\005\022\017\n\007userAge\030\013 \001(\005\022\026\n\016userGroupTopId\030\014" +
-      " \001(\t\022\020\n\010userRole\030\r \001(\005\022\017\n\007userImg\030\016 \001(\t\"" +
-      "\300\001\n\rUserGroupData\022\023\n\013userGroupId\030\001 \001(\t\022\025" +
-      "\n\ruserGroupName\030\002 \001(\t\022\031\n\021userGroupParent" +
-      "Id\030\003 \001(\t\022\033\n\023userGroupCreateTime\030\004 \001(\t\022\033\n",
-      "\023userGroupUpdateTime\030\005 \001(\t\022\026\n\016userGroupS" +
-      "tate\030\006 \001(\005\022\026\n\016userGroupTopId\030\007 \001(\tb\006prot" +
-      "o3"
+      "p.UserGroupData\022\023\n\013currentPage\030\003 \001(\005\022\020\n\010" +
+      "pageSize\030\004 \001(\005\022\021\n\ttotalPage\030\005 \001(\005\022\016\n\006all" +
+      "Num\030\006 \001(\005\"\313\001\n\013CreateUserC\022\017\n\007hOpCode\030\001 \001" +
+      "(\005\022\020\n\010userName\030\002 \001(\t\022\024\n\014userPassword\030\003 \001" +
+      "(\t\022\021\n\tuserPhone\030\004 \001(\t\022\021\n\tuserEmail\030\005 \001(\t" +
+      "\022\023\n\013userGroupId\030\006 \001(\t\022\024\n\014userRealName\030\007 " +
+      "\001(\t\022\017\n\007userSex\030\010 \001(\005\022\017\n\007userAge\030\t \001(\005\022\020\n" +
+      "\010userRole\030\n \001(\005\"E\n\013CreateUserS\022\017\n\007hOpCod",
+      "e\030\001 \001(\005\022%\n\004user\030\002 \001(\0132\027.protobuf.http.Us" +
+      "erData\"+\n\010GetUserC\022\017\n\007hOpCode\030\001 \001(\005\022\016\n\006u" +
+      "serId\030\002 \001(\t\"B\n\010GetUserS\022\017\n\007hOpCode\030\001 \001(\005" +
+      "\022%\n\004user\030\002 \001(\0132\027.protobuf.http.UserData\"" +
+      "5\n\017GetUserByEmailC\022\017\n\007hOpCode\030\001 \001(\005\022\021\n\tu" +
+      "serEmail\030\002 \001(\t\"I\n\017GetUserByEmailS\022\017\n\007hOp" +
+      "Code\030\001 \001(\005\022%\n\004user\030\002 \001(\0132\027.protobuf.http" +
+      ".UserData\"\367\001\n\013UpdateUserC\022\017\n\007hOpCode\030\001 \001" +
+      "(\005\022\016\n\006userId\030\002 \001(\t\022\024\n\014userPassword\030\003 \001(\t" +
+      "\022\021\n\tuserPhone\030\004 \001(\t\022\021\n\tuserEmail\030\005 \001(\t\022\021",
+      "\n\tuserState\030\006 \001(\005\022\031\n\021isUpdateUserGroup\030\007" +
+      " \001(\010\022\023\n\013userGroupId\030\010 \001(\t\022\024\n\014userRealNam" +
+      "e\030\t \001(\t\022\017\n\007userSex\030\n \001(\005\022\017\n\007userAge\030\013 \001(" +
+      "\005\022\020\n\010userRole\030\014 \001(\005\"E\n\013UpdateUserS\022\017\n\007hO" +
+      "pCode\030\001 \001(\005\022%\n\004user\030\002 \001(\0132\027.protobuf.htt" +
+      "p.UserData\"\353\001\n\014GetUserListC\022\017\n\007hOpCode\030\001" +
+      " \001(\005\022\023\n\013userGroupId\030\002 \001(\t\022\031\n\021isUserGroup" +
+      "IsNull\030\003 \001(\010\022\023\n\013isRecursion\030\004 \001(\010\022\021\n\tuse" +
+      "rState\030\005 \001(\005\022\017\n\007userSex\030\006 \001(\005\022\020\n\010userRol" +
+      "e\030\007 \001(\005\022\026\n\016userGroupTopId\030\010 \001(\t\022\020\n\010userN",
+      "ame\030\t \001(\t\022\023\n\013currentPage\030\n \001(\005\022\020\n\010pageSi" +
+      "ze\030\013 \001(\005\"\220\001\n\014GetUserListS\022\017\n\007hOpCode\030\001 \001" +
+      "(\005\022%\n\004user\030\002 \003(\0132\027.protobuf.http.UserDat" +
+      "a\022\023\n\013currentPage\030\003 \001(\005\022\020\n\010pageSize\030\004 \001(\005" +
+      "\022\021\n\ttotalPage\030\005 \001(\005\022\016\n\006allNum\030\006 \001(\005\"D\n\tG" +
+      "etTokenC\022\017\n\007hOpCode\030\001 \001(\005\022\020\n\010userName\030\002 " +
+      "\001(\t\022\024\n\014userPassword\030\003 \001(\t\"m\n\tGetTokenS\022\017" +
+      "\n\007hOpCode\030\001 \001(\005\022\017\n\007tokenId\030\002 \001(\t\022\027\n\017toke" +
+      "nExpireTime\030\003 \001(\t\022%\n\004user\030\004 \001(\0132\027.protob" +
+      "uf.http.UserData\"\037\n\014UpdateTokenC\022\017\n\007hOpC",
+      "ode\030\001 \001(\005\"p\n\014UpdateTokenS\022\017\n\007hOpCode\030\001 \001" +
+      "(\005\022\017\n\007tokenId\030\002 \001(\t\022\027\n\017tokenExpireTime\030\003" +
+      " \001(\t\022%\n\004user\030\004 \001(\0132\027.protobuf.http.UserD" +
+      "ata\"\037\n\014DeleteTokenC\022\017\n\007hOpCode\030\001 \001(\005\"\037\n\014" +
+      "DeleteTokenS\022\017\n\007hOpCode\030\001 \001(\005\".\n\013GetUser" +
+      "ImgC\022\017\n\007hOpCode\030\001 \001(\005\022\016\n\006userId\030\002 \001(\t\"\235\002" +
+      "\n\010UserData\022\016\n\006userId\030\001 \001(\t\022\020\n\010userName\030\002" +
+      " \001(\t\022\021\n\tuserPhone\030\003 \001(\t\022\021\n\tuserEmail\030\004 \001" +
+      "(\t\022\026\n\016userCreateTime\030\005 \001(\t\022\026\n\016userUpdate" +
+      "Time\030\006 \001(\t\022\021\n\tuserState\030\007 \001(\005\022\023\n\013userGro",
+      "upId\030\010 \001(\t\022\024\n\014userRealName\030\t \001(\t\022\017\n\007user" +
+      "Sex\030\n \001(\005\022\017\n\007userAge\030\013 \001(\005\022\026\n\016userGroupT" +
+      "opId\030\014 \001(\t\022\020\n\010userRole\030\r \001(\005\022\017\n\007userImg\030" +
+      "\016 \001(\t\"\300\001\n\rUserGroupData\022\023\n\013userGroupId\030\001" +
+      " \001(\t\022\025\n\ruserGroupName\030\002 \001(\t\022\031\n\021userGroup" +
+      "ParentId\030\003 \001(\t\022\033\n\023userGroupCreateTime\030\004 " +
+      "\001(\t\022\033\n\023userGroupUpdateTime\030\005 \001(\t\022\026\n\016user" +
+      "GroupState\030\006 \001(\005\022\026\n\016userGroupTopId\030\007 \001(\t" +
+      "b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -22654,13 +23749,13 @@ public final class UserGroupProto {
     internal_static_protobuf_http_GetUserGroupListC_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protobuf_http_GetUserGroupListC_descriptor,
-        new java.lang.String[] { "HOpCode", "UserGroupParentId", "IsUserGroupParentIsNull", "IsRecursion", "UserGroupTopId", "UserGroupState", });
+        new java.lang.String[] { "HOpCode", "UserGroupParentId", "IsUserGroupParentIsNull", "IsRecursion", "UserGroupTopId", "UserGroupState", "CurrentPage", "PageSize", });
     internal_static_protobuf_http_GetUserGroupListS_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_protobuf_http_GetUserGroupListS_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protobuf_http_GetUserGroupListS_descriptor,
-        new java.lang.String[] { "HOpCode", "UserGroup", });
+        new java.lang.String[] { "HOpCode", "UserGroup", "CurrentPage", "PageSize", "TotalPage", "AllNum", });
     internal_static_protobuf_http_CreateUserC_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_protobuf_http_CreateUserC_fieldAccessorTable = new
@@ -22714,13 +23809,13 @@ public final class UserGroupProto {
     internal_static_protobuf_http_GetUserListC_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protobuf_http_GetUserListC_descriptor,
-        new java.lang.String[] { "HOpCode", "UserGroupId", "IsUserGroupIsNull", "IsRecursion", "UserState", "UserSex", "UserRole", "UserGroupTopId", });
+        new java.lang.String[] { "HOpCode", "UserGroupId", "IsUserGroupIsNull", "IsRecursion", "UserState", "UserSex", "UserRole", "UserGroupTopId", "UserName", "CurrentPage", "PageSize", });
     internal_static_protobuf_http_GetUserListS_descriptor =
       getDescriptor().getMessageTypes().get(17);
     internal_static_protobuf_http_GetUserListS_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protobuf_http_GetUserListS_descriptor,
-        new java.lang.String[] { "HOpCode", "User", });
+        new java.lang.String[] { "HOpCode", "User", "CurrentPage", "PageSize", "TotalPage", "AllNum", });
     internal_static_protobuf_http_GetTokenC_descriptor =
       getDescriptor().getMessageTypes().get(18);
     internal_static_protobuf_http_GetTokenC_fieldAccessorTable = new

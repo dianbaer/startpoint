@@ -36,10 +36,16 @@ message GetUserGroupListC{
 	bool isRecursion=4;//是否递归
 	string userGroupTopId=5;
 	int32 userGroupState=6;
+	int32 currentPage=7;
+	int32 pageSize=8;//pageSize传0，说明不分页
 }
 message GetUserGroupListS{
 	int32 hOpCode=1;
 	repeated UserGroupData userGroup=2;
+	int32 currentPage=3;
+	int32 pageSize=4;//pageSize传0，说明不分页
+	int32 totalPage=5;//总页数
+	int32 allNum=6;//总条数
 }
 message CreateUserC{
 	int32 hOpCode=1;
@@ -100,10 +106,17 @@ message GetUserListC{
 	int32 userSex=6;//1：女2：男
 	int32 userRole=7;//1：普通用户2：组管理员
 	string userGroupTopId=8;
+	string userName=9;//用户名模糊搜索
+	int32 currentPage=10;
+	int32 pageSize=11;//pageSize传0，说明不分页
 }
 message GetUserListS{
 	int32 hOpCode=1;
 	repeated UserData user=2;
+	int32 currentPage=3;
+	int32 pageSize=4;//pageSize传0，说明不分页
+	int32 totalPage=5;//总页数
+	int32 allNum=6;//总条数
 }
 message GetTokenC{
 	int32 hOpCode=1;
