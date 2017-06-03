@@ -1327,7 +1327,10 @@ $T.jugglerManager = new JugglerManager();
         this.loadScript("js/threecss-c/websocket/WebSocketClient.js");
 
     }
-    this.init = function () {
+    this.init = function (name) {
+		if(name != null){
+			this.NAME = name;
+		}
         $T.jugglerManager.init();
     }
 
