@@ -150,6 +150,14 @@ message GetUserImgC{
 	int32 hOpCode=1;
 	string userId=2;//传空就是查看自己的
 }
+message CheckUserByUserNameC{
+	int32 hOpCode=1;
+	string userName=2;
+}
+message CheckUserByUserNameS{
+	int32 hOpCode=1;
+	bool exist=2;//true存在，false不存在
+}
 message UserData{
 	string userId=1;
 	string userName=2;

@@ -5,6 +5,7 @@ function UpdateUserMediator() {
 
         $("#updateUser").on("click", this.onUpdateUser);
         $("#getUserImg").on("click", this.onGetUserImg);
+        $("#checkUserName").on("click", this.onCheckUserName);
 
     }
     // 注销方法
@@ -39,6 +40,10 @@ function UpdateUserMediator() {
     this.onGetUserImg = function (event) {
         var userId = $("#userId_Img").val();
         $("#userImgImg")[0].src = $T.userProxy.getUserImg(userId);
+    }
+    this.onCheckUserName = function (event) {
+        var userName = $("#userName_check").val();
+        $T.userProxy.checkUserByUserName(userName);
     }
 
 }

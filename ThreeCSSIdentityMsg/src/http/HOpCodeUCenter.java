@@ -1,6 +1,8 @@
 package http;
 
 import protobuf.http.UCErrorProto.UCError;
+import protobuf.http.UserGroupProto.CheckUserByUserNameC;
+import protobuf.http.UserGroupProto.CheckUserByUserNameS;
 import protobuf.http.UserGroupProto.CreateUserC;
 import protobuf.http.UserGroupProto.CreateUserGroupC;
 import protobuf.http.UserGroupProto.CreateUserGroupS;
@@ -41,6 +43,7 @@ public class HOpCodeUCenter extends HOpCode {
 	public static int GET_USER_LIST = 13;
 	public static int GET_USER_IMG = 14;
 	public static int GET_USER_BY_EMAIL = 15;
+	public static int CHECK_USER_BY_USER_NAME = 16;
 
 	public static int GET_TOKEN = 20;
 	public static int UPDATE_TOKEN = 21;
@@ -102,6 +105,11 @@ public class HOpCodeUCenter extends HOpCode {
 		sendAndReturn[0] = GetUserByEmailC.class;
 		sendAndReturn[1] = GetUserByEmailS.class;
 		hOpCodeMap.put(GET_USER_BY_EMAIL, sendAndReturn);
+
+		sendAndReturn = new Class[2];
+		sendAndReturn[0] = CheckUserByUserNameC.class;
+		sendAndReturn[1] = CheckUserByUserNameS.class;
+		hOpCodeMap.put(CHECK_USER_BY_USER_NAME, sendAndReturn);
 
 		sendAndReturn = new Class[2];
 		sendAndReturn[0] = GetTokenC.class;

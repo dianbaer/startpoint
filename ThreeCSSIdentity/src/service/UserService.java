@@ -12,6 +12,8 @@ import http.HSession;
 import http.HttpPacket;
 import http.IHttpListener;
 import http.filter.FileData;
+import protobuf.http.UserGroupProto.CheckUserByUserNameC;
+import protobuf.http.UserGroupProto.CheckUserByUserNameS;
 import protobuf.http.UserGroupProto.CreateUserC;
 import protobuf.http.UserGroupProto.CreateUserS;
 import protobuf.http.UserGroupProto.GetUserByEmailC;
@@ -41,6 +43,7 @@ public class UserService implements IHttpListener, IService {
 		// dingwancheng start
 		map.put(HOpCodeUCenter.GET_USER_BY_EMAIL, "getUserByEmailHandle");
 		// dingwancheng end
+		map.put(HOpCodeUCenter.CHECK_USER_BY_USER_NAME, "checkUserByUserNameHandle");
 		return map;
 	}
 
@@ -142,7 +145,7 @@ public class UserService implements IHttpListener, IService {
 
 	public HttpPacket getUserListHandle(HSession hSession) {
 		GetUserListC message = (GetUserListC) hSession.httpPacket.getData();
-		List<User> userList = UserAction.getUserList(message.getUserGroupId(), message.getIsRecursion(), message.getIsUserGroupIsNull(), message.getUserState(), message.getUserSex(), message.getUserRole(), message.getUserGroupTopId(), message.getUserName(),message.getUserCreateTimeGreaterThan(),message.getUserCreateTimeLessThan());
+		List<User> userList = UserAction.getUserList(message.getUserGroupId(), message.getIsRecursion(), message.getIsUserGroupIsNull(), message.getUserState(), message.getUserSex(), message.getUserRole(), message.getUserGroupTopId(), message.getUserName(), message.getUserCreateTimeGreaterThan(), message.getUserCreateTimeLessThan());
 		int currentPage = message.getCurrentPage();
 		int pageSize = message.getPageSize();
 		PageObj pageObj = PageFormat.getStartAndEnd(currentPage, pageSize, userList.size());
@@ -157,6 +160,20 @@ public class UserService implements IHttpListener, IService {
 				User user = userList.get(i);
 				builder.addUser(UserAction.getUserDataBuilder(user));
 			}
+		}
+		HttpPacket packet = new HttpPacket(hSession.headParam.hOpCode, builder.build());
+		return packet;
+	}
+
+	public HttpPacket checkUserByUserNameHandle(HSession hSession) {
+		CheckUserByUserNameC message = (CheckUserByUserNameC) hSession.httpPacket.getData();
+		User user = UserAction.getUserByName(message.getUserName());
+		CheckUserByUserNameS.Builder builder = CheckUserByUserNameS.newBuilder();
+		builder.setHOpCode(hSession.headParam.hOpCode);
+		if (user == null) {
+			builder.setExist(false);
+		} else {
+			builder.setExist(true);
 		}
 		HttpPacket packet = new HttpPacket(hSession.headParam.hOpCode, builder.build());
 		return packet;

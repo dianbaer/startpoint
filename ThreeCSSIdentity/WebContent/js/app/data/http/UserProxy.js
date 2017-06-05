@@ -132,5 +132,25 @@ function UserProxy() {
         sendParam.receiveType = $T.httpConfig.RECEIVE_TYPE_IMAGE;
         return $T.httpUtil.getRequestUrl(sendParam);
     }
+    this.checkUserByUserName = function (userName) {
+        var data = {
+            "hOpCode": 16,
+            "userName": userName
+        };
+
+        var sendParam = new SendParam();
+        sendParam.successHandle = this.checkUserByUserNameSuccess;
+        sendParam.failHandle = this.checkUserByUserNameFail;
+        sendParam.object = this;
+        sendParam.data = data;
+        sendParam.url = $T.url.url;
+        $T.httpUtil.send(sendParam);
+    }
+    this.checkUserByUserNameSuccess = function (result, sendParam) {
+
+    }
+    this.checkUserByUserNameFail = function (result, sendParam) {
+
+    }
 }
 $T.userProxy = new UserProxy();
