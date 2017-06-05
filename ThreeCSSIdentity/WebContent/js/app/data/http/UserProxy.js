@@ -87,7 +87,7 @@ function UserProxy() {
     this.updateUserFail = function (result, sendParam) {
 
     }
-    this.getUserList = function (userGroupId, isUserGroupIsNull, isRecursion, userState, userSex, userRole, userGroupTopId,userName,currentPage,pageSize) {
+    this.getUserList = function (userGroupId, isUserGroupIsNull, isRecursion, userState, userSex, userRole, userGroupTopId,userName,userCreateTimeGreaterThan,userCreateTimeLessThan,currentPage,pageSize) {
         var data = {
             "hOpCode": 13,
             "userGroupId": userGroupId,
@@ -98,6 +98,8 @@ function UserProxy() {
             "userRole": userRole,
             "userGroupTopId": userGroupTopId,
             "userName":userName,
+            "userCreateTimeGreaterThan":userCreateTimeGreaterThan,
+            "userCreateTimeLessThan":userCreateTimeLessThan,
             "currentPage":currentPage,
             "pageSize":pageSize
         };

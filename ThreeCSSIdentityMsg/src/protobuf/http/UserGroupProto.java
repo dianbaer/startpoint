@@ -13376,7 +13376,43 @@ public final class UserGroupProto {
         getUserNameBytes();
 
     /**
-     * <code>optional int32 currentPage = 10;</code>
+     * <pre>
+     *大于等于某个时间段（yyyy-MM-dd HH:mm:ss）
+     * </pre>
+     *
+     * <code>optional string userCreateTimeGreaterThan = 10;</code>
+     */
+    java.lang.String getUserCreateTimeGreaterThan();
+    /**
+     * <pre>
+     *大于等于某个时间段（yyyy-MM-dd HH:mm:ss）
+     * </pre>
+     *
+     * <code>optional string userCreateTimeGreaterThan = 10;</code>
+     */
+    com.google.protobuf.ByteString
+        getUserCreateTimeGreaterThanBytes();
+
+    /**
+     * <pre>
+     *小于等于某个时间段（yyyy-MM-dd HH:mm:ss）
+     * </pre>
+     *
+     * <code>optional string userCreateTimeLessThan = 11;</code>
+     */
+    java.lang.String getUserCreateTimeLessThan();
+    /**
+     * <pre>
+     *小于等于某个时间段（yyyy-MM-dd HH:mm:ss）
+     * </pre>
+     *
+     * <code>optional string userCreateTimeLessThan = 11;</code>
+     */
+    com.google.protobuf.ByteString
+        getUserCreateTimeLessThanBytes();
+
+    /**
+     * <code>optional int32 currentPage = 12;</code>
      */
     int getCurrentPage();
 
@@ -13385,7 +13421,7 @@ public final class UserGroupProto {
      *pageSize传0，说明不分页
      * </pre>
      *
-     * <code>optional int32 pageSize = 11;</code>
+     * <code>optional int32 pageSize = 13;</code>
      */
     int getPageSize();
   }
@@ -13410,6 +13446,8 @@ public final class UserGroupProto {
       userRole_ = 0;
       userGroupTopId_ = "";
       userName_ = "";
+      userCreateTimeGreaterThan_ = "";
+      userCreateTimeLessThan_ = "";
       currentPage_ = 0;
       pageSize_ = 0;
     }
@@ -13487,12 +13525,24 @@ public final class UserGroupProto {
               userName_ = s;
               break;
             }
-            case 80: {
+            case 82: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              userCreateTimeGreaterThan_ = s;
+              break;
+            }
+            case 90: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              userCreateTimeLessThan_ = s;
+              break;
+            }
+            case 96: {
 
               currentPage_ = input.readInt32();
               break;
             }
-            case 88: {
+            case 104: {
 
               pageSize_ = input.readInt32();
               break;
@@ -13708,23 +13758,107 @@ public final class UserGroupProto {
       }
     }
 
-    public static final int CURRENTPAGE_FIELD_NUMBER = 10;
+    public static final int USERCREATETIMEGREATERTHAN_FIELD_NUMBER = 10;
+    private volatile java.lang.Object userCreateTimeGreaterThan_;
+    /**
+     * <pre>
+     *大于等于某个时间段（yyyy-MM-dd HH:mm:ss）
+     * </pre>
+     *
+     * <code>optional string userCreateTimeGreaterThan = 10;</code>
+     */
+    public java.lang.String getUserCreateTimeGreaterThan() {
+      java.lang.Object ref = userCreateTimeGreaterThan_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        userCreateTimeGreaterThan_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *大于等于某个时间段（yyyy-MM-dd HH:mm:ss）
+     * </pre>
+     *
+     * <code>optional string userCreateTimeGreaterThan = 10;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUserCreateTimeGreaterThanBytes() {
+      java.lang.Object ref = userCreateTimeGreaterThan_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userCreateTimeGreaterThan_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int USERCREATETIMELESSTHAN_FIELD_NUMBER = 11;
+    private volatile java.lang.Object userCreateTimeLessThan_;
+    /**
+     * <pre>
+     *小于等于某个时间段（yyyy-MM-dd HH:mm:ss）
+     * </pre>
+     *
+     * <code>optional string userCreateTimeLessThan = 11;</code>
+     */
+    public java.lang.String getUserCreateTimeLessThan() {
+      java.lang.Object ref = userCreateTimeLessThan_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        userCreateTimeLessThan_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *小于等于某个时间段（yyyy-MM-dd HH:mm:ss）
+     * </pre>
+     *
+     * <code>optional string userCreateTimeLessThan = 11;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUserCreateTimeLessThanBytes() {
+      java.lang.Object ref = userCreateTimeLessThan_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userCreateTimeLessThan_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CURRENTPAGE_FIELD_NUMBER = 12;
     private int currentPage_;
     /**
-     * <code>optional int32 currentPage = 10;</code>
+     * <code>optional int32 currentPage = 12;</code>
      */
     public int getCurrentPage() {
       return currentPage_;
     }
 
-    public static final int PAGESIZE_FIELD_NUMBER = 11;
+    public static final int PAGESIZE_FIELD_NUMBER = 13;
     private int pageSize_;
     /**
      * <pre>
      *pageSize传0，说明不分页
      * </pre>
      *
-     * <code>optional int32 pageSize = 11;</code>
+     * <code>optional int32 pageSize = 13;</code>
      */
     public int getPageSize() {
       return pageSize_;
@@ -13769,11 +13903,17 @@ public final class UserGroupProto {
       if (!getUserNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 9, userName_);
       }
+      if (!getUserCreateTimeGreaterThanBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, userCreateTimeGreaterThan_);
+      }
+      if (!getUserCreateTimeLessThanBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 11, userCreateTimeLessThan_);
+      }
       if (currentPage_ != 0) {
-        output.writeInt32(10, currentPage_);
+        output.writeInt32(12, currentPage_);
       }
       if (pageSize_ != 0) {
-        output.writeInt32(11, pageSize_);
+        output.writeInt32(13, pageSize_);
       }
     }
 
@@ -13815,13 +13955,19 @@ public final class UserGroupProto {
       if (!getUserNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, userName_);
       }
+      if (!getUserCreateTimeGreaterThanBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, userCreateTimeGreaterThan_);
+      }
+      if (!getUserCreateTimeLessThanBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, userCreateTimeLessThan_);
+      }
       if (currentPage_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(10, currentPage_);
+          .computeInt32Size(12, currentPage_);
       }
       if (pageSize_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(11, pageSize_);
+          .computeInt32Size(13, pageSize_);
       }
       memoizedSize = size;
       return size;
@@ -13857,6 +14003,10 @@ public final class UserGroupProto {
           .equals(other.getUserGroupTopId());
       result = result && getUserName()
           .equals(other.getUserName());
+      result = result && getUserCreateTimeGreaterThan()
+          .equals(other.getUserCreateTimeGreaterThan());
+      result = result && getUserCreateTimeLessThan()
+          .equals(other.getUserCreateTimeLessThan());
       result = result && (getCurrentPage()
           == other.getCurrentPage());
       result = result && (getPageSize()
@@ -13891,6 +14041,10 @@ public final class UserGroupProto {
       hash = (53 * hash) + getUserGroupTopId().hashCode();
       hash = (37 * hash) + USERNAME_FIELD_NUMBER;
       hash = (53 * hash) + getUserName().hashCode();
+      hash = (37 * hash) + USERCREATETIMEGREATERTHAN_FIELD_NUMBER;
+      hash = (53 * hash) + getUserCreateTimeGreaterThan().hashCode();
+      hash = (37 * hash) + USERCREATETIMELESSTHAN_FIELD_NUMBER;
+      hash = (53 * hash) + getUserCreateTimeLessThan().hashCode();
       hash = (37 * hash) + CURRENTPAGE_FIELD_NUMBER;
       hash = (53 * hash) + getCurrentPage();
       hash = (37 * hash) + PAGESIZE_FIELD_NUMBER;
@@ -14031,6 +14185,10 @@ public final class UserGroupProto {
 
         userName_ = "";
 
+        userCreateTimeGreaterThan_ = "";
+
+        userCreateTimeLessThan_ = "";
+
         currentPage_ = 0;
 
         pageSize_ = 0;
@@ -14066,6 +14224,8 @@ public final class UserGroupProto {
         result.userRole_ = userRole_;
         result.userGroupTopId_ = userGroupTopId_;
         result.userName_ = userName_;
+        result.userCreateTimeGreaterThan_ = userCreateTimeGreaterThan_;
+        result.userCreateTimeLessThan_ = userCreateTimeLessThan_;
         result.currentPage_ = currentPage_;
         result.pageSize_ = pageSize_;
         onBuilt();
@@ -14137,6 +14297,14 @@ public final class UserGroupProto {
         }
         if (!other.getUserName().isEmpty()) {
           userName_ = other.userName_;
+          onChanged();
+        }
+        if (!other.getUserCreateTimeGreaterThan().isEmpty()) {
+          userCreateTimeGreaterThan_ = other.userCreateTimeGreaterThan_;
+          onChanged();
+        }
+        if (!other.getUserCreateTimeLessThan().isEmpty()) {
+          userCreateTimeLessThan_ = other.userCreateTimeLessThan_;
           onChanged();
         }
         if (other.getCurrentPage() != 0) {
@@ -14622,15 +14790,193 @@ public final class UserGroupProto {
         return this;
       }
 
+      private java.lang.Object userCreateTimeGreaterThan_ = "";
+      /**
+       * <pre>
+       *大于等于某个时间段（yyyy-MM-dd HH:mm:ss）
+       * </pre>
+       *
+       * <code>optional string userCreateTimeGreaterThan = 10;</code>
+       */
+      public java.lang.String getUserCreateTimeGreaterThan() {
+        java.lang.Object ref = userCreateTimeGreaterThan_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          userCreateTimeGreaterThan_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *大于等于某个时间段（yyyy-MM-dd HH:mm:ss）
+       * </pre>
+       *
+       * <code>optional string userCreateTimeGreaterThan = 10;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUserCreateTimeGreaterThanBytes() {
+        java.lang.Object ref = userCreateTimeGreaterThan_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          userCreateTimeGreaterThan_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *大于等于某个时间段（yyyy-MM-dd HH:mm:ss）
+       * </pre>
+       *
+       * <code>optional string userCreateTimeGreaterThan = 10;</code>
+       */
+      public Builder setUserCreateTimeGreaterThan(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        userCreateTimeGreaterThan_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *大于等于某个时间段（yyyy-MM-dd HH:mm:ss）
+       * </pre>
+       *
+       * <code>optional string userCreateTimeGreaterThan = 10;</code>
+       */
+      public Builder clearUserCreateTimeGreaterThan() {
+        
+        userCreateTimeGreaterThan_ = getDefaultInstance().getUserCreateTimeGreaterThan();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *大于等于某个时间段（yyyy-MM-dd HH:mm:ss）
+       * </pre>
+       *
+       * <code>optional string userCreateTimeGreaterThan = 10;</code>
+       */
+      public Builder setUserCreateTimeGreaterThanBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        userCreateTimeGreaterThan_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object userCreateTimeLessThan_ = "";
+      /**
+       * <pre>
+       *小于等于某个时间段（yyyy-MM-dd HH:mm:ss）
+       * </pre>
+       *
+       * <code>optional string userCreateTimeLessThan = 11;</code>
+       */
+      public java.lang.String getUserCreateTimeLessThan() {
+        java.lang.Object ref = userCreateTimeLessThan_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          userCreateTimeLessThan_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *小于等于某个时间段（yyyy-MM-dd HH:mm:ss）
+       * </pre>
+       *
+       * <code>optional string userCreateTimeLessThan = 11;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUserCreateTimeLessThanBytes() {
+        java.lang.Object ref = userCreateTimeLessThan_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          userCreateTimeLessThan_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *小于等于某个时间段（yyyy-MM-dd HH:mm:ss）
+       * </pre>
+       *
+       * <code>optional string userCreateTimeLessThan = 11;</code>
+       */
+      public Builder setUserCreateTimeLessThan(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        userCreateTimeLessThan_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *小于等于某个时间段（yyyy-MM-dd HH:mm:ss）
+       * </pre>
+       *
+       * <code>optional string userCreateTimeLessThan = 11;</code>
+       */
+      public Builder clearUserCreateTimeLessThan() {
+        
+        userCreateTimeLessThan_ = getDefaultInstance().getUserCreateTimeLessThan();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *小于等于某个时间段（yyyy-MM-dd HH:mm:ss）
+       * </pre>
+       *
+       * <code>optional string userCreateTimeLessThan = 11;</code>
+       */
+      public Builder setUserCreateTimeLessThanBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        userCreateTimeLessThan_ = value;
+        onChanged();
+        return this;
+      }
+
       private int currentPage_ ;
       /**
-       * <code>optional int32 currentPage = 10;</code>
+       * <code>optional int32 currentPage = 12;</code>
        */
       public int getCurrentPage() {
         return currentPage_;
       }
       /**
-       * <code>optional int32 currentPage = 10;</code>
+       * <code>optional int32 currentPage = 12;</code>
        */
       public Builder setCurrentPage(int value) {
         
@@ -14639,7 +14985,7 @@ public final class UserGroupProto {
         return this;
       }
       /**
-       * <code>optional int32 currentPage = 10;</code>
+       * <code>optional int32 currentPage = 12;</code>
        */
       public Builder clearCurrentPage() {
         
@@ -14654,7 +15000,7 @@ public final class UserGroupProto {
        *pageSize传0，说明不分页
        * </pre>
        *
-       * <code>optional int32 pageSize = 11;</code>
+       * <code>optional int32 pageSize = 13;</code>
        */
       public int getPageSize() {
         return pageSize_;
@@ -14664,7 +15010,7 @@ public final class UserGroupProto {
        *pageSize传0，说明不分页
        * </pre>
        *
-       * <code>optional int32 pageSize = 11;</code>
+       * <code>optional int32 pageSize = 13;</code>
        */
       public Builder setPageSize(int value) {
         
@@ -14677,7 +15023,7 @@ public final class UserGroupProto {
        *pageSize传0，说明不分页
        * </pre>
        *
-       * <code>optional int32 pageSize = 11;</code>
+       * <code>optional int32 pageSize = 13;</code>
        */
       public Builder clearPageSize() {
         
@@ -23661,40 +24007,41 @@ public final class UserGroupProto {
       "e\030\t \001(\t\022\017\n\007userSex\030\n \001(\005\022\017\n\007userAge\030\013 \001(" +
       "\005\022\020\n\010userRole\030\014 \001(\005\"E\n\013UpdateUserS\022\017\n\007hO" +
       "pCode\030\001 \001(\005\022%\n\004user\030\002 \001(\0132\027.protobuf.htt" +
-      "p.UserData\"\353\001\n\014GetUserListC\022\017\n\007hOpCode\030\001" +
+      "p.UserData\"\256\002\n\014GetUserListC\022\017\n\007hOpCode\030\001" +
       " \001(\005\022\023\n\013userGroupId\030\002 \001(\t\022\031\n\021isUserGroup" +
       "IsNull\030\003 \001(\010\022\023\n\013isRecursion\030\004 \001(\010\022\021\n\tuse" +
       "rState\030\005 \001(\005\022\017\n\007userSex\030\006 \001(\005\022\020\n\010userRol" +
       "e\030\007 \001(\005\022\026\n\016userGroupTopId\030\010 \001(\t\022\020\n\010userN",
-      "ame\030\t \001(\t\022\023\n\013currentPage\030\n \001(\005\022\020\n\010pageSi" +
-      "ze\030\013 \001(\005\"\220\001\n\014GetUserListS\022\017\n\007hOpCode\030\001 \001" +
-      "(\005\022%\n\004user\030\002 \003(\0132\027.protobuf.http.UserDat" +
-      "a\022\023\n\013currentPage\030\003 \001(\005\022\020\n\010pageSize\030\004 \001(\005" +
-      "\022\021\n\ttotalPage\030\005 \001(\005\022\016\n\006allNum\030\006 \001(\005\"D\n\tG" +
-      "etTokenC\022\017\n\007hOpCode\030\001 \001(\005\022\020\n\010userName\030\002 " +
-      "\001(\t\022\024\n\014userPassword\030\003 \001(\t\"m\n\tGetTokenS\022\017" +
-      "\n\007hOpCode\030\001 \001(\005\022\017\n\007tokenId\030\002 \001(\t\022\027\n\017toke" +
-      "nExpireTime\030\003 \001(\t\022%\n\004user\030\004 \001(\0132\027.protob" +
-      "uf.http.UserData\"\037\n\014UpdateTokenC\022\017\n\007hOpC",
-      "ode\030\001 \001(\005\"p\n\014UpdateTokenS\022\017\n\007hOpCode\030\001 \001" +
-      "(\005\022\017\n\007tokenId\030\002 \001(\t\022\027\n\017tokenExpireTime\030\003" +
+      "ame\030\t \001(\t\022!\n\031userCreateTimeGreaterThan\030\n" +
+      " \001(\t\022\036\n\026userCreateTimeLessThan\030\013 \001(\t\022\023\n\013" +
+      "currentPage\030\014 \001(\005\022\020\n\010pageSize\030\r \001(\005\"\220\001\n\014" +
+      "GetUserListS\022\017\n\007hOpCode\030\001 \001(\005\022%\n\004user\030\002 " +
+      "\003(\0132\027.protobuf.http.UserData\022\023\n\013currentP" +
+      "age\030\003 \001(\005\022\020\n\010pageSize\030\004 \001(\005\022\021\n\ttotalPage" +
+      "\030\005 \001(\005\022\016\n\006allNum\030\006 \001(\005\"D\n\tGetTokenC\022\017\n\007h" +
+      "OpCode\030\001 \001(\005\022\020\n\010userName\030\002 \001(\t\022\024\n\014userPa" +
+      "ssword\030\003 \001(\t\"m\n\tGetTokenS\022\017\n\007hOpCode\030\001 \001" +
+      "(\005\022\017\n\007tokenId\030\002 \001(\t\022\027\n\017tokenExpireTime\030\003",
       " \001(\t\022%\n\004user\030\004 \001(\0132\027.protobuf.http.UserD" +
-      "ata\"\037\n\014DeleteTokenC\022\017\n\007hOpCode\030\001 \001(\005\"\037\n\014" +
-      "DeleteTokenS\022\017\n\007hOpCode\030\001 \001(\005\".\n\013GetUser" +
-      "ImgC\022\017\n\007hOpCode\030\001 \001(\005\022\016\n\006userId\030\002 \001(\t\"\235\002" +
-      "\n\010UserData\022\016\n\006userId\030\001 \001(\t\022\020\n\010userName\030\002" +
-      " \001(\t\022\021\n\tuserPhone\030\003 \001(\t\022\021\n\tuserEmail\030\004 \001" +
-      "(\t\022\026\n\016userCreateTime\030\005 \001(\t\022\026\n\016userUpdate" +
-      "Time\030\006 \001(\t\022\021\n\tuserState\030\007 \001(\005\022\023\n\013userGro",
-      "upId\030\010 \001(\t\022\024\n\014userRealName\030\t \001(\t\022\017\n\007user" +
-      "Sex\030\n \001(\005\022\017\n\007userAge\030\013 \001(\005\022\026\n\016userGroupT" +
-      "opId\030\014 \001(\t\022\020\n\010userRole\030\r \001(\005\022\017\n\007userImg\030" +
-      "\016 \001(\t\"\300\001\n\rUserGroupData\022\023\n\013userGroupId\030\001" +
-      " \001(\t\022\025\n\ruserGroupName\030\002 \001(\t\022\031\n\021userGroup" +
-      "ParentId\030\003 \001(\t\022\033\n\023userGroupCreateTime\030\004 " +
-      "\001(\t\022\033\n\023userGroupUpdateTime\030\005 \001(\t\022\026\n\016user" +
-      "GroupState\030\006 \001(\005\022\026\n\016userGroupTopId\030\007 \001(\t" +
-      "b\006proto3"
+      "ata\"\037\n\014UpdateTokenC\022\017\n\007hOpCode\030\001 \001(\005\"p\n\014" +
+      "UpdateTokenS\022\017\n\007hOpCode\030\001 \001(\005\022\017\n\007tokenId" +
+      "\030\002 \001(\t\022\027\n\017tokenExpireTime\030\003 \001(\t\022%\n\004user\030" +
+      "\004 \001(\0132\027.protobuf.http.UserData\"\037\n\014Delete" +
+      "TokenC\022\017\n\007hOpCode\030\001 \001(\005\"\037\n\014DeleteTokenS\022" +
+      "\017\n\007hOpCode\030\001 \001(\005\".\n\013GetUserImgC\022\017\n\007hOpCo" +
+      "de\030\001 \001(\005\022\016\n\006userId\030\002 \001(\t\"\235\002\n\010UserData\022\016\n" +
+      "\006userId\030\001 \001(\t\022\020\n\010userName\030\002 \001(\t\022\021\n\tuserP" +
+      "hone\030\003 \001(\t\022\021\n\tuserEmail\030\004 \001(\t\022\026\n\016userCre",
+      "ateTime\030\005 \001(\t\022\026\n\016userUpdateTime\030\006 \001(\t\022\021\n" +
+      "\tuserState\030\007 \001(\005\022\023\n\013userGroupId\030\010 \001(\t\022\024\n" +
+      "\014userRealName\030\t \001(\t\022\017\n\007userSex\030\n \001(\005\022\017\n\007" +
+      "userAge\030\013 \001(\005\022\026\n\016userGroupTopId\030\014 \001(\t\022\020\n" +
+      "\010userRole\030\r \001(\005\022\017\n\007userImg\030\016 \001(\t\"\300\001\n\rUse" +
+      "rGroupData\022\023\n\013userGroupId\030\001 \001(\t\022\025\n\ruserG" +
+      "roupName\030\002 \001(\t\022\031\n\021userGroupParentId\030\003 \001(" +
+      "\t\022\033\n\023userGroupCreateTime\030\004 \001(\t\022\033\n\023userGr" +
+      "oupUpdateTime\030\005 \001(\t\022\026\n\016userGroupState\030\006 " +
+      "\001(\005\022\026\n\016userGroupTopId\030\007 \001(\tb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -23809,7 +24156,7 @@ public final class UserGroupProto {
     internal_static_protobuf_http_GetUserListC_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protobuf_http_GetUserListC_descriptor,
-        new java.lang.String[] { "HOpCode", "UserGroupId", "IsUserGroupIsNull", "IsRecursion", "UserState", "UserSex", "UserRole", "UserGroupTopId", "UserName", "CurrentPage", "PageSize", });
+        new java.lang.String[] { "HOpCode", "UserGroupId", "IsUserGroupIsNull", "IsRecursion", "UserState", "UserSex", "UserRole", "UserGroupTopId", "UserName", "UserCreateTimeGreaterThan", "UserCreateTimeLessThan", "CurrentPage", "PageSize", });
     internal_static_protobuf_http_GetUserListS_descriptor =
       getDescriptor().getMessageTypes().get(17);
     internal_static_protobuf_http_GetUserListS_fieldAccessorTable = new

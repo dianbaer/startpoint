@@ -142,7 +142,7 @@ public class UserService implements IHttpListener, IService {
 
 	public HttpPacket getUserListHandle(HSession hSession) {
 		GetUserListC message = (GetUserListC) hSession.httpPacket.getData();
-		List<User> userList = UserAction.getUserList(message.getUserGroupId(), message.getIsRecursion(), message.getIsUserGroupIsNull(), message.getUserState(), message.getUserSex(), message.getUserRole(), message.getUserGroupTopId(), message.getUserName());
+		List<User> userList = UserAction.getUserList(message.getUserGroupId(), message.getIsRecursion(), message.getIsUserGroupIsNull(), message.getUserState(), message.getUserSex(), message.getUserRole(), message.getUserGroupTopId(), message.getUserName(),message.getUserCreateTimeGreaterThan(),message.getUserCreateTimeLessThan());
 		int currentPage = message.getCurrentPage();
 		int pageSize = message.getPageSize();
 		PageObj pageObj = PageFormat.getStartAndEnd(currentPage, pageSize, userList.size());

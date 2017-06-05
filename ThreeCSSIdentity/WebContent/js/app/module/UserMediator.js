@@ -48,9 +48,11 @@ function UserMediator() {
         var userRole = $("#userRole_list").val();
         var userGroupTopId = $("#userGroupTopId_list").val();
         var userName = $("#userName_list").val();
+        var userCreateTimeGreaterThan = $("#userCreateTimeGreaterThan").val();
+        var userCreateTimeLessThan = $("#userCreateTimeLessThan").val();
         var currentPage = $("#currentPage").val();
         var pageSize = $("#pageSize").val();
-        $T.userProxy.getUserList(userGroupId, isUserGroupIsNull, isRecursion, userState, userSex, userRole, userGroupTopId,userName,currentPage,pageSize);
+        $T.userProxy.getUserList(userGroupId, isUserGroupIsNull, isRecursion, userState, userSex, userRole, userGroupTopId,userName,userCreateTimeGreaterThan,userCreateTimeLessThan,currentPage,pageSize);
     }
 
 }
