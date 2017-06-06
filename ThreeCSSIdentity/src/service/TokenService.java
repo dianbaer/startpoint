@@ -5,13 +5,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 import action.TokenAction;
+import action.UCErrorPack;
 import action.UserAction;
+import config.UserConfig;
 import dao.model.base.Token;
 import dao.model.base.User;
 import http.HOpCodeUCenter;
 import http.HSession;
 import http.HttpPacket;
 import http.IHttpListener;
+import http.exception.HttpErrorException;
+import protobuf.http.UCErrorProto.UCError;
+import protobuf.http.UCErrorProto.UCErrorCode;
 import protobuf.http.UserGroupProto.DeleteTokenS;
 import protobuf.http.UserGroupProto.GetTokenC;
 import protobuf.http.UserGroupProto.GetTokenS;
@@ -34,11 +39,15 @@ public class TokenService implements IHttpListener {
 		return this;
 	}
 
-	public HttpPacket getTokenHandle(HSession hSession) {
+	public HttpPacket getTokenHandle(HSession hSession) throws HttpErrorException {
 		GetTokenC message = (GetTokenC) hSession.httpPacket.getData();
 		User user = UserAction.getUserByName(message.getUserName());
 		if (user == null) {
 			return null;
+		}
+		if (user.getUserState().intValue() != UserConfig.STATE_USABLE) {
+			UCError errorPack = UCErrorPack.create(UCErrorCode.ERROR_CODE_2, hSession.headParam.hOpCode);
+			throw new HttpErrorException(HOpCodeUCenter.UC_ERROR, errorPack);
 		}
 		// 判断密码
 		if (!user.getUserPassword().equals(message.getUserPassword())) {
