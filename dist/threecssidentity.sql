@@ -82,6 +82,7 @@ CREATE TABLE `user_group` (
   `user_group_state` tinyint(4) NOT NULL COMMENT '1：可用 2：不可用 3：逻辑上删除',
   `user_group_top_id` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`user_group_id`),
+  UNIQUE KEY `user_group_name` (`user_group_name`,`user_group_top_id`) USING BTREE,
   KEY `user_group_parent_id` (`user_group_parent_id`),
   KEY `user_group_top_id` (`user_group_top_id`),
   CONSTRAINT `user_group_ibfk_1` FOREIGN KEY (`user_group_parent_id`) REFERENCES `user_group` (`user_group_id`),
