@@ -18,7 +18,7 @@ public class TokenHttpFilter implements IHttpFilter {
 	@Override
 	public boolean httpFilter(HSession hSession) throws HttpErrorException {
 		if (hSession.headParam.token == null) {
-			if (HOpCodeUCenter.GET_TOKEN == hSession.headParam.hOpCode || HOpCodeUCenter.CHECK_USER_BY_USER_NAME == hSession.headParam.hOpCode) {
+			if (HOpCodeUCenter.GET_TOKEN == hSession.headParam.hOpCode || HOpCodeUCenter.CHECK_USER_BY_USER_NAME == hSession.headParam.hOpCode || HOpCodeUCenter.CHECK_USER_PHONE == hSession.headParam.hOpCode) {
 				// 可以通过
 				return true;
 			} else {
@@ -29,7 +29,7 @@ public class TokenHttpFilter implements IHttpFilter {
 		}
 		Token token = TokenAction.getTokenById(hSession.headParam.token);
 		if (token == null) {
-			UCError errorPack = UCErrorPack.create(UCErrorCode.ERROR_CODE_2, hSession.headParam.hOpCode);
+			UCError errorPack = UCErrorPack.create(UCErrorCode.ERROR_CODE_1, hSession.headParam.hOpCode);
 			throw new HttpErrorException(HOpCodeUCenter.UC_ERROR, errorPack);
 		}
 		Date date = new Date();
@@ -43,7 +43,7 @@ public class TokenHttpFilter implements IHttpFilter {
 		}
 		User user = UserAction.getUserById(token.getUserId());
 		if (user == null) {
-			UCError errorPack = UCErrorPack.create(UCErrorCode.ERROR_CODE_2, hSession.headParam.hOpCode);
+			UCError errorPack = UCErrorPack.create(UCErrorCode.ERROR_CODE_4, hSession.headParam.hOpCode);
 			throw new HttpErrorException(HOpCodeUCenter.UC_ERROR, errorPack);
 		}
 		hSession.otherData = user;

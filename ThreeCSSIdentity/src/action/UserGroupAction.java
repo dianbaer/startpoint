@@ -315,13 +315,13 @@ public class UserGroupAction {
 		return true;
 	}
 
-	public static List<UserGroup> getUserGroupList(String userGroupParentId, boolean isUserGroupParentIsNull, boolean isRecursion, String userGroupTopId, int userGroupState) {
+	public static List<UserGroup> getUserGroupList(String userGroupParentId, boolean isUserGroupParentIsNull, boolean isRecursion, String userGroupTopId, int userGroupState, String userGroupCreateTimeGreaterThan, String userGroupCreateTimeLessThan, String userGroupUpdateTimeGreaterThan, String userGroupUpdateTimeLessThan) {
 		SqlSession sqlSession = null;
 		List<UserGroup> userGroupListAll = new ArrayList<>();
 		try {
 			sqlSession = MybatisManager.getSqlSession();
 			UserGroupMapper userGroupMapper = sqlSession.getMapper(UserGroupMapper.class);
-			getUserGroupListRecursion(userGroupListAll, userGroupParentId, isUserGroupParentIsNull, isRecursion, userGroupTopId, userGroupState, userGroupMapper);
+			getUserGroupListRecursion(userGroupListAll, userGroupParentId, isUserGroupParentIsNull, isRecursion, userGroupTopId, userGroupState, userGroupMapper, userGroupCreateTimeGreaterThan, userGroupCreateTimeLessThan, userGroupUpdateTimeGreaterThan, userGroupUpdateTimeLessThan);
 			return userGroupListAll;
 		} catch (Exception e) {
 			if (sqlSession != null) {
@@ -336,7 +336,7 @@ public class UserGroupAction {
 		}
 	}
 
-	public static void getUserGroupListRecursion(List<UserGroup> userGroupListAll, String userGroupParentId, boolean isUserGroupParentIsNull, boolean isRecursion, String userGroupTopId, int userGroupState, UserGroupMapper userGroupMapper) {
+	public static void getUserGroupListRecursion(List<UserGroup> userGroupListAll, String userGroupParentId, boolean isUserGroupParentIsNull, boolean isRecursion, String userGroupTopId, int userGroupState, UserGroupMapper userGroupMapper, String userGroupCreateTimeGreaterThan, String userGroupCreateTimeLessThan, String userGroupUpdateTimeGreaterThan, String userGroupUpdateTimeLessThan) {
 		UserGroupCriteria userGroupCriteria = new UserGroupCriteria();
 		UserGroupCriteria.Criteria criteriaGroup = userGroupCriteria.createCriteria();
 		boolean isCanRecursion = false;
@@ -356,6 +356,31 @@ public class UserGroupAction {
 		if (userGroupState == UserConfig.STATE_DELETE || userGroupState == UserConfig.STATE_DISABLED || userGroupState == UserConfig.STATE_USABLE) {
 			criteriaGroup.andUserGroupStateEqualTo((byte) userGroupState);
 		}
+		if (!StringUtil.stringIsNull(userGroupCreateTimeGreaterThan)) {
+			Date userGroupCreateTimeGreaterThanDate = TimeUtils.stringToDate(userGroupCreateTimeGreaterThan);
+			if (userGroupCreateTimeGreaterThanDate != null) {
+				criteriaGroup.andUserGroupCreateTimeGreaterThanOrEqualTo(userGroupCreateTimeGreaterThanDate);
+			}
+		}
+		if (!StringUtil.stringIsNull(userGroupCreateTimeLessThan)) {
+			Date userGroupCreateTimeLessThanDate = TimeUtils.stringToDate(userGroupCreateTimeLessThan);
+			if (userGroupCreateTimeLessThanDate != null) {
+				criteriaGroup.andUserGroupCreateTimeLessThanOrEqualTo(userGroupCreateTimeLessThanDate);
+			}
+		}
+		if (!StringUtil.stringIsNull(userGroupUpdateTimeGreaterThan)) {
+			Date userGroupUpdateTimeGreaterThanDate = TimeUtils.stringToDate(userGroupUpdateTimeGreaterThan);
+			if (userGroupUpdateTimeGreaterThanDate != null) {
+				criteriaGroup.andUserGroupUpdateTimeGreaterThanOrEqualTo(userGroupUpdateTimeGreaterThanDate);
+			}
+		}
+		if (!StringUtil.stringIsNull(userGroupUpdateTimeLessThan)) {
+			Date userGroupUpdateTimeLessThanDate = TimeUtils.stringToDate(userGroupUpdateTimeLessThan);
+			if (userGroupUpdateTimeLessThanDate != null) {
+				criteriaGroup.andUserGroupUpdateTimeLessThanOrEqualTo(userGroupUpdateTimeLessThanDate);
+			}
+		}
+
 		List<UserGroup> userGroupList = userGroupMapper.selectByExample(userGroupCriteria);
 		if (userGroupList == null) {
 			return;
@@ -367,8 +392,83 @@ public class UserGroupAction {
 		}
 		for (int i = 0; i < userGroupList.size(); i++) {
 			UserGroup userGroup = userGroupList.get(i);
-			getUserGroupListRecursion(userGroupListAll, userGroup.getUserGroupId(), isUserGroupParentIsNull, isRecursion, userGroupTopId, userGroupState, userGroupMapper);
+			getUserGroupListRecursion(userGroupListAll, userGroup.getUserGroupId(), isUserGroupParentIsNull, isRecursion, userGroupTopId, userGroupState, userGroupMapper, userGroupCreateTimeGreaterThan, userGroupCreateTimeLessThan, userGroupUpdateTimeGreaterThan, userGroupUpdateTimeLessThan);
 		}
+	}
+
+	public static boolean deleteUserGroup(String userGroupId) {
+		if (StringUtil.stringIsNull(userGroupId)) {
+			return false;
+		}
+		UserGroup userGroup = getUserGroupById(userGroupId);
+		if (userGroup == null) {
+			return false;
+		}
+		// 如果是顶级不能删除
+		if (StringUtil.stringIsNull(userGroup.getUserGroupTopId())) {
+			return false;
+		}
+
+		return (boolean) KeyLockManager.lockMethod(userGroup.getUserGroupTopId(), UCenterKeyLockType.USER_GROUP, (params) -> deleteUserGroup(params), new Object[] { userGroup });
+	}
+
+	public static boolean deleteUserGroup(Object... params) {
+		UserGroup userGroup = (UserGroup) params[0];
+		List<User> userList = UserAction.getUserList(userGroup.getUserGroupId(), true, false, 0, 0, 0, null, null, null, null, null, null);
+		if (userList == null) {
+			return false;
+		}
+		if (userList.size() > 0) {
+			List<String> userListId = new ArrayList<String>();
+			for (int i = 0; i < userList.size(); i++) {
+				User user = userList.get(i);
+				userListId.add(user.getUserId());
+			}
+			boolean result = UserAction.updateUserList(userListId, userGroup.getUserGroupTopId());
+			if (!result) {
+				return false;
+			}
+		}
+		List<UserGroup> userGroupList = UserGroupAction.getUserGroupList(userGroup.getUserGroupId(), false, true, null, 0, null, null, null, null);
+		if (userGroupList == null) {
+			return false;
+		}
+		if (userGroupList.size() > 0) {
+			for (int i = userGroupList.size() - 1; i >= 0; i--) {
+				UserGroup updateUserGroup = userGroupList.get(i);
+				boolean result = deleteUserGroupById(updateUserGroup.getUserGroupId());
+				if (!result) {
+					return false;
+				}
+			}
+		}
+		boolean result = deleteUserGroupById(userGroup.getUserGroupId());
+		return result;
+	}
+
+	public static boolean deleteUserGroupById(String userGroupId) {
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = MybatisManager.getSqlSession();
+			UserGroupMapper userGroupMapper = sqlSession.getMapper(UserGroupMapper.class);
+			int result = userGroupMapper.deleteByPrimaryKey(userGroupId);
+			if (result == 0) {
+				LogManager.mariadbLog.warn("删除用户组异常");
+				return false;
+			}
+			sqlSession.commit();
+		} catch (Exception e) {
+			if (sqlSession != null) {
+				sqlSession.rollback();
+			}
+			LogManager.mariadbLog.error("删除用户组异常", e);
+			return false;
+		} finally {
+			if (sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		return true;
 	}
 
 	public static UserGroupData.Builder getUserGroupDataBuilder(UserGroup userGroup) {

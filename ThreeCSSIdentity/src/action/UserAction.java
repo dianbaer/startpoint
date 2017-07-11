@@ -15,11 +15,16 @@ import dao.model.base.User;
 import dao.model.base.UserCriteria;
 import dao.model.base.UserGroup;
 import dao.model.base.UserGroupCriteria;
+import http.AllowParam;
+import http.HOpCodeUCenter;
 import http.HttpConfig;
+import http.HttpPacket;
+import http.HttpUtil;
 import keylock.KeyLockManager;
 import keylock.UCenterKeyLockType;
 import log.LogManager;
 import mbatis.MybatisManager;
+import protobuf.http.UserGroupProto.GetUserImgC;
 import protobuf.http.UserGroupProto.UserData;
 import tool.StringUtil;
 import tool.TimeUtils;
@@ -166,6 +171,36 @@ public class UserAction {
 			List<User> userList = userMapper.selectByExample(userCriteria);
 			if (userList == null || userList.size() == 0) {
 				LogManager.mariadbLog.warn("通过userName:" + userName + "获取用户为空");
+				return null;
+			}
+			return userList.get(0);
+		} catch (Exception e) {
+			if (sqlSession != null) {
+				sqlSession.rollback();
+			}
+			LogManager.mariadbLog.error("获取用户异常", e);
+			return null;
+		} finally {
+			if (sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+	}
+
+	public static User getUserByUserPhone(String userPhone) {
+		if (StringUtil.stringIsNull(userPhone)) {
+			return null;
+		}
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = MybatisManager.getSqlSession();
+			UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+			UserCriteria userCriteria = new UserCriteria();
+			UserCriteria.Criteria criteria = userCriteria.createCriteria();
+			criteria.andUserPhoneEqualTo(userPhone);
+			List<User> userList = userMapper.selectByExample(userCriteria);
+			if (userList == null || userList.size() == 0) {
+				LogManager.mariadbLog.warn("通过userPhone:" + userPhone + "获取用户为空");
 				return null;
 			}
 			return userList.get(0);
@@ -336,14 +371,14 @@ public class UserAction {
 		return getUserById(user.getUserId());
 	}
 
-	public static List<User> getUserList(String userGroupId, boolean isRecursion, boolean isUserGroupIsNull, int userState, int userSex, int userRole, String userGroupTopId, String userName, String userCreateTimeGreaterThan, String userCreateTimeLessThan) {
+	public static List<User> getUserList(String userGroupId, boolean isRecursion, boolean isUserGroupIsNull, int userState, int userSex, int userRole, String userGroupTopId, String userName, String userCreateTimeGreaterThan, String userCreateTimeLessThan, String userUpdateTimeGreaterThan, String userUpdateTimeLessThan) {
 		SqlSession sqlSession = null;
 		List<User> userListAll = new ArrayList<>();
 		try {
 			sqlSession = MybatisManager.getSqlSession();
 			UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
 			UserGroupMapper userGroupMapper = sqlSession.getMapper(UserGroupMapper.class);
-			getUserListRecursion(userListAll, userGroupId, userState, userSex, userRole, userGroupMapper, userMapper, isRecursion, userGroupTopId, isUserGroupIsNull, userName, userCreateTimeGreaterThan, userCreateTimeLessThan);
+			getUserListRecursion(userListAll, userGroupId, userState, userSex, userRole, userGroupMapper, userMapper, isRecursion, userGroupTopId, isUserGroupIsNull, userName, userCreateTimeGreaterThan, userCreateTimeLessThan, userUpdateTimeGreaterThan, userUpdateTimeLessThan);
 			return userListAll;
 		} catch (Exception e) {
 			if (sqlSession != null) {
@@ -358,8 +393,9 @@ public class UserAction {
 		}
 	}
 
-	public static void getUserListRecursion(List<User> userListAll, String userGroupId, int userState, int userSex, int userRole, UserGroupMapper userGroupMapper, UserMapper userMapper, boolean isRecursion, String userGroupTopId, boolean isUserGroupIsNull, String userName, String userCreateTimeGreaterThan, String userCreateTimeLessThan) {
+	public static void getUserListRecursion(List<User> userListAll, String userGroupId, int userState, int userSex, int userRole, UserGroupMapper userGroupMapper, UserMapper userMapper, boolean isRecursion, String userGroupTopId, boolean isUserGroupIsNull, String userName, String userCreateTimeGreaterThan, String userCreateTimeLessThan, String userUpdateTimeGreaterThan, String userUpdateTimeLessThan) {
 		UserCriteria userCriteria = new UserCriteria();
+		userCriteria.setOrderByClause("user_create_time desc");
 		UserCriteria.Criteria criteria = userCriteria.createCriteria();
 		if (userState == UserConfig.STATE_DELETE || userState == UserConfig.STATE_DISABLED || userState == UserConfig.STATE_USABLE) {
 			criteria.andUserStateEqualTo((byte) userState);
@@ -383,6 +419,18 @@ public class UserAction {
 			Date userCreateTimeLessThanDate = TimeUtils.stringToDate(userCreateTimeLessThan);
 			if (userCreateTimeLessThanDate != null) {
 				criteria.andUserCreateTimeLessThanOrEqualTo(userCreateTimeLessThanDate);
+			}
+		}
+		if (!StringUtil.stringIsNull(userUpdateTimeGreaterThan)) {
+			Date userUpdateTimeGreaterThanDate = TimeUtils.stringToDate(userUpdateTimeGreaterThan);
+			if (userUpdateTimeGreaterThanDate != null) {
+				criteria.andUserUpdateTimeGreaterThanOrEqualTo(userUpdateTimeGreaterThanDate);
+			}
+		}
+		if (!StringUtil.stringIsNull(userUpdateTimeLessThan)) {
+			Date userUpdateTimeLessThanDate = TimeUtils.stringToDate(userUpdateTimeLessThan);
+			if (userUpdateTimeLessThanDate != null) {
+				criteria.andUserUpdateTimeLessThanOrEqualTo(userUpdateTimeLessThanDate);
 			}
 		}
 		boolean isCanRecursion = false;
@@ -417,13 +465,43 @@ public class UserAction {
 		if (userGroupList != null) {
 			for (int i = 0; i < userGroupList.size(); i++) {
 				UserGroup userGroup = userGroupList.get(i);
-				getUserListRecursion(userListAll, userGroup.getUserGroupId(), userState, userSex, userRole, userGroupMapper, userMapper, isRecursion, userGroupTopId, isUserGroupIsNull, userName, userCreateTimeGreaterThan, userCreateTimeLessThan);
+				getUserListRecursion(userListAll, userGroup.getUserGroupId(), userState, userSex, userRole, userGroupMapper, userMapper, isRecursion, userGroupTopId, isUserGroupIsNull, userName, userCreateTimeGreaterThan, userCreateTimeLessThan, userUpdateTimeGreaterThan, userUpdateTimeLessThan);
 			}
 		}
 		return;
 	}
 
-	public static UserData.Builder getUserDataBuilder(User user) {
+	public static boolean updateUserList(List<String> userList, String userGroupId) {
+		SqlSession sqlSession = null;
+		User user = new User();
+		user.setUserGroupId(userGroupId);
+		try {
+			sqlSession = MybatisManager.getSqlSession();
+			UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+			UserCriteria userCriteria = new UserCriteria();
+			UserCriteria.Criteria criteria = userCriteria.createCriteria();
+			criteria.andUserIdIn(userList);
+			int result = userMapper.updateByExampleSelective(user, userCriteria);
+			if (result == 0) {
+				LogManager.mariadbLog.warn("修改用户失败");
+				return false;
+			}
+			sqlSession.commit();
+		} catch (Exception e) {
+			if (sqlSession != null) {
+				sqlSession.rollback();
+			}
+			LogManager.mariadbLog.error("修改用户异常", e);
+			return false;
+		} finally {
+			if (sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		return true;
+	}
+
+	public static UserData.Builder getUserDataBuilder(User user, String token) {
 		UserData.Builder dataBuilder = UserData.newBuilder();
 		dataBuilder.setUserId(user.getUserId());
 		dataBuilder.setUserName(user.getUserName());
@@ -454,6 +532,14 @@ public class UserAction {
 		dataBuilder.setUserRole(user.getUserRole());
 		if (user.getUserImg() != null) {
 			dataBuilder.setUserImg(user.getUserImg());
+			GetUserImgC.Builder builder = GetUserImgC.newBuilder();
+			builder.setHOpCode(HOpCodeUCenter.GET_USER_IMG);
+			builder.setUserId(user.getUserId());
+			HttpPacket httpPacket = new HttpPacket(HOpCodeUCenter.GET_USER_IMG, builder.build());
+			String userImgUrl = HttpUtil.getRequestUrl(httpPacket, CommonConfigUCenter.UCENTER_URL, token, AllowParam.SEND_TYPE_PACKET, AllowParam.RECEIVE_TYPE_IMAGE);
+			if (userImgUrl != null) {
+				dataBuilder.setUserImgUrl(userImgUrl);
+			}
 		}
 		return dataBuilder;
 	}
@@ -499,5 +585,11 @@ public class UserAction {
 			return newfile;
 		}
 		return null;
+	}
+
+	public static void main(String[] args) {
+		String userCreateTimeGreaterThan = "2017-06-07";
+		Date date = TimeUtils.stringToDate(userCreateTimeGreaterThan);
+		System.out.println(111);
 	}
 }

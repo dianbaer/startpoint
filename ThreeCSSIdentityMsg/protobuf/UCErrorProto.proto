@@ -8,6 +8,19 @@ message UCError{
 }
 enum UCErrorCode{
 	ERROR_CODE_0=0;//未知错误
-	ERROR_CODE_1=1;//token过期
-	ERROR_CODE_2=2;//token不许为空
+	ERROR_CODE_1=1;//该token已过期或不合法
+	ERROR_CODE_2=2;//该请求token不许为空
+	ERROR_CODE_3=3;//该电话号码已被注册，添加用户失败
+	ERROR_CODE_4=4;//不存在这个用户
+	ERROR_CODE_5=5;//该用户已冻结或删除
+	ERROR_CODE_6=6;//密码错误
+	ERROR_CODE_7=7;//创建token失败
+	ERROR_CODE_8=8;//延长token过期时间失败
+	ERROR_CODE_9=9;//删除token失败
+	ERROR_CODE_10=10;//创建用户组失败
+	ERROR_CODE_11=11;//修改用户组失败
+	ERROR_CODE_12=12;//获取用户组失败
+	ERROR_CODE_13=13;//创建用户失败
+	ERROR_CODE_14=14;//修改用户失败
+	ERROR_CODE_15=15;//删除用户组失败
 }

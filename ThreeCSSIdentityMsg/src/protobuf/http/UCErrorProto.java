@@ -29,7 +29,7 @@ public final class UCErrorProto {
     ERROR_CODE_0(0),
     /**
      * <pre>
-     *token过期
+     *该token已过期或不合法
      * </pre>
      *
      * <code>ERROR_CODE_1 = 1;</code>
@@ -37,12 +37,116 @@ public final class UCErrorProto {
     ERROR_CODE_1(1),
     /**
      * <pre>
-     *token不许为空
+     *该请求token不许为空
      * </pre>
      *
      * <code>ERROR_CODE_2 = 2;</code>
      */
     ERROR_CODE_2(2),
+    /**
+     * <pre>
+     *该电话号码已被注册，添加用户失败
+     * </pre>
+     *
+     * <code>ERROR_CODE_3 = 3;</code>
+     */
+    ERROR_CODE_3(3),
+    /**
+     * <pre>
+     *不存在这个用户
+     * </pre>
+     *
+     * <code>ERROR_CODE_4 = 4;</code>
+     */
+    ERROR_CODE_4(4),
+    /**
+     * <pre>
+     *该用户已冻结或删除
+     * </pre>
+     *
+     * <code>ERROR_CODE_5 = 5;</code>
+     */
+    ERROR_CODE_5(5),
+    /**
+     * <pre>
+     *密码错误
+     * </pre>
+     *
+     * <code>ERROR_CODE_6 = 6;</code>
+     */
+    ERROR_CODE_6(6),
+    /**
+     * <pre>
+     *创建token失败
+     * </pre>
+     *
+     * <code>ERROR_CODE_7 = 7;</code>
+     */
+    ERROR_CODE_7(7),
+    /**
+     * <pre>
+     *延长token过期时间失败
+     * </pre>
+     *
+     * <code>ERROR_CODE_8 = 8;</code>
+     */
+    ERROR_CODE_8(8),
+    /**
+     * <pre>
+     *删除token失败
+     * </pre>
+     *
+     * <code>ERROR_CODE_9 = 9;</code>
+     */
+    ERROR_CODE_9(9),
+    /**
+     * <pre>
+     *创建用户组失败
+     * </pre>
+     *
+     * <code>ERROR_CODE_10 = 10;</code>
+     */
+    ERROR_CODE_10(10),
+    /**
+     * <pre>
+     *修改用户组失败
+     * </pre>
+     *
+     * <code>ERROR_CODE_11 = 11;</code>
+     */
+    ERROR_CODE_11(11),
+    /**
+     * <pre>
+     *获取用户组失败
+     * </pre>
+     *
+     * <code>ERROR_CODE_12 = 12;</code>
+     */
+    ERROR_CODE_12(12),
+    /**
+     * <pre>
+     *创建用户失败
+     * </pre>
+     *
+     * <code>ERROR_CODE_13 = 13;</code>
+     */
+    ERROR_CODE_13(13),
+    /**
+     * <pre>
+     *修改用户失败
+     * </pre>
+     *
+     * <code>ERROR_CODE_14 = 14;</code>
+     */
+    ERROR_CODE_14(14),
+    /**
+     * <pre>
+     *删除用户组失败
+     * </pre>
+     *
+     * <code>ERROR_CODE_15 = 15;</code>
+     */
+    ERROR_CODE_15(15),
     UNRECOGNIZED(-1),
     ;
 
@@ -56,7 +160,7 @@ public final class UCErrorProto {
     public static final int ERROR_CODE_0_VALUE = 0;
     /**
      * <pre>
-     *token过期
+     *该token已过期或不合法
      * </pre>
      *
      * <code>ERROR_CODE_1 = 1;</code>
@@ -64,12 +168,116 @@ public final class UCErrorProto {
     public static final int ERROR_CODE_1_VALUE = 1;
     /**
      * <pre>
-     *token不许为空
+     *该请求token不许为空
      * </pre>
      *
      * <code>ERROR_CODE_2 = 2;</code>
      */
     public static final int ERROR_CODE_2_VALUE = 2;
+    /**
+     * <pre>
+     *该电话号码已被注册，添加用户失败
+     * </pre>
+     *
+     * <code>ERROR_CODE_3 = 3;</code>
+     */
+    public static final int ERROR_CODE_3_VALUE = 3;
+    /**
+     * <pre>
+     *不存在这个用户
+     * </pre>
+     *
+     * <code>ERROR_CODE_4 = 4;</code>
+     */
+    public static final int ERROR_CODE_4_VALUE = 4;
+    /**
+     * <pre>
+     *该用户已冻结或删除
+     * </pre>
+     *
+     * <code>ERROR_CODE_5 = 5;</code>
+     */
+    public static final int ERROR_CODE_5_VALUE = 5;
+    /**
+     * <pre>
+     *密码错误
+     * </pre>
+     *
+     * <code>ERROR_CODE_6 = 6;</code>
+     */
+    public static final int ERROR_CODE_6_VALUE = 6;
+    /**
+     * <pre>
+     *创建token失败
+     * </pre>
+     *
+     * <code>ERROR_CODE_7 = 7;</code>
+     */
+    public static final int ERROR_CODE_7_VALUE = 7;
+    /**
+     * <pre>
+     *延长token过期时间失败
+     * </pre>
+     *
+     * <code>ERROR_CODE_8 = 8;</code>
+     */
+    public static final int ERROR_CODE_8_VALUE = 8;
+    /**
+     * <pre>
+     *删除token失败
+     * </pre>
+     *
+     * <code>ERROR_CODE_9 = 9;</code>
+     */
+    public static final int ERROR_CODE_9_VALUE = 9;
+    /**
+     * <pre>
+     *创建用户组失败
+     * </pre>
+     *
+     * <code>ERROR_CODE_10 = 10;</code>
+     */
+    public static final int ERROR_CODE_10_VALUE = 10;
+    /**
+     * <pre>
+     *修改用户组失败
+     * </pre>
+     *
+     * <code>ERROR_CODE_11 = 11;</code>
+     */
+    public static final int ERROR_CODE_11_VALUE = 11;
+    /**
+     * <pre>
+     *获取用户组失败
+     * </pre>
+     *
+     * <code>ERROR_CODE_12 = 12;</code>
+     */
+    public static final int ERROR_CODE_12_VALUE = 12;
+    /**
+     * <pre>
+     *创建用户失败
+     * </pre>
+     *
+     * <code>ERROR_CODE_13 = 13;</code>
+     */
+    public static final int ERROR_CODE_13_VALUE = 13;
+    /**
+     * <pre>
+     *修改用户失败
+     * </pre>
+     *
+     * <code>ERROR_CODE_14 = 14;</code>
+     */
+    public static final int ERROR_CODE_14_VALUE = 14;
+    /**
+     * <pre>
+     *删除用户组失败
+     * </pre>
+     *
+     * <code>ERROR_CODE_15 = 15;</code>
+     */
+    public static final int ERROR_CODE_15_VALUE = 15;
 
 
     public final int getNumber() {
@@ -93,6 +301,19 @@ public final class UCErrorProto {
         case 0: return ERROR_CODE_0;
         case 1: return ERROR_CODE_1;
         case 2: return ERROR_CODE_2;
+        case 3: return ERROR_CODE_3;
+        case 4: return ERROR_CODE_4;
+        case 5: return ERROR_CODE_5;
+        case 6: return ERROR_CODE_6;
+        case 7: return ERROR_CODE_7;
+        case 8: return ERROR_CODE_8;
+        case 9: return ERROR_CODE_9;
+        case 10: return ERROR_CODE_10;
+        case 11: return ERROR_CODE_11;
+        case 12: return ERROR_CODE_12;
+        case 13: return ERROR_CODE_13;
+        case 14: return ERROR_CODE_14;
+        case 15: return ERROR_CODE_15;
         default: return null;
       }
     }
@@ -883,9 +1104,15 @@ public final class UCErrorProto {
       "\n\022UCErrorProto.proto\022\rprotobuf.http\"q\n\007U" +
       "CError\022\017\n\007hOpCode\030\001 \001(\005\022-\n\terrorCode\030\002 \001" +
       "(\0162\032.protobuf.http.UCErrorCode\022\024\n\014errorH" +
-      "OpCode\030\003 \001(\005\022\020\n\010extraMsg\030\004 \001(\t*C\n\013UCErro" +
-      "rCode\022\020\n\014ERROR_CODE_0\020\000\022\020\n\014ERROR_CODE_1\020" +
-      "\001\022\020\n\014ERROR_CODE_2\020\002b\006proto3"
+      "OpCode\030\003 \001(\005\022\020\n\010extraMsg\030\004 \001(\t*\263\002\n\013UCErr" +
+      "orCode\022\020\n\014ERROR_CODE_0\020\000\022\020\n\014ERROR_CODE_1" +
+      "\020\001\022\020\n\014ERROR_CODE_2\020\002\022\020\n\014ERROR_CODE_3\020\003\022\020" +
+      "\n\014ERROR_CODE_4\020\004\022\020\n\014ERROR_CODE_5\020\005\022\020\n\014ER" +
+      "ROR_CODE_6\020\006\022\020\n\014ERROR_CODE_7\020\007\022\020\n\014ERROR_" +
+      "CODE_8\020\010\022\020\n\014ERROR_CODE_9\020\t\022\021\n\rERROR_CODE" +
+      "_10\020\n\022\021\n\rERROR_CODE_11\020\013\022\021\n\rERROR_CODE_1",
+      "2\020\014\022\021\n\rERROR_CODE_13\020\r\022\021\n\rERROR_CODE_14\020" +
+      "\016\022\021\n\rERROR_CODE_15\020\017b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

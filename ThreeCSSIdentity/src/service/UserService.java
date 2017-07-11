@@ -5,15 +5,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import action.UCErrorPack;
 import action.UserAction;
 import dao.model.base.User;
 import http.HOpCodeUCenter;
 import http.HSession;
 import http.HttpPacket;
 import http.IHttpListener;
+import http.exception.HttpErrorException;
 import http.filter.FileData;
+import protobuf.http.UCErrorProto.UCError;
+import protobuf.http.UCErrorProto.UCErrorCode;
 import protobuf.http.UserGroupProto.CheckUserByUserNameC;
 import protobuf.http.UserGroupProto.CheckUserByUserNameS;
+import protobuf.http.UserGroupProto.CheckUserPhoneC;
+import protobuf.http.UserGroupProto.CheckUserPhoneS;
 import protobuf.http.UserGroupProto.CreateUserC;
 import protobuf.http.UserGroupProto.CreateUserS;
 import protobuf.http.UserGroupProto.GetUserByEmailC;
@@ -44,6 +50,7 @@ public class UserService implements IHttpListener, IService {
 		map.put(HOpCodeUCenter.GET_USER_BY_EMAIL, "getUserByEmailHandle");
 		// dingwancheng end
 		map.put(HOpCodeUCenter.CHECK_USER_BY_USER_NAME, "checkUserByUserNameHandle");
+		map.put(HOpCodeUCenter.CHECK_USER_PHONE, "checkUserPhone");
 		return map;
 	}
 
@@ -52,11 +59,17 @@ public class UserService implements IHttpListener, IService {
 		return this;
 	}
 
-	public HttpPacket createUserHandle(HSession hSession) {
+	public HttpPacket createUserHandle(HSession hSession) throws HttpErrorException {
 		CreateUserC message = (CreateUserC) hSession.httpPacket.getData();
+		User userbyphone = UserAction.getUserByUserPhone(message.getUserPhone());
+		if (userbyphone != null) {
+			UCError errorPack = UCErrorPack.create(UCErrorCode.ERROR_CODE_3, hSession.headParam.hOpCode);
+			throw new HttpErrorException(HOpCodeUCenter.UC_ERROR, errorPack);
+		}
 		User user = UserAction.createUser(message.getUserName(), message.getUserPassword(), message.getUserPhone(), message.getUserEmail(), message.getUserGroupId(), message.getUserRealName(), message.getUserSex(), message.getUserAge(), message.getUserRole());
 		if (user == null) {
-			return null;
+			UCError errorPack = UCErrorPack.create(UCErrorCode.ERROR_CODE_13, hSession.headParam.hOpCode);
+			throw new HttpErrorException(HOpCodeUCenter.UC_ERROR, errorPack);
 		}
 		if (hSession.fileList != null && hSession.fileList.size() > 0) {
 			String oldName = user.getUserImg();
@@ -75,12 +88,12 @@ public class UserService implements IHttpListener, IService {
 
 		CreateUserS.Builder builder = CreateUserS.newBuilder();
 		builder.setHOpCode(hSession.headParam.hOpCode);
-		builder.setUser(UserAction.getUserDataBuilder(user));
+		builder.setUser(UserAction.getUserDataBuilder(user, hSession.headParam.token));
 		HttpPacket packet = new HttpPacket(hSession.headParam.hOpCode, builder.build());
 		return packet;
 	}
 
-	public HttpPacket getUserHandle(HSession hSession) {
+	public HttpPacket getUserHandle(HSession hSession) throws HttpErrorException {
 		GetUserC message = (GetUserC) hSession.httpPacket.getData();
 		User user;
 		if (StringUtil.stringIsNull(message.getUserId())) {
@@ -90,17 +103,18 @@ public class UserService implements IHttpListener, IService {
 
 		}
 		if (user == null) {
-			return null;
+			UCError errorPack = UCErrorPack.create(UCErrorCode.ERROR_CODE_4, hSession.headParam.hOpCode);
+			throw new HttpErrorException(HOpCodeUCenter.UC_ERROR, errorPack);
 		}
 		GetUserS.Builder builder = GetUserS.newBuilder();
 		builder.setHOpCode(hSession.headParam.hOpCode);
-		builder.setUser(UserAction.getUserDataBuilder(user));
+		builder.setUser(UserAction.getUserDataBuilder(user, hSession.headParam.token));
 		HttpPacket packet = new HttpPacket(hSession.headParam.hOpCode, builder.build());
 		return packet;
 	}
 
 	// dingwancheng start
-	public HttpPacket getUserByEmailHandle(HSession hSession) {
+	public HttpPacket getUserByEmailHandle(HSession hSession) throws HttpErrorException {
 		GetUserByEmailC message = (GetUserByEmailC) hSession.httpPacket.getData();
 		User user = UserAction.getUserByEmail(message.getUserEmail());
 
@@ -109,18 +123,19 @@ public class UserService implements IHttpListener, IService {
 		if (user == null) {
 			builder.setUser(UserData.newBuilder());
 		} else {
-			builder.setUser(UserAction.getUserDataBuilder(user));
+			builder.setUser(UserAction.getUserDataBuilder(user, hSession.headParam.token));
 		}
 		HttpPacket packet = new HttpPacket(hSession.headParam.hOpCode, builder.build());
 		return packet;
 	}
 	// dingwancheng end
 
-	public HttpPacket updateUserHandle(HSession hSession) {
+	public HttpPacket updateUserHandle(HSession hSession) throws HttpErrorException {
 		UpdateUserC message = (UpdateUserC) hSession.httpPacket.getData();
 		User user = UserAction.updateUser(message.getUserId(), message.getUserPassword(), message.getUserPhone(), message.getUserEmail(), message.getUserState(), message.getIsUpdateUserGroup(), message.getUserGroupId(), message.getUserRealName(), message.getUserSex(), message.getUserAge(), message.getUserRole(), null);
 		if (user == null) {
-			return null;
+			UCError errorPack = UCErrorPack.create(UCErrorCode.ERROR_CODE_14, hSession.headParam.hOpCode);
+			throw new HttpErrorException(HOpCodeUCenter.UC_ERROR, errorPack);
 		}
 		if (hSession.fileList != null && hSession.fileList.size() > 0) {
 			String oldName = user.getUserImg();
@@ -138,14 +153,14 @@ public class UserService implements IHttpListener, IService {
 		}
 		UpdateUserS.Builder builder = UpdateUserS.newBuilder();
 		builder.setHOpCode(hSession.headParam.hOpCode);
-		builder.setUser(UserAction.getUserDataBuilder(user));
+		builder.setUser(UserAction.getUserDataBuilder(user, hSession.headParam.token));
 		HttpPacket packet = new HttpPacket(hSession.headParam.hOpCode, builder.build());
 		return packet;
 	}
 
 	public HttpPacket getUserListHandle(HSession hSession) {
 		GetUserListC message = (GetUserListC) hSession.httpPacket.getData();
-		List<User> userList = UserAction.getUserList(message.getUserGroupId(), message.getIsRecursion(), message.getIsUserGroupIsNull(), message.getUserState(), message.getUserSex(), message.getUserRole(), message.getUserGroupTopId(), message.getUserName(), message.getUserCreateTimeGreaterThan(), message.getUserCreateTimeLessThan());
+		List<User> userList = UserAction.getUserList(message.getUserGroupId(), message.getIsRecursion(), message.getIsUserGroupIsNull(), message.getUserState(), message.getUserSex(), message.getUserRole(), message.getUserGroupTopId(), message.getUserName(), message.getUserCreateTimeGreaterThan(), message.getUserCreateTimeLessThan(), message.getUserUpdateTimeGreaterThan(), message.getUserUpdateTimeLessThan());
 		int currentPage = message.getCurrentPage();
 		int pageSize = message.getPageSize();
 		PageObj pageObj = PageFormat.getStartAndEnd(currentPage, pageSize, userList.size());
@@ -158,7 +173,7 @@ public class UserService implements IHttpListener, IService {
 		if (userList != null) {
 			for (int i = pageObj.start; i < pageObj.end; i++) {
 				User user = userList.get(i);
-				builder.addUser(UserAction.getUserDataBuilder(user));
+				builder.addUser(UserAction.getUserDataBuilder(user, hSession.headParam.token));
 			}
 		}
 		HttpPacket packet = new HttpPacket(hSession.headParam.hOpCode, builder.build());
@@ -169,6 +184,20 @@ public class UserService implements IHttpListener, IService {
 		CheckUserByUserNameC message = (CheckUserByUserNameC) hSession.httpPacket.getData();
 		User user = UserAction.getUserByName(message.getUserName());
 		CheckUserByUserNameS.Builder builder = CheckUserByUserNameS.newBuilder();
+		builder.setHOpCode(hSession.headParam.hOpCode);
+		if (user == null) {
+			builder.setExist(false);
+		} else {
+			builder.setExist(true);
+		}
+		HttpPacket packet = new HttpPacket(hSession.headParam.hOpCode, builder.build());
+		return packet;
+	}
+
+	public HttpPacket checkUserPhone(HSession hSession) {
+		CheckUserPhoneC message = (CheckUserPhoneC) hSession.httpPacket.getData();
+		User user = UserAction.getUserByUserPhone(message.getUserPhone());
+		CheckUserPhoneS.Builder builder = CheckUserPhoneS.newBuilder();
 		builder.setHOpCode(hSession.headParam.hOpCode);
 		if (user == null) {
 			builder.setExist(false);

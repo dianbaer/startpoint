@@ -4267,6 +4267,1001 @@ public final class UserGroupProto {
 
   }
 
+  public interface DeleteUserGroupCOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:protobuf.http.DeleteUserGroupC)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional int32 hOpCode = 1;</code>
+     */
+    int getHOpCode();
+
+    /**
+     * <code>optional string userGroupId = 2;</code>
+     */
+    java.lang.String getUserGroupId();
+    /**
+     * <code>optional string userGroupId = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getUserGroupIdBytes();
+  }
+  /**
+   * Protobuf type {@code protobuf.http.DeleteUserGroupC}
+   */
+  public  static final class DeleteUserGroupC extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:protobuf.http.DeleteUserGroupC)
+      DeleteUserGroupCOrBuilder {
+    // Use DeleteUserGroupC.newBuilder() to construct.
+    private DeleteUserGroupC(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private DeleteUserGroupC() {
+      hOpCode_ = 0;
+      userGroupId_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private DeleteUserGroupC(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+
+              hOpCode_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              userGroupId_ = s;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return protobuf.http.UserGroupProto.internal_static_protobuf_http_DeleteUserGroupC_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return protobuf.http.UserGroupProto.internal_static_protobuf_http_DeleteUserGroupC_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              protobuf.http.UserGroupProto.DeleteUserGroupC.class, protobuf.http.UserGroupProto.DeleteUserGroupC.Builder.class);
+    }
+
+    public static final int HOPCODE_FIELD_NUMBER = 1;
+    private int hOpCode_;
+    /**
+     * <code>optional int32 hOpCode = 1;</code>
+     */
+    public int getHOpCode() {
+      return hOpCode_;
+    }
+
+    public static final int USERGROUPID_FIELD_NUMBER = 2;
+    private volatile java.lang.Object userGroupId_;
+    /**
+     * <code>optional string userGroupId = 2;</code>
+     */
+    public java.lang.String getUserGroupId() {
+      java.lang.Object ref = userGroupId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        userGroupId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string userGroupId = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUserGroupIdBytes() {
+      java.lang.Object ref = userGroupId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userGroupId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (hOpCode_ != 0) {
+        output.writeInt32(1, hOpCode_);
+      }
+      if (!getUserGroupIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, userGroupId_);
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (hOpCode_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, hOpCode_);
+      }
+      if (!getUserGroupIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, userGroupId_);
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof protobuf.http.UserGroupProto.DeleteUserGroupC)) {
+        return super.equals(obj);
+      }
+      protobuf.http.UserGroupProto.DeleteUserGroupC other = (protobuf.http.UserGroupProto.DeleteUserGroupC) obj;
+
+      boolean result = true;
+      result = result && (getHOpCode()
+          == other.getHOpCode());
+      result = result && getUserGroupId()
+          .equals(other.getUserGroupId());
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (37 * hash) + HOPCODE_FIELD_NUMBER;
+      hash = (53 * hash) + getHOpCode();
+      hash = (37 * hash) + USERGROUPID_FIELD_NUMBER;
+      hash = (53 * hash) + getUserGroupId().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static protobuf.http.UserGroupProto.DeleteUserGroupC parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protobuf.http.UserGroupProto.DeleteUserGroupC parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protobuf.http.UserGroupProto.DeleteUserGroupC parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protobuf.http.UserGroupProto.DeleteUserGroupC parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protobuf.http.UserGroupProto.DeleteUserGroupC parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static protobuf.http.UserGroupProto.DeleteUserGroupC parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static protobuf.http.UserGroupProto.DeleteUserGroupC parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static protobuf.http.UserGroupProto.DeleteUserGroupC parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static protobuf.http.UserGroupProto.DeleteUserGroupC parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static protobuf.http.UserGroupProto.DeleteUserGroupC parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(protobuf.http.UserGroupProto.DeleteUserGroupC prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code protobuf.http.DeleteUserGroupC}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:protobuf.http.DeleteUserGroupC)
+        protobuf.http.UserGroupProto.DeleteUserGroupCOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return protobuf.http.UserGroupProto.internal_static_protobuf_http_DeleteUserGroupC_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return protobuf.http.UserGroupProto.internal_static_protobuf_http_DeleteUserGroupC_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                protobuf.http.UserGroupProto.DeleteUserGroupC.class, protobuf.http.UserGroupProto.DeleteUserGroupC.Builder.class);
+      }
+
+      // Construct using protobuf.http.UserGroupProto.DeleteUserGroupC.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        hOpCode_ = 0;
+
+        userGroupId_ = "";
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return protobuf.http.UserGroupProto.internal_static_protobuf_http_DeleteUserGroupC_descriptor;
+      }
+
+      public protobuf.http.UserGroupProto.DeleteUserGroupC getDefaultInstanceForType() {
+        return protobuf.http.UserGroupProto.DeleteUserGroupC.getDefaultInstance();
+      }
+
+      public protobuf.http.UserGroupProto.DeleteUserGroupC build() {
+        protobuf.http.UserGroupProto.DeleteUserGroupC result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public protobuf.http.UserGroupProto.DeleteUserGroupC buildPartial() {
+        protobuf.http.UserGroupProto.DeleteUserGroupC result = new protobuf.http.UserGroupProto.DeleteUserGroupC(this);
+        result.hOpCode_ = hOpCode_;
+        result.userGroupId_ = userGroupId_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof protobuf.http.UserGroupProto.DeleteUserGroupC) {
+          return mergeFrom((protobuf.http.UserGroupProto.DeleteUserGroupC)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(protobuf.http.UserGroupProto.DeleteUserGroupC other) {
+        if (other == protobuf.http.UserGroupProto.DeleteUserGroupC.getDefaultInstance()) return this;
+        if (other.getHOpCode() != 0) {
+          setHOpCode(other.getHOpCode());
+        }
+        if (!other.getUserGroupId().isEmpty()) {
+          userGroupId_ = other.userGroupId_;
+          onChanged();
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        protobuf.http.UserGroupProto.DeleteUserGroupC parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (protobuf.http.UserGroupProto.DeleteUserGroupC) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int hOpCode_ ;
+      /**
+       * <code>optional int32 hOpCode = 1;</code>
+       */
+      public int getHOpCode() {
+        return hOpCode_;
+      }
+      /**
+       * <code>optional int32 hOpCode = 1;</code>
+       */
+      public Builder setHOpCode(int value) {
+        
+        hOpCode_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 hOpCode = 1;</code>
+       */
+      public Builder clearHOpCode() {
+        
+        hOpCode_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object userGroupId_ = "";
+      /**
+       * <code>optional string userGroupId = 2;</code>
+       */
+      public java.lang.String getUserGroupId() {
+        java.lang.Object ref = userGroupId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          userGroupId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string userGroupId = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUserGroupIdBytes() {
+        java.lang.Object ref = userGroupId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          userGroupId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string userGroupId = 2;</code>
+       */
+      public Builder setUserGroupId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        userGroupId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string userGroupId = 2;</code>
+       */
+      public Builder clearUserGroupId() {
+        
+        userGroupId_ = getDefaultInstance().getUserGroupId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string userGroupId = 2;</code>
+       */
+      public Builder setUserGroupIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        userGroupId_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:protobuf.http.DeleteUserGroupC)
+    }
+
+    // @@protoc_insertion_point(class_scope:protobuf.http.DeleteUserGroupC)
+    private static final protobuf.http.UserGroupProto.DeleteUserGroupC DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new protobuf.http.UserGroupProto.DeleteUserGroupC();
+    }
+
+    public static protobuf.http.UserGroupProto.DeleteUserGroupC getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<DeleteUserGroupC>
+        PARSER = new com.google.protobuf.AbstractParser<DeleteUserGroupC>() {
+      public DeleteUserGroupC parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new DeleteUserGroupC(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<DeleteUserGroupC> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DeleteUserGroupC> getParserForType() {
+      return PARSER;
+    }
+
+    public protobuf.http.UserGroupProto.DeleteUserGroupC getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface DeleteUserGroupSOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:protobuf.http.DeleteUserGroupS)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional int32 hOpCode = 1;</code>
+     */
+    int getHOpCode();
+  }
+  /**
+   * Protobuf type {@code protobuf.http.DeleteUserGroupS}
+   */
+  public  static final class DeleteUserGroupS extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:protobuf.http.DeleteUserGroupS)
+      DeleteUserGroupSOrBuilder {
+    // Use DeleteUserGroupS.newBuilder() to construct.
+    private DeleteUserGroupS(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private DeleteUserGroupS() {
+      hOpCode_ = 0;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private DeleteUserGroupS(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+
+              hOpCode_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return protobuf.http.UserGroupProto.internal_static_protobuf_http_DeleteUserGroupS_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return protobuf.http.UserGroupProto.internal_static_protobuf_http_DeleteUserGroupS_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              protobuf.http.UserGroupProto.DeleteUserGroupS.class, protobuf.http.UserGroupProto.DeleteUserGroupS.Builder.class);
+    }
+
+    public static final int HOPCODE_FIELD_NUMBER = 1;
+    private int hOpCode_;
+    /**
+     * <code>optional int32 hOpCode = 1;</code>
+     */
+    public int getHOpCode() {
+      return hOpCode_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (hOpCode_ != 0) {
+        output.writeInt32(1, hOpCode_);
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (hOpCode_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, hOpCode_);
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof protobuf.http.UserGroupProto.DeleteUserGroupS)) {
+        return super.equals(obj);
+      }
+      protobuf.http.UserGroupProto.DeleteUserGroupS other = (protobuf.http.UserGroupProto.DeleteUserGroupS) obj;
+
+      boolean result = true;
+      result = result && (getHOpCode()
+          == other.getHOpCode());
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (37 * hash) + HOPCODE_FIELD_NUMBER;
+      hash = (53 * hash) + getHOpCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static protobuf.http.UserGroupProto.DeleteUserGroupS parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protobuf.http.UserGroupProto.DeleteUserGroupS parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protobuf.http.UserGroupProto.DeleteUserGroupS parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protobuf.http.UserGroupProto.DeleteUserGroupS parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protobuf.http.UserGroupProto.DeleteUserGroupS parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static protobuf.http.UserGroupProto.DeleteUserGroupS parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static protobuf.http.UserGroupProto.DeleteUserGroupS parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static protobuf.http.UserGroupProto.DeleteUserGroupS parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static protobuf.http.UserGroupProto.DeleteUserGroupS parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static protobuf.http.UserGroupProto.DeleteUserGroupS parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(protobuf.http.UserGroupProto.DeleteUserGroupS prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code protobuf.http.DeleteUserGroupS}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:protobuf.http.DeleteUserGroupS)
+        protobuf.http.UserGroupProto.DeleteUserGroupSOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return protobuf.http.UserGroupProto.internal_static_protobuf_http_DeleteUserGroupS_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return protobuf.http.UserGroupProto.internal_static_protobuf_http_DeleteUserGroupS_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                protobuf.http.UserGroupProto.DeleteUserGroupS.class, protobuf.http.UserGroupProto.DeleteUserGroupS.Builder.class);
+      }
+
+      // Construct using protobuf.http.UserGroupProto.DeleteUserGroupS.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        hOpCode_ = 0;
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return protobuf.http.UserGroupProto.internal_static_protobuf_http_DeleteUserGroupS_descriptor;
+      }
+
+      public protobuf.http.UserGroupProto.DeleteUserGroupS getDefaultInstanceForType() {
+        return protobuf.http.UserGroupProto.DeleteUserGroupS.getDefaultInstance();
+      }
+
+      public protobuf.http.UserGroupProto.DeleteUserGroupS build() {
+        protobuf.http.UserGroupProto.DeleteUserGroupS result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public protobuf.http.UserGroupProto.DeleteUserGroupS buildPartial() {
+        protobuf.http.UserGroupProto.DeleteUserGroupS result = new protobuf.http.UserGroupProto.DeleteUserGroupS(this);
+        result.hOpCode_ = hOpCode_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof protobuf.http.UserGroupProto.DeleteUserGroupS) {
+          return mergeFrom((protobuf.http.UserGroupProto.DeleteUserGroupS)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(protobuf.http.UserGroupProto.DeleteUserGroupS other) {
+        if (other == protobuf.http.UserGroupProto.DeleteUserGroupS.getDefaultInstance()) return this;
+        if (other.getHOpCode() != 0) {
+          setHOpCode(other.getHOpCode());
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        protobuf.http.UserGroupProto.DeleteUserGroupS parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (protobuf.http.UserGroupProto.DeleteUserGroupS) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int hOpCode_ ;
+      /**
+       * <code>optional int32 hOpCode = 1;</code>
+       */
+      public int getHOpCode() {
+        return hOpCode_;
+      }
+      /**
+       * <code>optional int32 hOpCode = 1;</code>
+       */
+      public Builder setHOpCode(int value) {
+        
+        hOpCode_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 hOpCode = 1;</code>
+       */
+      public Builder clearHOpCode() {
+        
+        hOpCode_ = 0;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:protobuf.http.DeleteUserGroupS)
+    }
+
+    // @@protoc_insertion_point(class_scope:protobuf.http.DeleteUserGroupS)
+    private static final protobuf.http.UserGroupProto.DeleteUserGroupS DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new protobuf.http.UserGroupProto.DeleteUserGroupS();
+    }
+
+    public static protobuf.http.UserGroupProto.DeleteUserGroupS getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<DeleteUserGroupS>
+        PARSER = new com.google.protobuf.AbstractParser<DeleteUserGroupS>() {
+      public DeleteUserGroupS parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new DeleteUserGroupS(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<DeleteUserGroupS> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DeleteUserGroupS> getParserForType() {
+      return PARSER;
+    }
+
+    public protobuf.http.UserGroupProto.DeleteUserGroupS getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface GetUserGroupListCOrBuilder extends
       // @@protoc_insertion_point(interface_extends:protobuf.http.GetUserGroupListC)
       com.google.protobuf.MessageOrBuilder {
@@ -4336,6 +5331,78 @@ public final class UserGroupProto {
      * <code>optional int32 pageSize = 8;</code>
      */
     int getPageSize();
+
+    /**
+     * <pre>
+     *创建时间大于等于某个时间段（yyyy-MM-dd HH:mm:ss）
+     * </pre>
+     *
+     * <code>optional string userGroupCreateTimeGreaterThan = 9;</code>
+     */
+    java.lang.String getUserGroupCreateTimeGreaterThan();
+    /**
+     * <pre>
+     *创建时间大于等于某个时间段（yyyy-MM-dd HH:mm:ss）
+     * </pre>
+     *
+     * <code>optional string userGroupCreateTimeGreaterThan = 9;</code>
+     */
+    com.google.protobuf.ByteString
+        getUserGroupCreateTimeGreaterThanBytes();
+
+    /**
+     * <pre>
+     *创建时间小于等于某个时间段（yyyy-MM-dd HH:mm:ss）
+     * </pre>
+     *
+     * <code>optional string userGroupCreateTimeLessThan = 10;</code>
+     */
+    java.lang.String getUserGroupCreateTimeLessThan();
+    /**
+     * <pre>
+     *创建时间小于等于某个时间段（yyyy-MM-dd HH:mm:ss）
+     * </pre>
+     *
+     * <code>optional string userGroupCreateTimeLessThan = 10;</code>
+     */
+    com.google.protobuf.ByteString
+        getUserGroupCreateTimeLessThanBytes();
+
+    /**
+     * <pre>
+     *更新时间大于等个某个时间段
+     * </pre>
+     *
+     * <code>optional string userGroupUpdateTimeGreaterThan = 11;</code>
+     */
+    java.lang.String getUserGroupUpdateTimeGreaterThan();
+    /**
+     * <pre>
+     *更新时间大于等个某个时间段
+     * </pre>
+     *
+     * <code>optional string userGroupUpdateTimeGreaterThan = 11;</code>
+     */
+    com.google.protobuf.ByteString
+        getUserGroupUpdateTimeGreaterThanBytes();
+
+    /**
+     * <pre>
+     *更新时间小于等个某个时间段
+     * </pre>
+     *
+     * <code>optional string userGroupUpdateTimeLessThan = 12;</code>
+     */
+    java.lang.String getUserGroupUpdateTimeLessThan();
+    /**
+     * <pre>
+     *更新时间小于等个某个时间段
+     * </pre>
+     *
+     * <code>optional string userGroupUpdateTimeLessThan = 12;</code>
+     */
+    com.google.protobuf.ByteString
+        getUserGroupUpdateTimeLessThanBytes();
   }
   /**
    * Protobuf type {@code protobuf.http.GetUserGroupListC}
@@ -4357,6 +5424,10 @@ public final class UserGroupProto {
       userGroupState_ = 0;
       currentPage_ = 0;
       pageSize_ = 0;
+      userGroupCreateTimeGreaterThan_ = "";
+      userGroupCreateTimeLessThan_ = "";
+      userGroupUpdateTimeGreaterThan_ = "";
+      userGroupUpdateTimeLessThan_ = "";
     }
 
     @java.lang.Override
@@ -4424,6 +5495,30 @@ public final class UserGroupProto {
             case 64: {
 
               pageSize_ = input.readInt32();
+              break;
+            }
+            case 74: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              userGroupCreateTimeGreaterThan_ = s;
+              break;
+            }
+            case 82: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              userGroupCreateTimeLessThan_ = s;
+              break;
+            }
+            case 90: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              userGroupUpdateTimeGreaterThan_ = s;
+              break;
+            }
+            case 98: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              userGroupUpdateTimeLessThan_ = s;
               break;
             }
           }
@@ -4587,6 +5682,174 @@ public final class UserGroupProto {
       return pageSize_;
     }
 
+    public static final int USERGROUPCREATETIMEGREATERTHAN_FIELD_NUMBER = 9;
+    private volatile java.lang.Object userGroupCreateTimeGreaterThan_;
+    /**
+     * <pre>
+     *创建时间大于等于某个时间段（yyyy-MM-dd HH:mm:ss）
+     * </pre>
+     *
+     * <code>optional string userGroupCreateTimeGreaterThan = 9;</code>
+     */
+    public java.lang.String getUserGroupCreateTimeGreaterThan() {
+      java.lang.Object ref = userGroupCreateTimeGreaterThan_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        userGroupCreateTimeGreaterThan_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *创建时间大于等于某个时间段（yyyy-MM-dd HH:mm:ss）
+     * </pre>
+     *
+     * <code>optional string userGroupCreateTimeGreaterThan = 9;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUserGroupCreateTimeGreaterThanBytes() {
+      java.lang.Object ref = userGroupCreateTimeGreaterThan_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userGroupCreateTimeGreaterThan_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int USERGROUPCREATETIMELESSTHAN_FIELD_NUMBER = 10;
+    private volatile java.lang.Object userGroupCreateTimeLessThan_;
+    /**
+     * <pre>
+     *创建时间小于等于某个时间段（yyyy-MM-dd HH:mm:ss）
+     * </pre>
+     *
+     * <code>optional string userGroupCreateTimeLessThan = 10;</code>
+     */
+    public java.lang.String getUserGroupCreateTimeLessThan() {
+      java.lang.Object ref = userGroupCreateTimeLessThan_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        userGroupCreateTimeLessThan_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *创建时间小于等于某个时间段（yyyy-MM-dd HH:mm:ss）
+     * </pre>
+     *
+     * <code>optional string userGroupCreateTimeLessThan = 10;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUserGroupCreateTimeLessThanBytes() {
+      java.lang.Object ref = userGroupCreateTimeLessThan_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userGroupCreateTimeLessThan_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int USERGROUPUPDATETIMEGREATERTHAN_FIELD_NUMBER = 11;
+    private volatile java.lang.Object userGroupUpdateTimeGreaterThan_;
+    /**
+     * <pre>
+     *更新时间大于等个某个时间段
+     * </pre>
+     *
+     * <code>optional string userGroupUpdateTimeGreaterThan = 11;</code>
+     */
+    public java.lang.String getUserGroupUpdateTimeGreaterThan() {
+      java.lang.Object ref = userGroupUpdateTimeGreaterThan_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        userGroupUpdateTimeGreaterThan_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *更新时间大于等个某个时间段
+     * </pre>
+     *
+     * <code>optional string userGroupUpdateTimeGreaterThan = 11;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUserGroupUpdateTimeGreaterThanBytes() {
+      java.lang.Object ref = userGroupUpdateTimeGreaterThan_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userGroupUpdateTimeGreaterThan_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int USERGROUPUPDATETIMELESSTHAN_FIELD_NUMBER = 12;
+    private volatile java.lang.Object userGroupUpdateTimeLessThan_;
+    /**
+     * <pre>
+     *更新时间小于等个某个时间段
+     * </pre>
+     *
+     * <code>optional string userGroupUpdateTimeLessThan = 12;</code>
+     */
+    public java.lang.String getUserGroupUpdateTimeLessThan() {
+      java.lang.Object ref = userGroupUpdateTimeLessThan_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        userGroupUpdateTimeLessThan_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *更新时间小于等个某个时间段
+     * </pre>
+     *
+     * <code>optional string userGroupUpdateTimeLessThan = 12;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUserGroupUpdateTimeLessThanBytes() {
+      java.lang.Object ref = userGroupUpdateTimeLessThan_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userGroupUpdateTimeLessThan_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -4622,6 +5885,18 @@ public final class UserGroupProto {
       }
       if (pageSize_ != 0) {
         output.writeInt32(8, pageSize_);
+      }
+      if (!getUserGroupCreateTimeGreaterThanBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 9, userGroupCreateTimeGreaterThan_);
+      }
+      if (!getUserGroupCreateTimeLessThanBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, userGroupCreateTimeLessThan_);
+      }
+      if (!getUserGroupUpdateTimeGreaterThanBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 11, userGroupUpdateTimeGreaterThan_);
+      }
+      if (!getUserGroupUpdateTimeLessThanBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 12, userGroupUpdateTimeLessThan_);
       }
     }
 
@@ -4660,6 +5935,18 @@ public final class UserGroupProto {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(8, pageSize_);
       }
+      if (!getUserGroupCreateTimeGreaterThanBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, userGroupCreateTimeGreaterThan_);
+      }
+      if (!getUserGroupCreateTimeLessThanBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, userGroupCreateTimeLessThan_);
+      }
+      if (!getUserGroupUpdateTimeGreaterThanBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, userGroupUpdateTimeGreaterThan_);
+      }
+      if (!getUserGroupUpdateTimeLessThanBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, userGroupUpdateTimeLessThan_);
+      }
       memoizedSize = size;
       return size;
     }
@@ -4692,6 +5979,14 @@ public final class UserGroupProto {
           == other.getCurrentPage());
       result = result && (getPageSize()
           == other.getPageSize());
+      result = result && getUserGroupCreateTimeGreaterThan()
+          .equals(other.getUserGroupCreateTimeGreaterThan());
+      result = result && getUserGroupCreateTimeLessThan()
+          .equals(other.getUserGroupCreateTimeLessThan());
+      result = result && getUserGroupUpdateTimeGreaterThan()
+          .equals(other.getUserGroupUpdateTimeGreaterThan());
+      result = result && getUserGroupUpdateTimeLessThan()
+          .equals(other.getUserGroupUpdateTimeLessThan());
       return result;
     }
 
@@ -4720,6 +6015,14 @@ public final class UserGroupProto {
       hash = (53 * hash) + getCurrentPage();
       hash = (37 * hash) + PAGESIZE_FIELD_NUMBER;
       hash = (53 * hash) + getPageSize();
+      hash = (37 * hash) + USERGROUPCREATETIMEGREATERTHAN_FIELD_NUMBER;
+      hash = (53 * hash) + getUserGroupCreateTimeGreaterThan().hashCode();
+      hash = (37 * hash) + USERGROUPCREATETIMELESSTHAN_FIELD_NUMBER;
+      hash = (53 * hash) + getUserGroupCreateTimeLessThan().hashCode();
+      hash = (37 * hash) + USERGROUPUPDATETIMEGREATERTHAN_FIELD_NUMBER;
+      hash = (53 * hash) + getUserGroupUpdateTimeGreaterThan().hashCode();
+      hash = (37 * hash) + USERGROUPUPDATETIMELESSTHAN_FIELD_NUMBER;
+      hash = (53 * hash) + getUserGroupUpdateTimeLessThan().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -4854,6 +6157,14 @@ public final class UserGroupProto {
 
         pageSize_ = 0;
 
+        userGroupCreateTimeGreaterThan_ = "";
+
+        userGroupCreateTimeLessThan_ = "";
+
+        userGroupUpdateTimeGreaterThan_ = "";
+
+        userGroupUpdateTimeLessThan_ = "";
+
         return this;
       }
 
@@ -4884,6 +6195,10 @@ public final class UserGroupProto {
         result.userGroupState_ = userGroupState_;
         result.currentPage_ = currentPage_;
         result.pageSize_ = pageSize_;
+        result.userGroupCreateTimeGreaterThan_ = userGroupCreateTimeGreaterThan_;
+        result.userGroupCreateTimeLessThan_ = userGroupCreateTimeLessThan_;
+        result.userGroupUpdateTimeGreaterThan_ = userGroupUpdateTimeGreaterThan_;
+        result.userGroupUpdateTimeLessThan_ = userGroupUpdateTimeLessThan_;
         onBuilt();
         return result;
       }
@@ -4950,6 +6265,22 @@ public final class UserGroupProto {
         }
         if (other.getPageSize() != 0) {
           setPageSize(other.getPageSize());
+        }
+        if (!other.getUserGroupCreateTimeGreaterThan().isEmpty()) {
+          userGroupCreateTimeGreaterThan_ = other.userGroupCreateTimeGreaterThan_;
+          onChanged();
+        }
+        if (!other.getUserGroupCreateTimeLessThan().isEmpty()) {
+          userGroupCreateTimeLessThan_ = other.userGroupCreateTimeLessThan_;
+          onChanged();
+        }
+        if (!other.getUserGroupUpdateTimeGreaterThan().isEmpty()) {
+          userGroupUpdateTimeGreaterThan_ = other.userGroupUpdateTimeGreaterThan_;
+          onChanged();
+        }
+        if (!other.getUserGroupUpdateTimeLessThan().isEmpty()) {
+          userGroupUpdateTimeLessThan_ = other.userGroupUpdateTimeLessThan_;
+          onChanged();
         }
         onChanged();
         return this;
@@ -5311,6 +6642,362 @@ public final class UserGroupProto {
       public Builder clearPageSize() {
         
         pageSize_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object userGroupCreateTimeGreaterThan_ = "";
+      /**
+       * <pre>
+       *创建时间大于等于某个时间段（yyyy-MM-dd HH:mm:ss）
+       * </pre>
+       *
+       * <code>optional string userGroupCreateTimeGreaterThan = 9;</code>
+       */
+      public java.lang.String getUserGroupCreateTimeGreaterThan() {
+        java.lang.Object ref = userGroupCreateTimeGreaterThan_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          userGroupCreateTimeGreaterThan_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *创建时间大于等于某个时间段（yyyy-MM-dd HH:mm:ss）
+       * </pre>
+       *
+       * <code>optional string userGroupCreateTimeGreaterThan = 9;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUserGroupCreateTimeGreaterThanBytes() {
+        java.lang.Object ref = userGroupCreateTimeGreaterThan_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          userGroupCreateTimeGreaterThan_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *创建时间大于等于某个时间段（yyyy-MM-dd HH:mm:ss）
+       * </pre>
+       *
+       * <code>optional string userGroupCreateTimeGreaterThan = 9;</code>
+       */
+      public Builder setUserGroupCreateTimeGreaterThan(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        userGroupCreateTimeGreaterThan_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *创建时间大于等于某个时间段（yyyy-MM-dd HH:mm:ss）
+       * </pre>
+       *
+       * <code>optional string userGroupCreateTimeGreaterThan = 9;</code>
+       */
+      public Builder clearUserGroupCreateTimeGreaterThan() {
+        
+        userGroupCreateTimeGreaterThan_ = getDefaultInstance().getUserGroupCreateTimeGreaterThan();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *创建时间大于等于某个时间段（yyyy-MM-dd HH:mm:ss）
+       * </pre>
+       *
+       * <code>optional string userGroupCreateTimeGreaterThan = 9;</code>
+       */
+      public Builder setUserGroupCreateTimeGreaterThanBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        userGroupCreateTimeGreaterThan_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object userGroupCreateTimeLessThan_ = "";
+      /**
+       * <pre>
+       *创建时间小于等于某个时间段（yyyy-MM-dd HH:mm:ss）
+       * </pre>
+       *
+       * <code>optional string userGroupCreateTimeLessThan = 10;</code>
+       */
+      public java.lang.String getUserGroupCreateTimeLessThan() {
+        java.lang.Object ref = userGroupCreateTimeLessThan_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          userGroupCreateTimeLessThan_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *创建时间小于等于某个时间段（yyyy-MM-dd HH:mm:ss）
+       * </pre>
+       *
+       * <code>optional string userGroupCreateTimeLessThan = 10;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUserGroupCreateTimeLessThanBytes() {
+        java.lang.Object ref = userGroupCreateTimeLessThan_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          userGroupCreateTimeLessThan_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *创建时间小于等于某个时间段（yyyy-MM-dd HH:mm:ss）
+       * </pre>
+       *
+       * <code>optional string userGroupCreateTimeLessThan = 10;</code>
+       */
+      public Builder setUserGroupCreateTimeLessThan(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        userGroupCreateTimeLessThan_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *创建时间小于等于某个时间段（yyyy-MM-dd HH:mm:ss）
+       * </pre>
+       *
+       * <code>optional string userGroupCreateTimeLessThan = 10;</code>
+       */
+      public Builder clearUserGroupCreateTimeLessThan() {
+        
+        userGroupCreateTimeLessThan_ = getDefaultInstance().getUserGroupCreateTimeLessThan();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *创建时间小于等于某个时间段（yyyy-MM-dd HH:mm:ss）
+       * </pre>
+       *
+       * <code>optional string userGroupCreateTimeLessThan = 10;</code>
+       */
+      public Builder setUserGroupCreateTimeLessThanBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        userGroupCreateTimeLessThan_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object userGroupUpdateTimeGreaterThan_ = "";
+      /**
+       * <pre>
+       *更新时间大于等个某个时间段
+       * </pre>
+       *
+       * <code>optional string userGroupUpdateTimeGreaterThan = 11;</code>
+       */
+      public java.lang.String getUserGroupUpdateTimeGreaterThan() {
+        java.lang.Object ref = userGroupUpdateTimeGreaterThan_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          userGroupUpdateTimeGreaterThan_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *更新时间大于等个某个时间段
+       * </pre>
+       *
+       * <code>optional string userGroupUpdateTimeGreaterThan = 11;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUserGroupUpdateTimeGreaterThanBytes() {
+        java.lang.Object ref = userGroupUpdateTimeGreaterThan_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          userGroupUpdateTimeGreaterThan_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *更新时间大于等个某个时间段
+       * </pre>
+       *
+       * <code>optional string userGroupUpdateTimeGreaterThan = 11;</code>
+       */
+      public Builder setUserGroupUpdateTimeGreaterThan(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        userGroupUpdateTimeGreaterThan_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *更新时间大于等个某个时间段
+       * </pre>
+       *
+       * <code>optional string userGroupUpdateTimeGreaterThan = 11;</code>
+       */
+      public Builder clearUserGroupUpdateTimeGreaterThan() {
+        
+        userGroupUpdateTimeGreaterThan_ = getDefaultInstance().getUserGroupUpdateTimeGreaterThan();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *更新时间大于等个某个时间段
+       * </pre>
+       *
+       * <code>optional string userGroupUpdateTimeGreaterThan = 11;</code>
+       */
+      public Builder setUserGroupUpdateTimeGreaterThanBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        userGroupUpdateTimeGreaterThan_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object userGroupUpdateTimeLessThan_ = "";
+      /**
+       * <pre>
+       *更新时间小于等个某个时间段
+       * </pre>
+       *
+       * <code>optional string userGroupUpdateTimeLessThan = 12;</code>
+       */
+      public java.lang.String getUserGroupUpdateTimeLessThan() {
+        java.lang.Object ref = userGroupUpdateTimeLessThan_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          userGroupUpdateTimeLessThan_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *更新时间小于等个某个时间段
+       * </pre>
+       *
+       * <code>optional string userGroupUpdateTimeLessThan = 12;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUserGroupUpdateTimeLessThanBytes() {
+        java.lang.Object ref = userGroupUpdateTimeLessThan_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          userGroupUpdateTimeLessThan_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *更新时间小于等个某个时间段
+       * </pre>
+       *
+       * <code>optional string userGroupUpdateTimeLessThan = 12;</code>
+       */
+      public Builder setUserGroupUpdateTimeLessThan(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        userGroupUpdateTimeLessThan_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *更新时间小于等个某个时间段
+       * </pre>
+       *
+       * <code>optional string userGroupUpdateTimeLessThan = 12;</code>
+       */
+      public Builder clearUserGroupUpdateTimeLessThan() {
+        
+        userGroupUpdateTimeLessThan_ = getDefaultInstance().getUserGroupUpdateTimeLessThan();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *更新时间小于等个某个时间段
+       * </pre>
+       *
+       * <code>optional string userGroupUpdateTimeLessThan = 12;</code>
+       */
+      public Builder setUserGroupUpdateTimeLessThanBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        userGroupUpdateTimeLessThan_ = value;
         onChanged();
         return this;
       }
@@ -13412,7 +15099,33 @@ public final class UserGroupProto {
         getUserCreateTimeLessThanBytes();
 
     /**
-     * <code>optional int32 currentPage = 12;</code>
+     * <pre>
+     * </pre>
+     *
+     * <code>optional string userUpdateTimeGreaterThan = 12;</code>
+     */
+    java.lang.String getUserUpdateTimeGreaterThan();
+    /**
+     * <pre>
+     * </pre>
+     *
+     * <code>optional string userUpdateTimeGreaterThan = 12;</code>
+     */
+    com.google.protobuf.ByteString
+        getUserUpdateTimeGreaterThanBytes();
+
+    /**
+     * <code>optional string userUpdateTimeLessThan = 13;</code>
+     */
+    java.lang.String getUserUpdateTimeLessThan();
+    /**
+     * <code>optional string userUpdateTimeLessThan = 13;</code>
+     */
+    com.google.protobuf.ByteString
+        getUserUpdateTimeLessThanBytes();
+
+    /**
+     * <code>optional int32 currentPage = 14;</code>
      */
     int getCurrentPage();
 
@@ -13421,7 +15134,7 @@ public final class UserGroupProto {
      *pageSize传0，说明不分页
      * </pre>
      *
-     * <code>optional int32 pageSize = 13;</code>
+     * <code>optional int32 pageSize = 15;</code>
      */
     int getPageSize();
   }
@@ -13448,6 +15161,8 @@ public final class UserGroupProto {
       userName_ = "";
       userCreateTimeGreaterThan_ = "";
       userCreateTimeLessThan_ = "";
+      userUpdateTimeGreaterThan_ = "";
+      userUpdateTimeLessThan_ = "";
       currentPage_ = 0;
       pageSize_ = 0;
     }
@@ -13537,12 +15252,24 @@ public final class UserGroupProto {
               userCreateTimeLessThan_ = s;
               break;
             }
-            case 96: {
+            case 98: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              userUpdateTimeGreaterThan_ = s;
+              break;
+            }
+            case 106: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              userUpdateTimeLessThan_ = s;
+              break;
+            }
+            case 112: {
 
               currentPage_ = input.readInt32();
               break;
             }
-            case 104: {
+            case 120: {
 
               pageSize_ = input.readInt32();
               break;
@@ -13842,23 +15569,97 @@ public final class UserGroupProto {
       }
     }
 
-    public static final int CURRENTPAGE_FIELD_NUMBER = 12;
+    public static final int USERUPDATETIMEGREATERTHAN_FIELD_NUMBER = 12;
+    private volatile java.lang.Object userUpdateTimeGreaterThan_;
+    /**
+     * <pre>
+     * </pre>
+     *
+     * <code>optional string userUpdateTimeGreaterThan = 12;</code>
+     */
+    public java.lang.String getUserUpdateTimeGreaterThan() {
+      java.lang.Object ref = userUpdateTimeGreaterThan_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        userUpdateTimeGreaterThan_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * </pre>
+     *
+     * <code>optional string userUpdateTimeGreaterThan = 12;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUserUpdateTimeGreaterThanBytes() {
+      java.lang.Object ref = userUpdateTimeGreaterThan_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userUpdateTimeGreaterThan_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int USERUPDATETIMELESSTHAN_FIELD_NUMBER = 13;
+    private volatile java.lang.Object userUpdateTimeLessThan_;
+    /**
+     * <code>optional string userUpdateTimeLessThan = 13;</code>
+     */
+    public java.lang.String getUserUpdateTimeLessThan() {
+      java.lang.Object ref = userUpdateTimeLessThan_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        userUpdateTimeLessThan_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string userUpdateTimeLessThan = 13;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUserUpdateTimeLessThanBytes() {
+      java.lang.Object ref = userUpdateTimeLessThan_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userUpdateTimeLessThan_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CURRENTPAGE_FIELD_NUMBER = 14;
     private int currentPage_;
     /**
-     * <code>optional int32 currentPage = 12;</code>
+     * <code>optional int32 currentPage = 14;</code>
      */
     public int getCurrentPage() {
       return currentPage_;
     }
 
-    public static final int PAGESIZE_FIELD_NUMBER = 13;
+    public static final int PAGESIZE_FIELD_NUMBER = 15;
     private int pageSize_;
     /**
      * <pre>
      *pageSize传0，说明不分页
      * </pre>
      *
-     * <code>optional int32 pageSize = 13;</code>
+     * <code>optional int32 pageSize = 15;</code>
      */
     public int getPageSize() {
       return pageSize_;
@@ -13909,11 +15710,17 @@ public final class UserGroupProto {
       if (!getUserCreateTimeLessThanBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 11, userCreateTimeLessThan_);
       }
+      if (!getUserUpdateTimeGreaterThanBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 12, userUpdateTimeGreaterThan_);
+      }
+      if (!getUserUpdateTimeLessThanBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 13, userUpdateTimeLessThan_);
+      }
       if (currentPage_ != 0) {
-        output.writeInt32(12, currentPage_);
+        output.writeInt32(14, currentPage_);
       }
       if (pageSize_ != 0) {
-        output.writeInt32(13, pageSize_);
+        output.writeInt32(15, pageSize_);
       }
     }
 
@@ -13961,13 +15768,19 @@ public final class UserGroupProto {
       if (!getUserCreateTimeLessThanBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, userCreateTimeLessThan_);
       }
+      if (!getUserUpdateTimeGreaterThanBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, userUpdateTimeGreaterThan_);
+      }
+      if (!getUserUpdateTimeLessThanBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, userUpdateTimeLessThan_);
+      }
       if (currentPage_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(12, currentPage_);
+          .computeInt32Size(14, currentPage_);
       }
       if (pageSize_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(13, pageSize_);
+          .computeInt32Size(15, pageSize_);
       }
       memoizedSize = size;
       return size;
@@ -14007,6 +15820,10 @@ public final class UserGroupProto {
           .equals(other.getUserCreateTimeGreaterThan());
       result = result && getUserCreateTimeLessThan()
           .equals(other.getUserCreateTimeLessThan());
+      result = result && getUserUpdateTimeGreaterThan()
+          .equals(other.getUserUpdateTimeGreaterThan());
+      result = result && getUserUpdateTimeLessThan()
+          .equals(other.getUserUpdateTimeLessThan());
       result = result && (getCurrentPage()
           == other.getCurrentPage());
       result = result && (getPageSize()
@@ -14045,6 +15862,10 @@ public final class UserGroupProto {
       hash = (53 * hash) + getUserCreateTimeGreaterThan().hashCode();
       hash = (37 * hash) + USERCREATETIMELESSTHAN_FIELD_NUMBER;
       hash = (53 * hash) + getUserCreateTimeLessThan().hashCode();
+      hash = (37 * hash) + USERUPDATETIMEGREATERTHAN_FIELD_NUMBER;
+      hash = (53 * hash) + getUserUpdateTimeGreaterThan().hashCode();
+      hash = (37 * hash) + USERUPDATETIMELESSTHAN_FIELD_NUMBER;
+      hash = (53 * hash) + getUserUpdateTimeLessThan().hashCode();
       hash = (37 * hash) + CURRENTPAGE_FIELD_NUMBER;
       hash = (53 * hash) + getCurrentPage();
       hash = (37 * hash) + PAGESIZE_FIELD_NUMBER;
@@ -14189,6 +16010,10 @@ public final class UserGroupProto {
 
         userCreateTimeLessThan_ = "";
 
+        userUpdateTimeGreaterThan_ = "";
+
+        userUpdateTimeLessThan_ = "";
+
         currentPage_ = 0;
 
         pageSize_ = 0;
@@ -14226,6 +16051,8 @@ public final class UserGroupProto {
         result.userName_ = userName_;
         result.userCreateTimeGreaterThan_ = userCreateTimeGreaterThan_;
         result.userCreateTimeLessThan_ = userCreateTimeLessThan_;
+        result.userUpdateTimeGreaterThan_ = userUpdateTimeGreaterThan_;
+        result.userUpdateTimeLessThan_ = userUpdateTimeLessThan_;
         result.currentPage_ = currentPage_;
         result.pageSize_ = pageSize_;
         onBuilt();
@@ -14305,6 +16132,14 @@ public final class UserGroupProto {
         }
         if (!other.getUserCreateTimeLessThan().isEmpty()) {
           userCreateTimeLessThan_ = other.userCreateTimeLessThan_;
+          onChanged();
+        }
+        if (!other.getUserUpdateTimeGreaterThan().isEmpty()) {
+          userUpdateTimeGreaterThan_ = other.userUpdateTimeGreaterThan_;
+          onChanged();
+        }
+        if (!other.getUserUpdateTimeLessThan().isEmpty()) {
+          userUpdateTimeLessThan_ = other.userUpdateTimeLessThan_;
           onChanged();
         }
         if (other.getCurrentPage() != 0) {
@@ -14968,15 +16803,168 @@ public final class UserGroupProto {
         return this;
       }
 
+      private java.lang.Object userUpdateTimeGreaterThan_ = "";
+      /**
+       * <pre>
+       * </pre>
+       *
+       * <code>optional string userUpdateTimeGreaterThan = 12;</code>
+       */
+      public java.lang.String getUserUpdateTimeGreaterThan() {
+        java.lang.Object ref = userUpdateTimeGreaterThan_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          userUpdateTimeGreaterThan_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * </pre>
+       *
+       * <code>optional string userUpdateTimeGreaterThan = 12;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUserUpdateTimeGreaterThanBytes() {
+        java.lang.Object ref = userUpdateTimeGreaterThan_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          userUpdateTimeGreaterThan_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * </pre>
+       *
+       * <code>optional string userUpdateTimeGreaterThan = 12;</code>
+       */
+      public Builder setUserUpdateTimeGreaterThan(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        userUpdateTimeGreaterThan_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * </pre>
+       *
+       * <code>optional string userUpdateTimeGreaterThan = 12;</code>
+       */
+      public Builder clearUserUpdateTimeGreaterThan() {
+        
+        userUpdateTimeGreaterThan_ = getDefaultInstance().getUserUpdateTimeGreaterThan();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * </pre>
+       *
+       * <code>optional string userUpdateTimeGreaterThan = 12;</code>
+       */
+      public Builder setUserUpdateTimeGreaterThanBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        userUpdateTimeGreaterThan_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object userUpdateTimeLessThan_ = "";
+      /**
+       * <code>optional string userUpdateTimeLessThan = 13;</code>
+       */
+      public java.lang.String getUserUpdateTimeLessThan() {
+        java.lang.Object ref = userUpdateTimeLessThan_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          userUpdateTimeLessThan_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string userUpdateTimeLessThan = 13;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUserUpdateTimeLessThanBytes() {
+        java.lang.Object ref = userUpdateTimeLessThan_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          userUpdateTimeLessThan_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string userUpdateTimeLessThan = 13;</code>
+       */
+      public Builder setUserUpdateTimeLessThan(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        userUpdateTimeLessThan_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string userUpdateTimeLessThan = 13;</code>
+       */
+      public Builder clearUserUpdateTimeLessThan() {
+        
+        userUpdateTimeLessThan_ = getDefaultInstance().getUserUpdateTimeLessThan();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string userUpdateTimeLessThan = 13;</code>
+       */
+      public Builder setUserUpdateTimeLessThanBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        userUpdateTimeLessThan_ = value;
+        onChanged();
+        return this;
+      }
+
       private int currentPage_ ;
       /**
-       * <code>optional int32 currentPage = 12;</code>
+       * <code>optional int32 currentPage = 14;</code>
        */
       public int getCurrentPage() {
         return currentPage_;
       }
       /**
-       * <code>optional int32 currentPage = 12;</code>
+       * <code>optional int32 currentPage = 14;</code>
        */
       public Builder setCurrentPage(int value) {
         
@@ -14985,7 +16973,7 @@ public final class UserGroupProto {
         return this;
       }
       /**
-       * <code>optional int32 currentPage = 12;</code>
+       * <code>optional int32 currentPage = 14;</code>
        */
       public Builder clearCurrentPage() {
         
@@ -15000,7 +16988,7 @@ public final class UserGroupProto {
        *pageSize传0，说明不分页
        * </pre>
        *
-       * <code>optional int32 pageSize = 13;</code>
+       * <code>optional int32 pageSize = 15;</code>
        */
       public int getPageSize() {
         return pageSize_;
@@ -15010,7 +16998,7 @@ public final class UserGroupProto {
        *pageSize传0，说明不分页
        * </pre>
        *
-       * <code>optional int32 pageSize = 13;</code>
+       * <code>optional int32 pageSize = 15;</code>
        */
       public Builder setPageSize(int value) {
         
@@ -15023,7 +17011,7 @@ public final class UserGroupProto {
        *pageSize传0，说明不分页
        * </pre>
        *
-       * <code>optional int32 pageSize = 13;</code>
+       * <code>optional int32 pageSize = 15;</code>
        */
       public Builder clearPageSize() {
         
@@ -21781,6 +23769,16 @@ public final class UserGroupProto {
      */
     com.google.protobuf.ByteString
         getUserImgBytes();
+
+    /**
+     * <code>optional string userImgUrl = 15;</code>
+     */
+    java.lang.String getUserImgUrl();
+    /**
+     * <code>optional string userImgUrl = 15;</code>
+     */
+    com.google.protobuf.ByteString
+        getUserImgUrlBytes();
   }
   /**
    * Protobuf type {@code protobuf.http.UserData}
@@ -21808,6 +23806,7 @@ public final class UserGroupProto {
       userGroupTopId_ = "";
       userRole_ = 0;
       userImg_ = "";
+      userImgUrl_ = "";
     }
 
     @java.lang.Override
@@ -21913,6 +23912,12 @@ public final class UserGroupProto {
               java.lang.String s = input.readStringRequireUtf8();
 
               userImg_ = s;
+              break;
+            }
+            case 122: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              userImgUrl_ = s;
               break;
             }
           }
@@ -22314,6 +24319,40 @@ public final class UserGroupProto {
       }
     }
 
+    public static final int USERIMGURL_FIELD_NUMBER = 15;
+    private volatile java.lang.Object userImgUrl_;
+    /**
+     * <code>optional string userImgUrl = 15;</code>
+     */
+    public java.lang.String getUserImgUrl() {
+      java.lang.Object ref = userImgUrl_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        userImgUrl_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string userImgUrl = 15;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUserImgUrlBytes() {
+      java.lang.Object ref = userImgUrl_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userImgUrl_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -22368,6 +24407,9 @@ public final class UserGroupProto {
       if (!getUserImgBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 14, userImg_);
       }
+      if (!getUserImgUrlBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 15, userImgUrl_);
+      }
     }
 
     public int getSerializedSize() {
@@ -22421,6 +24463,9 @@ public final class UserGroupProto {
       if (!getUserImgBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, userImg_);
       }
+      if (!getUserImgUrlBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, userImgUrl_);
+      }
       memoizedSize = size;
       return size;
     }
@@ -22465,6 +24510,8 @@ public final class UserGroupProto {
           == other.getUserRole());
       result = result && getUserImg()
           .equals(other.getUserImg());
+      result = result && getUserImgUrl()
+          .equals(other.getUserImgUrl());
       return result;
     }
 
@@ -22503,6 +24550,8 @@ public final class UserGroupProto {
       hash = (53 * hash) + getUserRole();
       hash = (37 * hash) + USERIMG_FIELD_NUMBER;
       hash = (53 * hash) + getUserImg().hashCode();
+      hash = (37 * hash) + USERIMGURL_FIELD_NUMBER;
+      hash = (53 * hash) + getUserImgUrl().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -22649,6 +24698,8 @@ public final class UserGroupProto {
 
         userImg_ = "";
 
+        userImgUrl_ = "";
+
         return this;
       }
 
@@ -22685,6 +24736,7 @@ public final class UserGroupProto {
         result.userGroupTopId_ = userGroupTopId_;
         result.userRole_ = userRole_;
         result.userImg_ = userImg_;
+        result.userImgUrl_ = userImgUrl_;
         onBuilt();
         return result;
       }
@@ -22776,6 +24828,10 @@ public final class UserGroupProto {
         }
         if (!other.getUserImg().isEmpty()) {
           userImg_ = other.userImg_;
+          onChanged();
+        }
+        if (!other.getUserImgUrl().isEmpty()) {
+          userImgUrl_ = other.userImgUrl_;
           onChanged();
         }
         onChanged();
@@ -23594,6 +25650,75 @@ public final class UserGroupProto {
   checkByteStringIsUtf8(value);
         
         userImg_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object userImgUrl_ = "";
+      /**
+       * <code>optional string userImgUrl = 15;</code>
+       */
+      public java.lang.String getUserImgUrl() {
+        java.lang.Object ref = userImgUrl_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          userImgUrl_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string userImgUrl = 15;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUserImgUrlBytes() {
+        java.lang.Object ref = userImgUrl_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          userImgUrl_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string userImgUrl = 15;</code>
+       */
+      public Builder setUserImgUrl(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        userImgUrl_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string userImgUrl = 15;</code>
+       */
+      public Builder clearUserImgUrl() {
+        
+        userImgUrl_ = getDefaultInstance().getUserImgUrl();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string userImgUrl = 15;</code>
+       */
+      public Builder setUserImgUrlBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        userImgUrl_ = value;
         onChanged();
         return this;
       }
@@ -24897,6 +27022,1085 @@ public final class UserGroupProto {
 
   }
 
+  public interface CheckUserPhoneCOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:protobuf.http.CheckUserPhoneC)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional int32 hOpCode = 1;</code>
+     */
+    int getHOpCode();
+
+    /**
+     * <code>optional string userPhone = 2;</code>
+     */
+    java.lang.String getUserPhone();
+    /**
+     * <code>optional string userPhone = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getUserPhoneBytes();
+  }
+  /**
+   * Protobuf type {@code protobuf.http.CheckUserPhoneC}
+   */
+  public  static final class CheckUserPhoneC extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:protobuf.http.CheckUserPhoneC)
+      CheckUserPhoneCOrBuilder {
+    // Use CheckUserPhoneC.newBuilder() to construct.
+    private CheckUserPhoneC(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private CheckUserPhoneC() {
+      hOpCode_ = 0;
+      userPhone_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private CheckUserPhoneC(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+
+              hOpCode_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              userPhone_ = s;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return protobuf.http.UserGroupProto.internal_static_protobuf_http_CheckUserPhoneC_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return protobuf.http.UserGroupProto.internal_static_protobuf_http_CheckUserPhoneC_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              protobuf.http.UserGroupProto.CheckUserPhoneC.class, protobuf.http.UserGroupProto.CheckUserPhoneC.Builder.class);
+    }
+
+    public static final int HOPCODE_FIELD_NUMBER = 1;
+    private int hOpCode_;
+    /**
+     * <code>optional int32 hOpCode = 1;</code>
+     */
+    public int getHOpCode() {
+      return hOpCode_;
+    }
+
+    public static final int USERPHONE_FIELD_NUMBER = 2;
+    private volatile java.lang.Object userPhone_;
+    /**
+     * <code>optional string userPhone = 2;</code>
+     */
+    public java.lang.String getUserPhone() {
+      java.lang.Object ref = userPhone_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        userPhone_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string userPhone = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUserPhoneBytes() {
+      java.lang.Object ref = userPhone_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userPhone_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (hOpCode_ != 0) {
+        output.writeInt32(1, hOpCode_);
+      }
+      if (!getUserPhoneBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, userPhone_);
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (hOpCode_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, hOpCode_);
+      }
+      if (!getUserPhoneBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, userPhone_);
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof protobuf.http.UserGroupProto.CheckUserPhoneC)) {
+        return super.equals(obj);
+      }
+      protobuf.http.UserGroupProto.CheckUserPhoneC other = (protobuf.http.UserGroupProto.CheckUserPhoneC) obj;
+
+      boolean result = true;
+      result = result && (getHOpCode()
+          == other.getHOpCode());
+      result = result && getUserPhone()
+          .equals(other.getUserPhone());
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (37 * hash) + HOPCODE_FIELD_NUMBER;
+      hash = (53 * hash) + getHOpCode();
+      hash = (37 * hash) + USERPHONE_FIELD_NUMBER;
+      hash = (53 * hash) + getUserPhone().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static protobuf.http.UserGroupProto.CheckUserPhoneC parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protobuf.http.UserGroupProto.CheckUserPhoneC parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protobuf.http.UserGroupProto.CheckUserPhoneC parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protobuf.http.UserGroupProto.CheckUserPhoneC parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protobuf.http.UserGroupProto.CheckUserPhoneC parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static protobuf.http.UserGroupProto.CheckUserPhoneC parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static protobuf.http.UserGroupProto.CheckUserPhoneC parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static protobuf.http.UserGroupProto.CheckUserPhoneC parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static protobuf.http.UserGroupProto.CheckUserPhoneC parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static protobuf.http.UserGroupProto.CheckUserPhoneC parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(protobuf.http.UserGroupProto.CheckUserPhoneC prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code protobuf.http.CheckUserPhoneC}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:protobuf.http.CheckUserPhoneC)
+        protobuf.http.UserGroupProto.CheckUserPhoneCOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return protobuf.http.UserGroupProto.internal_static_protobuf_http_CheckUserPhoneC_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return protobuf.http.UserGroupProto.internal_static_protobuf_http_CheckUserPhoneC_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                protobuf.http.UserGroupProto.CheckUserPhoneC.class, protobuf.http.UserGroupProto.CheckUserPhoneC.Builder.class);
+      }
+
+      // Construct using protobuf.http.UserGroupProto.CheckUserPhoneC.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        hOpCode_ = 0;
+
+        userPhone_ = "";
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return protobuf.http.UserGroupProto.internal_static_protobuf_http_CheckUserPhoneC_descriptor;
+      }
+
+      public protobuf.http.UserGroupProto.CheckUserPhoneC getDefaultInstanceForType() {
+        return protobuf.http.UserGroupProto.CheckUserPhoneC.getDefaultInstance();
+      }
+
+      public protobuf.http.UserGroupProto.CheckUserPhoneC build() {
+        protobuf.http.UserGroupProto.CheckUserPhoneC result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public protobuf.http.UserGroupProto.CheckUserPhoneC buildPartial() {
+        protobuf.http.UserGroupProto.CheckUserPhoneC result = new protobuf.http.UserGroupProto.CheckUserPhoneC(this);
+        result.hOpCode_ = hOpCode_;
+        result.userPhone_ = userPhone_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof protobuf.http.UserGroupProto.CheckUserPhoneC) {
+          return mergeFrom((protobuf.http.UserGroupProto.CheckUserPhoneC)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(protobuf.http.UserGroupProto.CheckUserPhoneC other) {
+        if (other == protobuf.http.UserGroupProto.CheckUserPhoneC.getDefaultInstance()) return this;
+        if (other.getHOpCode() != 0) {
+          setHOpCode(other.getHOpCode());
+        }
+        if (!other.getUserPhone().isEmpty()) {
+          userPhone_ = other.userPhone_;
+          onChanged();
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        protobuf.http.UserGroupProto.CheckUserPhoneC parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (protobuf.http.UserGroupProto.CheckUserPhoneC) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int hOpCode_ ;
+      /**
+       * <code>optional int32 hOpCode = 1;</code>
+       */
+      public int getHOpCode() {
+        return hOpCode_;
+      }
+      /**
+       * <code>optional int32 hOpCode = 1;</code>
+       */
+      public Builder setHOpCode(int value) {
+        
+        hOpCode_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 hOpCode = 1;</code>
+       */
+      public Builder clearHOpCode() {
+        
+        hOpCode_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object userPhone_ = "";
+      /**
+       * <code>optional string userPhone = 2;</code>
+       */
+      public java.lang.String getUserPhone() {
+        java.lang.Object ref = userPhone_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          userPhone_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string userPhone = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUserPhoneBytes() {
+        java.lang.Object ref = userPhone_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          userPhone_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string userPhone = 2;</code>
+       */
+      public Builder setUserPhone(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        userPhone_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string userPhone = 2;</code>
+       */
+      public Builder clearUserPhone() {
+        
+        userPhone_ = getDefaultInstance().getUserPhone();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string userPhone = 2;</code>
+       */
+      public Builder setUserPhoneBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        userPhone_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:protobuf.http.CheckUserPhoneC)
+    }
+
+    // @@protoc_insertion_point(class_scope:protobuf.http.CheckUserPhoneC)
+    private static final protobuf.http.UserGroupProto.CheckUserPhoneC DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new protobuf.http.UserGroupProto.CheckUserPhoneC();
+    }
+
+    public static protobuf.http.UserGroupProto.CheckUserPhoneC getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<CheckUserPhoneC>
+        PARSER = new com.google.protobuf.AbstractParser<CheckUserPhoneC>() {
+      public CheckUserPhoneC parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new CheckUserPhoneC(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<CheckUserPhoneC> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CheckUserPhoneC> getParserForType() {
+      return PARSER;
+    }
+
+    public protobuf.http.UserGroupProto.CheckUserPhoneC getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface CheckUserPhoneSOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:protobuf.http.CheckUserPhoneS)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional int32 hOpCode = 1;</code>
+     */
+    int getHOpCode();
+
+    /**
+     * <pre>
+     *true存在，false不存在
+     * </pre>
+     *
+     * <code>optional bool exist = 2;</code>
+     */
+    boolean getExist();
+  }
+  /**
+   * Protobuf type {@code protobuf.http.CheckUserPhoneS}
+   */
+  public  static final class CheckUserPhoneS extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:protobuf.http.CheckUserPhoneS)
+      CheckUserPhoneSOrBuilder {
+    // Use CheckUserPhoneS.newBuilder() to construct.
+    private CheckUserPhoneS(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private CheckUserPhoneS() {
+      hOpCode_ = 0;
+      exist_ = false;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private CheckUserPhoneS(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+
+              hOpCode_ = input.readInt32();
+              break;
+            }
+            case 16: {
+
+              exist_ = input.readBool();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return protobuf.http.UserGroupProto.internal_static_protobuf_http_CheckUserPhoneS_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return protobuf.http.UserGroupProto.internal_static_protobuf_http_CheckUserPhoneS_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              protobuf.http.UserGroupProto.CheckUserPhoneS.class, protobuf.http.UserGroupProto.CheckUserPhoneS.Builder.class);
+    }
+
+    public static final int HOPCODE_FIELD_NUMBER = 1;
+    private int hOpCode_;
+    /**
+     * <code>optional int32 hOpCode = 1;</code>
+     */
+    public int getHOpCode() {
+      return hOpCode_;
+    }
+
+    public static final int EXIST_FIELD_NUMBER = 2;
+    private boolean exist_;
+    /**
+     * <pre>
+     *true存在，false不存在
+     * </pre>
+     *
+     * <code>optional bool exist = 2;</code>
+     */
+    public boolean getExist() {
+      return exist_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (hOpCode_ != 0) {
+        output.writeInt32(1, hOpCode_);
+      }
+      if (exist_ != false) {
+        output.writeBool(2, exist_);
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (hOpCode_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, hOpCode_);
+      }
+      if (exist_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(2, exist_);
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof protobuf.http.UserGroupProto.CheckUserPhoneS)) {
+        return super.equals(obj);
+      }
+      protobuf.http.UserGroupProto.CheckUserPhoneS other = (protobuf.http.UserGroupProto.CheckUserPhoneS) obj;
+
+      boolean result = true;
+      result = result && (getHOpCode()
+          == other.getHOpCode());
+      result = result && (getExist()
+          == other.getExist());
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (37 * hash) + HOPCODE_FIELD_NUMBER;
+      hash = (53 * hash) + getHOpCode();
+      hash = (37 * hash) + EXIST_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getExist());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static protobuf.http.UserGroupProto.CheckUserPhoneS parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protobuf.http.UserGroupProto.CheckUserPhoneS parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protobuf.http.UserGroupProto.CheckUserPhoneS parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protobuf.http.UserGroupProto.CheckUserPhoneS parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protobuf.http.UserGroupProto.CheckUserPhoneS parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static protobuf.http.UserGroupProto.CheckUserPhoneS parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static protobuf.http.UserGroupProto.CheckUserPhoneS parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static protobuf.http.UserGroupProto.CheckUserPhoneS parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static protobuf.http.UserGroupProto.CheckUserPhoneS parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static protobuf.http.UserGroupProto.CheckUserPhoneS parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(protobuf.http.UserGroupProto.CheckUserPhoneS prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code protobuf.http.CheckUserPhoneS}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:protobuf.http.CheckUserPhoneS)
+        protobuf.http.UserGroupProto.CheckUserPhoneSOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return protobuf.http.UserGroupProto.internal_static_protobuf_http_CheckUserPhoneS_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return protobuf.http.UserGroupProto.internal_static_protobuf_http_CheckUserPhoneS_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                protobuf.http.UserGroupProto.CheckUserPhoneS.class, protobuf.http.UserGroupProto.CheckUserPhoneS.Builder.class);
+      }
+
+      // Construct using protobuf.http.UserGroupProto.CheckUserPhoneS.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        hOpCode_ = 0;
+
+        exist_ = false;
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return protobuf.http.UserGroupProto.internal_static_protobuf_http_CheckUserPhoneS_descriptor;
+      }
+
+      public protobuf.http.UserGroupProto.CheckUserPhoneS getDefaultInstanceForType() {
+        return protobuf.http.UserGroupProto.CheckUserPhoneS.getDefaultInstance();
+      }
+
+      public protobuf.http.UserGroupProto.CheckUserPhoneS build() {
+        protobuf.http.UserGroupProto.CheckUserPhoneS result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public protobuf.http.UserGroupProto.CheckUserPhoneS buildPartial() {
+        protobuf.http.UserGroupProto.CheckUserPhoneS result = new protobuf.http.UserGroupProto.CheckUserPhoneS(this);
+        result.hOpCode_ = hOpCode_;
+        result.exist_ = exist_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof protobuf.http.UserGroupProto.CheckUserPhoneS) {
+          return mergeFrom((protobuf.http.UserGroupProto.CheckUserPhoneS)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(protobuf.http.UserGroupProto.CheckUserPhoneS other) {
+        if (other == protobuf.http.UserGroupProto.CheckUserPhoneS.getDefaultInstance()) return this;
+        if (other.getHOpCode() != 0) {
+          setHOpCode(other.getHOpCode());
+        }
+        if (other.getExist() != false) {
+          setExist(other.getExist());
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        protobuf.http.UserGroupProto.CheckUserPhoneS parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (protobuf.http.UserGroupProto.CheckUserPhoneS) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int hOpCode_ ;
+      /**
+       * <code>optional int32 hOpCode = 1;</code>
+       */
+      public int getHOpCode() {
+        return hOpCode_;
+      }
+      /**
+       * <code>optional int32 hOpCode = 1;</code>
+       */
+      public Builder setHOpCode(int value) {
+        
+        hOpCode_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 hOpCode = 1;</code>
+       */
+      public Builder clearHOpCode() {
+        
+        hOpCode_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private boolean exist_ ;
+      /**
+       * <pre>
+       *true存在，false不存在
+       * </pre>
+       *
+       * <code>optional bool exist = 2;</code>
+       */
+      public boolean getExist() {
+        return exist_;
+      }
+      /**
+       * <pre>
+       *true存在，false不存在
+       * </pre>
+       *
+       * <code>optional bool exist = 2;</code>
+       */
+      public Builder setExist(boolean value) {
+        
+        exist_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *true存在，false不存在
+       * </pre>
+       *
+       * <code>optional bool exist = 2;</code>
+       */
+      public Builder clearExist() {
+        
+        exist_ = false;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:protobuf.http.CheckUserPhoneS)
+    }
+
+    // @@protoc_insertion_point(class_scope:protobuf.http.CheckUserPhoneS)
+    private static final protobuf.http.UserGroupProto.CheckUserPhoneS DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new protobuf.http.UserGroupProto.CheckUserPhoneS();
+    }
+
+    public static protobuf.http.UserGroupProto.CheckUserPhoneS getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<CheckUserPhoneS>
+        PARSER = new com.google.protobuf.AbstractParser<CheckUserPhoneS>() {
+      public CheckUserPhoneS parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new CheckUserPhoneS(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<CheckUserPhoneS> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CheckUserPhoneS> getParserForType() {
+      return PARSER;
+    }
+
+    public protobuf.http.UserGroupProto.CheckUserPhoneS getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protobuf_http_CreateUserGroupC_descriptor;
   private static final 
@@ -24927,6 +28131,16 @@ public final class UserGroupProto {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protobuf_http_GetUserGroupS_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_protobuf_http_DeleteUserGroupC_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_protobuf_http_DeleteUserGroupC_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_protobuf_http_DeleteUserGroupS_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_protobuf_http_DeleteUserGroupS_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protobuf_http_GetUserGroupListC_descriptor;
   private static final 
@@ -25042,6 +28256,16 @@ public final class UserGroupProto {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protobuf_http_UserGroupData_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_protobuf_http_CheckUserPhoneC_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_protobuf_http_CheckUserPhoneC_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_protobuf_http_CheckUserPhoneS_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_protobuf_http_CheckUserPhoneS_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -25066,74 +28290,85 @@ public final class UserGroupProto {
       "\017\n\007hOpCode\030\001 \001(\005\022\023\n\013userGroupId\030\002 \001(\t\"Q\n" +
       "\rGetUserGroupS\022\017\n\007hOpCode\030\001 \001(\005\022/\n\tuserG" +
       "roup\030\002 \001(\0132\034.protobuf.http.UserGroupData" +
-      "\"\314\001\n\021GetUserGroupListC\022\017\n\007hOpCode\030\001 \001(\005\022" +
-      "\031\n\021userGroupParentId\030\002 \001(\t\022\037\n\027isUserGrou" +
-      "pParentIsNull\030\003 \001(\010\022\023\n\013isRecursion\030\004 \001(\010" +
-      "\022\026\n\016userGroupTopId\030\005 \001(\t\022\026\n\016userGroupSta" +
-      "te\030\006 \001(\005\022\023\n\013currentPage\030\007 \001(\005\022\020\n\010pageSiz",
-      "e\030\010 \001(\005\"\237\001\n\021GetUserGroupListS\022\017\n\007hOpCode" +
-      "\030\001 \001(\005\022/\n\tuserGroup\030\002 \003(\0132\034.protobuf.htt" +
-      "p.UserGroupData\022\023\n\013currentPage\030\003 \001(\005\022\020\n\010" +
-      "pageSize\030\004 \001(\005\022\021\n\ttotalPage\030\005 \001(\005\022\016\n\006all" +
-      "Num\030\006 \001(\005\"\313\001\n\013CreateUserC\022\017\n\007hOpCode\030\001 \001" +
-      "(\005\022\020\n\010userName\030\002 \001(\t\022\024\n\014userPassword\030\003 \001" +
-      "(\t\022\021\n\tuserPhone\030\004 \001(\t\022\021\n\tuserEmail\030\005 \001(\t" +
-      "\022\023\n\013userGroupId\030\006 \001(\t\022\024\n\014userRealName\030\007 " +
-      "\001(\t\022\017\n\007userSex\030\010 \001(\005\022\017\n\007userAge\030\t \001(\005\022\020\n" +
-      "\010userRole\030\n \001(\005\"E\n\013CreateUserS\022\017\n\007hOpCod",
-      "e\030\001 \001(\005\022%\n\004user\030\002 \001(\0132\027.protobuf.http.Us" +
-      "erData\"+\n\010GetUserC\022\017\n\007hOpCode\030\001 \001(\005\022\016\n\006u" +
-      "serId\030\002 \001(\t\"B\n\010GetUserS\022\017\n\007hOpCode\030\001 \001(\005" +
-      "\022%\n\004user\030\002 \001(\0132\027.protobuf.http.UserData\"" +
-      "5\n\017GetUserByEmailC\022\017\n\007hOpCode\030\001 \001(\005\022\021\n\tu" +
-      "serEmail\030\002 \001(\t\"I\n\017GetUserByEmailS\022\017\n\007hOp" +
-      "Code\030\001 \001(\005\022%\n\004user\030\002 \001(\0132\027.protobuf.http" +
-      ".UserData\"\367\001\n\013UpdateUserC\022\017\n\007hOpCode\030\001 \001" +
-      "(\005\022\016\n\006userId\030\002 \001(\t\022\024\n\014userPassword\030\003 \001(\t" +
-      "\022\021\n\tuserPhone\030\004 \001(\t\022\021\n\tuserEmail\030\005 \001(\t\022\021",
-      "\n\tuserState\030\006 \001(\005\022\031\n\021isUpdateUserGroup\030\007" +
-      " \001(\010\022\023\n\013userGroupId\030\010 \001(\t\022\024\n\014userRealNam" +
-      "e\030\t \001(\t\022\017\n\007userSex\030\n \001(\005\022\017\n\007userAge\030\013 \001(" +
-      "\005\022\020\n\010userRole\030\014 \001(\005\"E\n\013UpdateUserS\022\017\n\007hO" +
-      "pCode\030\001 \001(\005\022%\n\004user\030\002 \001(\0132\027.protobuf.htt" +
-      "p.UserData\"\256\002\n\014GetUserListC\022\017\n\007hOpCode\030\001" +
-      " \001(\005\022\023\n\013userGroupId\030\002 \001(\t\022\031\n\021isUserGroup" +
-      "IsNull\030\003 \001(\010\022\023\n\013isRecursion\030\004 \001(\010\022\021\n\tuse" +
-      "rState\030\005 \001(\005\022\017\n\007userSex\030\006 \001(\005\022\020\n\010userRol" +
-      "e\030\007 \001(\005\022\026\n\016userGroupTopId\030\010 \001(\t\022\020\n\010userN",
-      "ame\030\t \001(\t\022!\n\031userCreateTimeGreaterThan\030\n" +
-      " \001(\t\022\036\n\026userCreateTimeLessThan\030\013 \001(\t\022\023\n\013" +
-      "currentPage\030\014 \001(\005\022\020\n\010pageSize\030\r \001(\005\"\220\001\n\014" +
-      "GetUserListS\022\017\n\007hOpCode\030\001 \001(\005\022%\n\004user\030\002 " +
-      "\003(\0132\027.protobuf.http.UserData\022\023\n\013currentP" +
-      "age\030\003 \001(\005\022\020\n\010pageSize\030\004 \001(\005\022\021\n\ttotalPage" +
-      "\030\005 \001(\005\022\016\n\006allNum\030\006 \001(\005\"D\n\tGetTokenC\022\017\n\007h" +
-      "OpCode\030\001 \001(\005\022\020\n\010userName\030\002 \001(\t\022\024\n\014userPa" +
-      "ssword\030\003 \001(\t\"m\n\tGetTokenS\022\017\n\007hOpCode\030\001 \001" +
-      "(\005\022\017\n\007tokenId\030\002 \001(\t\022\027\n\017tokenExpireTime\030\003",
-      " \001(\t\022%\n\004user\030\004 \001(\0132\027.protobuf.http.UserD" +
-      "ata\"\037\n\014UpdateTokenC\022\017\n\007hOpCode\030\001 \001(\005\"p\n\014" +
-      "UpdateTokenS\022\017\n\007hOpCode\030\001 \001(\005\022\017\n\007tokenId" +
-      "\030\002 \001(\t\022\027\n\017tokenExpireTime\030\003 \001(\t\022%\n\004user\030" +
-      "\004 \001(\0132\027.protobuf.http.UserData\"\037\n\014Delete" +
-      "TokenC\022\017\n\007hOpCode\030\001 \001(\005\"\037\n\014DeleteTokenS\022" +
-      "\017\n\007hOpCode\030\001 \001(\005\".\n\013GetUserImgC\022\017\n\007hOpCo" +
-      "de\030\001 \001(\005\022\016\n\006userId\030\002 \001(\t\"9\n\024CheckUserByU" +
-      "serNameC\022\017\n\007hOpCode\030\001 \001(\005\022\020\n\010userName\030\002 " +
-      "\001(\t\"6\n\024CheckUserByUserNameS\022\017\n\007hOpCode\030\001",
-      " \001(\005\022\r\n\005exist\030\002 \001(\010\"\235\002\n\010UserData\022\016\n\006user" +
-      "Id\030\001 \001(\t\022\020\n\010userName\030\002 \001(\t\022\021\n\tuserPhone\030" +
-      "\003 \001(\t\022\021\n\tuserEmail\030\004 \001(\t\022\026\n\016userCreateTi" +
-      "me\030\005 \001(\t\022\026\n\016userUpdateTime\030\006 \001(\t\022\021\n\tuser" +
-      "State\030\007 \001(\005\022\023\n\013userGroupId\030\010 \001(\t\022\024\n\014user" +
-      "RealName\030\t \001(\t\022\017\n\007userSex\030\n \001(\005\022\017\n\007userA" +
-      "ge\030\013 \001(\005\022\026\n\016userGroupTopId\030\014 \001(\t\022\020\n\010user" +
-      "Role\030\r \001(\005\022\017\n\007userImg\030\016 \001(\t\"\300\001\n\rUserGrou" +
-      "pData\022\023\n\013userGroupId\030\001 \001(\t\022\025\n\ruserGroupN" +
-      "ame\030\002 \001(\t\022\031\n\021userGroupParentId\030\003 \001(\t\022\033\n\023",
-      "userGroupCreateTime\030\004 \001(\t\022\033\n\023userGroupUp" +
-      "dateTime\030\005 \001(\t\022\026\n\016userGroupState\030\006 \001(\005\022\026" +
-      "\n\016userGroupTopId\030\007 \001(\tb\006proto3"
+      "\"8\n\020DeleteUserGroupC\022\017\n\007hOpCode\030\001 \001(\005\022\023\n" +
+      "\013userGroupId\030\002 \001(\t\"#\n\020DeleteUserGroupS\022\017" +
+      "\n\007hOpCode\030\001 \001(\005\"\346\002\n\021GetUserGroupListC\022\017\n" +
+      "\007hOpCode\030\001 \001(\005\022\031\n\021userGroupParentId\030\002 \001(" +
+      "\t\022\037\n\027isUserGroupParentIsNull\030\003 \001(\010\022\023\n\013is",
+      "Recursion\030\004 \001(\010\022\026\n\016userGroupTopId\030\005 \001(\t\022" +
+      "\026\n\016userGroupState\030\006 \001(\005\022\023\n\013currentPage\030\007" +
+      " \001(\005\022\020\n\010pageSize\030\010 \001(\005\022&\n\036userGroupCreat" +
+      "eTimeGreaterThan\030\t \001(\t\022#\n\033userGroupCreat" +
+      "eTimeLessThan\030\n \001(\t\022&\n\036userGroupUpdateTi" +
+      "meGreaterThan\030\013 \001(\t\022#\n\033userGroupUpdateTi" +
+      "meLessThan\030\014 \001(\t\"\237\001\n\021GetUserGroupListS\022\017" +
+      "\n\007hOpCode\030\001 \001(\005\022/\n\tuserGroup\030\002 \003(\0132\034.pro" +
+      "tobuf.http.UserGroupData\022\023\n\013currentPage\030" +
+      "\003 \001(\005\022\020\n\010pageSize\030\004 \001(\005\022\021\n\ttotalPage\030\005 \001",
+      "(\005\022\016\n\006allNum\030\006 \001(\005\"\313\001\n\013CreateUserC\022\017\n\007hO" +
+      "pCode\030\001 \001(\005\022\020\n\010userName\030\002 \001(\t\022\024\n\014userPas" +
+      "sword\030\003 \001(\t\022\021\n\tuserPhone\030\004 \001(\t\022\021\n\tuserEm" +
+      "ail\030\005 \001(\t\022\023\n\013userGroupId\030\006 \001(\t\022\024\n\014userRe" +
+      "alName\030\007 \001(\t\022\017\n\007userSex\030\010 \001(\005\022\017\n\007userAge" +
+      "\030\t \001(\005\022\020\n\010userRole\030\n \001(\005\"E\n\013CreateUserS\022" +
+      "\017\n\007hOpCode\030\001 \001(\005\022%\n\004user\030\002 \001(\0132\027.protobu" +
+      "f.http.UserData\"+\n\010GetUserC\022\017\n\007hOpCode\030\001" +
+      " \001(\005\022\016\n\006userId\030\002 \001(\t\"B\n\010GetUserS\022\017\n\007hOpC" +
+      "ode\030\001 \001(\005\022%\n\004user\030\002 \001(\0132\027.protobuf.http.",
+      "UserData\"5\n\017GetUserByEmailC\022\017\n\007hOpCode\030\001" +
+      " \001(\005\022\021\n\tuserEmail\030\002 \001(\t\"I\n\017GetUserByEmai" +
+      "lS\022\017\n\007hOpCode\030\001 \001(\005\022%\n\004user\030\002 \001(\0132\027.prot" +
+      "obuf.http.UserData\"\367\001\n\013UpdateUserC\022\017\n\007hO" +
+      "pCode\030\001 \001(\005\022\016\n\006userId\030\002 \001(\t\022\024\n\014userPassw" +
+      "ord\030\003 \001(\t\022\021\n\tuserPhone\030\004 \001(\t\022\021\n\tuserEmai" +
+      "l\030\005 \001(\t\022\021\n\tuserState\030\006 \001(\005\022\031\n\021isUpdateUs" +
+      "erGroup\030\007 \001(\010\022\023\n\013userGroupId\030\010 \001(\t\022\024\n\014us" +
+      "erRealName\030\t \001(\t\022\017\n\007userSex\030\n \001(\005\022\017\n\007use" +
+      "rAge\030\013 \001(\005\022\020\n\010userRole\030\014 \001(\005\"E\n\013UpdateUs",
+      "erS\022\017\n\007hOpCode\030\001 \001(\005\022%\n\004user\030\002 \001(\0132\027.pro" +
+      "tobuf.http.UserData\"\361\002\n\014GetUserListC\022\017\n\007" +
+      "hOpCode\030\001 \001(\005\022\023\n\013userGroupId\030\002 \001(\t\022\031\n\021is" +
+      "UserGroupIsNull\030\003 \001(\010\022\023\n\013isRecursion\030\004 \001" +
+      "(\010\022\021\n\tuserState\030\005 \001(\005\022\017\n\007userSex\030\006 \001(\005\022\020" +
+      "\n\010userRole\030\007 \001(\005\022\026\n\016userGroupTopId\030\010 \001(\t" +
+      "\022\020\n\010userName\030\t \001(\t\022!\n\031userCreateTimeGrea" +
+      "terThan\030\n \001(\t\022\036\n\026userCreateTimeLessThan\030" +
+      "\013 \001(\t\022!\n\031userUpdateTimeGreaterThan\030\014 \001(\t" +
+      "\022\036\n\026userUpdateTimeLessThan\030\r \001(\t\022\023\n\013curr",
+      "entPage\030\016 \001(\005\022\020\n\010pageSize\030\017 \001(\005\"\220\001\n\014GetU" +
+      "serListS\022\017\n\007hOpCode\030\001 \001(\005\022%\n\004user\030\002 \003(\0132" +
+      "\027.protobuf.http.UserData\022\023\n\013currentPage\030" +
+      "\003 \001(\005\022\020\n\010pageSize\030\004 \001(\005\022\021\n\ttotalPage\030\005 \001" +
+      "(\005\022\016\n\006allNum\030\006 \001(\005\"D\n\tGetTokenC\022\017\n\007hOpCo" +
+      "de\030\001 \001(\005\022\020\n\010userName\030\002 \001(\t\022\024\n\014userPasswo" +
+      "rd\030\003 \001(\t\"m\n\tGetTokenS\022\017\n\007hOpCode\030\001 \001(\005\022\017" +
+      "\n\007tokenId\030\002 \001(\t\022\027\n\017tokenExpireTime\030\003 \001(\t" +
+      "\022%\n\004user\030\004 \001(\0132\027.protobuf.http.UserData\"" +
+      "\037\n\014UpdateTokenC\022\017\n\007hOpCode\030\001 \001(\005\"p\n\014Upda",
+      "teTokenS\022\017\n\007hOpCode\030\001 \001(\005\022\017\n\007tokenId\030\002 \001" +
+      "(\t\022\027\n\017tokenExpireTime\030\003 \001(\t\022%\n\004user\030\004 \001(" +
+      "\0132\027.protobuf.http.UserData\"\037\n\014DeleteToke" +
+      "nC\022\017\n\007hOpCode\030\001 \001(\005\"\037\n\014DeleteTokenS\022\017\n\007h" +
+      "OpCode\030\001 \001(\005\".\n\013GetUserImgC\022\017\n\007hOpCode\030\001" +
+      " \001(\005\022\016\n\006userId\030\002 \001(\t\"9\n\024CheckUserByUserN" +
+      "ameC\022\017\n\007hOpCode\030\001 \001(\005\022\020\n\010userName\030\002 \001(\t\"" +
+      "6\n\024CheckUserByUserNameS\022\017\n\007hOpCode\030\001 \001(\005" +
+      "\022\r\n\005exist\030\002 \001(\010\"\261\002\n\010UserData\022\016\n\006userId\030\001" +
+      " \001(\t\022\020\n\010userName\030\002 \001(\t\022\021\n\tuserPhone\030\003 \001(",
+      "\t\022\021\n\tuserEmail\030\004 \001(\t\022\026\n\016userCreateTime\030\005" +
+      " \001(\t\022\026\n\016userUpdateTime\030\006 \001(\t\022\021\n\tuserStat" +
+      "e\030\007 \001(\005\022\023\n\013userGroupId\030\010 \001(\t\022\024\n\014userReal" +
+      "Name\030\t \001(\t\022\017\n\007userSex\030\n \001(\005\022\017\n\007userAge\030\013" +
+      " \001(\005\022\026\n\016userGroupTopId\030\014 \001(\t\022\020\n\010userRole" +
+      "\030\r \001(\005\022\017\n\007userImg\030\016 \001(\t\022\022\n\nuserImgUrl\030\017 " +
+      "\001(\t\"\300\001\n\rUserGroupData\022\023\n\013userGroupId\030\001 \001" +
+      "(\t\022\025\n\ruserGroupName\030\002 \001(\t\022\031\n\021userGroupPa" +
+      "rentId\030\003 \001(\t\022\033\n\023userGroupCreateTime\030\004 \001(" +
+      "\t\022\033\n\023userGroupUpdateTime\030\005 \001(\t\022\026\n\016userGr",
+      "oupState\030\006 \001(\005\022\026\n\016userGroupTopId\030\007 \001(\t\"5" +
+      "\n\017CheckUserPhoneC\022\017\n\007hOpCode\030\001 \001(\005\022\021\n\tus" +
+      "erPhone\030\002 \001(\t\"1\n\017CheckUserPhoneS\022\017\n\007hOpC" +
+      "ode\030\001 \001(\005\022\r\n\005exist\030\002 \001(\010b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -25183,144 +28418,168 @@ public final class UserGroupProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protobuf_http_GetUserGroupS_descriptor,
         new java.lang.String[] { "HOpCode", "UserGroup", });
-    internal_static_protobuf_http_GetUserGroupListC_descriptor =
+    internal_static_protobuf_http_DeleteUserGroupC_descriptor =
       getDescriptor().getMessageTypes().get(6);
+    internal_static_protobuf_http_DeleteUserGroupC_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_protobuf_http_DeleteUserGroupC_descriptor,
+        new java.lang.String[] { "HOpCode", "UserGroupId", });
+    internal_static_protobuf_http_DeleteUserGroupS_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_protobuf_http_DeleteUserGroupS_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_protobuf_http_DeleteUserGroupS_descriptor,
+        new java.lang.String[] { "HOpCode", });
+    internal_static_protobuf_http_GetUserGroupListC_descriptor =
+      getDescriptor().getMessageTypes().get(8);
     internal_static_protobuf_http_GetUserGroupListC_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protobuf_http_GetUserGroupListC_descriptor,
-        new java.lang.String[] { "HOpCode", "UserGroupParentId", "IsUserGroupParentIsNull", "IsRecursion", "UserGroupTopId", "UserGroupState", "CurrentPage", "PageSize", });
+        new java.lang.String[] { "HOpCode", "UserGroupParentId", "IsUserGroupParentIsNull", "IsRecursion", "UserGroupTopId", "UserGroupState", "CurrentPage", "PageSize", "UserGroupCreateTimeGreaterThan", "UserGroupCreateTimeLessThan", "UserGroupUpdateTimeGreaterThan", "UserGroupUpdateTimeLessThan", });
     internal_static_protobuf_http_GetUserGroupListS_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_protobuf_http_GetUserGroupListS_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protobuf_http_GetUserGroupListS_descriptor,
         new java.lang.String[] { "HOpCode", "UserGroup", "CurrentPage", "PageSize", "TotalPage", "AllNum", });
     internal_static_protobuf_http_CreateUserC_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_protobuf_http_CreateUserC_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protobuf_http_CreateUserC_descriptor,
         new java.lang.String[] { "HOpCode", "UserName", "UserPassword", "UserPhone", "UserEmail", "UserGroupId", "UserRealName", "UserSex", "UserAge", "UserRole", });
     internal_static_protobuf_http_CreateUserS_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_protobuf_http_CreateUserS_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protobuf_http_CreateUserS_descriptor,
         new java.lang.String[] { "HOpCode", "User", });
     internal_static_protobuf_http_GetUserC_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_protobuf_http_GetUserC_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protobuf_http_GetUserC_descriptor,
         new java.lang.String[] { "HOpCode", "UserId", });
     internal_static_protobuf_http_GetUserS_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_protobuf_http_GetUserS_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protobuf_http_GetUserS_descriptor,
         new java.lang.String[] { "HOpCode", "User", });
     internal_static_protobuf_http_GetUserByEmailC_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_protobuf_http_GetUserByEmailC_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protobuf_http_GetUserByEmailC_descriptor,
         new java.lang.String[] { "HOpCode", "UserEmail", });
     internal_static_protobuf_http_GetUserByEmailS_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_protobuf_http_GetUserByEmailS_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protobuf_http_GetUserByEmailS_descriptor,
         new java.lang.String[] { "HOpCode", "User", });
     internal_static_protobuf_http_UpdateUserC_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_protobuf_http_UpdateUserC_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protobuf_http_UpdateUserC_descriptor,
         new java.lang.String[] { "HOpCode", "UserId", "UserPassword", "UserPhone", "UserEmail", "UserState", "IsUpdateUserGroup", "UserGroupId", "UserRealName", "UserSex", "UserAge", "UserRole", });
     internal_static_protobuf_http_UpdateUserS_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_protobuf_http_UpdateUserS_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protobuf_http_UpdateUserS_descriptor,
         new java.lang.String[] { "HOpCode", "User", });
     internal_static_protobuf_http_GetUserListC_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_protobuf_http_GetUserListC_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protobuf_http_GetUserListC_descriptor,
-        new java.lang.String[] { "HOpCode", "UserGroupId", "IsUserGroupIsNull", "IsRecursion", "UserState", "UserSex", "UserRole", "UserGroupTopId", "UserName", "UserCreateTimeGreaterThan", "UserCreateTimeLessThan", "CurrentPage", "PageSize", });
+        new java.lang.String[] { "HOpCode", "UserGroupId", "IsUserGroupIsNull", "IsRecursion", "UserState", "UserSex", "UserRole", "UserGroupTopId", "UserName", "UserCreateTimeGreaterThan", "UserCreateTimeLessThan", "UserUpdateTimeGreaterThan", "UserUpdateTimeLessThan", "CurrentPage", "PageSize", });
     internal_static_protobuf_http_GetUserListS_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_protobuf_http_GetUserListS_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protobuf_http_GetUserListS_descriptor,
         new java.lang.String[] { "HOpCode", "User", "CurrentPage", "PageSize", "TotalPage", "AllNum", });
     internal_static_protobuf_http_GetTokenC_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_protobuf_http_GetTokenC_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protobuf_http_GetTokenC_descriptor,
         new java.lang.String[] { "HOpCode", "UserName", "UserPassword", });
     internal_static_protobuf_http_GetTokenS_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_protobuf_http_GetTokenS_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protobuf_http_GetTokenS_descriptor,
         new java.lang.String[] { "HOpCode", "TokenId", "TokenExpireTime", "User", });
     internal_static_protobuf_http_UpdateTokenC_descriptor =
-      getDescriptor().getMessageTypes().get(20);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_protobuf_http_UpdateTokenC_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protobuf_http_UpdateTokenC_descriptor,
         new java.lang.String[] { "HOpCode", });
     internal_static_protobuf_http_UpdateTokenS_descriptor =
-      getDescriptor().getMessageTypes().get(21);
+      getDescriptor().getMessageTypes().get(23);
     internal_static_protobuf_http_UpdateTokenS_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protobuf_http_UpdateTokenS_descriptor,
         new java.lang.String[] { "HOpCode", "TokenId", "TokenExpireTime", "User", });
     internal_static_protobuf_http_DeleteTokenC_descriptor =
-      getDescriptor().getMessageTypes().get(22);
+      getDescriptor().getMessageTypes().get(24);
     internal_static_protobuf_http_DeleteTokenC_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protobuf_http_DeleteTokenC_descriptor,
         new java.lang.String[] { "HOpCode", });
     internal_static_protobuf_http_DeleteTokenS_descriptor =
-      getDescriptor().getMessageTypes().get(23);
+      getDescriptor().getMessageTypes().get(25);
     internal_static_protobuf_http_DeleteTokenS_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protobuf_http_DeleteTokenS_descriptor,
         new java.lang.String[] { "HOpCode", });
     internal_static_protobuf_http_GetUserImgC_descriptor =
-      getDescriptor().getMessageTypes().get(24);
+      getDescriptor().getMessageTypes().get(26);
     internal_static_protobuf_http_GetUserImgC_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protobuf_http_GetUserImgC_descriptor,
         new java.lang.String[] { "HOpCode", "UserId", });
     internal_static_protobuf_http_CheckUserByUserNameC_descriptor =
-      getDescriptor().getMessageTypes().get(25);
+      getDescriptor().getMessageTypes().get(27);
     internal_static_protobuf_http_CheckUserByUserNameC_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protobuf_http_CheckUserByUserNameC_descriptor,
         new java.lang.String[] { "HOpCode", "UserName", });
     internal_static_protobuf_http_CheckUserByUserNameS_descriptor =
-      getDescriptor().getMessageTypes().get(26);
+      getDescriptor().getMessageTypes().get(28);
     internal_static_protobuf_http_CheckUserByUserNameS_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protobuf_http_CheckUserByUserNameS_descriptor,
         new java.lang.String[] { "HOpCode", "Exist", });
     internal_static_protobuf_http_UserData_descriptor =
-      getDescriptor().getMessageTypes().get(27);
+      getDescriptor().getMessageTypes().get(29);
     internal_static_protobuf_http_UserData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protobuf_http_UserData_descriptor,
-        new java.lang.String[] { "UserId", "UserName", "UserPhone", "UserEmail", "UserCreateTime", "UserUpdateTime", "UserState", "UserGroupId", "UserRealName", "UserSex", "UserAge", "UserGroupTopId", "UserRole", "UserImg", });
+        new java.lang.String[] { "UserId", "UserName", "UserPhone", "UserEmail", "UserCreateTime", "UserUpdateTime", "UserState", "UserGroupId", "UserRealName", "UserSex", "UserAge", "UserGroupTopId", "UserRole", "UserImg", "UserImgUrl", });
     internal_static_protobuf_http_UserGroupData_descriptor =
-      getDescriptor().getMessageTypes().get(28);
+      getDescriptor().getMessageTypes().get(30);
     internal_static_protobuf_http_UserGroupData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protobuf_http_UserGroupData_descriptor,
         new java.lang.String[] { "UserGroupId", "UserGroupName", "UserGroupParentId", "UserGroupCreateTime", "UserGroupUpdateTime", "UserGroupState", "UserGroupTopId", });
+    internal_static_protobuf_http_CheckUserPhoneC_descriptor =
+      getDescriptor().getMessageTypes().get(31);
+    internal_static_protobuf_http_CheckUserPhoneC_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_protobuf_http_CheckUserPhoneC_descriptor,
+        new java.lang.String[] { "HOpCode", "UserPhone", });
+    internal_static_protobuf_http_CheckUserPhoneS_descriptor =
+      getDescriptor().getMessageTypes().get(32);
+    internal_static_protobuf_http_CheckUserPhoneS_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_protobuf_http_CheckUserPhoneS_descriptor,
+        new java.lang.String[] { "HOpCode", "Exist", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

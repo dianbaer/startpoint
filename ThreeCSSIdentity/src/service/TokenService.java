@@ -43,15 +43,17 @@ public class TokenService implements IHttpListener {
 		GetTokenC message = (GetTokenC) hSession.httpPacket.getData();
 		User user = UserAction.getUserByName(message.getUserName());
 		if (user == null) {
-			return null;
+			UCError errorPack = UCErrorPack.create(UCErrorCode.ERROR_CODE_4, hSession.headParam.hOpCode);
+			throw new HttpErrorException(HOpCodeUCenter.UC_ERROR, errorPack);
 		}
 		if (user.getUserState().intValue() != UserConfig.STATE_USABLE) {
-			UCError errorPack = UCErrorPack.create(UCErrorCode.ERROR_CODE_2, hSession.headParam.hOpCode);
+			UCError errorPack = UCErrorPack.create(UCErrorCode.ERROR_CODE_5, hSession.headParam.hOpCode);
 			throw new HttpErrorException(HOpCodeUCenter.UC_ERROR, errorPack);
 		}
 		// 判断密码
 		if (!user.getUserPassword().equals(message.getUserPassword())) {
-			return null;
+			UCError errorPack = UCErrorPack.create(UCErrorCode.ERROR_CODE_6, hSession.headParam.hOpCode);
+			throw new HttpErrorException(HOpCodeUCenter.UC_ERROR, errorPack);
 		}
 		Token token = TokenAction.getTokenByUserId(user.getUserId());
 		if (token == null) {
@@ -73,41 +75,41 @@ public class TokenService implements IHttpListener {
 			}
 		}
 		if (token == null) {
-			return null;
+			UCError errorPack = UCErrorPack.create(UCErrorCode.ERROR_CODE_7, hSession.headParam.hOpCode);
+			throw new HttpErrorException(HOpCodeUCenter.UC_ERROR, errorPack);
 		}
 		GetTokenS.Builder builder = GetTokenS.newBuilder();
 		builder.setHOpCode(hSession.headParam.hOpCode);
 		builder.setTokenId(token.getTokenId());
 		builder.setTokenExpireTime(TimeUtils.dateToString(token.getTokenExpireTime()));
-		builder.setUser(UserAction.getUserDataBuilder(user));
+		builder.setUser(UserAction.getUserDataBuilder(user, token.getTokenId()));
 		HttpPacket packet = new HttpPacket(hSession.headParam.hOpCode, builder.build());
 		return packet;
 	}
 
-	public HttpPacket updateTokenHandle(HSession hSession) {
+	public HttpPacket updateTokenHandle(HSession hSession) throws HttpErrorException {
 
 		Token token = TokenAction.updateToken(hSession.headParam.token);
 		if (token == null) {
-			return null;
+			UCError errorPack = UCErrorPack.create(UCErrorCode.ERROR_CODE_8, hSession.headParam.hOpCode);
+			throw new HttpErrorException(HOpCodeUCenter.UC_ERROR, errorPack);
 		}
 		User user = (User) hSession.otherData;
-		if (user == null) {
-			return null;
-		}
 		UpdateTokenS.Builder builder = UpdateTokenS.newBuilder();
 		builder.setHOpCode(hSession.headParam.hOpCode);
 		builder.setTokenId(token.getTokenId());
 		builder.setTokenExpireTime(TimeUtils.dateToString(token.getTokenExpireTime()));
-		builder.setUser(UserAction.getUserDataBuilder(user));
+		builder.setUser(UserAction.getUserDataBuilder(user, token.getTokenId()));
 		HttpPacket packet = new HttpPacket(hSession.headParam.hOpCode, builder.build());
 		return packet;
 	}
 
-	public HttpPacket deleteTokenHandle(HSession hSession) {
+	public HttpPacket deleteTokenHandle(HSession hSession) throws HttpErrorException {
 
 		boolean result = TokenAction.deleteToken(hSession.headParam.token);
 		if (!result) {
-			return null;
+			UCError errorPack = UCErrorPack.create(UCErrorCode.ERROR_CODE_9, hSession.headParam.hOpCode);
+			throw new HttpErrorException(HOpCodeUCenter.UC_ERROR, errorPack);
 		}
 		DeleteTokenS.Builder builder = DeleteTokenS.newBuilder();
 		builder.setHOpCode(hSession.headParam.hOpCode);

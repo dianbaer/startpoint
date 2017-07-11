@@ -95,5 +95,26 @@ function UserGroupProxy() {
     this.getUserGroupListFail = function (result, sendParam) {
 
     }
+    this.deleteUserGroup = function (userGroupId) {
+        var data = {
+            "hOpCode": 5,
+            "userGroupId": userGroupId
+        };
+
+        var sendParam = new SendParam();
+        sendParam.successHandle = this.deleteUserGroupSuccess;
+        sendParam.failHandle = this.deleteUserGroupFail;
+        sendParam.object = this;
+        sendParam.data = data;
+        sendParam.url = $T.url.url;
+        sendParam.token = $T.cookieParam.getCookieParam($T.cookieName.TOKEN);
+        $T.httpUtil.send(sendParam);
+    }
+    this.deleteUserGroupSuccess = function (result, sendParam) {
+
+    }
+    this.deleteUserGroupFail = function (result, sendParam) {
+
+    }
 }
 $T.userGroupProxy = new UserGroupProxy();

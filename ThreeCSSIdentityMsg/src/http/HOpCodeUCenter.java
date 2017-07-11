@@ -3,12 +3,16 @@ package http;
 import protobuf.http.UCErrorProto.UCError;
 import protobuf.http.UserGroupProto.CheckUserByUserNameC;
 import protobuf.http.UserGroupProto.CheckUserByUserNameS;
+import protobuf.http.UserGroupProto.CheckUserPhoneC;
+import protobuf.http.UserGroupProto.CheckUserPhoneS;
 import protobuf.http.UserGroupProto.CreateUserC;
 import protobuf.http.UserGroupProto.CreateUserGroupC;
 import protobuf.http.UserGroupProto.CreateUserGroupS;
 import protobuf.http.UserGroupProto.CreateUserS;
 import protobuf.http.UserGroupProto.DeleteTokenC;
 import protobuf.http.UserGroupProto.DeleteTokenS;
+import protobuf.http.UserGroupProto.DeleteUserGroupC;
+import protobuf.http.UserGroupProto.DeleteUserGroupS;
 import protobuf.http.UserGroupProto.GetTokenC;
 import protobuf.http.UserGroupProto.GetTokenS;
 import protobuf.http.UserGroupProto.GetUserByEmailC;
@@ -36,6 +40,7 @@ public class HOpCodeUCenter extends HOpCode {
 	public static int UPDATE_USER_GROUP = 2;
 	public static int GET_USER_GROUP = 3;
 	public static int GET_USER_GROUP_LIST = 4;
+	public static int DELETE_USER_GROUP = 5;
 
 	public static int CREATE_USER = 10;
 	public static int GET_USER = 11;
@@ -44,6 +49,7 @@ public class HOpCodeUCenter extends HOpCode {
 	public static int GET_USER_IMG = 14;
 	public static int GET_USER_BY_EMAIL = 15;
 	public static int CHECK_USER_BY_USER_NAME = 16;
+	public static int CHECK_USER_PHONE = 17;
 
 	public static int GET_TOKEN = 20;
 	public static int UPDATE_TOKEN = 21;
@@ -75,6 +81,11 @@ public class HOpCodeUCenter extends HOpCode {
 		sendAndReturn[0] = GetUserGroupListC.class;
 		sendAndReturn[1] = GetUserGroupListS.class;
 		hOpCodeMap.put(GET_USER_GROUP_LIST, sendAndReturn);
+
+		sendAndReturn = new Class[2];
+		sendAndReturn[0] = DeleteUserGroupC.class;
+		sendAndReturn[1] = DeleteUserGroupS.class;
+		hOpCodeMap.put(DELETE_USER_GROUP, sendAndReturn);
 
 		sendAndReturn = new Class[2];
 		sendAndReturn[0] = CreateUserC.class;
@@ -110,6 +121,11 @@ public class HOpCodeUCenter extends HOpCode {
 		sendAndReturn[0] = CheckUserByUserNameC.class;
 		sendAndReturn[1] = CheckUserByUserNameS.class;
 		hOpCodeMap.put(CHECK_USER_BY_USER_NAME, sendAndReturn);
+
+		sendAndReturn = new Class[2];
+		sendAndReturn[0] = CheckUserPhoneC.class;
+		sendAndReturn[1] = CheckUserPhoneS.class;
+		hOpCodeMap.put(CHECK_USER_PHONE, sendAndReturn);
 
 		sendAndReturn = new Class[2];
 		sendAndReturn[0] = GetTokenC.class;

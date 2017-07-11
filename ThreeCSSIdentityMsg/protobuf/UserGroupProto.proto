@@ -29,6 +29,13 @@ message GetUserGroupS{
 	int32 hOpCode=1;
 	UserGroupData userGroup=2;
 }
+message DeleteUserGroupC{
+	int32 hOpCode=1;
+	string userGroupId=2;
+}
+message DeleteUserGroupS{
+	int32 hOpCode=1;
+}
 message GetUserGroupListC{
 	int32 hOpCode=1;
 	string userGroupParentId=2;//空或""为获取所有顶级
@@ -38,6 +45,10 @@ message GetUserGroupListC{
 	int32 userGroupState=6;
 	int32 currentPage=7;
 	int32 pageSize=8;//pageSize传0，说明不分页
+	string userGroupCreateTimeGreaterThan=9;//创建时间大于等于某个时间段（yyyy-MM-dd HH:mm:ss）
+	string userGroupCreateTimeLessThan=10;//创建时间小于等于某个时间段（yyyy-MM-dd HH:mm:ss）
+	string userGroupUpdateTimeGreaterThan=11; //更新时间大于等个某个时间段
+	string userGroupUpdateTimeLessThan=12;    //更新时间小于等个某个时间段
 }
 message GetUserGroupListS{
 	int32 hOpCode=1;
@@ -109,8 +120,10 @@ message GetUserListC{
 	string userName=9;//用户名模糊搜索
 	string userCreateTimeGreaterThan=10;//大于等于某个时间段（yyyy-MM-dd HH:mm:ss）
 	string userCreateTimeLessThan=11;//小于等于某个时间段（yyyy-MM-dd HH:mm:ss）
-	int32 currentPage=12;
-	int32 pageSize=13;//pageSize传0，说明不分页
+	string userUpdateTimeGreaterThan=12; //
+	string userUpdateTimeLessThan=13;
+	int32 currentPage=14;
+	int32 pageSize=15;//pageSize传0，说明不分页
 }
 message GetUserListS{
 	int32 hOpCode=1;
@@ -173,6 +186,7 @@ message UserData{
 	string userGroupTopId=12;
 	int32 userRole=13;
 	string userImg=14;
+	string userImgUrl=15;
 }
 message UserGroupData{
 	string userGroupId=1;
@@ -182,4 +196,12 @@ message UserGroupData{
 	string userGroupUpdateTime=5;
 	int32 userGroupState=6;
 	string userGroupTopId=7;
+}
+message CheckUserPhoneC{
+	int32 hOpCode=1;
+	string userPhone=2;
+}
+message CheckUserPhoneS{
+	int32 hOpCode=1;
+	bool exist=2;  //true存在，false不存在
 }
