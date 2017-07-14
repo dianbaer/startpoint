@@ -4,7 +4,7 @@
 			var upfileObj = this.getAjax();
 
 			var packet = encodeURI(JSON.stringify(sendParam.data));
-			var url = sendParam.url + "?" + $T.httpConfig.HOPCODE + "=" + sendParam.data[$T.httpConfig.HOPCODE] + "&token=" + sendParam.token + "&sendType=" + $T.httpConfig.SEND_TYPE_FILE_SAVE_SESSION + "&receiveType=" + $T.httpConfig.RECEIVE_TYPE_JSON + "&packet=" + packet;
+			var url = sendParam.url + "?" + $T.httpConfig.HOPCODE + "=" + sendParam.data[$T.httpConfig.HOPCODE] + "&token=" + sendParam.token + "&sendType=" + $T.httpConfig.SEND_TYPE_FILE_SAVE_SESSION + "&receiveType=" + $T.httpConfig.RECEIVCE_TYPE_STRING + "&packet=" + packet;
 			if (upfileObj == null) {
 				alert("您的浏览器不支持AJAX！");
 				return;
@@ -18,15 +18,19 @@
 				dataType : 'json',// 返回值类型 一般设置为json
 				success : function(data, status) // 服务器成功响应处理函数
 				{
-					var isSuccess = $T.CheckError.check(data);
+					//alert("ajaxfileupload成功返回！")
+					//var isSuccess = $T.CheckError.filter(data,sendParam);
+					var isSuccess = true;
 					if (isSuccess) {
-						if (options.successHandle) {
+						if (sendParam.successHandle) {
 							// data = eval('(' + data + ')');
-							options.successHandle(data, upfileObj);
+							//alert("进入成功回调方法")
+                            sendParam.successHandle(data, sendParam);
 						}
 					} else {
-						if (options.failHandle) {
-							options.failHandle(data, upfileObj);
+						if (sendParam.failHandle) {
+                            //alert("进入失败回调方法")
+                            sendParam.failHandle(data, sendParam);
 						}
 					}
 				}
