@@ -6,11 +6,11 @@
 	<property name="Server-WebContent" value="${Server.dir}/WebContent" />
 	<property name="webxml" value="${Server-WebContent}/WEB-INF/web.xml" />
 	<target name="generwar" depends="distServer">
-		<war destfile="${Server-dist}/ThreeCSSIdentityMsg.war" webxml="${webxml}">
+		<war destfile="${Server-dist}/ThreeCSSIdentity.war" webxml="${webxml}">
 			<fileset dir="${Server-WebContent}/">
 				<include name="html/**" />
 				<include name="js/**" />
-				<include name="index.html" />
+				<include name="*.html" />
 			</fileset>
 			<lib dir="${MsgExt.dir}/dist">
 				<include name="*.jar" />
