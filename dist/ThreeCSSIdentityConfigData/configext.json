@@ -1,4 +1,5 @@
 {
 "tokenExpireTime":[3600000,"token过期时间"],
-"userImgDir":["ThreeCSSIdentityUserImgDir","用户头像目录"]
+"userImgDir":["ThreeCSSIdentityUserImgDir","用户头像目录"],
+"uCenterUrl":["http://www.threecss.com/ThreeCSSIdentity/s","UCenter地址"]
 }
