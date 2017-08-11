@@ -27,9 +27,6 @@
 			<classes dir="${Server-src}">
 				<include name="log4j.properties" />
 			</classes>
-			<classes dir="${Server-src}">
-				<include name="mybatis-config.xml" />
-			</classes>
 		</war>
 	</target>
 	<path id="libs">
