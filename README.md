@@ -86,6 +86,9 @@ threecss-identity提供的API功能：
 	更新token
 	删除token
 
+API具体接口详见：
 
+	ThreeCSSIdentityMsg\protobuf文件夹
+	ThreeCSSIdentityMsg\src\http\HOpCodeUCenter.java
 
 
