@@ -68,7 +68,7 @@ threecss-identity是基于ThreeCSS分布式框架开发的一款身份系统。
 
 threecss-identity提供的API功能：
 
-1、用户组API：
+1、用户组API（树形结构）：
 	
 	创建、修改、获取、删除用户组。
 	获取用户组列表。
