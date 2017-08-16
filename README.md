@@ -55,15 +55,15 @@ threecss-identity是基于ThreeCSS分布式框架开发的一款身份系统。
 
 1、网盘：https://github.com/dianbaer/threecss-box
 	
-	体验地址：http://box.threecss.com
+体验地址：https://box.threecss.com
 
 2、嵌入式聊天：https://github.com/dianbaer/threecss-embed-chat
 	
-	体验地址：http://embedchat.threecss.com
+体验地址：https://embedchat.threecss.com
 
 3、支付平台：https://github.com/dianbaer/threecss-pay
 	
-	体验地址：http://pay.threecss.com
+体验地址：https://pay.threecss.com
 	
 
 threecss-identity提供的API功能：
