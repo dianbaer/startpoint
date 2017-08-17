@@ -1,5 +1,7 @@
 # threecss-identity
 
+[![Build Status](https://travis-ci.org/dianbaer/threecss-identity.svg?branch=master)](https://travis-ci.org/dianbaer/threecss-identity)
+
 threecss-identity是基于ThreeCSS分布式框架开发的一款身份系统。
 
 
