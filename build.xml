@@ -1,12 +1,11 @@
 ﻿<?xml version="1.0"?>
 <project name="Work" basedir="." default="build">
-	<property file="build-custom.properties"/>
-	<property name="dist" location="${DistPath}" />
-	<property name="Work.dir" value="${WorkDir}" />
-	<property name="MsgExt.dir" value="${MsgExtDir}" />
-	<property name="DBLib.dir" value="${DBLibDir}" />
-	<property name="Server.dir" value="${ServerDir}" />
-	<property name="ConfigData.dir" value="${ConfigDataDir}" />
+	<property name="dist" location="${basedir}/dist" />
+	<property name="Work.dir" value="${basedir}" />
+	<property name="MsgExt.dir" value="${basedir}/ThreeCSSIdentityMsg" />
+	<property name="DBLib.dir" value="${basedir}/ThreeCSSIdentityDBLib" />
+	<property name="Server.dir" value="${basedir}/ThreeCSSIdentity" />
+	<property name="ConfigData.dir" value="${basedir}/ThreeCSSIdentityConfigData" />
 	<target name="build-MsgExt" depends="">
 		<ant antfile="build-MsgExt.xml" dir="${MsgExt.dir}">
 		</ant>
