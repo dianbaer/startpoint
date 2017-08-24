@@ -66,8 +66,6 @@ threecss-identity是基于ThreeCSS分布式框架开发的一款身份系统。
 
 3、支付平台：https://github.com/dianbaer/threecss-pay
 	
-体验地址：https://pay.threecss.com
-	
 
 threecss-identity提供的API功能：
 
