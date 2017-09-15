@@ -56,7 +56,7 @@ threecss-identity是基于ThreeCSS分布式框架开发的一款身份系统。
 	
 依赖threecss-identity开发的项目：
 
-1、网盘：https://github.com/dianbaer/threecss-box
+1、文件存储：https://github.com/dianbaer/threecss-box
 	
 
 2、嵌入式聊天：https://github.com/dianbaer/threecss-embed-chat
