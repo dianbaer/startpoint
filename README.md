@@ -1,6 +1,6 @@
 # threecss-identity
 
-[![Build Status](https://travis-ci.org/dianbaer/threecss-identity.svg?branch=master)](https://travis-ci.org/dianbaer/threecss-identity)
+[![Build Status](https://travis-ci.org/dianbaer/Identity.svg?branch=master)](https://travis-ci.org/dianbaer/Identity)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/f0186a65938d415282b9e443f9034191)](https://www.codacy.com/app/232365732/threecss-identity?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dianbaer/threecss-identity&amp;utm_campaign=Badge_Grade)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
