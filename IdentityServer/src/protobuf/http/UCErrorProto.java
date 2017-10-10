@@ -390,9 +390,14 @@ public final class UCErrorProto {
     protobuf.http.UCErrorProto.UCErrorCode getErrorCode();
 
     /**
-     * <code>optional int32 errorHOpCode = 3;</code>
+     * <code>optional string errorHOpCode = 3;</code>
      */
-    int getErrorHOpCode();
+    java.lang.String getErrorHOpCode();
+    /**
+     * <code>optional string errorHOpCode = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getErrorHOpCodeBytes();
 
     /**
      * <code>optional string extraMsg = 4;</code>
@@ -418,7 +423,7 @@ public final class UCErrorProto {
     private UCError() {
       hOpCode_ = "";
       errorCode_ = 0;
-      errorHOpCode_ = 0;
+      errorHOpCode_ = "";
       extraMsg_ = "";
     }
 
@@ -459,9 +464,10 @@ public final class UCErrorProto {
               errorCode_ = rawValue;
               break;
             }
-            case 24: {
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              errorHOpCode_ = input.readInt32();
+              errorHOpCode_ = s;
               break;
             }
             case 34: {
@@ -544,12 +550,37 @@ public final class UCErrorProto {
     }
 
     public static final int ERRORHOPCODE_FIELD_NUMBER = 3;
-    private int errorHOpCode_;
+    private volatile java.lang.Object errorHOpCode_;
     /**
-     * <code>optional int32 errorHOpCode = 3;</code>
+     * <code>optional string errorHOpCode = 3;</code>
      */
-    public int getErrorHOpCode() {
-      return errorHOpCode_;
+    public java.lang.String getErrorHOpCode() {
+      java.lang.Object ref = errorHOpCode_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        errorHOpCode_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string errorHOpCode = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getErrorHOpCodeBytes() {
+      java.lang.Object ref = errorHOpCode_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        errorHOpCode_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int EXTRAMSG_FIELD_NUMBER = 4;
@@ -604,8 +635,8 @@ public final class UCErrorProto {
       if (errorCode_ != protobuf.http.UCErrorProto.UCErrorCode.ERROR_CODE_0.getNumber()) {
         output.writeEnum(2, errorCode_);
       }
-      if (errorHOpCode_ != 0) {
-        output.writeInt32(3, errorHOpCode_);
+      if (!getErrorHOpCodeBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, errorHOpCode_);
       }
       if (!getExtraMsgBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, extraMsg_);
@@ -624,9 +655,8 @@ public final class UCErrorProto {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(2, errorCode_);
       }
-      if (errorHOpCode_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, errorHOpCode_);
+      if (!getErrorHOpCodeBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, errorHOpCode_);
       }
       if (!getExtraMsgBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, extraMsg_);
@@ -650,8 +680,8 @@ public final class UCErrorProto {
       result = result && getHOpCode()
           .equals(other.getHOpCode());
       result = result && errorCode_ == other.errorCode_;
-      result = result && (getErrorHOpCode()
-          == other.getErrorHOpCode());
+      result = result && getErrorHOpCode()
+          .equals(other.getErrorHOpCode());
       result = result && getExtraMsg()
           .equals(other.getExtraMsg());
       return result;
@@ -669,7 +699,7 @@ public final class UCErrorProto {
       hash = (37 * hash) + ERRORCODE_FIELD_NUMBER;
       hash = (53 * hash) + errorCode_;
       hash = (37 * hash) + ERRORHOPCODE_FIELD_NUMBER;
-      hash = (53 * hash) + getErrorHOpCode();
+      hash = (53 * hash) + getErrorHOpCode().hashCode();
       hash = (37 * hash) + EXTRAMSG_FIELD_NUMBER;
       hash = (53 * hash) + getExtraMsg().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -794,7 +824,7 @@ public final class UCErrorProto {
 
         errorCode_ = 0;
 
-        errorHOpCode_ = 0;
+        errorHOpCode_ = "";
 
         extraMsg_ = "";
 
@@ -872,8 +902,9 @@ public final class UCErrorProto {
         if (other.errorCode_ != 0) {
           setErrorCodeValue(other.getErrorCodeValue());
         }
-        if (other.getErrorHOpCode() != 0) {
-          setErrorHOpCode(other.getErrorHOpCode());
+        if (!other.getErrorHOpCode().isEmpty()) {
+          errorHOpCode_ = other.errorHOpCode_;
+          onChanged();
         }
         if (!other.getExtraMsg().isEmpty()) {
           extraMsg_ = other.extraMsg_;
@@ -1018,28 +1049,71 @@ public final class UCErrorProto {
         return this;
       }
 
-      private int errorHOpCode_ ;
+      private java.lang.Object errorHOpCode_ = "";
       /**
-       * <code>optional int32 errorHOpCode = 3;</code>
+       * <code>optional string errorHOpCode = 3;</code>
        */
-      public int getErrorHOpCode() {
-        return errorHOpCode_;
+      public java.lang.String getErrorHOpCode() {
+        java.lang.Object ref = errorHOpCode_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          errorHOpCode_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>optional int32 errorHOpCode = 3;</code>
+       * <code>optional string errorHOpCode = 3;</code>
        */
-      public Builder setErrorHOpCode(int value) {
-        
+      public com.google.protobuf.ByteString
+          getErrorHOpCodeBytes() {
+        java.lang.Object ref = errorHOpCode_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          errorHOpCode_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string errorHOpCode = 3;</code>
+       */
+      public Builder setErrorHOpCode(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         errorHOpCode_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 errorHOpCode = 3;</code>
+       * <code>optional string errorHOpCode = 3;</code>
        */
       public Builder clearErrorHOpCode() {
         
-        errorHOpCode_ = 0;
+        errorHOpCode_ = getDefaultInstance().getErrorHOpCode();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string errorHOpCode = 3;</code>
+       */
+      public Builder setErrorHOpCodeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        errorHOpCode_ = value;
         onChanged();
         return this;
       }
@@ -1178,7 +1252,7 @@ public final class UCErrorProto {
       "\n\022UCErrorProto.proto\022\rprotobuf.http\"q\n\007U" +
       "CError\022\017\n\007hOpCode\030\001 \001(\t\022-\n\terrorCode\030\002 \001" +
       "(\0162\032.protobuf.http.UCErrorCode\022\024\n\014errorH" +
-      "OpCode\030\003 \001(\005\022\020\n\010extraMsg\030\004 \001(\t*\263\002\n\013UCErr" +
+      "OpCode\030\003 \001(\t\022\020\n\010extraMsg\030\004 \001(\t*\263\002\n\013UCErr" +
       "orCode\022\020\n\014ERROR_CODE_0\020\000\022\020\n\014ERROR_CODE_1" +
       "\020\001\022\020\n\014ERROR_CODE_2\020\002\022\020\n\014ERROR_CODE_3\020\003\022\020" +
       "\n\014ERROR_CODE_4\020\004\022\020\n\014ERROR_CODE_5\020\005\022\020\n\014ER" +

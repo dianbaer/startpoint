@@ -3,7 +3,7 @@ package protobuf.http;
 message UCError{
 	string hOpCode=1;
 	UCErrorCode errorCode=2;
-	int32 errorHOpCode=3;
+	string errorHOpCode=3;
 	string extraMsg=4;
 }
 enum UCErrorCode{

@@ -5,15 +5,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.grain.httpserver.IHttpListener;
+
 import action.UCErrorPack;
 import action.UserAction;
 import dao.model.base.User;
 import http.HOpCodeUCenter;
-import http.HSession;
-import http.HttpPacket;
-import http.IHttpListener;
-import http.exception.HttpErrorException;
-import http.filter.FileData;
 import protobuf.http.UCErrorProto.UCError;
 import protobuf.http.UCErrorProto.UCErrorCode;
 import protobuf.http.UserGroupProto.CheckUserByUserNameC;
@@ -36,27 +33,22 @@ import tool.PageFormat;
 import tool.PageObj;
 import tool.StringUtil;
 
-public class UserService implements IHttpListener, IService {
-
+public class UserService implements IHttpListener{
+	public UserService() {
+		UserAction.createUserImgDir();
+	}
 	@Override
-	public Map<Integer, String> getHttps() throws Exception {
-		HashMap<Integer, String> map = new HashMap<>();
+	public Map<String, String> getHttps(){
+		HashMap<String, String> map = new HashMap<>();
 		map.put(HOpCodeUCenter.CREATE_USER, "createUserHandle");
 		map.put(HOpCodeUCenter.GET_USER, "getUserHandle");
 		map.put(HOpCodeUCenter.UPDATE_USER, "updateUserHandle");
 		map.put(HOpCodeUCenter.GET_USER_LIST, "getUserListHandle");
 		map.put(HOpCodeUCenter.GET_USER_IMG, "getUserImgHandle");
-		// dingwancheng start
 		map.put(HOpCodeUCenter.GET_USER_BY_EMAIL, "getUserByEmailHandle");
-		// dingwancheng end
 		map.put(HOpCodeUCenter.CHECK_USER_BY_USER_NAME, "checkUserByUserNameHandle");
 		map.put(HOpCodeUCenter.CHECK_USER_PHONE, "checkUserPhone");
 		return map;
-	}
-
-	@Override
-	public Object getInstance() {
-		return this;
 	}
 
 	public HttpPacket createUserHandle(HSession hSession) throws HttpErrorException {
@@ -223,10 +215,5 @@ public class UserService implements IHttpListener, IService {
 		File file = UserAction.getUserImg(user.getUserImg());
 		FileData fileData = new FileData(file, file.getName());
 		return fileData;
-	}
-
-	@Override
-	public void init() throws Exception {
-		UserAction.createUserImgDir();
 	}
 }
