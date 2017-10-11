@@ -20,7 +20,7 @@ public class TokenHttpFilter implements IHttpFilter {
 	@Override
 	public boolean httpFilter(HttpPacket httpPacket) throws HttpException {
 		if (httpPacket.hSession.headParam.token == null) {
-			if (HOpCodeUCenter.GET_TOKEN == httpPacket.hSession.headParam.hOpCode || HOpCodeUCenter.CHECK_USER_BY_USER_NAME == httpPacket.hSession.headParam.hOpCode || HOpCodeUCenter.CHECK_USER_PHONE == httpPacket.hSession.headParam.hOpCode) {
+			if (HOpCodeUCenter.GET_TOKEN.equals(httpPacket.hSession.headParam.hOpCode) || HOpCodeUCenter.CHECK_USER_BY_USER_NAME.equals(httpPacket.hSession.headParam.hOpCode) || HOpCodeUCenter.CHECK_USER_PHONE.equals(httpPacket.hSession.headParam.hOpCode)) {
 				// 可以通过
 				return true;
 			} else {
