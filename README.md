@@ -6,6 +6,14 @@
 
 # Identity是一个身份系统。
 
+基于grain
+
+https://github.com/dianbaer/grain
+
+	grain-httpserver
+	grain-mariadb
+	grain-threadkeylock
+
 
 ## 打版本：在项目根目录下，执行
 
@@ -16,7 +24,7 @@
 
 	dist/IdentityConfig/mybatis-config.xml---访问身份系统数据库
 
-	dist/IdentityServer.properties----IdentityConfig在服务器路径
+	dist/IdentityServer.properties----IdentityConfig在服务器路径及一些配置
 
 
 ## 推荐环境：
