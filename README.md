@@ -14,8 +14,6 @@
 
 ## 配置：
 
-	dist/IdentityConfig/configext.json----访问身份系统及其他配置
-
 	dist/IdentityConfig/mybatis-config.xml---访问身份系统数据库
 
 	dist/IdentityServer.properties----IdentityConfig在服务器路径
