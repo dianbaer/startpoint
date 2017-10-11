@@ -5,7 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import log.LogManager;
+import org.grain.httpserver.HttpConfig;
 
 public class TimeUtils {
 	public static SimpleDateFormat longDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -26,7 +26,7 @@ public class TimeUtils {
 			date = longDateFormat.parse(time);
 			return date;
 		} catch (ParseException e) {
-			LogManager.initLog.error("TimeUtils.stringToDate error", e);
+			HttpConfig.log.error("TimeUtils.stringToDate error", e);
 			return null;
 		}
 

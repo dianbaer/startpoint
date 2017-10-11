@@ -2,18 +2,8 @@
 <project name="Work" basedir="." default="test">
 	<property name="dist" location="${basedir}/dist" />
 	<property name="Work.dir" value="${basedir}" />
-	<property name="MsgExt.dir" value="${basedir}/ThreeCSSIdentityMsg" />
-	<property name="DBLib.dir" value="${basedir}/ThreeCSSIdentityDBLib" />
-	<property name="Server.dir" value="${basedir}/ThreeCSSIdentity" />
-	<property name="ConfigData.dir" value="${basedir}/ThreeCSSIdentityConfigData" />
-	<target name="build-MsgExt" depends="">
-		<ant antfile="build-MsgExt.xml" dir="${MsgExt.dir}">
-		</ant>
-	</target>
-	<target name="build-DBLib" depends="">
-		<ant antfile="build-DBLib.xml" dir="${DBLib.dir}">
-		</ant>
-	</target>
+	<property name="Server.dir" value="${basedir}/IdentityServer" />
+	<property name="Config.dir" value="${basedir}/IdentityConfig" />
 	<target name="build-Server" depends="">
 		<ant antfile="build-Server.xml" dir="${Server.dir}">
 		</ant>
@@ -23,14 +13,11 @@
 	</target>
 	<target name="test">
 		<antcall target="cleandist" />
-		<antcall target="build-MsgExt" />
-		<antcall target="build-DBLib" />
 		<antcall target="build-Server" />
 		<mkdir dir="${dist}" />
-		<copy file="${Server.dir}/dist/ThreeCSSIdentity.war" todir="${dist}" />
-		<copy file="${MsgExt.dir}/dist/ThreeCSSIdentityMsg.jar" todir="${dist}" />
-		<copy file="${Server.dir}/src/ThreeCSSIdentity.properties" todir="${dist}" />
-		<copy file="${Work.dir}/threecssidentity.sql" todir="${dist}" />
-		<copydir dest="${dist}/ThreeCSSIdentityConfigData" src="${ConfigData.dir}"></copydir>
+		<copy file="${Server.dir}/dist/IdentityServer.war" todir="${dist}" />
+		<copy file="${Server.dir}/src/IdentityServer.properties" todir="${dist}" />
+		<copy file="${Work.dir}/identity.sql" todir="${dist}" />
+		<copydir dest="${dist}/IdentityConfig" src="${Config.dir}"></copydir>
 	</target>
 </project>

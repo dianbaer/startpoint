@@ -4,13 +4,12 @@ import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
+import org.grain.mariadb.MybatisManager;
 
 import config.CommonConfigUCenter;
 import dao.dao.base.TokenMapper;
 import dao.model.base.Token;
 import dao.model.base.TokenCriteria;
-import log.LogManager;
-import mbatis.MybatisManager;
 import tool.StringUtil;
 import util.IdUtil;
 
@@ -35,7 +34,7 @@ public class TokenAction {
 			if (sqlSession != null) {
 				sqlSession.rollback();
 			}
-			LogManager.mariadbLog.error("获取token异常", e);
+			MybatisManager.log.error("获取token异常", e);
 			return null;
 		} finally {
 			if (sqlSession != null) {
@@ -58,7 +57,7 @@ public class TokenAction {
 			if (sqlSession != null) {
 				sqlSession.rollback();
 			}
-			LogManager.mariadbLog.error("获取token异常", e);
+			MybatisManager.log.error("获取token异常", e);
 			return null;
 		} finally {
 			if (sqlSession != null) {
@@ -86,7 +85,7 @@ public class TokenAction {
 			TokenMapper tokenMapper = sqlSession.getMapper(TokenMapper.class);
 			int result = tokenMapper.insert(token);
 			if (result == 0) {
-				LogManager.mariadbLog.warn("创建token失败");
+				MybatisManager.log.warn("创建token失败");
 				return null;
 			}
 			sqlSession.commit();
@@ -95,7 +94,7 @@ public class TokenAction {
 			if (sqlSession != null) {
 				sqlSession.rollback();
 			}
-			LogManager.mariadbLog.error("创建token异常", e);
+			MybatisManager.log.error("创建token异常", e);
 			return null;
 		} finally {
 			if (sqlSession != null) {
@@ -125,7 +124,7 @@ public class TokenAction {
 			TokenMapper tokenMapper = sqlSession.getMapper(TokenMapper.class);
 			int result = tokenMapper.updateByPrimaryKeySelective(token);
 			if (result == 0) {
-				LogManager.mariadbLog.warn("更新token失败");
+				MybatisManager.log.warn("更新token失败");
 				return null;
 			}
 			sqlSession.commit();
@@ -134,7 +133,7 @@ public class TokenAction {
 			if (sqlSession != null) {
 				sqlSession.rollback();
 			}
-			LogManager.mariadbLog.error("更新token异常", e);
+			MybatisManager.log.error("更新token异常", e);
 			return null;
 		} finally {
 			if (sqlSession != null) {
@@ -157,7 +156,7 @@ public class TokenAction {
 			TokenMapper tokenMapper = sqlSession.getMapper(TokenMapper.class);
 			int result = tokenMapper.deleteByPrimaryKey(tokenId);
 			if (result == 0) {
-				LogManager.mariadbLog.warn("删除token失败");
+				MybatisManager.log.warn("删除token失败");
 				return false;
 			}
 			sqlSession.commit();
@@ -166,7 +165,7 @@ public class TokenAction {
 			if (sqlSession != null) {
 				sqlSession.rollback();
 			}
-			LogManager.mariadbLog.error("删除token异常", e);
+			MybatisManager.log.error("删除token异常", e);
 			return false;
 		} finally {
 			if (sqlSession != null) {

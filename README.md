@@ -1,10 +1,10 @@
-# threecss-identity
+# Identity
 
 [![Build Status](https://travis-ci.org/dianbaer/Identity.svg?branch=master)](https://travis-ci.org/dianbaer/Identity)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/f0186a65938d415282b9e443f9034191)](https://www.codacy.com/app/232365732/threecss-identity?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dianbaer/threecss-identity&amp;utm_campaign=Badge_Grade)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-# threecss-identity是基于ThreeCSS分布式框架开发的一款身份系统。
+# Identity是一个身份系统。
 
 
 ## 打版本：在项目根目录下，执行
@@ -14,11 +14,11 @@
 
 ## 配置：
 
-	dist/ThreeCSSIdentityConfigData/configext.json----访问身份系统及其他配置
+	dist/IdentityConfig/configext.json----访问身份系统及其他配置
 
-	dist/ThreeCSSIdentityConfigData/mybatis-config.xml---访问身份系统数据库
+	dist/IdentityConfig/mybatis-config.xml---访问身份系统数据库
 
-	dist/ThreeCSSIdentity.properties----ThreeCSSIdentityConfigData在服务器路径
+	dist/IdentityServer.properties----IdentityConfig在服务器路径
 
 
 ## 推荐环境：
@@ -38,37 +38,37 @@
 
 >1、安装数据库
 	
-	create database threecssidentity
+	create database identity
 	
-	source ****/threecssidentity.sql
+	source ****/identity.sql
 
->2、将ThreeCSSIdentityConfigData放入服务器某个路径，例如
+>2、将IdentityConfig放入服务器某个路径，例如
 	
-	/home/ThreeCSSIdentityConfigData
+	/home/IdentityConfig
 
->3、将ThreeCSSIdentity.properties放入tomcat根目录下，例如
+>3、将IdentityServer.properties放入tomcat根目录下，例如
 	
-	/home/tomcat/ThreeCSSIdentity.properties
+	/home/tomcat/IdentityServer.properties
 	
-	并修改config_dir对应的ThreeCSSIdentityConfigData路径
+	并修改config_dir对应的IdentityConfig路径
 
->4、将ThreeCSSIdentity.war放入tomcat/webapps，例如
+>4、将IdentityServer.war放入tomcat/webapps，例如
 	
-	/home/tomcat/webapps/ThreeCSSIdentity.war
+	/home/tomcat/webapps/IdentityServer.war
 
 	
-## 依赖threecss-identity开发的项目：
+## 依赖Identity开发的项目：
 
->1、文件存储：https://github.com/dianbaer/threecss-box
-	
-
->2、嵌入式聊天：https://github.com/dianbaer/threecss-embed-chat
+>1、文件系统：https://github.com/dianbaer/FileSystem
 	
 
->3、支付平台：https://github.com/dianbaer/threecss-pay
+>2、聊天：https://github.com/dianbaer/Chat
 	
 
-## threecss-identity提供的API功能：
+>3、支付：https://github.com/dianbaer/Pay
+	
+
+## Identity提供的API功能：
 
 >1、用户组API（树形结构）：
 	
@@ -88,9 +88,5 @@
 	更新token
 	删除token
 
-## API具体接口详见：
-
-	ThreeCSSIdentityMsg\protobuf文件夹
-	ThreeCSSIdentityMsg\src\http\HOpCodeUCenter.java
 
 

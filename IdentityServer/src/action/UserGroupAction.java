@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
+import org.grain.mariadb.MybatisManager;
+import org.grain.threadkeylock.KeyLockManager;
 
 import config.UserConfig;
 import config.UserGroupConfig;
@@ -14,10 +16,7 @@ import dao.model.base.User;
 import dao.model.base.UserCriteria;
 import dao.model.base.UserGroup;
 import dao.model.base.UserGroupCriteria;
-import keylock.KeyLockManager;
 import keylock.UCenterKeyLockType;
-import log.LogManager;
-import mbatis.MybatisManager;
 import protobuf.http.UserGroupProto.UserGroupData;
 import tool.StringUtil;
 import tool.TimeUtils;
@@ -84,7 +83,7 @@ public class UserGroupAction {
 			UserGroupMapper userGroupMapper = sqlSession.getMapper(UserGroupMapper.class);
 			int result = userGroupMapper.insert(userGroup);
 			if (result != 1) {
-				LogManager.mariadbLog.warn("新增用户组失败");
+				MybatisManager.log.warn("新增用户组失败");
 				return null;
 			}
 			sqlSession.commit();
@@ -92,7 +91,7 @@ public class UserGroupAction {
 			if (sqlSession != null) {
 				sqlSession.rollback();
 			}
-			LogManager.mariadbLog.error("创建用户组异常", e);
+			MybatisManager.log.error("创建用户组异常", e);
 			return null;
 		} finally {
 			if (sqlSession != null) {
@@ -113,13 +112,13 @@ public class UserGroupAction {
 			UserGroupMapper userGroupMapper = sqlSession.getMapper(UserGroupMapper.class);
 			userGroup = userGroupMapper.selectByPrimaryKey(userGroupId);
 			if (userGroup == null) {
-				LogManager.mariadbLog.warn("通过userGroupId:" + userGroupId + "获取用户组为空");
+				MybatisManager.log.warn("通过userGroupId:" + userGroupId + "获取用户组为空");
 			}
 		} catch (Exception e) {
 			if (sqlSession != null) {
 				sqlSession.rollback();
 			}
-			LogManager.mariadbLog.error("获取用户组异常", e);
+			MybatisManager.log.error("获取用户组异常", e);
 			return null;
 		} finally {
 			if (sqlSession != null) {
@@ -247,14 +246,14 @@ public class UserGroupAction {
 			UserGroupMapper userGroupMapper = sqlSession.getMapper(UserGroupMapper.class);
 			int result = userGroupMapper.updateByPrimaryKeySelective(userGroup);
 			if (result != 1) {
-				LogManager.mariadbLog.warn("修改用户组失败");
+				MybatisManager.log.warn("修改用户组失败");
 				return null;
 			}
 			if (isUpdateUserGroupTopId) {
 				UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
 				boolean bool = updateChildrenTopId(userGroup, userGroupMapper, userMapper, userGroupTopId, date);
 				if (!bool) {
-					LogManager.mariadbLog.warn("修改用户组子集topid失败");
+					MybatisManager.log.warn("修改用户组子集topid失败");
 					return null;
 				}
 			}
@@ -263,7 +262,7 @@ public class UserGroupAction {
 			if (sqlSession != null) {
 				sqlSession.rollback();
 			}
-			LogManager.mariadbLog.error("修改用户组异常", e);
+			MybatisManager.log.error("修改用户组异常", e);
 			return null;
 		} finally {
 			if (sqlSession != null) {
@@ -327,7 +326,7 @@ public class UserGroupAction {
 			if (sqlSession != null) {
 				sqlSession.rollback();
 			}
-			LogManager.mariadbLog.error("获取用户组子类异常", e);
+			MybatisManager.log.error("获取用户组子类异常", e);
 			return null;
 		} finally {
 			if (sqlSession != null) {
@@ -453,7 +452,7 @@ public class UserGroupAction {
 			UserGroupMapper userGroupMapper = sqlSession.getMapper(UserGroupMapper.class);
 			int result = userGroupMapper.deleteByPrimaryKey(userGroupId);
 			if (result == 0) {
-				LogManager.mariadbLog.warn("删除用户组异常");
+				MybatisManager.log.warn("删除用户组异常");
 				return false;
 			}
 			sqlSession.commit();
@@ -461,7 +460,7 @@ public class UserGroupAction {
 			if (sqlSession != null) {
 				sqlSession.rollback();
 			}
-			LogManager.mariadbLog.error("删除用户组异常", e);
+			MybatisManager.log.error("删除用户组异常", e);
 			return false;
 		} finally {
 			if (sqlSession != null) {

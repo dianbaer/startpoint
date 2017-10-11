@@ -6,6 +6,11 @@ import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
+import org.grain.httpserver.HttpConfig;
+import org.grain.httpserver.HttpPacket;
+import org.grain.httpserver.URLUtil;
+import org.grain.mariadb.MybatisManager;
+import org.grain.threadkeylock.KeyLockManager;
 
 import config.CommonConfigUCenter;
 import config.UserConfig;
@@ -15,15 +20,8 @@ import dao.model.base.User;
 import dao.model.base.UserCriteria;
 import dao.model.base.UserGroup;
 import dao.model.base.UserGroupCriteria;
-import http.AllowParam;
 import http.HOpCodeUCenter;
-import http.HttpConfig;
-import http.HttpPacket;
-import http.HttpUtil;
-import keylock.KeyLockManager;
 import keylock.UCenterKeyLockType;
-import log.LogManager;
-import mbatis.MybatisManager;
 import protobuf.http.UserGroupProto.GetUserImgC;
 import protobuf.http.UserGroupProto.UserData;
 import tool.StringUtil;
@@ -112,7 +110,7 @@ public class UserAction {
 			UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
 			int result = userMapper.insert(user);
 			if (result == 0) {
-				LogManager.mariadbLog.warn("创建用户失败");
+				MybatisManager.log.warn("创建用户失败");
 				return null;
 			}
 			sqlSession.commit();
@@ -121,7 +119,7 @@ public class UserAction {
 			if (sqlSession != null) {
 				sqlSession.rollback();
 			}
-			LogManager.mariadbLog.error("创建用户异常", e);
+			MybatisManager.log.error("创建用户异常", e);
 			return null;
 		} finally {
 			if (sqlSession != null) {
@@ -141,13 +139,13 @@ public class UserAction {
 			UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
 			user = userMapper.selectByPrimaryKey(userId);
 			if (user == null) {
-				LogManager.mariadbLog.warn("通过userId:" + userId + "获取用户为空");
+				MybatisManager.log.warn("通过userId:" + userId + "获取用户为空");
 			}
 		} catch (Exception e) {
 			if (sqlSession != null) {
 				sqlSession.rollback();
 			}
-			LogManager.mariadbLog.error("获取用户异常", e);
+			MybatisManager.log.error("获取用户异常", e);
 			return null;
 		} finally {
 			if (sqlSession != null) {
@@ -170,7 +168,7 @@ public class UserAction {
 			criteria.andUserNameEqualTo(userName);
 			List<User> userList = userMapper.selectByExample(userCriteria);
 			if (userList == null || userList.size() == 0) {
-				LogManager.mariadbLog.warn("通过userName:" + userName + "获取用户为空");
+				MybatisManager.log.warn("通过userName:" + userName + "获取用户为空");
 				return null;
 			}
 			return userList.get(0);
@@ -178,7 +176,7 @@ public class UserAction {
 			if (sqlSession != null) {
 				sqlSession.rollback();
 			}
-			LogManager.mariadbLog.error("获取用户异常", e);
+			MybatisManager.log.error("获取用户异常", e);
 			return null;
 		} finally {
 			if (sqlSession != null) {
@@ -200,7 +198,7 @@ public class UserAction {
 			criteria.andUserPhoneEqualTo(userPhone);
 			List<User> userList = userMapper.selectByExample(userCriteria);
 			if (userList == null || userList.size() == 0) {
-				LogManager.mariadbLog.warn("通过userPhone:" + userPhone + "获取用户为空");
+				MybatisManager.log.warn("通过userPhone:" + userPhone + "获取用户为空");
 				return null;
 			}
 			return userList.get(0);
@@ -208,7 +206,7 @@ public class UserAction {
 			if (sqlSession != null) {
 				sqlSession.rollback();
 			}
-			LogManager.mariadbLog.error("获取用户异常", e);
+			MybatisManager.log.error("获取用户异常", e);
 			return null;
 		} finally {
 			if (sqlSession != null) {
@@ -217,7 +215,6 @@ public class UserAction {
 		}
 	}
 
-	// dingwancheng start
 	public static User getUserByEmail(String userEmail) {
 		if (StringUtil.stringIsNull(userEmail)) {
 			return null;
@@ -231,7 +228,7 @@ public class UserAction {
 			criteria.andUserEmailEqualTo(userEmail);
 			List<User> userList = userMapper.selectByExample(userCriteria);
 			if (userList == null || userList.size() == 0) {
-				LogManager.mariadbLog.warn("通过userEmail:" + userEmail + "获取用户为空");
+				MybatisManager.log.warn("通过userEmail:" + userEmail + "获取用户为空");
 				return null;
 			}
 			return userList.get(0);
@@ -239,7 +236,7 @@ public class UserAction {
 			if (sqlSession != null) {
 				sqlSession.rollback();
 			}
-			LogManager.mariadbLog.error("获取用户异常", e);
+			MybatisManager.log.error("获取用户异常", e);
 			return null;
 		} finally {
 			if (sqlSession != null) {
@@ -247,7 +244,6 @@ public class UserAction {
 			}
 		}
 	}
-	// dingwancheng end
 
 	public static User updateUser(String userId, String userPassword, String userPhone, String userEmail, int userState, boolean isUpdateUserGroup, String userGroupId, String userRealName, int userSex, int userAge, int userRole, String userImg) {
 		if (StringUtil.stringIsNull(userId)) {
@@ -353,7 +349,7 @@ public class UserAction {
 			UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
 			int result = userMapper.updateByPrimaryKeySelective(user);
 			if (result != 1) {
-				LogManager.mariadbLog.warn("修改用户失败");
+				MybatisManager.log.warn("修改用户失败");
 				return null;
 			}
 			sqlSession.commit();
@@ -361,7 +357,7 @@ public class UserAction {
 			if (sqlSession != null) {
 				sqlSession.rollback();
 			}
-			LogManager.mariadbLog.error("修改用户异常", e);
+			MybatisManager.log.error("修改用户异常", e);
 			return null;
 		} finally {
 			if (sqlSession != null) {
@@ -384,7 +380,7 @@ public class UserAction {
 			if (sqlSession != null) {
 				sqlSession.rollback();
 			}
-			LogManager.mariadbLog.error("获取用户列表异常", e);
+			MybatisManager.log.error("获取用户列表异常", e);
 			return null;
 		} finally {
 			if (sqlSession != null) {
@@ -483,7 +479,7 @@ public class UserAction {
 			criteria.andUserIdIn(userList);
 			int result = userMapper.updateByExampleSelective(user, userCriteria);
 			if (result == 0) {
-				LogManager.mariadbLog.warn("修改用户失败");
+				MybatisManager.log.warn("修改用户失败");
 				return false;
 			}
 			sqlSession.commit();
@@ -491,7 +487,7 @@ public class UserAction {
 			if (sqlSession != null) {
 				sqlSession.rollback();
 			}
-			LogManager.mariadbLog.error("修改用户异常", e);
+			MybatisManager.log.error("修改用户异常", e);
 			return false;
 		} finally {
 			if (sqlSession != null) {
@@ -536,7 +532,7 @@ public class UserAction {
 			builder.setHOpCode(HOpCodeUCenter.GET_USER_IMG);
 			builder.setUserId(user.getUserId());
 			HttpPacket httpPacket = new HttpPacket(HOpCodeUCenter.GET_USER_IMG, builder.build());
-			String userImgUrl = HttpUtil.getRequestUrl(httpPacket, CommonConfigUCenter.UCENTER_URL, token, AllowParam.SEND_TYPE_PACKET, AllowParam.RECEIVE_TYPE_IMAGE);
+			String userImgUrl = URLUtil.getRequestUrl(httpPacket, CommonConfigUCenter.UCENTER_URL, token);
 			if (userImgUrl != null) {
 				dataBuilder.setUserImgUrl(userImgUrl);
 			}
@@ -564,7 +560,7 @@ public class UserAction {
 			file.renameTo(newfile);
 			return name;
 		} catch (Exception e) {
-			LogManager.initLog.error("保存头像异常", e);
+			HttpConfig.log.error("保存头像异常", e);
 			return null;
 		}
 	}

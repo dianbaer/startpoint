@@ -11,7 +11,7 @@
         <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
         <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
         <plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin" />
-        <plugin type="org.grain.mariadb.PaginationPlugin"/>
+        <plugin type="plugin.PaginationPlugin"/>
         <plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
         	<property name="searchString" value="Example$" />
         	<property name="replaceString" value="Criteria" />
