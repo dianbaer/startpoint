@@ -1,14 +1,16 @@
 function Global() {
 }
 var $T = new Global();
-function Notification() {
+
+function Notification() {
     this.SEND_HTTP_START = "SEND_HTTP_START";// 发送http请求
     this.SEND_HTTP_END = "SEND_HTTP_END";// 发送http请求完成
     this.SYSTEM_ERROR = "SYSTEM_ERROR";// 系统内部错误
     this.MODULE_INIT_COMPLETE = "moduleInitComplete";// 模块初始化完成
 }
 $T.notification = new Notification();
-function ViewManager() {
+
+function ViewManager() {
     this.observerMap = [];
     this.viewMap = [];
     /**
@@ -120,7 +122,8 @@ $T.notification = new Notification();
     }
 }
 $T.viewManager = new ViewManager();
-function HttpConfigNormal() {
+
+function HttpConfigNormal() {
     this.TYPE_POST = "post";// 发送类型
     this.TYPE_GET = "get";// 发送类型
     this.RETURN_TYPE_JSON = "json";// 获取类型
@@ -129,7 +132,8 @@ $T.viewManager = new ViewManager();
 
 }
 $T.httpConfigNormal = new HttpConfigNormal();
-function HttpConfig() {
+
+function HttpConfig() {
     HttpConfigNormal.apply(this);
     // 允许消息头
     this.HOPCODE = "hOpCode";// 操作码
@@ -153,7 +157,8 @@ $T.httpConfigNormal = new HttpConfigNormal();
     this.RECEIVE_TYPE_NONE = "receiveTypeNone";
 }
 $T.httpConfig = new HttpConfig();
-function HttpResultFilter() {
+
+function HttpResultFilter() {
     this.filterArray = new Array();
     this.addFilter = function (filter) {
         this.filterArray.push(filter);
@@ -170,7 +175,8 @@ $T.httpConfig = new HttpConfig();
     }
 }
 $T.httpResultFilter = new HttpResultFilter();
-function SendParamNormal() {
+
+function SendParamNormal() {
     this.canContinuous = false;// 该函数名是否可以持续发送
     this.lockKey;//锁的对象
     this.loadType;// 加载消息类型
@@ -189,19 +195,22 @@ $T.httpResultFilter = new HttpResultFilter();
     this.headerKey;//头key数组
     this.headerValue;//头value数组
 }
-function SendParam() {
+
+function SendParam() {
     SendParamNormal.apply(this);
     this.fileUuid;// 获取进度的id
     this.token;// 身份标示
     this.sendType;// 发送类型
     this.receiveType;// 接收类型
 }
-function TestFilter() {
+
+function TestFilter() {
     this.filter = function (result, sendParam) {
         return true;
     }
 }
-/**
+
+/**
  * 全局
  */
 function ArrayTools() {
@@ -220,7 +229,8 @@ function ArrayTools() {
     }
 }
 $T.arrayTools = new ArrayTools();
-function DisplayObject() {
+
+function DisplayObject() {
     this.obj;
     this.xValue = 0;
     this.yValue = 0;
@@ -268,7 +278,8 @@ $T.arrayTools = new ArrayTools();
     }
 }
 
-function Event() {
+
+function Event() {
     this.mTarget;
     this.mCurrentTarget;
     this.mType;
@@ -314,7 +325,8 @@ $T.arrayTools = new ArrayTools();
     }
 }
 
-function EventPool() {
+
+function EventPool() {
     this.sEventPool = new Array();
     /** xp取事件池里面的事件，并且对事件进行重置（无回调）* */
     this.fromPool = function (type, bubbles, data) {
@@ -336,7 +348,8 @@ $T.arrayTools = new ArrayTools();
 }
 $T.eventPool = new EventPool();
 
-$T.sBubbleChains = new Array();
+
+$T.sBubbleChains = new Array();
 $T.functionMapping = new Array();
 /**
  * xp已看完，这个类重中之重就是回调之后，不能影响这次循环的调用，一切都有一个衡量点，就是如果注册了这个时间，并且触发时，除非是被阻止冒泡，不能阻止事件触发
@@ -513,12 +526,14 @@ function EventDispatcher() {
     }
 }
 
-function TweenEventType() {
+
+function TweenEventType() {
     /** **************自定义事件****************** */
     this.REMOVE_FROM_JUGGLER = "removeFromJuggler";// 移出时间轴
 }
 $T.tweenEventType = new TweenEventType();
-/**
+
+/**
  * 主要注意的是，这个对象并不会被注销，需要保留这个对象的引用，然后注销了，在删除引用
  */
 function DelayedCall() {
@@ -611,7 +626,8 @@ function DelayedCall() {
         return this.mRepeatCount == 1 && this.mCurrentTime == this.mTotalTime;
     }
 }
-function DelayedCallPool() {
+
+function DelayedCallPool() {
     this.sDelayedCallPool = new Array();
 
     this.fromPool = function (call, delay, args) {
@@ -636,7 +652,8 @@ function DelayedCall() {
     }
 }
 $T.delayedCallPool = new DelayedCallPool();
-function Transitions() {
+
+function Transitions() {
     this.LINEAR = "linear";
     this.EASE_IN = "easeIn";
     this.EASE_OUT = "easeOut";
@@ -799,7 +816,8 @@ $T.delayedCallPool = new DelayedCallPool();
     }
 }
 $T.transitions = new Transitions();
-/**
+
+/**
  * 动画的核心就是长度等于（终点-起点）*（现在时间/总时间），这是最稳定的动画，没有误差
  * tween池里出来的，回归tween池，自己创建的，需要自己注销，tween内部不负责注销
  */
@@ -1012,7 +1030,8 @@ function Tween() {
         // this.removeEventListeners();
     }
 }
-function TweenPool() {
+
+function TweenPool() {
     this.sTweenPool = new Array();
 
     this.fromPool = function (target, time, transition) {
@@ -1042,7 +1061,8 @@ function Tween() {
     }
 }
 $T.tweenPool = new TweenPool();
-/**
+
+/**
  * 类
  */
 function Juggler() {
@@ -1237,7 +1257,8 @@ function Juggler() {
 
     }
 }
-/**
+
+/**
  * 全局 依赖Juggler
  */
 function JugglerManager() {
@@ -1275,7 +1296,8 @@ function JugglerManager() {
 }
 $T.jugglerManager = new JugglerManager();
 $T.jugglerManager.init();
-function Version() {
+
+function Version() {
     this.NAME = "v1.0.0";
     this.addVersionToUrl = function (url) {
         var index = url.indexOf("?");
@@ -1350,7 +1372,8 @@ $T.jugglerManager.init();
 
 }
 $T.version = new Version();
-function HttpUtilNormal() {
+
+function HttpUtilNormal() {
     this.lockMap = [];// 锁请求用的
     this.send = function (sendParam) {
         if (sendParam.url == null) {
@@ -1499,7 +1522,8 @@ $T.version = new Version();
 
 }
 $T.httpUtilNormal = new HttpUtilNormal();
-function HttpUtil() {
+
+function HttpUtil() {
     this.send = function (sendParam) {
         if (sendParam.data == null) {
             alert("发送post请求，data不能为空");
@@ -1525,13 +1549,6 @@ $T.httpUtilNormal = new HttpUtilNormal();
             }
             sendParam.headerKey.push($T.httpConfig.PACKET);
             sendParam.headerValue.push(encodeURI(JSON.stringify(sendParam.data)));
-
-            sendParam.headerKey.push($T.httpConfig.SEND_TYPE);
-            if (sendParam.sendType != null) {
-                sendParam.headerValue.push(sendParam.sendType);
-            } else {
-                sendParam.headerValue.push($T.httpConfig.SEND_TYPE_FILE_SAVE_SESSION);
-            }
         }
         $T.httpUtilNormal.send(sendParam);
     }
@@ -1543,12 +1560,14 @@ $T.httpUtilNormal = new HttpUtilNormal();
 
 }
 $T.httpUtil = new HttpUtil();
-function ResourceEventType() {
+
+function ResourceEventType() {
     /** 加载完成 */
     this.LOAD_COMPLETE = "loadComplete";
 }
 $T.resourceEventType = new ResourceEventType();
-function Loader() {
+
+function Loader() {
     this.url;
     this.resultArray = [];
     this.num = 0;
@@ -1583,7 +1602,8 @@ $T.resourceEventType = new ResourceEventType();
 
     }
 }
-function ResourceManager() {
+
+function ResourceManager() {
     this.resource = [];
     this.loadResource = function (url, callBack) {
         var loader = new Loader();
@@ -1605,7 +1625,8 @@ $T.resourceEventType = new ResourceEventType();
     }
 }
 $T.resourceManager = new ResourceManager();
-function Register() {
+
+function Register() {
     this.register = function (mediator) {
         if (mediator.init == null) {
             alert("mediator没有init方法");
@@ -1638,14 +1659,16 @@ $T.resourceManager = new ResourceManager();
     }
 }
 $T.register = new Register();
-function ModuleData() {
+
+function ModuleData() {
     this.view;
     this.type;
     this.mediator;
     this.data;
 }
 
-function ModuleManager() {
+
+function ModuleManager() {
     this.moduleUrlToData = [];
     this.moduleTypeToData = [];
     this.loadModule = function (url, view, type, mediator, data) {
@@ -1691,11 +1714,13 @@ $T.register = new Register();
     }
 }
 $T.moduleManager = new ModuleManager();
-function WebSocketConfig() {
+
+function WebSocketConfig() {
     this.WSOPCODE = "wsOpCode";// 操作码
 }
 $T.webSocketConfig = new WebSocketConfig();
-function WebSocketEventType() {
+
+function WebSocketEventType() {
     // 链接完成
     this.CONNECTED = "connected";
     // 关闭
@@ -1707,7 +1732,8 @@ $T.webSocketConfig = new WebSocketConfig();
     }
 }
 $T.webSocketEventType = new WebSocketEventType();
-function WebSocketClient() {
+
+function WebSocketClient() {
     this.webSocket;
     this.isConnected = false;
     this.url;
