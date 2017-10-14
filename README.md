@@ -6,7 +6,7 @@
 
 # Identity是一个身份系统。
 
-基于grain
+### 基于grain RPC框架
 
 https://github.com/dianbaer/grain
 
@@ -22,9 +22,14 @@ https://github.com/dianbaer/grain
 
 ## 配置：
 
-	dist/IdentityConfig/mybatis-config.xml---访问身份系统数据库
+dist/IdentityConfig/mybatis-config.xml---访问身份系统数据库
 
-	dist/IdentityServer.properties----IdentityConfig在服务器路径及一些配置
+dist/IdentityServer.properties----IdentityConfig在服务器路径及一些配置
+
+	#mybatis-config.xml在服务器的地址
+	config_dir = C:/Users/admin/Desktop/github/Identity/trunk/IdentityConfig
+	#身份系统的地址，本项目的服务器地址
+	uCenterUrl = http://localhost:8080/IdentityServer/s
 
 
 ## 推荐环境：
