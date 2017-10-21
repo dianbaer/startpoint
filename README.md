@@ -67,16 +67,7 @@ dist/IdentityServer.properties----IdentityConfig在服务器路径及一些配�
 	
 	/home/tomcat/webapps/IdentityServer.war
 
-	
-## 依赖Identity开发的项目：
 
->1、文件系统：https://github.com/dianbaer/FileSystem
-	
-
->2、聊天：https://github.com/dianbaer/Chat
-	
-
->3、支付：https://github.com/dianbaer/Pay
 	
 
 ## Identity提供的API功能：
