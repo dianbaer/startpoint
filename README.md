@@ -5,10 +5,10 @@
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 
-### 答疑、问题反馈QQ群：537982451
-
 
 # startpoint是一个身份系统，提供用户、树形结构组、token等API。
+
+### 答疑、问题反馈QQ群：537982451
 
 ### 基于grain RPC框架
 
