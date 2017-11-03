@@ -4,7 +4,7 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/7169462c959c468294a867e327baaa31)](https://www.codacy.com/app/232365732/startpoint?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dianbaer/startpoint&amp;utm_campaign=Badge_Grade)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-# startpoint是一个身份系统。
+# startpoint是一个身份系统，提供用户、树形结构组、token等API。
 
 ### 基于grain RPC框架
 
