@@ -1,10 +1,10 @@
-# Identity
+# startpoint
 
 [![Build Status](https://travis-ci.org/dianbaer/startpoint.svg?branch=master)](https://travis-ci.org/dianbaer/startpoint)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/7169462c959c468294a867e327baaa31)](https://www.codacy.com/app/232365732/startpoint?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dianbaer/startpoint&amp;utm_campaign=Badge_Grade)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-# Identity是一个身份系统。
+# startpoint是一个身份系统。
 
 ### 基于grain RPC框架
 
@@ -22,14 +22,14 @@ https://github.com/dianbaer/grain
 
 ## 配置：
 
-dist/IdentityConfig/mybatis-config.xml---访问身份系统数据库
+dist/StartpointConfig/mybatis-config.xml---访问身份系统数据库
 
-dist/IdentityServer.properties----IdentityConfig在服务器路径及一些配置
+dist/StartpointServer.properties----StartpointConfig在服务器路径及一些配置
 
 	#mybatis-config.xml在服务器的地址
-	config_dir = C:/Users/admin/Desktop/github/Identity/trunk/IdentityConfig
+	config_dir = C:/Users/admin/Desktop/github/Startpoint/trunk/StartpointConfig
 	#身份系统的地址，本项目的服务器地址
-	uCenterUrl = http://localhost:8080/IdentityServer/s
+	uCenterUrl = http://localhost:8080/StartpointServer/s
 
 
 ## 推荐环境：
@@ -49,28 +49,28 @@ dist/IdentityServer.properties----IdentityConfig在服务器路径及一些配�
 
 >1、安装数据库
 	
-	create database identity
+	create database startpoint
 	
-	source ****/identity.sql
+	source ****/startpoint.sql
 
->2、将IdentityConfig放入服务器某个路径，例如
+>2、将StartpointConfig放入服务器某个路径，例如
 	
-	/home/IdentityConfig
+	/home/StartpointConfig
 
->3、将IdentityServer.properties放入tomcat根目录下，例如
+>3、将StartpointServer.properties放入tomcat根目录下，例如
 	
-	/home/tomcat/IdentityServer.properties
+	/home/tomcat/StartpointServer.properties
 	
-	并修改config_dir对应的IdentityConfig路径
+	并修改config_dir对应的StartpointConfig路径
 
->4、将IdentityServer.war放入tomcat/webapps，例如
+>4、将StartpointServer.war放入tomcat/webapps，例如
 	
-	/home/tomcat/webapps/IdentityServer.war
+	/home/tomcat/webapps/StartpointServer.war
 
 
 	
 
-## Identity提供的API功能：
+## startpoint提供的API功能：
 
 >1、用户组API（树形结构）：
 	
