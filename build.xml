@@ -2,8 +2,8 @@
 <project name="Work" basedir="." default="test">
 	<property name="dist" location="${basedir}/dist" />
 	<property name="Work.dir" value="${basedir}" />
-	<property name="Server.dir" value="${basedir}/IdentityServer" />
-	<property name="Config.dir" value="${basedir}/IdentityConfig" />
+	<property name="Server.dir" value="${basedir}/StartpointServer" />
+	<property name="Config.dir" value="${basedir}/StartpointConfig" />
 	<target name="build-Server" depends="">
 		<ant antfile="build-Server.xml" dir="${Server.dir}">
 		</ant>
@@ -15,9 +15,9 @@
 		<antcall target="cleandist" />
 		<antcall target="build-Server" />
 		<mkdir dir="${dist}" />
-		<copy file="${Server.dir}/dist/IdentityServer.war" todir="${dist}" />
-		<copy file="${Server.dir}/src/IdentityServer.properties" todir="${dist}" />
-		<copy file="${Work.dir}/identity.sql" todir="${dist}" />
-		<copydir dest="${dist}/IdentityConfig" src="${Config.dir}"></copydir>
+		<copy file="${Server.dir}/dist/StartpointServer.war" todir="${dist}" />
+		<copy file="${Server.dir}/src/main/java/StartpointServer.properties" todir="${dist}" />
+		<copy file="${Work.dir}/startpoint.sql" todir="${dist}" />
+		<copydir dest="${dist}/StartpointConfig" src="${Config.dir}"></copydir>
 	</target>
 </project>
