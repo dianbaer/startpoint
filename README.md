@@ -17,8 +17,30 @@ https://github.com/dianbaer/grain
 	grain-httpserver
 	grain-mariadb
 	grain-threadkeylock
+	
+	
+### StartpointServer（目录结构）
+
+	|--src.main.java（服务器代码）
+		|--StartpointServer.properties---------------配置文件（需要修改）
+		|--generatorConfig.xml--------------------mybatis自动生成配置文件（重新生成时，需要修改）
+		|--org.startpoint
+			|--server.Expand.java-------------------扩展启动类
+			|--plugin.PaginationPlugin.java-------mybatis自动生成配置文件启动类
+			
+	|--protobuf（消息包生成工具）
+	|--WebContent
+		|--index.html（所有API示例）
+		|--js（所有API示例依赖js）
+		|--html（所有API示例依赖html）
+
+		
+### 接口调用界面示例（获取admintoken）
 
 
+![接口调用界面示例](./startpoint.png "startpoint.png")
+		
+		
 ## 打版本：在项目根目录下，执行
 
 	ant
@@ -74,7 +96,22 @@ dist/StartpointServer.properties----StartpointConfig在服务器路径及一些�
 
 	
 
-## startpoint提供的API功能：
+## startpoint提供的API功能（除了获取token接口请求外，其他接口需要传admintoken）：
+
+获取admintoken示例：
+
+	var data = {
+		'hOpCode': '20',
+		'userName': 'admin',
+		'userPassword': '123456'
+	};
+	var header = [];
+	header["hOpCode"] = "20";
+	var httpClient = new juggle.HttpClient();
+	httpClient.send(data, "http://localhost:8080/StartpointServer/s", header);
+	httpClient.addEventListener(juggle.httpEventType.SUCCESS, adminSuccess, this);
+	httpClient.addEventListener(juggle.httpEventType.ERROR, adminError, this);
+
 
 >1、用户组API（树形结构）：
 	
