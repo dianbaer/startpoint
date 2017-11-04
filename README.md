@@ -35,10 +35,19 @@ https://github.com/dianbaer/grain
 		|--html（所有API示例依赖html）
 
 		
-### 接口调用界面示例（获取admintoken）
+### 接口调用界面示例
 
+>获取admintoken
 
 ![接口调用界面示例](./startpoint1.png "startpoint1.png")
+
+>创建顶级组
+
+![接口调用界面示例](./startpoint2.png "startpoint2.png")
+
+>创建归属于组的用户
+
+![接口调用界面示例](./startpoint3.png "startpoint3.png")
 		
 		
 ## 打版本：在项目根目录下，执行
