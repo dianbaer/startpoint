@@ -32,6 +32,7 @@ https://github.com/dianbaer/grain
 	|--WebContent
 		|--index.html（所有API示例）
 		|--js（所有API示例依赖js）
+			|--app/Url.js-----访问服务器地址配置
 		|--html（所有API示例依赖html）
 
 		
