@@ -38,7 +38,7 @@ https://github.com/dianbaer/grain
 ### 接口调用界面示例（获取admintoken）
 
 
-![接口调用界面示例](./startpoint.png "startpoint.png")
+![接口调用界面示例](./startpoint1.png "startpoint1.png")
 		
 		
 ## 打版本：在项目根目录下，执行
