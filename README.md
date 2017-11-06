@@ -8,7 +8,7 @@
 
 # startpoint是一个身份系统，提供用户、树形结构组、token等API。
 
-### 答疑、问题反馈QQ群：537982451
+## github 互star 互赞，及此项目问题反馈与答疑QQ群：537982451
 
 ### 基于grain RPC框架
 
