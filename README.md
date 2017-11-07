@@ -22,9 +22,8 @@
 			
 	|--protobuf（消息包生成工具）
 	|--WebContent
-		|--index.html（所有API示例）
+		|--index.html（所有API示例，需要修改url）
 		|--js（所有API示例依赖js）
-			|--app/Url.js-----访问服务器地址配置
 		|--html（所有API示例依赖html）
 
 		
@@ -47,17 +46,6 @@
 
 	ant
 
-
-## 配置：
-
-dist/StartpointConfig/mybatis-config.xml---访问身份系统数据库
-
-dist/StartpointServer.properties----StartpointConfig在服务器路径及一些配置
-
-	#mybatis-config.xml在服务器的地址
-	config_dir = C:/Users/admin/Desktop/github/Startpoint/trunk/StartpointConfig
-	#身份系统的地址，本项目的服务器地址
-	uCenterUrl = http://localhost:8080/StartpointServer/s
 
 
 ## 推荐环境：
