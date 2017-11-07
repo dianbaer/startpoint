@@ -133,7 +133,7 @@
             };
 
             var packet = encodeURI(JSON.stringify(data));
-            return url.url + "?hOpCode=14&token=" + cookieParam.getCookieParam(cookieName.TOKEN) + "&packet=" + packet;
+            return url.url + "?hOpCode=14&token=" + cookieParam.getCookieParam(cookieName.TOKEN) + "&packet=" + packet + "&t=" + new Date().getTime();
         };
         this.checkUserByUserName = function (userName) {
             var data = {
