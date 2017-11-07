@@ -5,18 +5,10 @@
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 
-
 # startpoint是一个身份系统，提供用户、树形结构组、token等API。
 
 ## github 互star 互赞，及此项目问题反馈与答疑QQ群：537982451
 
-### 基于grain RPC框架
-
-https://github.com/dianbaer/grain
-
-	grain-httpserver
-	grain-mariadb
-	grain-threadkeylock
 	
 	
 ### StartpointServer（目录结构）
@@ -142,4 +134,46 @@ dist/StartpointServer.properties----StartpointConfig在服务器路径及一些�
 	删除token
 
 
+### java服务器基于grain
 
+依赖以下库，共（1841行，学习成本极低）
+
+	grain-httpserver.jar（1318行）
+	grain-log.jar（111行）
+	grain-threadkeylock.jar（364行）
+	grain-mariadb.jar（48行）
+
+
+github：
+
+
+https://github.com/dianbaer/grain
+
+
+码云：
+
+
+https://gitee.com/dianbaer/grain
+
+
+### js客户端基于juggle
+
+最精简依赖以下库，共（653行，学习成本极低）
+
+	juggle-help.js（33行）
+	juggle-event.js（256行）
+	juggle-http.js（99行）
+	juggle-mv.js（104行）
+	juggle-resource.js（105行）
+	juggle-module.js（56行）
+
+github：
+
+
+https://github.com/dianbaer/juggle
+
+
+码云：
+
+
+https://gitee.com/dianbaer/basic
