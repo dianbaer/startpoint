@@ -1,17 +1,11 @@
-function TopMediator() {
+(function (window) {
+    if (!window.startpoint) window.startpoint = {};
+    var Mediator = window.juggle.Mediator;
+    var TopMediator = function () {
+        this.initView = function (view) {
 
-    this.init = function (view) {
-
-    }
-    // 注销方法
-    this.dispose = function () {
-
-    }
-    // 关心消息数组
-    this.listNotificationInterests = [];
-    // 关心的消息处理
-    this.handleNotification = function (data) {
-
-    }
-}
-$T.topMediator = new TopMediator();
+        };
+        Mediator.apply(this);
+    };
+    window.startpoint.TopMediator = TopMediator;
+})(window);

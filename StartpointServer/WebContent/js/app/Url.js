@@ -1,4 +1,7 @@
-function Url() {
-    this.url = "http://localhost:8080/StartpointServer/s";
-}
-$T.url = new Url();
+(function (window) {
+    if (!window.startpoint) window.startpoint = {};
+    var Url = function () {
+        this.url = null;
+    };
+    window.startpoint.url = new Url();
+})(window);

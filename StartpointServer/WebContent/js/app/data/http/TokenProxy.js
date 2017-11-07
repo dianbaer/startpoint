@@ -1,67 +1,73 @@
-function TokenProxy() {
-    this.NAME = "TokenProxy";
-    this.getToken = function (userName, userPassword) {
-        var data = {
-            "hOpCode": 20,
-            "userName": userName,
-            "userPassword": userPassword
+(function (window) {
+    if (!window.startpoint) window.startpoint = {};
+    var Proxy = window.juggle.Proxy;
+    var HttpClient = window.juggle.HttpClient;
+    var httpEventType = window.juggle.httpEventType;
+    var url = window.startpoint.url;
+    var cookieName = window.startpoint.cookieName;
+    var cookieParam = window.startpoint.cookieParam;
+    var TokenProxy = function () {
+        Proxy.apply(this);
+        this.getToken = function (userName, userPassword) {
+            var data = {
+                "hOpCode": "20",
+                "userName": userName,
+                "userPassword": userPassword
+            };
+            var header = [];
+            header["hOpCode"] = "20";
+            var httpClient = new HttpClient();
+            httpClient.send(data, url.url, header);
+            httpClient.addEventListener(httpEventType.SUCCESS, this.getTokenSuccess, this);
+            httpClient.addEventListener(httpEventType.ERROR, this.getTokenFail, this);
+        };
+        this.getTokenSuccess = function (event) {
+            var returnData = JSON.parse(event.mData);
+            cookieParam.setCookieParam(cookieName.TOKEN, returnData.tokenId);
+        };
+        this.getTokenFail = function (event) {
+
         };
 
-        var sendParam = new SendParam();
-        sendParam.successHandle = this.getTokenSuccess;
-        sendParam.failHandle = this.getTokenFail;
-        sendParam.object = this;
-        sendParam.data = data;
-        sendParam.url = $T.url.url;
-        $T.httpUtil.send(sendParam);
-    }
-    this.getTokenSuccess = function (result, sendParam) {
-        $T.cookieParam.setCookieParam($T.cookieName.TOKEN, result.tokenId);
-    }
-    this.getTokenFail = function (result, sendParam) {
+        this.updateToken = function () {
+            var data = {
+                "hOpCode": "21"
+            };
 
-    }
+            var header = [];
+            header["hOpCode"] = "21";
+            header[cookieName.TOKEN] = cookieParam.getCookieParam(cookieName.TOKEN);
+            var httpClient = new HttpClient();
+            httpClient.send(data, url.url, header);
+            httpClient.addEventListener(httpEventType.SUCCESS, this.updateTokenSuccess, this);
+            httpClient.addEventListener(httpEventType.ERROR, this.updateTokenFail, this);
+        };
+        this.updateTokenSuccess = function (event) {
 
-    this.updateToken = function () {
-        var data = {
-            "hOpCode": 21
+        };
+        this.updateTokenFail = function (event) {
+
         };
 
-        var sendParam = new SendParam();
-        sendParam.successHandle = this.updateTokenSuccess;
-        sendParam.failHandle = this.updateTokenFail;
-        sendParam.object = this;
-        sendParam.data = data;
-        sendParam.url = $T.url.url;
-        sendParam.token = $T.cookieParam.getCookieParam($T.cookieName.TOKEN);
-        $T.httpUtil.send(sendParam);
-    }
-    this.updateTokenSuccess = function (result, sendParam) {
+        this.deleteToken = function () {
+            var data = {
+                "hOpCode": "22"
+            };
 
-    }
-    this.updateTokenFail = function (result, sendParam) {
-
-    }
-
-    this.deleteToken = function () {
-        var data = {
-            "hOpCode": 22
+            var header = [];
+            header["hOpCode"] = "22";
+            header[cookieName.TOKEN] = cookieParam.getCookieParam(cookieName.TOKEN);
+            var httpClient = new HttpClient();
+            httpClient.send(data, url.url, header);
+            httpClient.addEventListener(httpEventType.SUCCESS, this.deleteTokenSuccess, this);
+            httpClient.addEventListener(httpEventType.ERROR, this.deleteTokenFail, this);
         };
+        this.deleteTokenSuccess = function (event) {
 
-        var sendParam = new SendParam();
-        sendParam.successHandle = this.deleteTokenSuccess;
-        sendParam.failHandle = this.deleteTokenFail;
-        sendParam.object = this;
-        sendParam.data = data;
-        sendParam.url = $T.url.url;
-        sendParam.token = $T.cookieParam.getCookieParam($T.cookieName.TOKEN);
-        $T.httpUtil.send(sendParam);
-    }
-    this.deleteTokenSuccess = function (result, sendParam) {
+        };
+        this.deleteTokenFail = function (event) {
 
-    }
-    this.deleteTokenFail = function (result, sendParam) {
-
-    }
-}
-$T.tokenProxy = new TokenProxy();
+        }
+    };
+    window.startpoint.tokenProxy = new TokenProxy();
+})(window);

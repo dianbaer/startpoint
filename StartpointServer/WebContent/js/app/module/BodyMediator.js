@@ -1,32 +1,39 @@
-function BodyMediator() {
+(function (window) {
+    if (!window.startpoint) window.startpoint = {};
+    var Mediator = window.juggle.Mediator;
+    var notificationExt = window.startpoint.notificationExt;
+    var moduleManager = window.juggle.moduleManager;
+    var CreateUserGroupMediator = window.startpoint.CreateUserGroupMediator;
+    var UpdateUserGroupMediator = window.startpoint.UpdateUserGroupMediator;
+    var UserMediator = window.startpoint.UserMediator;
+    var UpdateUserMediator = window.startpoint.UpdateUserMediator;
+    var TokenMediator = window.startpoint.TokenMediator;
+    var BodyMediator = function () {
+        this.initView = function (view) {
+            moduleManager.loadModule("html/createUserGroup.html", document.getElementById("body"), "bodyview", new CreateUserGroupMediator());
+        };
 
-    this.init = function (view) {
-
-        $T.moduleManager.loadModule("html/createUserGroup.html", document.getElementById("body"), "bodyview", $T.createUserGroupMediator);
-    }
-    // 注销方法
-    this.dispose = function () {
-
-    }
-    // 关心消息数组
-    this.listNotificationInterests = [$T.notificationExt.CHANGE_BODY];
-    // 关心的消息处理
-    this.handleNotification = function (data) {
-        switch (data[0].name) {
-            case $T.notificationExt.CHANGE_BODY:
-                if (data[0].body == "createUserGroup") {
-                    $T.moduleManager.loadModule("html/createUserGroup.html", document.getElementById("body"), "bodyview", $T.createUserGroupMediator);
-                } else if (data[0].body == "updateUserGroup") {
-                    $T.moduleManager.loadModule("html/updateUserGroup.html", document.getElementById("body"), "bodyview", $T.updateUserGroupMediator);
-                } else if (data[0].body == "User") {
-                    $T.moduleManager.loadModule("html/user.html", document.getElementById("body"), "bodyview", $T.userMediator);
-                } else if (data[0].body == "UpdateUser") {
-                    $T.moduleManager.loadModule("html/updateUser.html", document.getElementById("body"), "bodyview", $T.updateUserMediator);
-                } else if (data[0].body == "Token") {
-                    $T.moduleManager.loadModule("html/token.html", document.getElementById("body"), "bodyview", $T.tokenMediator);
-                }
-                break;
-        }
-    }
-}
-$T.bodyMediator = new BodyMediator();
+        // 关心消息数组
+        this.listNotificationInterests = [notificationExt.CHANGE_BODY];
+        // 关心的消息处理
+        this.handleNotification = function (data) {
+            switch (data.name) {
+                case notificationExt.CHANGE_BODY:
+                    if (data.body === "createUserGroup") {
+                        moduleManager.loadModule("html/createUserGroup.html", document.getElementById("body"), "bodyview", new CreateUserGroupMediator());
+                    } else if (data.body === "updateUserGroup") {
+                        moduleManager.loadModule("html/updateUserGroup.html", document.getElementById("body"), "bodyview", new UpdateUserGroupMediator());
+                    } else if (data.body === "User") {
+                        moduleManager.loadModule("html/user.html", document.getElementById("body"), "bodyview", new UserMediator());
+                    } else if (data.body === "UpdateUser") {
+                        moduleManager.loadModule("html/updateUser.html", document.getElementById("body"), "bodyview", new UpdateUserMediator());
+                    } else if (data.body === "Token") {
+                        moduleManager.loadModule("html/token.html", document.getElementById("body"), "bodyview", new TokenMediator());
+                    }
+                    break;
+            }
+        };
+        Mediator.apply(this);
+    };
+    window.startpoint.BodyMediator = BodyMediator;
+})(window);

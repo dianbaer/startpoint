@@ -1,26 +1,20 @@
-function IndexMediator() {
-
-    this.init = function (view) {
-
-        // 模块
-        $T.moduleManager.loadModule("html/top.html", document.getElementById("index_top"), null, $T.topMediator);
-        $T.moduleManager.loadModule("html/left.html", document.getElementById("index_left"), null, $T.leftMediator);
-        $T.moduleManager.loadModule("html/body.html", document.getElementById("index_body"), null, $T.bodyMediator);
-        $T.moduleManager.loadModule("html/bottom.html", document.getElementById("index_bottom"), null, $T.bottomMediator);
-
-    }
-    // 注销方法
-    this.dispose = function () {
-
-    }
-    // 关心消息数组
-    this.listNotificationInterests = [];
-    // 关心的消息处理
-    this.handleNotification = function (data) {
-
-    }
-    this.advanceTime = function (passedTime) {
-
-    }
-}
-$T.indexMediator = new IndexMediator();
+(function (window) {
+    if (!window.startpoint) window.startpoint = {};
+    var Mediator = window.juggle.Mediator;
+    var moduleManager = window.juggle.moduleManager;
+    var TopMediator = window.startpoint.TopMediator;
+    var LeftMediator = window.startpoint.LeftMediator;
+    var BodyMediator = window.startpoint.BodyMediator;
+    var BottomMediator = window.startpoint.BottomMediator;
+    var IndexMediator = function () {
+        this.initView = function (view) {
+            // 模块
+            moduleManager.loadModule("html/top.html", document.getElementById("index_top"), null, new TopMediator());
+            moduleManager.loadModule("html/left.html", document.getElementById("index_left"), null, new LeftMediator());
+            moduleManager.loadModule("html/body.html", document.getElementById("index_body"), null, new BodyMediator());
+            moduleManager.loadModule("html/bottom.html", document.getElementById("index_bottom"), null, new BottomMediator());
+        };
+        Mediator.apply(this);
+    };
+    window.startpoint.IndexMediator = IndexMediator;
+})(window);
