@@ -7,9 +7,6 @@
 
 # startpoint是一个身份系统，提供用户、树形结构组、token等API。
 
-## 此项目问题反馈与答疑QQ群：537982451
-
-	
 	
 ### StartpointServer（目录结构）
 
