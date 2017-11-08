@@ -19,6 +19,7 @@ import org.startpoint.config.CommonConfigUCenter;
 import org.startpoint.http.HOpCodeUCenter;
 import org.startpoint.http.filter.TokenHttpFilter;
 import org.startpoint.keylock.UCenterKeyLockType;
+import org.startpoint.log.KeylockLog;
 import org.startpoint.log.MariadbLog;
 import org.startpoint.service.TokenService;
 import org.startpoint.service.UserGroupService;
@@ -33,7 +34,7 @@ public class Expand implements IExpandServer {
 		String configFileName = servletContext.getInitParameter("configFileName");
 		Properties properties = loadConfig(configFileName);
 		MybatisManager.init(properties.getProperty("config_dir"), "mybatis-config.xml", new MariadbLog());
-		KeyLockManager.init(new UCenterKeyLockType().getkeyLockType(), 120000, 100, null);
+		KeyLockManager.init(new UCenterKeyLockType().getkeyLockType(), 120000, 100, new KeylockLog());
 		HOpCodeUCenter.init();
 		CommonConfigUCenter.init();
 		CommonConfigUCenter.UCENTER_URL = properties.getProperty("uCenterUrl");
