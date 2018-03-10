@@ -147,6 +147,22 @@ public final class UCErrorProto {
      * <code>ERROR_CODE_15 = 15;</code>
      */
     ERROR_CODE_15(15),
+    /**
+     * <pre>
+     *获取admintoken失败
+     * </pre>
+     *
+     * <code>ERROR_CODE_16 = 16;</code>
+     */
+    ERROR_CODE_16(16),
+    /**
+     * <pre>
+     *你没有权限
+     * </pre>
+     *
+     * <code>ERROR_CODE_17 = 17;</code>
+     */
+    ERROR_CODE_17(17),
     UNRECOGNIZED(-1),
     ;
 
@@ -278,6 +294,22 @@ public final class UCErrorProto {
      * <code>ERROR_CODE_15 = 15;</code>
      */
     public static final int ERROR_CODE_15_VALUE = 15;
+    /**
+     * <pre>
+     *获取admintoken失败
+     * </pre>
+     *
+     * <code>ERROR_CODE_16 = 16;</code>
+     */
+    public static final int ERROR_CODE_16_VALUE = 16;
+    /**
+     * <pre>
+     *你没有权限
+     * </pre>
+     *
+     * <code>ERROR_CODE_17 = 17;</code>
+     */
+    public static final int ERROR_CODE_17_VALUE = 17;
 
 
     public final int getNumber() {
@@ -314,6 +346,8 @@ public final class UCErrorProto {
         case 13: return ERROR_CODE_13;
         case 14: return ERROR_CODE_14;
         case 15: return ERROR_CODE_15;
+        case 16: return ERROR_CODE_16;
+        case 17: return ERROR_CODE_17;
         default: return null;
       }
     }
@@ -1253,7 +1287,7 @@ public final class UCErrorProto {
       "tobuf.http\"\200\001\n\007UCError\022\017\n\007hOpCode\030\001 \001(\t\022" +
       "<\n\terrorCode\030\002 \001(\0162).org.startpoint.prot" +
       "obuf.http.UCErrorCode\022\024\n\014errorHOpCode\030\003 " +
-      "\001(\t\022\020\n\010extraMsg\030\004 \001(\t*\263\002\n\013UCErrorCode\022\020\n" +
+      "\001(\t\022\020\n\010extraMsg\030\004 \001(\t*\331\002\n\013UCErrorCode\022\020\n" +
       "\014ERROR_CODE_0\020\000\022\020\n\014ERROR_CODE_1\020\001\022\020\n\014ERR" +
       "OR_CODE_2\020\002\022\020\n\014ERROR_CODE_3\020\003\022\020\n\014ERROR_C" +
       "ODE_4\020\004\022\020\n\014ERROR_CODE_5\020\005\022\020\n\014ERROR_CODE_" +
@@ -1261,7 +1295,8 @@ public final class UCErrorProto {
       "\020\n\014ERROR_CODE_9\020\t\022\021\n\rERROR_CODE_10\020\n\022\021\n\r",
       "ERROR_CODE_11\020\013\022\021\n\rERROR_CODE_12\020\014\022\021\n\rER" +
       "ROR_CODE_13\020\r\022\021\n\rERROR_CODE_14\020\016\022\021\n\rERRO" +
-      "R_CODE_15\020\017b\006proto3"
+      "R_CODE_15\020\017\022\021\n\rERROR_CODE_16\020\020\022\021\n\rERROR_" +
+      "CODE_17\020\021b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

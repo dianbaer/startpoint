@@ -19,5 +19,6 @@
 		<copy file="${Server.dir}/src/main/java/StartpointServer.properties" todir="${dist}" />
 		<copy file="${Work.dir}/startpoint.sql" todir="${dist}" />
 		<copydir dest="${dist}/StartpointConfig" src="${Config.dir}"></copydir>
+		<copydir dest="${dist}/StartpointClient" src="${Work.dir}/StartpointClient"></copydir>
 	</target>
 </project>

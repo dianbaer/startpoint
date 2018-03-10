@@ -23,4 +23,6 @@ enum UCErrorCode{
 	ERROR_CODE_13=13;//创建用户失败
 	ERROR_CODE_14=14;//修改用户失败
 	ERROR_CODE_15=15;//删除用户组失败
+	ERROR_CODE_16=16;//获取admintoken失败
+	ERROR_CODE_17=17;//你没有权限
 }

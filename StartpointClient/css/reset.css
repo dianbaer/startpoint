@@ -1,0 +1,24 @@
+@charset "UTF-8";blockquote,body,button,code,dd,div,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,img,input,legend,li,ol,p,pre,select,td,textarea,th,ul{padding:0;margin:0;font-size:14px;line-height:1;font-family:"Microsoft YaHei";font-weight:400;font-style:normal;color:#333;word-break:break-all}
+body{font-family:"Microsoft YaHei";position:relative;background:0 0}
+body,button,input,select,textarea{font-size:12px;line-height:1}
+blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}
+a{text-decoration:none}
+abbr,acronym,fieldset,img{border:0 none}
+abbr,acronym{font-variant:normal}
+blockquote,q{quotes:none}
+dl,li,menu,ol,ul{list-style:none}
+button,input,optgroup,option,select,textarea{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit}
+button,input,select,textarea{vertical-align:middle;outline:0}
+textarea{resize:none;overflow:auto}
+input[type=button]{cursor:pointer}
+button{border:0 none;background-color:transparent;cursor:pointer}
+input::-moz-focus-inner{border:0;padding:0}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:400}
+table{table-layout:fixed;border-collapse:collapse}
+a:focus{outline:0}
+input::-ms-clear,input::-ms-reveal{display:none}
+.clear{clear:both}
+.clearfix:after{content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0}
+.hide{display:none}
+.fl{float:left}
+.fr{float:right}

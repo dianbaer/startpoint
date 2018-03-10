@@ -38,6 +38,7 @@ public class Expand implements IExpandServer {
 		HOpCodeUCenter.init();
 		CommonConfigUCenter.init();
 		CommonConfigUCenter.UCENTER_URL = properties.getProperty("uCenterUrl");
+		CommonConfigUCenter.CONFIG_DIR = properties.getProperty("config_dir");
 		HttpManager.addFilter(new TokenHttpFilter());
 		HttpManager.addHttpListener(new UserService());
 		HttpManager.addHttpListener(new UserGroupService());

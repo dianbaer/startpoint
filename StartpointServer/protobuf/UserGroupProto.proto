@@ -35,6 +35,7 @@ message DeleteUserGroupC{
 }
 message DeleteUserGroupS{
 	string hOpCode=1;
+	UserGroupData userGroup=2;
 }
 message GetUserGroupListC{
 	string hOpCode=1;
@@ -57,6 +58,25 @@ message GetUserGroupListS{
 	int32 pageSize=4;//pageSize传0，说明不分页
 	int32 totalPage=5;//总页数
 	int32 allNum=6;//总条数
+}
+
+message GetUserGroupTreeC{
+	string hOpCode=1;
+	string userGroupParentId=2;//空或""为获取所有顶级
+}
+message GetUserGroupTreeS{
+	string hOpCode=1;
+	repeated UserGroupData userGroup=2;//用户组列表
+}
+//获取递归组织架构
+message GetUserGroupRecursionC{
+	string hOpCode=1;
+	string userGroupId=2;//不能为空
+}
+message GetUserGroupRecursionS{
+	string hOpCode=1;
+	string userGroupId=2;//不能为空
+	repeated UserGroupData recursionUserGroupList=3;//递归组织架构
 }
 message CreateUserC{
 	string hOpCode=1;
@@ -196,6 +216,7 @@ message UserGroupData{
 	string userGroupUpdateTime=5;
 	int32 userGroupState=6;
 	string userGroupTopId=7;
+	int32 childrenNum=8;
 }
 message CheckUserPhoneC{
 	string hOpCode=1;

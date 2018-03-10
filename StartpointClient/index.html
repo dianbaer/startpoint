@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <script src="js/lib/juggle-all.js"></script>
+    <script src="js/lib/jquery.min.js"></script>
+    <script src="js/lib/jquery.cookie.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/plugin.css">
+    <!--弹窗-->
+    <script type="text/javascript" src="js/lib/layer/layer.js"></script>
+    <link rel="stylesheet" href="js/lib/layer/skin/default/layer.css">
+    <!-- 复选框、单选框 -->
+    <script src="js/lib/check.js"></script>
+    <!--下拉框-->
+    <script src="js/lib/selectordie.min.js"></script>
+    <!--分页-->
+    <script src="js/lib/jquery.pagination.js"></script>
+    <link rel="stylesheet" href="css/pagination.css">
+    <!--left-->
+    <script src="js/app/Url.js"></script>
+    <script src="js/app/NotificationExt.js"></script>
+    <script src="js/app/CookieName.js"></script>
+    <script src="js/app/CookieParam.js"></script>
+    <script src="js/app/UCEventType.js"></script>
+    <script src="js/app/TreeNode.js"></script>
+    <script src="js/app/UserNode.js"></script>
+
+    <script src="js/app/UCErrorMsg.js"></script>
+    <script src="js/app/UCErrorFilter.js"></script>
+
+    <script src="js/app/data/TokenProxy.js"></script>
+    <script src="js/app/data/UserProxy.js"></script>
+    <script src="js/app/data/UserGroupProxy.js"></script>
+
+    <script src="js/app/module/CreateGroup1Mediator.js"></script>
+    <script src="js/app/module/CreateGroupMediator.js"></script>
+    <script src="js/app/module/UserListMediator.js"></script>
+
+    <script src="js/app/module/HeadMediator.js"></script>
+    <script src="js/app/module/LeftMediator.js"></script>
+    <script src="js/app/module/RightMediator.js"></script>
+
+    <script src="js/app/module/EditBoxMediator.js"></script>
+    <script src="js/app/module/CreateBoxMediator.js"></script>
+    <script src="js/app/module/UserInfoBoxMediator.js"></script>
+
+    <script src="js/app/IndexMediator.js"></script>
+    <title>用户管理中心</title>
+</head>
+<script type="text/javascript">
+    window.onload = function () {
+        juggle.httpFilter.addFilter(new uca.UCErrorFilter());
+        var mediator = new uca.IndexMediator();
+        mediator.initView();
+    }
+</script>
+<body>
+<div class="head" id="index_head">
+</div>
+<div class="main clearfix">
+    <div class="left" id="index_left">
+    </div>
+    <div class="right" id="index_right">
+    </div>
+</div>
+<!--修改用户-->
+<div class="layerBox editBox hide" id="index_editbox">
+</div>
+<!--创建用户-->
+<div class="layerBox createBox hide" id="index_createbox">
+</div>
+<!--用户详情弹窗 start-->
+<div class="user_info_box clearfix hide" id="index_userinfobox">
+</div>
+</body>
+</html>

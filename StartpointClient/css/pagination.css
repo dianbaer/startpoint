@@ -1,0 +1,5 @@
+@charset "utf-8";.pagination a{text-decoration:none;color:#666}
+.pagination a,.pagination span{display:inline-block;background:url(../images/pagination.png) 0 0 no-repeat;width:30px;height:30px;text-align:center;font-size:14px;color:#666;line-height:30px;margin:0 5px}
+.pagination a.next,.pagination a.prev{width:60px;background-position:-60px 0}
+.pagination .current{background-position:-30px 0;color:#fff}
+.pagination .current.next,.pagination .current.prev{color:#c4cae2;background-position:-60px 0;width:60px}

@@ -1,0 +1,34 @@
+.nav_search{height:61px;box-sizing:border-box;border-bottom:1px solid #e0e1e5}
+.nav_search dl{height:61px;width:100%;position:relative}
+.nav_search dl dd{display:inline-block;vertical-align:top;box-sizing:border-box;height:60px}
+.searchAdd_P{padding-top:20px;width:100%;overflow:hidden;position:absolute;top:0;left:0;z-index:100;background:#f5f5f5}
+.addBtn_P{display:inline-block;padding-left:28px;height:18px;padding-right:10px;font-size:14px;color:#333;font-weight:700;background:url(../images/icon4.png) no-repeat left center;margin-left:86px;width:80px;float:left;line-height:18px}
+.searchIcon_P{display:inline-block;width:18px;height:18px;background:url(../images/icon3.png) no-repeat center center;cursor:pointer;float:right;position:relative;margin-right:20px;top:2px}
+.searchSer_P{width:100%;height:60px;box-sizing:border-box;padding-top:12px;position:absolute;top:0;left:0;z-index:10}
+.searchSer_P .searchIon2_P{display:inline-block;width:10px;height:18px;background:url(../images/icon11.png) no-repeat center center;vertical-align:top;margin-left:16px;position:relative;top:10px;margin-right:10px;cursor:pointer}
+.searchBox_P{display:inline-block;height:38px;width:210px;background:url(../images/icon9.png) no-repeat center center;vertical-align:top;box-sizing:border-box;padding:10px 12px 0 12px}
+.btnIcon_P{display:inline-block;vertical-align:top;width:18px;height:18px;background:url(../images/icon10.png) no-repeat center center;cursor:pointer}
+.myInput_P{border:none;outline:0;font-size:14px;color:#959fb1;width:145px;line-height:18px;height:18px;padding:0 5px;position:relative;top:1px;background-color:#fff}
+.myInput_P::-webkit-input-placeholder{color:#959fb1;line-height:18px}
+.myInput_P::-moz-placeholder{color:#959fb1;line-height:18px}
+.myInput_P:-ms-input-placeholder{color:#959fb1;line-height:18px}
+.navList_P dd{width:100%;min-height:30px}
+.navList_P{min-width:270px}
+.navList_P dd a{display:inline-block;height:30px;line-height:30px;width:100%}
+.navList_P dd a i{display:inline-block;width:15px;height:30px;margin-right:5px;position:relative}
+.listIcon_P{display:inline-block;width:15px;height:30px;background:url(../images/icon5.png) no-repeat center center;margin-right:5px}
+.navList_P.style_P>dd>a{color:#333;vertical-align:top}
+.navList_P dd a{color:#787a7d;padding-left:10px;position:relative;box-sizing:border-box}
+.navList_P dd a>span{width:208px;display:inline-block;height:30px;line-height:30px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;vertical-align:top}
+.navList_P dl{display:none}
+.listWin_P{width:100%;border-top:1px solid #fff}
+.useBox_P{display:inline-block;float:right;position:relative;top:0;margin-right:5px;display:none;height:30px}
+.addIcon1_P{display:inline-block;width:12px;height:30px;background:url(../images/add.png) no-repeat center center}
+.delIcon1_P{display:inline-block;width:12px;height:30px;background:url(../images/close.png) no-repeat center center;margin-left:5px}
+.navList_P dd a:hover{background:#dfeff8}
+.navList_P dd a:hover .useBox_P{display:inline-block}
+.open .listIcon_P{background-image:url(../images/icon6.png)!important}
+.open.onSty_P .listIcon_P{background-image:url(../images/icon7.png)!important}
+.onSty_P .listIcon_P{background-image:url(../images/icon12.png)!important}
+.navList_P dd a.onSty_P{background:#398dee}
+.navList_P dd a.onSty_P span{color:#fff}

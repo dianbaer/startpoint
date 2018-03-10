@@ -10,12 +10,12 @@
         Proxy.apply(this);
         this.getToken = function (userName, userPassword) {
             var data = {
-                "hOpCode": "20",
+                "hOpCode": "23",
                 "userName": userName,
                 "userPassword": userPassword
             };
             var header = [];
-            header["hOpCode"] = "20";
+            header["hOpCode"] = "23";
             var httpClient = new HttpClient();
             httpClient.send(data, url.url, header);
             httpClient.addEventListener(httpEventType.SUCCESS, this.getTokenSuccess, this);

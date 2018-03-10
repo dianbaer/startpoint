@@ -394,6 +394,10 @@ public class UserAction {
 		UserCriteria.Criteria criteria = userCriteria.createCriteria();
 		if (userState == UserConfig.STATE_DELETE || userState == UserConfig.STATE_DISABLED || userState == UserConfig.STATE_USABLE) {
 			criteria.andUserStateEqualTo((byte) userState);
+		}else {
+			List<Byte> list = new ArrayList<>();
+			list.add((byte)UserConfig.STATE_DELETE);
+			criteria.andUserStateNotIn(list);
 		}
 		if (userSex == UserConfig.SEX_MAN || userSex == UserConfig.SEX_WOMAN) {
 			criteria.andUserSexEqualTo((byte) userSex);
@@ -527,14 +531,14 @@ public class UserAction {
 		dataBuilder.setUserRole(user.getUserRole());
 		if (user.getUserImg() != null) {
 			dataBuilder.setUserImg(user.getUserImg());
-			GetUserImgC.Builder builder = GetUserImgC.newBuilder();
-			builder.setHOpCode(HOpCodeUCenter.GET_USER_IMG);
-			builder.setUserId(user.getUserId());
-			HttpPacket httpPacket = new HttpPacket(HOpCodeUCenter.GET_USER_IMG, builder.build());
-			String userImgUrl = URLUtil.getRequestUrl(httpPacket, CommonConfigUCenter.UCENTER_URL, token);
-			if (userImgUrl != null) {
-				dataBuilder.setUserImgUrl(userImgUrl);
-			}
+		}
+		GetUserImgC.Builder builder = GetUserImgC.newBuilder();
+		builder.setHOpCode(HOpCodeUCenter.GET_USER_IMG);
+		builder.setUserId(user.getUserId());
+		HttpPacket httpPacket = new HttpPacket(HOpCodeUCenter.GET_USER_IMG, builder.build());
+		String userImgUrl = URLUtil.getRequestUrl(httpPacket, CommonConfigUCenter.UCENTER_URL, token);
+		if (userImgUrl != null) {
+			dataBuilder.setUserImgUrl(userImgUrl);
 		}
 		return dataBuilder;
 	}

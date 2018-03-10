@@ -11,8 +11,12 @@ import org.grain.httpserver.IHttpListener;
 import org.grain.httpserver.ReplyImage;
 import org.startpoint.action.UCErrorPack;
 import org.startpoint.action.UserAction;
+import org.startpoint.action.UserGroupAction;
+import org.startpoint.config.CommonConfigUCenter;
+import org.startpoint.config.UserConfig;
 import org.startpoint.http.HOpCodeUCenter;
 import org.startpoint.model.base.User;
+import org.startpoint.model.base.UserGroup;
 import org.startpoint.protobuf.http.UCErrorProto.UCError;
 import org.startpoint.protobuf.http.UCErrorProto.UCErrorCode;
 import org.startpoint.protobuf.http.UserGroupProto.CheckUserByUserNameC;
@@ -53,6 +57,32 @@ public class UserService implements IHttpListener {
 
 	public HttpPacket createUserHandle(HttpPacket httpPacket) throws HttpException {
 		CreateUserC message = (CreateUserC) httpPacket.getData();
+		/********** 权限验证开始 ***********/
+		User userCheck = (User) httpPacket.hSession.otherData;
+		if (userCheck.getUserRole().intValue() != UserConfig.ROLE_UCENTER_MANAGER) {
+			// 必须是组管理员
+			if (userCheck.getUserRole().intValue() != UserConfig.ROLE_GROUP_MANAGER) {
+				UCError errorPack = UCErrorPack.create(UCErrorCode.ERROR_CODE_17, httpPacket.hSession.headParam.hOpCode);
+				throw new HttpException(HOpCodeUCenter.UC_ERROR, errorPack);
+			}
+			// 必须属于这个组
+			UserGroup userGroupCheck = UserGroupAction.getUserGroupById(message.getUserGroupId());
+			if (userGroupCheck == null) {
+				UCError errorPack = UCErrorPack.create(UCErrorCode.ERROR_CODE_0, httpPacket.hSession.headParam.hOpCode);
+				throw new HttpException(HOpCodeUCenter.UC_ERROR, errorPack);
+			}
+			String userGroupTopId;
+			if (StringUtil.stringIsNull(userGroupCheck.getUserGroupTopId())) {
+				userGroupTopId = userGroupCheck.getUserGroupId();
+			} else {
+				userGroupTopId = userGroupCheck.getUserGroupTopId();
+			}
+			if (!userGroupTopId.equals(userCheck.getUserGroupTopId())) {
+				UCError errorPack = UCErrorPack.create(UCErrorCode.ERROR_CODE_17, httpPacket.hSession.headParam.hOpCode);
+				throw new HttpException(HOpCodeUCenter.UC_ERROR, errorPack);
+			}
+		}
+		/********** 权限验证结束 ***********/
 		User userbyphone = UserAction.getUserByUserPhone(message.getUserPhone());
 		if (userbyphone != null) {
 			UCError errorPack = UCErrorPack.create(UCErrorCode.ERROR_CODE_3, httpPacket.hSession.headParam.hOpCode);
@@ -122,6 +152,42 @@ public class UserService implements IHttpListener {
 
 	public HttpPacket updateUserHandle(HttpPacket httpPacket) throws HttpException {
 		UpdateUserC message = (UpdateUserC) httpPacket.getData();
+		/********** 权限验证开始 ***********/
+		User userCheck = (User) httpPacket.hSession.otherData;
+		if (userCheck.getUserRole().intValue() != UserConfig.ROLE_UCENTER_MANAGER) {
+			// 必须是组管理员
+			if (userCheck.getUserRole().intValue() != UserConfig.ROLE_GROUP_MANAGER) {
+				UCError errorPack = UCErrorPack.create(UCErrorCode.ERROR_CODE_17, httpPacket.hSession.headParam.hOpCode);
+				throw new HttpException(HOpCodeUCenter.UC_ERROR, errorPack);
+			}
+			// 必须属于这个组
+			UserGroup userGroupCheck = UserGroupAction.getUserGroupById(message.getUserGroupId());
+			if (userGroupCheck == null) {
+				UCError errorPack = UCErrorPack.create(UCErrorCode.ERROR_CODE_0, httpPacket.hSession.headParam.hOpCode);
+				throw new HttpException(HOpCodeUCenter.UC_ERROR, errorPack);
+			}
+			String userGroupTopId;
+			if (StringUtil.stringIsNull(userGroupCheck.getUserGroupTopId())) {
+				userGroupTopId = userGroupCheck.getUserGroupId();
+			} else {
+				userGroupTopId = userGroupCheck.getUserGroupTopId();
+			}
+			if (!userGroupTopId.equals(userCheck.getUserGroupTopId())) {
+				UCError errorPack = UCErrorPack.create(UCErrorCode.ERROR_CODE_17, httpPacket.hSession.headParam.hOpCode);
+				throw new HttpException(HOpCodeUCenter.UC_ERROR, errorPack);
+			}
+			// 这俩人在一个顶级组
+			User userUpdate = UserAction.getUserById(message.getUserId());
+			if (userUpdate == null) {
+				UCError errorPack = UCErrorPack.create(UCErrorCode.ERROR_CODE_0, httpPacket.hSession.headParam.hOpCode);
+				throw new HttpException(HOpCodeUCenter.UC_ERROR, errorPack);
+			}
+			if (!userCheck.getUserGroupTopId().equals(userUpdate.getUserGroupTopId())) {
+				UCError errorPack = UCErrorPack.create(UCErrorCode.ERROR_CODE_17, httpPacket.hSession.headParam.hOpCode);
+				throw new HttpException(HOpCodeUCenter.UC_ERROR, errorPack);
+			}
+		}
+		/********** 权限验证结束 ***********/
 		User user = UserAction.updateUser(message.getUserId(), message.getUserPassword(), message.getUserPhone(), message.getUserEmail(), message.getUserState(), message.getIsUpdateUserGroup(), message.getUserGroupId(), message.getUserRealName(), message.getUserSex(), message.getUserAge(), message.getUserRole(), null);
 		if (user == null) {
 			UCError errorPack = UCErrorPack.create(UCErrorCode.ERROR_CODE_14, httpPacket.hSession.headParam.hOpCode);
@@ -205,12 +271,21 @@ public class UserService implements IHttpListener {
 			user = (User) httpPacket.hSession.otherData;
 		} else {
 			user = UserAction.getUserById(message.getUserId());
-
 		}
 		if (user == null) {
 			return null;
 		}
-		File file = UserAction.getUserImg(user.getUserImg());
+		File file;
+		if (user.getUserImg() == null) {
+			String separator = File.separator;
+			file = new File(CommonConfigUCenter.CONFIG_DIR + separator + "default.png");
+		} else {
+			file = UserAction.getUserImg(user.getUserImg());
+			if (file == null) {
+				String separator = File.separator;
+				file = new File(CommonConfigUCenter.CONFIG_DIR + separator + "default.png");
+			}
+		}
 		ReplyImage replyImage = new ReplyImage(file);
 		return replyImage;
 	}

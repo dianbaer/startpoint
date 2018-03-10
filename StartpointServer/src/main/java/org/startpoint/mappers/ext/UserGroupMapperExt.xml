@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.startpoint.dao.ext.UserGroupMapperExt">
+  <resultMap id="BaseResultMap" type="org.startpoint.model.ext.UserGroupExt">
+    <id column="user_group_id" jdbcType="VARCHAR" property="userGroupId" />
+    <result column="user_group_name" jdbcType="VARCHAR" property="userGroupName" />
+    <result column="user_group_parent_id" jdbcType="VARCHAR" property="userGroupParentId" />
+    <result column="user_group_create_time" jdbcType="TIMESTAMP" property="userGroupCreateTime" />
+    <result column="user_group_update_time" jdbcType="TIMESTAMP" property="userGroupUpdateTime" />
+    <result column="user_group_state" jdbcType="TINYINT" property="userGroupState" />
+    <result column="user_group_top_id" jdbcType="VARCHAR" property="userGroupTopId" />
+    <result column="child_num" jdbcType="INTEGER" property="childrenNum" />
+  </resultMap>
+  <sql id="Base_Column_List">
+  	table_a.user_group_id as user_group_id,
+  	table_a.user_group_name as user_group_name,
+  	table_a.user_group_parent_id as user_group_parent_id,
+  	table_a.user_group_create_time as user_group_create_time,
+  	table_a.user_group_update_time as user_group_update_time,
+  	table_a.user_group_state as user_group_state,
+  	table_a.user_group_top_id as user_group_top_id,
+  	COUNT(table_b.user_group_state) as child_num
+  </sql>
+  <select id="selectByUserGroupParentId" parameterType="java.lang.String" resultMap="BaseResultMap">
+	SELECT
+	<include refid="Base_Column_List" />
+	FROM user_group AS table_a LEFT JOIN 
+	(SELECT user_group_id,user_group_parent_id,(CASE user_group_state  WHEN 1 THEN 1  ELSE NULL END) AS user_group_state
+	FROM user_group) AS table_b
+  	ON table_a.user_group_id = table_b.user_group_parent_id
+ 	where table_a.user_group_parent_id = #{userGroupParentId,jdbcType=VARCHAR}
+	AND table_a.user_group_state = 1 
+	AND (table_b.user_group_state = 1 OR table_b.user_group_state IS NULL) 
+	Group By table_a.user_group_id
+	order by table_a.user_group_name asc
+  </select>
+  <select id="selectTopUserGroup" parameterType="java.lang.String" resultMap="BaseResultMap">
+	SELECT
+	<include refid="Base_Column_List" />
+	FROM user_group AS table_a LEFT JOIN 
+	(SELECT user_group_id,user_group_parent_id,(CASE user_group_state  WHEN 1 THEN 1  ELSE NULL END) AS user_group_state
+	FROM user_group) AS table_b
+  	ON table_a.user_group_id = table_b.user_group_parent_id
+ 	where table_a.user_group_parent_id IS NULL
+	AND table_a.user_group_state = 1 
+	AND (table_b.user_group_state = 1 OR table_b.user_group_state IS NULL) 
+	Group By table_a.user_group_id
+	order by table_a.user_group_name asc
+  </select>
+</mapper>

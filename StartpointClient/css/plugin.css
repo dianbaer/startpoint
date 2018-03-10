@@ -1,0 +1,65 @@
+@import "reset.css";
+@import "select.css";
+/*输入框*/
+.m_inp{height:40px;width:274px;line-height:40px;float:left;padding:0 10px;color:#5d5d61;border:0;background: url("../images/m_inp.png") 0 0 no-repeat}
+.m_inp:focus{background-position: 0 -40px}
+input:disabled{background-position: 0 -80px;cursor:not-allowed}
+input[disabled]{background-position: 0 -80px;cursor:not-allowed}
+.error_inp{background-position: 0 -120px;}
+/*单选框和复选框*/
+.icheckbox_square-blue,.iradio_square-blue{display:inline-block;vertical-align:middle;margin:0;padding:0;width:22px;height:34px;background:url(../images/check.png) no-repeat;border:none;cursor:pointer}
+.icheckbox_square-blue{background-position:0 0}
+.icheckbox_square-blue.hover{background-position:-24px 0}
+.icheckbox_square-blue.checked{background-position:-3pc 0}
+.icheckbox_square-blue.disabled{background-position:-72px 0;cursor:not-allowed}
+.icheckbox_square-blue.checked.disabled{background-position:-6pc 0}
+.iradio_square-blue{background-position:-90pt 0}
+.iradio_square-blue.hover{background-position:-9pc 0}
+.iradio_square-blue.checked{background-position:-168px 0}
+.iradio_square-blue.disabled{background-position:-2in 0;cursor:not-allowed}
+.iradio_square-blue.checked.disabled{background-position:-216px 0}
+/*下拉框*/
+.m_select{width:302px}
+.sod_select{border:0;border-radius:3px;padding:13px 3px 13px 10px;text-transform:none}
+.sod_select .sod_list_wrapper{width:100%;font-weight:400;box-sizing:initial;background:url(../images/select_b.png) 0 bottom no-repeat;border:0}
+.sod_select:after,.sod_select:before{content:""}
+.sod_select{background:url(../images/select.png) 0 0 no-repeat;cursor:pointer;font-size:14px;font-weight:400;color:#5d5d61}
+.sod_select .sod_label{padding-right:25px}
+.sod_select.open{background-position:0 -40px}
+.sod_select.open{color:#5d5d61}
+.sod_select.focus,.sod_select.open,.sod_select:hover{border:0}
+.sod_select.focus{box-shadow:0 0 0}
+.sod_select .sod_list{color:#5d5d61;font-size:14px;background:#fff url(../images/select_repeat.png) 0 0 repeat-y;padding:0 5px;margin-bottom:8px}
+.sod_select .sod_option{padding:13px 10px}
+.sod_select .sod_option.active{background-color:transparent;color:#5d5d61}
+.sod_select .sod_option.selected{font-weight:400;padding-right:10px;color:#398dee}
+.sod_select .sod_option.selected:before{content:none}
+.sod_select .sod_option:hover{background-color:#dfeff8;color:#398dee}
+.sod_list{max-height:200px;overflow:auto}
+/*按钮*/
+input[type=button]{outline:0}
+.btn01{width:60px;height:32px;line-height:32px;text-align:center;display:inline-block;background:url(../images/btn01.png) no-repeat 0 0;color:#fff;font-size:14px;border:0}
+.btn03{width:100px;height:25px;line-height:25px;background:url(../images/btn03.png) no-repeat 0 0;color:#fff;font-size:14px;border:0;text-indent:28px}
+/*layer*/
+.mySkin.layui-layer{border-radius:3px}
+.mySkin .layui-layer-title{font-size:14px;font-weight:700;padding-left:20px;background-color:#f5f5f5;border-color:#e0e1e5;border-radius:3px 3px 0 0}
+.mySkin .layui-layer-setwin{right:20px;top:12px}
+.mySkin .layui-layer-setwin a{width:20px;height:20px}
+.mySkin .layui-layer-setwin .layui-layer-close1{background:url(../images/layer_close.png)}
+.mySkin .layui-layer-setwin .layui-layer-close1:hover{opacity:unset}
+.mySkin .layui-layer-btn{border-top:1px solid #e0e1e5;padding:14px 10px 14px 0}
+.mySkin .layui-layer-btn a{width:60px;height:32px;line-height:32px;display:inline-block;padding:0;text-align:center;margin:0 10px 0 0}
+.mySkin .layui-layer-btn a.layui-layer-btn0{background:url(../images/btn01.png) no-repeat 0 0;color:#fff;font-size:14px;border:0}
+.mySkin .layui-layer-btn a.layui-layer-btn1{background:url(../images/btn02.png) no-repeat 0 0;color:#535353;font-size:14px;border:0}
+.mySkin_zy .layui-layer-btn a.layui-layer-btn0{background:url(../images/btn02.png) no-repeat 0 0;color:#535353;font-size:14px;border:0}
+.mySkin .layui-layer-btn a:hover{opacity:unset}
+.mySkin .layui-layer-content{background:#fff;height:450px}
+.mySkin.layui-layer-dialog .layui-layer-content{height:156px !important;}
+.mySkin_zy .layui-layer-content{height:300px}
+.fontRed{color:red}
+/*上传按钮*/
+.file_btn{position:relative;width:80px;height:30px;overflow:hidden}
+.file_btn a{width:80px;height:30px;line-height:30px;display:inline-block;color:#398dee;font-size:14px;position:absolute;z-index:0;left:0;top:0}
+.file_btn input[type=file]{position:absolute;z-index:1;opacity:0;filter:alpha(opacity=0);width:80px;height:30px}
+/*错误提示*/
+.error_msg{color:#ec706d;font-weight:400;position:absolute;left:110px;top:50px}

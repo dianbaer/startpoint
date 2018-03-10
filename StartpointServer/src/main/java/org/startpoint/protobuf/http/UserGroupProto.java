@@ -5364,6 +5364,19 @@ public final class UserGroupProto {
      */
     com.google.protobuf.ByteString
         getHOpCodeBytes();
+
+    /**
+     * <code>optional .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+     */
+    boolean hasUserGroup();
+    /**
+     * <code>optional .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+     */
+    org.startpoint.protobuf.http.UserGroupProto.UserGroupData getUserGroup();
+    /**
+     * <code>optional .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+     */
+    org.startpoint.protobuf.http.UserGroupProto.UserGroupDataOrBuilder getUserGroupOrBuilder();
   }
   /**
    * Protobuf type {@code org.startpoint.protobuf.http.DeleteUserGroupS}
@@ -5409,6 +5422,19 @@ public final class UserGroupProto {
               java.lang.String s = input.readStringRequireUtf8();
 
               hOpCode_ = s;
+              break;
+            }
+            case 18: {
+              org.startpoint.protobuf.http.UserGroupProto.UserGroupData.Builder subBuilder = null;
+              if (userGroup_ != null) {
+                subBuilder = userGroup_.toBuilder();
+              }
+              userGroup_ = input.readMessage(org.startpoint.protobuf.http.UserGroupProto.UserGroupData.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(userGroup_);
+                userGroup_ = subBuilder.buildPartial();
+              }
+
               break;
             }
           }
@@ -5468,6 +5494,27 @@ public final class UserGroupProto {
       }
     }
 
+    public static final int USERGROUP_FIELD_NUMBER = 2;
+    private org.startpoint.protobuf.http.UserGroupProto.UserGroupData userGroup_;
+    /**
+     * <code>optional .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+     */
+    public boolean hasUserGroup() {
+      return userGroup_ != null;
+    }
+    /**
+     * <code>optional .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+     */
+    public org.startpoint.protobuf.http.UserGroupProto.UserGroupData getUserGroup() {
+      return userGroup_ == null ? org.startpoint.protobuf.http.UserGroupProto.UserGroupData.getDefaultInstance() : userGroup_;
+    }
+    /**
+     * <code>optional .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+     */
+    public org.startpoint.protobuf.http.UserGroupProto.UserGroupDataOrBuilder getUserGroupOrBuilder() {
+      return getUserGroup();
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -5483,6 +5530,9 @@ public final class UserGroupProto {
       if (!getHOpCodeBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, hOpCode_);
       }
+      if (userGroup_ != null) {
+        output.writeMessage(2, getUserGroup());
+      }
     }
 
     public int getSerializedSize() {
@@ -5492,6 +5542,10 @@ public final class UserGroupProto {
       size = 0;
       if (!getHOpCodeBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, hOpCode_);
+      }
+      if (userGroup_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getUserGroup());
       }
       memoizedSize = size;
       return size;
@@ -5511,6 +5565,11 @@ public final class UserGroupProto {
       boolean result = true;
       result = result && getHOpCode()
           .equals(other.getHOpCode());
+      result = result && (hasUserGroup() == other.hasUserGroup());
+      if (hasUserGroup()) {
+        result = result && getUserGroup()
+            .equals(other.getUserGroup());
+      }
       return result;
     }
 
@@ -5523,6 +5582,10 @@ public final class UserGroupProto {
       hash = (19 * hash) + getDescriptorForType().hashCode();
       hash = (37 * hash) + HOPCODE_FIELD_NUMBER;
       hash = (53 * hash) + getHOpCode().hashCode();
+      if (hasUserGroup()) {
+        hash = (37 * hash) + USERGROUP_FIELD_NUMBER;
+        hash = (53 * hash) + getUserGroup().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -5643,6 +5706,12 @@ public final class UserGroupProto {
         super.clear();
         hOpCode_ = "";
 
+        if (userGroupBuilder_ == null) {
+          userGroup_ = null;
+        } else {
+          userGroup_ = null;
+          userGroupBuilder_ = null;
+        }
         return this;
       }
 
@@ -5666,6 +5735,11 @@ public final class UserGroupProto {
       public org.startpoint.protobuf.http.UserGroupProto.DeleteUserGroupS buildPartial() {
         org.startpoint.protobuf.http.UserGroupProto.DeleteUserGroupS result = new org.startpoint.protobuf.http.UserGroupProto.DeleteUserGroupS(this);
         result.hOpCode_ = hOpCode_;
+        if (userGroupBuilder_ == null) {
+          result.userGroup_ = userGroup_;
+        } else {
+          result.userGroup_ = userGroupBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -5710,6 +5784,9 @@ public final class UserGroupProto {
         if (!other.getHOpCode().isEmpty()) {
           hOpCode_ = other.hOpCode_;
           onChanged();
+        }
+        if (other.hasUserGroup()) {
+          mergeUserGroup(other.getUserGroup());
         }
         onChanged();
         return this;
@@ -5804,6 +5881,123 @@ public final class UserGroupProto {
         hOpCode_ = value;
         onChanged();
         return this;
+      }
+
+      private org.startpoint.protobuf.http.UserGroupProto.UserGroupData userGroup_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.startpoint.protobuf.http.UserGroupProto.UserGroupData, org.startpoint.protobuf.http.UserGroupProto.UserGroupData.Builder, org.startpoint.protobuf.http.UserGroupProto.UserGroupDataOrBuilder> userGroupBuilder_;
+      /**
+       * <code>optional .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+       */
+      public boolean hasUserGroup() {
+        return userGroupBuilder_ != null || userGroup_ != null;
+      }
+      /**
+       * <code>optional .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+       */
+      public org.startpoint.protobuf.http.UserGroupProto.UserGroupData getUserGroup() {
+        if (userGroupBuilder_ == null) {
+          return userGroup_ == null ? org.startpoint.protobuf.http.UserGroupProto.UserGroupData.getDefaultInstance() : userGroup_;
+        } else {
+          return userGroupBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+       */
+      public Builder setUserGroup(org.startpoint.protobuf.http.UserGroupProto.UserGroupData value) {
+        if (userGroupBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          userGroup_ = value;
+          onChanged();
+        } else {
+          userGroupBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+       */
+      public Builder setUserGroup(
+          org.startpoint.protobuf.http.UserGroupProto.UserGroupData.Builder builderForValue) {
+        if (userGroupBuilder_ == null) {
+          userGroup_ = builderForValue.build();
+          onChanged();
+        } else {
+          userGroupBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+       */
+      public Builder mergeUserGroup(org.startpoint.protobuf.http.UserGroupProto.UserGroupData value) {
+        if (userGroupBuilder_ == null) {
+          if (userGroup_ != null) {
+            userGroup_ =
+              org.startpoint.protobuf.http.UserGroupProto.UserGroupData.newBuilder(userGroup_).mergeFrom(value).buildPartial();
+          } else {
+            userGroup_ = value;
+          }
+          onChanged();
+        } else {
+          userGroupBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+       */
+      public Builder clearUserGroup() {
+        if (userGroupBuilder_ == null) {
+          userGroup_ = null;
+          onChanged();
+        } else {
+          userGroup_ = null;
+          userGroupBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+       */
+      public org.startpoint.protobuf.http.UserGroupProto.UserGroupData.Builder getUserGroupBuilder() {
+        
+        onChanged();
+        return getUserGroupFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+       */
+      public org.startpoint.protobuf.http.UserGroupProto.UserGroupDataOrBuilder getUserGroupOrBuilder() {
+        if (userGroupBuilder_ != null) {
+          return userGroupBuilder_.getMessageOrBuilder();
+        } else {
+          return userGroup_ == null ?
+              org.startpoint.protobuf.http.UserGroupProto.UserGroupData.getDefaultInstance() : userGroup_;
+        }
+      }
+      /**
+       * <code>optional .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.startpoint.protobuf.http.UserGroupProto.UserGroupData, org.startpoint.protobuf.http.UserGroupProto.UserGroupData.Builder, org.startpoint.protobuf.http.UserGroupProto.UserGroupDataOrBuilder> 
+          getUserGroupFieldBuilder() {
+        if (userGroupBuilder_ == null) {
+          userGroupBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              org.startpoint.protobuf.http.UserGroupProto.UserGroupData, org.startpoint.protobuf.http.UserGroupProto.UserGroupData.Builder, org.startpoint.protobuf.http.UserGroupProto.UserGroupDataOrBuilder>(
+                  getUserGroup(),
+                  getParentForChildren(),
+                  isClean());
+          userGroup_ = null;
+        }
+        return userGroupBuilder_;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -8898,6 +9092,3513 @@ public final class UserGroupProto {
     }
 
     public org.startpoint.protobuf.http.UserGroupProto.GetUserGroupListS getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface GetUserGroupTreeCOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:org.startpoint.protobuf.http.GetUserGroupTreeC)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional string hOpCode = 1;</code>
+     */
+    java.lang.String getHOpCode();
+    /**
+     * <code>optional string hOpCode = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getHOpCodeBytes();
+
+    /**
+     * <pre>
+     *空或""为获取所有顶级
+     * </pre>
+     *
+     * <code>optional string userGroupParentId = 2;</code>
+     */
+    java.lang.String getUserGroupParentId();
+    /**
+     * <pre>
+     *空或""为获取所有顶级
+     * </pre>
+     *
+     * <code>optional string userGroupParentId = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getUserGroupParentIdBytes();
+  }
+  /**
+   * Protobuf type {@code org.startpoint.protobuf.http.GetUserGroupTreeC}
+   */
+  public  static final class GetUserGroupTreeC extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:org.startpoint.protobuf.http.GetUserGroupTreeC)
+      GetUserGroupTreeCOrBuilder {
+    // Use GetUserGroupTreeC.newBuilder() to construct.
+    private GetUserGroupTreeC(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GetUserGroupTreeC() {
+      hOpCode_ = "";
+      userGroupParentId_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private GetUserGroupTreeC(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              hOpCode_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              userGroupParentId_ = s;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.startpoint.protobuf.http.UserGroupProto.internal_static_org_startpoint_protobuf_http_GetUserGroupTreeC_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.startpoint.protobuf.http.UserGroupProto.internal_static_org_startpoint_protobuf_http_GetUserGroupTreeC_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeC.class, org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeC.Builder.class);
+    }
+
+    public static final int HOPCODE_FIELD_NUMBER = 1;
+    private volatile java.lang.Object hOpCode_;
+    /**
+     * <code>optional string hOpCode = 1;</code>
+     */
+    public java.lang.String getHOpCode() {
+      java.lang.Object ref = hOpCode_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        hOpCode_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string hOpCode = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getHOpCodeBytes() {
+      java.lang.Object ref = hOpCode_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        hOpCode_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int USERGROUPPARENTID_FIELD_NUMBER = 2;
+    private volatile java.lang.Object userGroupParentId_;
+    /**
+     * <pre>
+     *空或""为获取所有顶级
+     * </pre>
+     *
+     * <code>optional string userGroupParentId = 2;</code>
+     */
+    public java.lang.String getUserGroupParentId() {
+      java.lang.Object ref = userGroupParentId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        userGroupParentId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *空或""为获取所有顶级
+     * </pre>
+     *
+     * <code>optional string userGroupParentId = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUserGroupParentIdBytes() {
+      java.lang.Object ref = userGroupParentId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userGroupParentId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getHOpCodeBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, hOpCode_);
+      }
+      if (!getUserGroupParentIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, userGroupParentId_);
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getHOpCodeBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, hOpCode_);
+      }
+      if (!getUserGroupParentIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, userGroupParentId_);
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeC)) {
+        return super.equals(obj);
+      }
+      org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeC other = (org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeC) obj;
+
+      boolean result = true;
+      result = result && getHOpCode()
+          .equals(other.getHOpCode());
+      result = result && getUserGroupParentId()
+          .equals(other.getUserGroupParentId());
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (37 * hash) + HOPCODE_FIELD_NUMBER;
+      hash = (53 * hash) + getHOpCode().hashCode();
+      hash = (37 * hash) + USERGROUPPARENTID_FIELD_NUMBER;
+      hash = (53 * hash) + getUserGroupParentId().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeC parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeC parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeC parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeC parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeC parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeC parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeC parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeC parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeC parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeC parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeC prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code org.startpoint.protobuf.http.GetUserGroupTreeC}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:org.startpoint.protobuf.http.GetUserGroupTreeC)
+        org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeCOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.startpoint.protobuf.http.UserGroupProto.internal_static_org_startpoint_protobuf_http_GetUserGroupTreeC_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.startpoint.protobuf.http.UserGroupProto.internal_static_org_startpoint_protobuf_http_GetUserGroupTreeC_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeC.class, org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeC.Builder.class);
+      }
+
+      // Construct using org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeC.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        hOpCode_ = "";
+
+        userGroupParentId_ = "";
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.startpoint.protobuf.http.UserGroupProto.internal_static_org_startpoint_protobuf_http_GetUserGroupTreeC_descriptor;
+      }
+
+      public org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeC getDefaultInstanceForType() {
+        return org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeC.getDefaultInstance();
+      }
+
+      public org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeC build() {
+        org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeC result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeC buildPartial() {
+        org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeC result = new org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeC(this);
+        result.hOpCode_ = hOpCode_;
+        result.userGroupParentId_ = userGroupParentId_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeC) {
+          return mergeFrom((org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeC)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeC other) {
+        if (other == org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeC.getDefaultInstance()) return this;
+        if (!other.getHOpCode().isEmpty()) {
+          hOpCode_ = other.hOpCode_;
+          onChanged();
+        }
+        if (!other.getUserGroupParentId().isEmpty()) {
+          userGroupParentId_ = other.userGroupParentId_;
+          onChanged();
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeC parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeC) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object hOpCode_ = "";
+      /**
+       * <code>optional string hOpCode = 1;</code>
+       */
+      public java.lang.String getHOpCode() {
+        java.lang.Object ref = hOpCode_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          hOpCode_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string hOpCode = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getHOpCodeBytes() {
+        java.lang.Object ref = hOpCode_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          hOpCode_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string hOpCode = 1;</code>
+       */
+      public Builder setHOpCode(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        hOpCode_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string hOpCode = 1;</code>
+       */
+      public Builder clearHOpCode() {
+        
+        hOpCode_ = getDefaultInstance().getHOpCode();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string hOpCode = 1;</code>
+       */
+      public Builder setHOpCodeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        hOpCode_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object userGroupParentId_ = "";
+      /**
+       * <pre>
+       *空或""为获取所有顶级
+       * </pre>
+       *
+       * <code>optional string userGroupParentId = 2;</code>
+       */
+      public java.lang.String getUserGroupParentId() {
+        java.lang.Object ref = userGroupParentId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          userGroupParentId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *空或""为获取所有顶级
+       * </pre>
+       *
+       * <code>optional string userGroupParentId = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUserGroupParentIdBytes() {
+        java.lang.Object ref = userGroupParentId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          userGroupParentId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *空或""为获取所有顶级
+       * </pre>
+       *
+       * <code>optional string userGroupParentId = 2;</code>
+       */
+      public Builder setUserGroupParentId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        userGroupParentId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *空或""为获取所有顶级
+       * </pre>
+       *
+       * <code>optional string userGroupParentId = 2;</code>
+       */
+      public Builder clearUserGroupParentId() {
+        
+        userGroupParentId_ = getDefaultInstance().getUserGroupParentId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *空或""为获取所有顶级
+       * </pre>
+       *
+       * <code>optional string userGroupParentId = 2;</code>
+       */
+      public Builder setUserGroupParentIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        userGroupParentId_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:org.startpoint.protobuf.http.GetUserGroupTreeC)
+    }
+
+    // @@protoc_insertion_point(class_scope:org.startpoint.protobuf.http.GetUserGroupTreeC)
+    private static final org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeC DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeC();
+    }
+
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeC getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GetUserGroupTreeC>
+        PARSER = new com.google.protobuf.AbstractParser<GetUserGroupTreeC>() {
+      public GetUserGroupTreeC parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new GetUserGroupTreeC(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GetUserGroupTreeC> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetUserGroupTreeC> getParserForType() {
+      return PARSER;
+    }
+
+    public org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeC getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface GetUserGroupTreeSOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:org.startpoint.protobuf.http.GetUserGroupTreeS)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional string hOpCode = 1;</code>
+     */
+    java.lang.String getHOpCode();
+    /**
+     * <code>optional string hOpCode = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getHOpCodeBytes();
+
+    /**
+     * <pre>
+     *用户组列表
+     * </pre>
+     *
+     * <code>repeated .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+     */
+    java.util.List<org.startpoint.protobuf.http.UserGroupProto.UserGroupData> 
+        getUserGroupList();
+    /**
+     * <pre>
+     *用户组列表
+     * </pre>
+     *
+     * <code>repeated .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+     */
+    org.startpoint.protobuf.http.UserGroupProto.UserGroupData getUserGroup(int index);
+    /**
+     * <pre>
+     *用户组列表
+     * </pre>
+     *
+     * <code>repeated .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+     */
+    int getUserGroupCount();
+    /**
+     * <pre>
+     *用户组列表
+     * </pre>
+     *
+     * <code>repeated .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+     */
+    java.util.List<? extends org.startpoint.protobuf.http.UserGroupProto.UserGroupDataOrBuilder> 
+        getUserGroupOrBuilderList();
+    /**
+     * <pre>
+     *用户组列表
+     * </pre>
+     *
+     * <code>repeated .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+     */
+    org.startpoint.protobuf.http.UserGroupProto.UserGroupDataOrBuilder getUserGroupOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code org.startpoint.protobuf.http.GetUserGroupTreeS}
+   */
+  public  static final class GetUserGroupTreeS extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:org.startpoint.protobuf.http.GetUserGroupTreeS)
+      GetUserGroupTreeSOrBuilder {
+    // Use GetUserGroupTreeS.newBuilder() to construct.
+    private GetUserGroupTreeS(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GetUserGroupTreeS() {
+      hOpCode_ = "";
+      userGroup_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private GetUserGroupTreeS(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              hOpCode_ = s;
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                userGroup_ = new java.util.ArrayList<org.startpoint.protobuf.http.UserGroupProto.UserGroupData>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              userGroup_.add(
+                  input.readMessage(org.startpoint.protobuf.http.UserGroupProto.UserGroupData.parser(), extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          userGroup_ = java.util.Collections.unmodifiableList(userGroup_);
+        }
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.startpoint.protobuf.http.UserGroupProto.internal_static_org_startpoint_protobuf_http_GetUserGroupTreeS_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.startpoint.protobuf.http.UserGroupProto.internal_static_org_startpoint_protobuf_http_GetUserGroupTreeS_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeS.class, org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeS.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int HOPCODE_FIELD_NUMBER = 1;
+    private volatile java.lang.Object hOpCode_;
+    /**
+     * <code>optional string hOpCode = 1;</code>
+     */
+    public java.lang.String getHOpCode() {
+      java.lang.Object ref = hOpCode_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        hOpCode_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string hOpCode = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getHOpCodeBytes() {
+      java.lang.Object ref = hOpCode_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        hOpCode_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int USERGROUP_FIELD_NUMBER = 2;
+    private java.util.List<org.startpoint.protobuf.http.UserGroupProto.UserGroupData> userGroup_;
+    /**
+     * <pre>
+     *用户组列表
+     * </pre>
+     *
+     * <code>repeated .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+     */
+    public java.util.List<org.startpoint.protobuf.http.UserGroupProto.UserGroupData> getUserGroupList() {
+      return userGroup_;
+    }
+    /**
+     * <pre>
+     *用户组列表
+     * </pre>
+     *
+     * <code>repeated .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+     */
+    public java.util.List<? extends org.startpoint.protobuf.http.UserGroupProto.UserGroupDataOrBuilder> 
+        getUserGroupOrBuilderList() {
+      return userGroup_;
+    }
+    /**
+     * <pre>
+     *用户组列表
+     * </pre>
+     *
+     * <code>repeated .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+     */
+    public int getUserGroupCount() {
+      return userGroup_.size();
+    }
+    /**
+     * <pre>
+     *用户组列表
+     * </pre>
+     *
+     * <code>repeated .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+     */
+    public org.startpoint.protobuf.http.UserGroupProto.UserGroupData getUserGroup(int index) {
+      return userGroup_.get(index);
+    }
+    /**
+     * <pre>
+     *用户组列表
+     * </pre>
+     *
+     * <code>repeated .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+     */
+    public org.startpoint.protobuf.http.UserGroupProto.UserGroupDataOrBuilder getUserGroupOrBuilder(
+        int index) {
+      return userGroup_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getHOpCodeBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, hOpCode_);
+      }
+      for (int i = 0; i < userGroup_.size(); i++) {
+        output.writeMessage(2, userGroup_.get(i));
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getHOpCodeBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, hOpCode_);
+      }
+      for (int i = 0; i < userGroup_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, userGroup_.get(i));
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeS)) {
+        return super.equals(obj);
+      }
+      org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeS other = (org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeS) obj;
+
+      boolean result = true;
+      result = result && getHOpCode()
+          .equals(other.getHOpCode());
+      result = result && getUserGroupList()
+          .equals(other.getUserGroupList());
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (37 * hash) + HOPCODE_FIELD_NUMBER;
+      hash = (53 * hash) + getHOpCode().hashCode();
+      if (getUserGroupCount() > 0) {
+        hash = (37 * hash) + USERGROUP_FIELD_NUMBER;
+        hash = (53 * hash) + getUserGroupList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeS parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeS parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeS parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeS parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeS parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeS parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeS parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeS parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeS parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeS parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeS prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code org.startpoint.protobuf.http.GetUserGroupTreeS}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:org.startpoint.protobuf.http.GetUserGroupTreeS)
+        org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeSOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.startpoint.protobuf.http.UserGroupProto.internal_static_org_startpoint_protobuf_http_GetUserGroupTreeS_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.startpoint.protobuf.http.UserGroupProto.internal_static_org_startpoint_protobuf_http_GetUserGroupTreeS_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeS.class, org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeS.Builder.class);
+      }
+
+      // Construct using org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeS.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getUserGroupFieldBuilder();
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        hOpCode_ = "";
+
+        if (userGroupBuilder_ == null) {
+          userGroup_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          userGroupBuilder_.clear();
+        }
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.startpoint.protobuf.http.UserGroupProto.internal_static_org_startpoint_protobuf_http_GetUserGroupTreeS_descriptor;
+      }
+
+      public org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeS getDefaultInstanceForType() {
+        return org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeS.getDefaultInstance();
+      }
+
+      public org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeS build() {
+        org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeS result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeS buildPartial() {
+        org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeS result = new org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeS(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        result.hOpCode_ = hOpCode_;
+        if (userGroupBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            userGroup_ = java.util.Collections.unmodifiableList(userGroup_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.userGroup_ = userGroup_;
+        } else {
+          result.userGroup_ = userGroupBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeS) {
+          return mergeFrom((org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeS)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeS other) {
+        if (other == org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeS.getDefaultInstance()) return this;
+        if (!other.getHOpCode().isEmpty()) {
+          hOpCode_ = other.hOpCode_;
+          onChanged();
+        }
+        if (userGroupBuilder_ == null) {
+          if (!other.userGroup_.isEmpty()) {
+            if (userGroup_.isEmpty()) {
+              userGroup_ = other.userGroup_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureUserGroupIsMutable();
+              userGroup_.addAll(other.userGroup_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.userGroup_.isEmpty()) {
+            if (userGroupBuilder_.isEmpty()) {
+              userGroupBuilder_.dispose();
+              userGroupBuilder_ = null;
+              userGroup_ = other.userGroup_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              userGroupBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getUserGroupFieldBuilder() : null;
+            } else {
+              userGroupBuilder_.addAllMessages(other.userGroup_);
+            }
+          }
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeS parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeS) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object hOpCode_ = "";
+      /**
+       * <code>optional string hOpCode = 1;</code>
+       */
+      public java.lang.String getHOpCode() {
+        java.lang.Object ref = hOpCode_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          hOpCode_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string hOpCode = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getHOpCodeBytes() {
+        java.lang.Object ref = hOpCode_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          hOpCode_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string hOpCode = 1;</code>
+       */
+      public Builder setHOpCode(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        hOpCode_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string hOpCode = 1;</code>
+       */
+      public Builder clearHOpCode() {
+        
+        hOpCode_ = getDefaultInstance().getHOpCode();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string hOpCode = 1;</code>
+       */
+      public Builder setHOpCodeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        hOpCode_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<org.startpoint.protobuf.http.UserGroupProto.UserGroupData> userGroup_ =
+        java.util.Collections.emptyList();
+      private void ensureUserGroupIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          userGroup_ = new java.util.ArrayList<org.startpoint.protobuf.http.UserGroupProto.UserGroupData>(userGroup_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          org.startpoint.protobuf.http.UserGroupProto.UserGroupData, org.startpoint.protobuf.http.UserGroupProto.UserGroupData.Builder, org.startpoint.protobuf.http.UserGroupProto.UserGroupDataOrBuilder> userGroupBuilder_;
+
+      /**
+       * <pre>
+       *用户组列表
+       * </pre>
+       *
+       * <code>repeated .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+       */
+      public java.util.List<org.startpoint.protobuf.http.UserGroupProto.UserGroupData> getUserGroupList() {
+        if (userGroupBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(userGroup_);
+        } else {
+          return userGroupBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       *用户组列表
+       * </pre>
+       *
+       * <code>repeated .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+       */
+      public int getUserGroupCount() {
+        if (userGroupBuilder_ == null) {
+          return userGroup_.size();
+        } else {
+          return userGroupBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       *用户组列表
+       * </pre>
+       *
+       * <code>repeated .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+       */
+      public org.startpoint.protobuf.http.UserGroupProto.UserGroupData getUserGroup(int index) {
+        if (userGroupBuilder_ == null) {
+          return userGroup_.get(index);
+        } else {
+          return userGroupBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       *用户组列表
+       * </pre>
+       *
+       * <code>repeated .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+       */
+      public Builder setUserGroup(
+          int index, org.startpoint.protobuf.http.UserGroupProto.UserGroupData value) {
+        if (userGroupBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureUserGroupIsMutable();
+          userGroup_.set(index, value);
+          onChanged();
+        } else {
+          userGroupBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *用户组列表
+       * </pre>
+       *
+       * <code>repeated .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+       */
+      public Builder setUserGroup(
+          int index, org.startpoint.protobuf.http.UserGroupProto.UserGroupData.Builder builderForValue) {
+        if (userGroupBuilder_ == null) {
+          ensureUserGroupIsMutable();
+          userGroup_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          userGroupBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *用户组列表
+       * </pre>
+       *
+       * <code>repeated .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+       */
+      public Builder addUserGroup(org.startpoint.protobuf.http.UserGroupProto.UserGroupData value) {
+        if (userGroupBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureUserGroupIsMutable();
+          userGroup_.add(value);
+          onChanged();
+        } else {
+          userGroupBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *用户组列表
+       * </pre>
+       *
+       * <code>repeated .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+       */
+      public Builder addUserGroup(
+          int index, org.startpoint.protobuf.http.UserGroupProto.UserGroupData value) {
+        if (userGroupBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureUserGroupIsMutable();
+          userGroup_.add(index, value);
+          onChanged();
+        } else {
+          userGroupBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *用户组列表
+       * </pre>
+       *
+       * <code>repeated .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+       */
+      public Builder addUserGroup(
+          org.startpoint.protobuf.http.UserGroupProto.UserGroupData.Builder builderForValue) {
+        if (userGroupBuilder_ == null) {
+          ensureUserGroupIsMutable();
+          userGroup_.add(builderForValue.build());
+          onChanged();
+        } else {
+          userGroupBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *用户组列表
+       * </pre>
+       *
+       * <code>repeated .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+       */
+      public Builder addUserGroup(
+          int index, org.startpoint.protobuf.http.UserGroupProto.UserGroupData.Builder builderForValue) {
+        if (userGroupBuilder_ == null) {
+          ensureUserGroupIsMutable();
+          userGroup_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          userGroupBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *用户组列表
+       * </pre>
+       *
+       * <code>repeated .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+       */
+      public Builder addAllUserGroup(
+          java.lang.Iterable<? extends org.startpoint.protobuf.http.UserGroupProto.UserGroupData> values) {
+        if (userGroupBuilder_ == null) {
+          ensureUserGroupIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, userGroup_);
+          onChanged();
+        } else {
+          userGroupBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *用户组列表
+       * </pre>
+       *
+       * <code>repeated .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+       */
+      public Builder clearUserGroup() {
+        if (userGroupBuilder_ == null) {
+          userGroup_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          userGroupBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *用户组列表
+       * </pre>
+       *
+       * <code>repeated .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+       */
+      public Builder removeUserGroup(int index) {
+        if (userGroupBuilder_ == null) {
+          ensureUserGroupIsMutable();
+          userGroup_.remove(index);
+          onChanged();
+        } else {
+          userGroupBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *用户组列表
+       * </pre>
+       *
+       * <code>repeated .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+       */
+      public org.startpoint.protobuf.http.UserGroupProto.UserGroupData.Builder getUserGroupBuilder(
+          int index) {
+        return getUserGroupFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       *用户组列表
+       * </pre>
+       *
+       * <code>repeated .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+       */
+      public org.startpoint.protobuf.http.UserGroupProto.UserGroupDataOrBuilder getUserGroupOrBuilder(
+          int index) {
+        if (userGroupBuilder_ == null) {
+          return userGroup_.get(index);  } else {
+          return userGroupBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       *用户组列表
+       * </pre>
+       *
+       * <code>repeated .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+       */
+      public java.util.List<? extends org.startpoint.protobuf.http.UserGroupProto.UserGroupDataOrBuilder> 
+           getUserGroupOrBuilderList() {
+        if (userGroupBuilder_ != null) {
+          return userGroupBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(userGroup_);
+        }
+      }
+      /**
+       * <pre>
+       *用户组列表
+       * </pre>
+       *
+       * <code>repeated .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+       */
+      public org.startpoint.protobuf.http.UserGroupProto.UserGroupData.Builder addUserGroupBuilder() {
+        return getUserGroupFieldBuilder().addBuilder(
+            org.startpoint.protobuf.http.UserGroupProto.UserGroupData.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       *用户组列表
+       * </pre>
+       *
+       * <code>repeated .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+       */
+      public org.startpoint.protobuf.http.UserGroupProto.UserGroupData.Builder addUserGroupBuilder(
+          int index) {
+        return getUserGroupFieldBuilder().addBuilder(
+            index, org.startpoint.protobuf.http.UserGroupProto.UserGroupData.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       *用户组列表
+       * </pre>
+       *
+       * <code>repeated .org.startpoint.protobuf.http.UserGroupData userGroup = 2;</code>
+       */
+      public java.util.List<org.startpoint.protobuf.http.UserGroupProto.UserGroupData.Builder> 
+           getUserGroupBuilderList() {
+        return getUserGroupFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          org.startpoint.protobuf.http.UserGroupProto.UserGroupData, org.startpoint.protobuf.http.UserGroupProto.UserGroupData.Builder, org.startpoint.protobuf.http.UserGroupProto.UserGroupDataOrBuilder> 
+          getUserGroupFieldBuilder() {
+        if (userGroupBuilder_ == null) {
+          userGroupBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              org.startpoint.protobuf.http.UserGroupProto.UserGroupData, org.startpoint.protobuf.http.UserGroupProto.UserGroupData.Builder, org.startpoint.protobuf.http.UserGroupProto.UserGroupDataOrBuilder>(
+                  userGroup_,
+                  ((bitField0_ & 0x00000002) == 0x00000002),
+                  getParentForChildren(),
+                  isClean());
+          userGroup_ = null;
+        }
+        return userGroupBuilder_;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:org.startpoint.protobuf.http.GetUserGroupTreeS)
+    }
+
+    // @@protoc_insertion_point(class_scope:org.startpoint.protobuf.http.GetUserGroupTreeS)
+    private static final org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeS DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeS();
+    }
+
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeS getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GetUserGroupTreeS>
+        PARSER = new com.google.protobuf.AbstractParser<GetUserGroupTreeS>() {
+      public GetUserGroupTreeS parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new GetUserGroupTreeS(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GetUserGroupTreeS> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetUserGroupTreeS> getParserForType() {
+      return PARSER;
+    }
+
+    public org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeS getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface GetUserGroupRecursionCOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:org.startpoint.protobuf.http.GetUserGroupRecursionC)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional string hOpCode = 1;</code>
+     */
+    java.lang.String getHOpCode();
+    /**
+     * <code>optional string hOpCode = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getHOpCodeBytes();
+
+    /**
+     * <pre>
+     *不能为空
+     * </pre>
+     *
+     * <code>optional string userGroupId = 2;</code>
+     */
+    java.lang.String getUserGroupId();
+    /**
+     * <pre>
+     *不能为空
+     * </pre>
+     *
+     * <code>optional string userGroupId = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getUserGroupIdBytes();
+  }
+  /**
+   * <pre>
+   *获取递归组织架构
+   * </pre>
+   *
+   * Protobuf type {@code org.startpoint.protobuf.http.GetUserGroupRecursionC}
+   */
+  public  static final class GetUserGroupRecursionC extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:org.startpoint.protobuf.http.GetUserGroupRecursionC)
+      GetUserGroupRecursionCOrBuilder {
+    // Use GetUserGroupRecursionC.newBuilder() to construct.
+    private GetUserGroupRecursionC(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GetUserGroupRecursionC() {
+      hOpCode_ = "";
+      userGroupId_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private GetUserGroupRecursionC(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              hOpCode_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              userGroupId_ = s;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.startpoint.protobuf.http.UserGroupProto.internal_static_org_startpoint_protobuf_http_GetUserGroupRecursionC_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.startpoint.protobuf.http.UserGroupProto.internal_static_org_startpoint_protobuf_http_GetUserGroupRecursionC_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionC.class, org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionC.Builder.class);
+    }
+
+    public static final int HOPCODE_FIELD_NUMBER = 1;
+    private volatile java.lang.Object hOpCode_;
+    /**
+     * <code>optional string hOpCode = 1;</code>
+     */
+    public java.lang.String getHOpCode() {
+      java.lang.Object ref = hOpCode_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        hOpCode_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string hOpCode = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getHOpCodeBytes() {
+      java.lang.Object ref = hOpCode_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        hOpCode_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int USERGROUPID_FIELD_NUMBER = 2;
+    private volatile java.lang.Object userGroupId_;
+    /**
+     * <pre>
+     *不能为空
+     * </pre>
+     *
+     * <code>optional string userGroupId = 2;</code>
+     */
+    public java.lang.String getUserGroupId() {
+      java.lang.Object ref = userGroupId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        userGroupId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *不能为空
+     * </pre>
+     *
+     * <code>optional string userGroupId = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUserGroupIdBytes() {
+      java.lang.Object ref = userGroupId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userGroupId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getHOpCodeBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, hOpCode_);
+      }
+      if (!getUserGroupIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, userGroupId_);
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getHOpCodeBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, hOpCode_);
+      }
+      if (!getUserGroupIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, userGroupId_);
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionC)) {
+        return super.equals(obj);
+      }
+      org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionC other = (org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionC) obj;
+
+      boolean result = true;
+      result = result && getHOpCode()
+          .equals(other.getHOpCode());
+      result = result && getUserGroupId()
+          .equals(other.getUserGroupId());
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (37 * hash) + HOPCODE_FIELD_NUMBER;
+      hash = (53 * hash) + getHOpCode().hashCode();
+      hash = (37 * hash) + USERGROUPID_FIELD_NUMBER;
+      hash = (53 * hash) + getUserGroupId().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionC parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionC parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionC parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionC parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionC parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionC parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionC parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionC parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionC parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionC parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionC prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *获取递归组织架构
+     * </pre>
+     *
+     * Protobuf type {@code org.startpoint.protobuf.http.GetUserGroupRecursionC}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:org.startpoint.protobuf.http.GetUserGroupRecursionC)
+        org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionCOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.startpoint.protobuf.http.UserGroupProto.internal_static_org_startpoint_protobuf_http_GetUserGroupRecursionC_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.startpoint.protobuf.http.UserGroupProto.internal_static_org_startpoint_protobuf_http_GetUserGroupRecursionC_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionC.class, org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionC.Builder.class);
+      }
+
+      // Construct using org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionC.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        hOpCode_ = "";
+
+        userGroupId_ = "";
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.startpoint.protobuf.http.UserGroupProto.internal_static_org_startpoint_protobuf_http_GetUserGroupRecursionC_descriptor;
+      }
+
+      public org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionC getDefaultInstanceForType() {
+        return org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionC.getDefaultInstance();
+      }
+
+      public org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionC build() {
+        org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionC result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionC buildPartial() {
+        org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionC result = new org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionC(this);
+        result.hOpCode_ = hOpCode_;
+        result.userGroupId_ = userGroupId_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionC) {
+          return mergeFrom((org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionC)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionC other) {
+        if (other == org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionC.getDefaultInstance()) return this;
+        if (!other.getHOpCode().isEmpty()) {
+          hOpCode_ = other.hOpCode_;
+          onChanged();
+        }
+        if (!other.getUserGroupId().isEmpty()) {
+          userGroupId_ = other.userGroupId_;
+          onChanged();
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionC parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionC) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object hOpCode_ = "";
+      /**
+       * <code>optional string hOpCode = 1;</code>
+       */
+      public java.lang.String getHOpCode() {
+        java.lang.Object ref = hOpCode_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          hOpCode_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string hOpCode = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getHOpCodeBytes() {
+        java.lang.Object ref = hOpCode_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          hOpCode_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string hOpCode = 1;</code>
+       */
+      public Builder setHOpCode(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        hOpCode_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string hOpCode = 1;</code>
+       */
+      public Builder clearHOpCode() {
+        
+        hOpCode_ = getDefaultInstance().getHOpCode();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string hOpCode = 1;</code>
+       */
+      public Builder setHOpCodeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        hOpCode_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object userGroupId_ = "";
+      /**
+       * <pre>
+       *不能为空
+       * </pre>
+       *
+       * <code>optional string userGroupId = 2;</code>
+       */
+      public java.lang.String getUserGroupId() {
+        java.lang.Object ref = userGroupId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          userGroupId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *不能为空
+       * </pre>
+       *
+       * <code>optional string userGroupId = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUserGroupIdBytes() {
+        java.lang.Object ref = userGroupId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          userGroupId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *不能为空
+       * </pre>
+       *
+       * <code>optional string userGroupId = 2;</code>
+       */
+      public Builder setUserGroupId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        userGroupId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *不能为空
+       * </pre>
+       *
+       * <code>optional string userGroupId = 2;</code>
+       */
+      public Builder clearUserGroupId() {
+        
+        userGroupId_ = getDefaultInstance().getUserGroupId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *不能为空
+       * </pre>
+       *
+       * <code>optional string userGroupId = 2;</code>
+       */
+      public Builder setUserGroupIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        userGroupId_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:org.startpoint.protobuf.http.GetUserGroupRecursionC)
+    }
+
+    // @@protoc_insertion_point(class_scope:org.startpoint.protobuf.http.GetUserGroupRecursionC)
+    private static final org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionC DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionC();
+    }
+
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionC getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GetUserGroupRecursionC>
+        PARSER = new com.google.protobuf.AbstractParser<GetUserGroupRecursionC>() {
+      public GetUserGroupRecursionC parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new GetUserGroupRecursionC(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GetUserGroupRecursionC> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetUserGroupRecursionC> getParserForType() {
+      return PARSER;
+    }
+
+    public org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionC getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface GetUserGroupRecursionSOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:org.startpoint.protobuf.http.GetUserGroupRecursionS)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional string hOpCode = 1;</code>
+     */
+    java.lang.String getHOpCode();
+    /**
+     * <code>optional string hOpCode = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getHOpCodeBytes();
+
+    /**
+     * <pre>
+     *不能为空
+     * </pre>
+     *
+     * <code>optional string userGroupId = 2;</code>
+     */
+    java.lang.String getUserGroupId();
+    /**
+     * <pre>
+     *不能为空
+     * </pre>
+     *
+     * <code>optional string userGroupId = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getUserGroupIdBytes();
+
+    /**
+     * <pre>
+     *递归组织架构
+     * </pre>
+     *
+     * <code>repeated .org.startpoint.protobuf.http.UserGroupData recursionUserGroupList = 3;</code>
+     */
+    java.util.List<org.startpoint.protobuf.http.UserGroupProto.UserGroupData> 
+        getRecursionUserGroupListList();
+    /**
+     * <pre>
+     *递归组织架构
+     * </pre>
+     *
+     * <code>repeated .org.startpoint.protobuf.http.UserGroupData recursionUserGroupList = 3;</code>
+     */
+    org.startpoint.protobuf.http.UserGroupProto.UserGroupData getRecursionUserGroupList(int index);
+    /**
+     * <pre>
+     *递归组织架构
+     * </pre>
+     *
+     * <code>repeated .org.startpoint.protobuf.http.UserGroupData recursionUserGroupList = 3;</code>
+     */
+    int getRecursionUserGroupListCount();
+    /**
+     * <pre>
+     *递归组织架构
+     * </pre>
+     *
+     * <code>repeated .org.startpoint.protobuf.http.UserGroupData recursionUserGroupList = 3;</code>
+     */
+    java.util.List<? extends org.startpoint.protobuf.http.UserGroupProto.UserGroupDataOrBuilder> 
+        getRecursionUserGroupListOrBuilderList();
+    /**
+     * <pre>
+     *递归组织架构
+     * </pre>
+     *
+     * <code>repeated .org.startpoint.protobuf.http.UserGroupData recursionUserGroupList = 3;</code>
+     */
+    org.startpoint.protobuf.http.UserGroupProto.UserGroupDataOrBuilder getRecursionUserGroupListOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code org.startpoint.protobuf.http.GetUserGroupRecursionS}
+   */
+  public  static final class GetUserGroupRecursionS extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:org.startpoint.protobuf.http.GetUserGroupRecursionS)
+      GetUserGroupRecursionSOrBuilder {
+    // Use GetUserGroupRecursionS.newBuilder() to construct.
+    private GetUserGroupRecursionS(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GetUserGroupRecursionS() {
+      hOpCode_ = "";
+      userGroupId_ = "";
+      recursionUserGroupList_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private GetUserGroupRecursionS(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              hOpCode_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              userGroupId_ = s;
+              break;
+            }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                recursionUserGroupList_ = new java.util.ArrayList<org.startpoint.protobuf.http.UserGroupProto.UserGroupData>();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              recursionUserGroupList_.add(
+                  input.readMessage(org.startpoint.protobuf.http.UserGroupProto.UserGroupData.parser(), extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          recursionUserGroupList_ = java.util.Collections.unmodifiableList(recursionUserGroupList_);
+        }
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.startpoint.protobuf.http.UserGroupProto.internal_static_org_startpoint_protobuf_http_GetUserGroupRecursionS_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.startpoint.protobuf.http.UserGroupProto.internal_static_org_startpoint_protobuf_http_GetUserGroupRecursionS_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionS.class, org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionS.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int HOPCODE_FIELD_NUMBER = 1;
+    private volatile java.lang.Object hOpCode_;
+    /**
+     * <code>optional string hOpCode = 1;</code>
+     */
+    public java.lang.String getHOpCode() {
+      java.lang.Object ref = hOpCode_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        hOpCode_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string hOpCode = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getHOpCodeBytes() {
+      java.lang.Object ref = hOpCode_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        hOpCode_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int USERGROUPID_FIELD_NUMBER = 2;
+    private volatile java.lang.Object userGroupId_;
+    /**
+     * <pre>
+     *不能为空
+     * </pre>
+     *
+     * <code>optional string userGroupId = 2;</code>
+     */
+    public java.lang.String getUserGroupId() {
+      java.lang.Object ref = userGroupId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        userGroupId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *不能为空
+     * </pre>
+     *
+     * <code>optional string userGroupId = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUserGroupIdBytes() {
+      java.lang.Object ref = userGroupId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userGroupId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int RECURSIONUSERGROUPLIST_FIELD_NUMBER = 3;
+    private java.util.List<org.startpoint.protobuf.http.UserGroupProto.UserGroupData> recursionUserGroupList_;
+    /**
+     * <pre>
+     *递归组织架构
+     * </pre>
+     *
+     * <code>repeated .org.startpoint.protobuf.http.UserGroupData recursionUserGroupList = 3;</code>
+     */
+    public java.util.List<org.startpoint.protobuf.http.UserGroupProto.UserGroupData> getRecursionUserGroupListList() {
+      return recursionUserGroupList_;
+    }
+    /**
+     * <pre>
+     *递归组织架构
+     * </pre>
+     *
+     * <code>repeated .org.startpoint.protobuf.http.UserGroupData recursionUserGroupList = 3;</code>
+     */
+    public java.util.List<? extends org.startpoint.protobuf.http.UserGroupProto.UserGroupDataOrBuilder> 
+        getRecursionUserGroupListOrBuilderList() {
+      return recursionUserGroupList_;
+    }
+    /**
+     * <pre>
+     *递归组织架构
+     * </pre>
+     *
+     * <code>repeated .org.startpoint.protobuf.http.UserGroupData recursionUserGroupList = 3;</code>
+     */
+    public int getRecursionUserGroupListCount() {
+      return recursionUserGroupList_.size();
+    }
+    /**
+     * <pre>
+     *递归组织架构
+     * </pre>
+     *
+     * <code>repeated .org.startpoint.protobuf.http.UserGroupData recursionUserGroupList = 3;</code>
+     */
+    public org.startpoint.protobuf.http.UserGroupProto.UserGroupData getRecursionUserGroupList(int index) {
+      return recursionUserGroupList_.get(index);
+    }
+    /**
+     * <pre>
+     *递归组织架构
+     * </pre>
+     *
+     * <code>repeated .org.startpoint.protobuf.http.UserGroupData recursionUserGroupList = 3;</code>
+     */
+    public org.startpoint.protobuf.http.UserGroupProto.UserGroupDataOrBuilder getRecursionUserGroupListOrBuilder(
+        int index) {
+      return recursionUserGroupList_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getHOpCodeBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, hOpCode_);
+      }
+      if (!getUserGroupIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, userGroupId_);
+      }
+      for (int i = 0; i < recursionUserGroupList_.size(); i++) {
+        output.writeMessage(3, recursionUserGroupList_.get(i));
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getHOpCodeBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, hOpCode_);
+      }
+      if (!getUserGroupIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, userGroupId_);
+      }
+      for (int i = 0; i < recursionUserGroupList_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, recursionUserGroupList_.get(i));
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionS)) {
+        return super.equals(obj);
+      }
+      org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionS other = (org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionS) obj;
+
+      boolean result = true;
+      result = result && getHOpCode()
+          .equals(other.getHOpCode());
+      result = result && getUserGroupId()
+          .equals(other.getUserGroupId());
+      result = result && getRecursionUserGroupListList()
+          .equals(other.getRecursionUserGroupListList());
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (37 * hash) + HOPCODE_FIELD_NUMBER;
+      hash = (53 * hash) + getHOpCode().hashCode();
+      hash = (37 * hash) + USERGROUPID_FIELD_NUMBER;
+      hash = (53 * hash) + getUserGroupId().hashCode();
+      if (getRecursionUserGroupListCount() > 0) {
+        hash = (37 * hash) + RECURSIONUSERGROUPLIST_FIELD_NUMBER;
+        hash = (53 * hash) + getRecursionUserGroupListList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionS parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionS parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionS parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionS parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionS parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionS parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionS parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionS parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionS parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionS parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionS prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code org.startpoint.protobuf.http.GetUserGroupRecursionS}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:org.startpoint.protobuf.http.GetUserGroupRecursionS)
+        org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionSOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.startpoint.protobuf.http.UserGroupProto.internal_static_org_startpoint_protobuf_http_GetUserGroupRecursionS_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.startpoint.protobuf.http.UserGroupProto.internal_static_org_startpoint_protobuf_http_GetUserGroupRecursionS_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionS.class, org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionS.Builder.class);
+      }
+
+      // Construct using org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionS.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getRecursionUserGroupListFieldBuilder();
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        hOpCode_ = "";
+
+        userGroupId_ = "";
+
+        if (recursionUserGroupListBuilder_ == null) {
+          recursionUserGroupList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        } else {
+          recursionUserGroupListBuilder_.clear();
+        }
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.startpoint.protobuf.http.UserGroupProto.internal_static_org_startpoint_protobuf_http_GetUserGroupRecursionS_descriptor;
+      }
+
+      public org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionS getDefaultInstanceForType() {
+        return org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionS.getDefaultInstance();
+      }
+
+      public org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionS build() {
+        org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionS result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionS buildPartial() {
+        org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionS result = new org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionS(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        result.hOpCode_ = hOpCode_;
+        result.userGroupId_ = userGroupId_;
+        if (recursionUserGroupListBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+            recursionUserGroupList_ = java.util.Collections.unmodifiableList(recursionUserGroupList_);
+            bitField0_ = (bitField0_ & ~0x00000004);
+          }
+          result.recursionUserGroupList_ = recursionUserGroupList_;
+        } else {
+          result.recursionUserGroupList_ = recursionUserGroupListBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionS) {
+          return mergeFrom((org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionS)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionS other) {
+        if (other == org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionS.getDefaultInstance()) return this;
+        if (!other.getHOpCode().isEmpty()) {
+          hOpCode_ = other.hOpCode_;
+          onChanged();
+        }
+        if (!other.getUserGroupId().isEmpty()) {
+          userGroupId_ = other.userGroupId_;
+          onChanged();
+        }
+        if (recursionUserGroupListBuilder_ == null) {
+          if (!other.recursionUserGroupList_.isEmpty()) {
+            if (recursionUserGroupList_.isEmpty()) {
+              recursionUserGroupList_ = other.recursionUserGroupList_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+            } else {
+              ensureRecursionUserGroupListIsMutable();
+              recursionUserGroupList_.addAll(other.recursionUserGroupList_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.recursionUserGroupList_.isEmpty()) {
+            if (recursionUserGroupListBuilder_.isEmpty()) {
+              recursionUserGroupListBuilder_.dispose();
+              recursionUserGroupListBuilder_ = null;
+              recursionUserGroupList_ = other.recursionUserGroupList_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+              recursionUserGroupListBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getRecursionUserGroupListFieldBuilder() : null;
+            } else {
+              recursionUserGroupListBuilder_.addAllMessages(other.recursionUserGroupList_);
+            }
+          }
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionS parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionS) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object hOpCode_ = "";
+      /**
+       * <code>optional string hOpCode = 1;</code>
+       */
+      public java.lang.String getHOpCode() {
+        java.lang.Object ref = hOpCode_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          hOpCode_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string hOpCode = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getHOpCodeBytes() {
+        java.lang.Object ref = hOpCode_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          hOpCode_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string hOpCode = 1;</code>
+       */
+      public Builder setHOpCode(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        hOpCode_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string hOpCode = 1;</code>
+       */
+      public Builder clearHOpCode() {
+        
+        hOpCode_ = getDefaultInstance().getHOpCode();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string hOpCode = 1;</code>
+       */
+      public Builder setHOpCodeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        hOpCode_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object userGroupId_ = "";
+      /**
+       * <pre>
+       *不能为空
+       * </pre>
+       *
+       * <code>optional string userGroupId = 2;</code>
+       */
+      public java.lang.String getUserGroupId() {
+        java.lang.Object ref = userGroupId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          userGroupId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *不能为空
+       * </pre>
+       *
+       * <code>optional string userGroupId = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUserGroupIdBytes() {
+        java.lang.Object ref = userGroupId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          userGroupId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *不能为空
+       * </pre>
+       *
+       * <code>optional string userGroupId = 2;</code>
+       */
+      public Builder setUserGroupId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        userGroupId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *不能为空
+       * </pre>
+       *
+       * <code>optional string userGroupId = 2;</code>
+       */
+      public Builder clearUserGroupId() {
+        
+        userGroupId_ = getDefaultInstance().getUserGroupId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *不能为空
+       * </pre>
+       *
+       * <code>optional string userGroupId = 2;</code>
+       */
+      public Builder setUserGroupIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        userGroupId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<org.startpoint.protobuf.http.UserGroupProto.UserGroupData> recursionUserGroupList_ =
+        java.util.Collections.emptyList();
+      private void ensureRecursionUserGroupListIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          recursionUserGroupList_ = new java.util.ArrayList<org.startpoint.protobuf.http.UserGroupProto.UserGroupData>(recursionUserGroupList_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          org.startpoint.protobuf.http.UserGroupProto.UserGroupData, org.startpoint.protobuf.http.UserGroupProto.UserGroupData.Builder, org.startpoint.protobuf.http.UserGroupProto.UserGroupDataOrBuilder> recursionUserGroupListBuilder_;
+
+      /**
+       * <pre>
+       *递归组织架构
+       * </pre>
+       *
+       * <code>repeated .org.startpoint.protobuf.http.UserGroupData recursionUserGroupList = 3;</code>
+       */
+      public java.util.List<org.startpoint.protobuf.http.UserGroupProto.UserGroupData> getRecursionUserGroupListList() {
+        if (recursionUserGroupListBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(recursionUserGroupList_);
+        } else {
+          return recursionUserGroupListBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       *递归组织架构
+       * </pre>
+       *
+       * <code>repeated .org.startpoint.protobuf.http.UserGroupData recursionUserGroupList = 3;</code>
+       */
+      public int getRecursionUserGroupListCount() {
+        if (recursionUserGroupListBuilder_ == null) {
+          return recursionUserGroupList_.size();
+        } else {
+          return recursionUserGroupListBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       *递归组织架构
+       * </pre>
+       *
+       * <code>repeated .org.startpoint.protobuf.http.UserGroupData recursionUserGroupList = 3;</code>
+       */
+      public org.startpoint.protobuf.http.UserGroupProto.UserGroupData getRecursionUserGroupList(int index) {
+        if (recursionUserGroupListBuilder_ == null) {
+          return recursionUserGroupList_.get(index);
+        } else {
+          return recursionUserGroupListBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       *递归组织架构
+       * </pre>
+       *
+       * <code>repeated .org.startpoint.protobuf.http.UserGroupData recursionUserGroupList = 3;</code>
+       */
+      public Builder setRecursionUserGroupList(
+          int index, org.startpoint.protobuf.http.UserGroupProto.UserGroupData value) {
+        if (recursionUserGroupListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRecursionUserGroupListIsMutable();
+          recursionUserGroupList_.set(index, value);
+          onChanged();
+        } else {
+          recursionUserGroupListBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *递归组织架构
+       * </pre>
+       *
+       * <code>repeated .org.startpoint.protobuf.http.UserGroupData recursionUserGroupList = 3;</code>
+       */
+      public Builder setRecursionUserGroupList(
+          int index, org.startpoint.protobuf.http.UserGroupProto.UserGroupData.Builder builderForValue) {
+        if (recursionUserGroupListBuilder_ == null) {
+          ensureRecursionUserGroupListIsMutable();
+          recursionUserGroupList_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          recursionUserGroupListBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *递归组织架构
+       * </pre>
+       *
+       * <code>repeated .org.startpoint.protobuf.http.UserGroupData recursionUserGroupList = 3;</code>
+       */
+      public Builder addRecursionUserGroupList(org.startpoint.protobuf.http.UserGroupProto.UserGroupData value) {
+        if (recursionUserGroupListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRecursionUserGroupListIsMutable();
+          recursionUserGroupList_.add(value);
+          onChanged();
+        } else {
+          recursionUserGroupListBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *递归组织架构
+       * </pre>
+       *
+       * <code>repeated .org.startpoint.protobuf.http.UserGroupData recursionUserGroupList = 3;</code>
+       */
+      public Builder addRecursionUserGroupList(
+          int index, org.startpoint.protobuf.http.UserGroupProto.UserGroupData value) {
+        if (recursionUserGroupListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRecursionUserGroupListIsMutable();
+          recursionUserGroupList_.add(index, value);
+          onChanged();
+        } else {
+          recursionUserGroupListBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *递归组织架构
+       * </pre>
+       *
+       * <code>repeated .org.startpoint.protobuf.http.UserGroupData recursionUserGroupList = 3;</code>
+       */
+      public Builder addRecursionUserGroupList(
+          org.startpoint.protobuf.http.UserGroupProto.UserGroupData.Builder builderForValue) {
+        if (recursionUserGroupListBuilder_ == null) {
+          ensureRecursionUserGroupListIsMutable();
+          recursionUserGroupList_.add(builderForValue.build());
+          onChanged();
+        } else {
+          recursionUserGroupListBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *递归组织架构
+       * </pre>
+       *
+       * <code>repeated .org.startpoint.protobuf.http.UserGroupData recursionUserGroupList = 3;</code>
+       */
+      public Builder addRecursionUserGroupList(
+          int index, org.startpoint.protobuf.http.UserGroupProto.UserGroupData.Builder builderForValue) {
+        if (recursionUserGroupListBuilder_ == null) {
+          ensureRecursionUserGroupListIsMutable();
+          recursionUserGroupList_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          recursionUserGroupListBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *递归组织架构
+       * </pre>
+       *
+       * <code>repeated .org.startpoint.protobuf.http.UserGroupData recursionUserGroupList = 3;</code>
+       */
+      public Builder addAllRecursionUserGroupList(
+          java.lang.Iterable<? extends org.startpoint.protobuf.http.UserGroupProto.UserGroupData> values) {
+        if (recursionUserGroupListBuilder_ == null) {
+          ensureRecursionUserGroupListIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, recursionUserGroupList_);
+          onChanged();
+        } else {
+          recursionUserGroupListBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *递归组织架构
+       * </pre>
+       *
+       * <code>repeated .org.startpoint.protobuf.http.UserGroupData recursionUserGroupList = 3;</code>
+       */
+      public Builder clearRecursionUserGroupList() {
+        if (recursionUserGroupListBuilder_ == null) {
+          recursionUserGroupList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+          onChanged();
+        } else {
+          recursionUserGroupListBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *递归组织架构
+       * </pre>
+       *
+       * <code>repeated .org.startpoint.protobuf.http.UserGroupData recursionUserGroupList = 3;</code>
+       */
+      public Builder removeRecursionUserGroupList(int index) {
+        if (recursionUserGroupListBuilder_ == null) {
+          ensureRecursionUserGroupListIsMutable();
+          recursionUserGroupList_.remove(index);
+          onChanged();
+        } else {
+          recursionUserGroupListBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *递归组织架构
+       * </pre>
+       *
+       * <code>repeated .org.startpoint.protobuf.http.UserGroupData recursionUserGroupList = 3;</code>
+       */
+      public org.startpoint.protobuf.http.UserGroupProto.UserGroupData.Builder getRecursionUserGroupListBuilder(
+          int index) {
+        return getRecursionUserGroupListFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       *递归组织架构
+       * </pre>
+       *
+       * <code>repeated .org.startpoint.protobuf.http.UserGroupData recursionUserGroupList = 3;</code>
+       */
+      public org.startpoint.protobuf.http.UserGroupProto.UserGroupDataOrBuilder getRecursionUserGroupListOrBuilder(
+          int index) {
+        if (recursionUserGroupListBuilder_ == null) {
+          return recursionUserGroupList_.get(index);  } else {
+          return recursionUserGroupListBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       *递归组织架构
+       * </pre>
+       *
+       * <code>repeated .org.startpoint.protobuf.http.UserGroupData recursionUserGroupList = 3;</code>
+       */
+      public java.util.List<? extends org.startpoint.protobuf.http.UserGroupProto.UserGroupDataOrBuilder> 
+           getRecursionUserGroupListOrBuilderList() {
+        if (recursionUserGroupListBuilder_ != null) {
+          return recursionUserGroupListBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(recursionUserGroupList_);
+        }
+      }
+      /**
+       * <pre>
+       *递归组织架构
+       * </pre>
+       *
+       * <code>repeated .org.startpoint.protobuf.http.UserGroupData recursionUserGroupList = 3;</code>
+       */
+      public org.startpoint.protobuf.http.UserGroupProto.UserGroupData.Builder addRecursionUserGroupListBuilder() {
+        return getRecursionUserGroupListFieldBuilder().addBuilder(
+            org.startpoint.protobuf.http.UserGroupProto.UserGroupData.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       *递归组织架构
+       * </pre>
+       *
+       * <code>repeated .org.startpoint.protobuf.http.UserGroupData recursionUserGroupList = 3;</code>
+       */
+      public org.startpoint.protobuf.http.UserGroupProto.UserGroupData.Builder addRecursionUserGroupListBuilder(
+          int index) {
+        return getRecursionUserGroupListFieldBuilder().addBuilder(
+            index, org.startpoint.protobuf.http.UserGroupProto.UserGroupData.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       *递归组织架构
+       * </pre>
+       *
+       * <code>repeated .org.startpoint.protobuf.http.UserGroupData recursionUserGroupList = 3;</code>
+       */
+      public java.util.List<org.startpoint.protobuf.http.UserGroupProto.UserGroupData.Builder> 
+           getRecursionUserGroupListBuilderList() {
+        return getRecursionUserGroupListFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          org.startpoint.protobuf.http.UserGroupProto.UserGroupData, org.startpoint.protobuf.http.UserGroupProto.UserGroupData.Builder, org.startpoint.protobuf.http.UserGroupProto.UserGroupDataOrBuilder> 
+          getRecursionUserGroupListFieldBuilder() {
+        if (recursionUserGroupListBuilder_ == null) {
+          recursionUserGroupListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              org.startpoint.protobuf.http.UserGroupProto.UserGroupData, org.startpoint.protobuf.http.UserGroupProto.UserGroupData.Builder, org.startpoint.protobuf.http.UserGroupProto.UserGroupDataOrBuilder>(
+                  recursionUserGroupList_,
+                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  getParentForChildren(),
+                  isClean());
+          recursionUserGroupList_ = null;
+        }
+        return recursionUserGroupListBuilder_;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:org.startpoint.protobuf.http.GetUserGroupRecursionS)
+    }
+
+    // @@protoc_insertion_point(class_scope:org.startpoint.protobuf.http.GetUserGroupRecursionS)
+    private static final org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionS DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionS();
+    }
+
+    public static org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionS getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GetUserGroupRecursionS>
+        PARSER = new com.google.protobuf.AbstractParser<GetUserGroupRecursionS>() {
+      public GetUserGroupRecursionS parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new GetUserGroupRecursionS(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GetUserGroupRecursionS> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetUserGroupRecursionS> getParserForType() {
+      return PARSER;
+    }
+
+    public org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionS getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -27985,6 +31686,11 @@ public final class UserGroupProto {
      */
     com.google.protobuf.ByteString
         getUserGroupTopIdBytes();
+
+    /**
+     * <code>optional int32 childrenNum = 8;</code>
+     */
+    int getChildrenNum();
   }
   /**
    * Protobuf type {@code org.startpoint.protobuf.http.UserGroupData}
@@ -28005,6 +31711,7 @@ public final class UserGroupProto {
       userGroupUpdateTime_ = "";
       userGroupState_ = 0;
       userGroupTopId_ = "";
+      childrenNum_ = 0;
     }
 
     @java.lang.Override
@@ -28071,6 +31778,11 @@ public final class UserGroupProto {
               java.lang.String s = input.readStringRequireUtf8();
 
               userGroupTopId_ = s;
+              break;
+            }
+            case 64: {
+
+              childrenNum_ = input.readInt32();
               break;
             }
           }
@@ -28309,6 +32021,15 @@ public final class UserGroupProto {
       }
     }
 
+    public static final int CHILDRENNUM_FIELD_NUMBER = 8;
+    private int childrenNum_;
+    /**
+     * <code>optional int32 childrenNum = 8;</code>
+     */
+    public int getChildrenNum() {
+      return childrenNum_;
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -28342,6 +32063,9 @@ public final class UserGroupProto {
       if (!getUserGroupTopIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 7, userGroupTopId_);
       }
+      if (childrenNum_ != 0) {
+        output.writeInt32(8, childrenNum_);
+      }
     }
 
     public int getSerializedSize() {
@@ -28370,6 +32094,10 @@ public final class UserGroupProto {
       }
       if (!getUserGroupTopIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, userGroupTopId_);
+      }
+      if (childrenNum_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(8, childrenNum_);
       }
       memoizedSize = size;
       return size;
@@ -28401,6 +32129,8 @@ public final class UserGroupProto {
           == other.getUserGroupState());
       result = result && getUserGroupTopId()
           .equals(other.getUserGroupTopId());
+      result = result && (getChildrenNum()
+          == other.getChildrenNum());
       return result;
     }
 
@@ -28425,6 +32155,8 @@ public final class UserGroupProto {
       hash = (53 * hash) + getUserGroupState();
       hash = (37 * hash) + USERGROUPTOPID_FIELD_NUMBER;
       hash = (53 * hash) + getUserGroupTopId().hashCode();
+      hash = (37 * hash) + CHILDRENNUM_FIELD_NUMBER;
+      hash = (53 * hash) + getChildrenNum();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -28557,6 +32289,8 @@ public final class UserGroupProto {
 
         userGroupTopId_ = "";
 
+        childrenNum_ = 0;
+
         return this;
       }
 
@@ -28586,6 +32320,7 @@ public final class UserGroupProto {
         result.userGroupUpdateTime_ = userGroupUpdateTime_;
         result.userGroupState_ = userGroupState_;
         result.userGroupTopId_ = userGroupTopId_;
+        result.childrenNum_ = childrenNum_;
         onBuilt();
         return result;
       }
@@ -28653,6 +32388,9 @@ public final class UserGroupProto {
         if (!other.getUserGroupTopId().isEmpty()) {
           userGroupTopId_ = other.userGroupTopId_;
           onChanged();
+        }
+        if (other.getChildrenNum() != 0) {
+          setChildrenNum(other.getChildrenNum());
         }
         onChanged();
         return this;
@@ -29116,6 +32854,32 @@ public final class UserGroupProto {
   checkByteStringIsUtf8(value);
         
         userGroupTopId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int childrenNum_ ;
+      /**
+       * <code>optional int32 childrenNum = 8;</code>
+       */
+      public int getChildrenNum() {
+        return childrenNum_;
+      }
+      /**
+       * <code>optional int32 childrenNum = 8;</code>
+       */
+      public Builder setChildrenNum(int value) {
+        
+        childrenNum_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 childrenNum = 8;</code>
+       */
+      public Builder clearChildrenNum() {
+        
+        childrenNum_ = 0;
         onChanged();
         return this;
       }
@@ -30446,6 +34210,26 @@ public final class UserGroupProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_org_startpoint_protobuf_http_GetUserGroupListS_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_org_startpoint_protobuf_http_GetUserGroupTreeC_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_org_startpoint_protobuf_http_GetUserGroupTreeC_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_org_startpoint_protobuf_http_GetUserGroupTreeS_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_org_startpoint_protobuf_http_GetUserGroupTreeS_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_org_startpoint_protobuf_http_GetUserGroupRecursionC_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_org_startpoint_protobuf_http_GetUserGroupRecursionC_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_org_startpoint_protobuf_http_GetUserGroupRecursionS_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_org_startpoint_protobuf_http_GetUserGroupRecursionS_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_org_startpoint_protobuf_http_CreateUserC_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -30586,88 +34370,99 @@ public final class UserGroupProto {
       "(\t\"`\n\rGetUserGroupS\022\017\n\007hOpCode\030\001 \001(\t\022>\n\t" +
       "userGroup\030\002 \001(\0132+.org.startpoint.protobu" +
       "f.http.UserGroupData\"8\n\020DeleteUserGroupC" +
-      "\022\017\n\007hOpCode\030\001 \001(\t\022\023\n\013userGroupId\030\002 \001(\t\"#" +
-      "\n\020DeleteUserGroupS\022\017\n\007hOpCode\030\001 \001(\t\"\346\002\n\021" +
-      "GetUserGroupListC\022\017\n\007hOpCode\030\001 \001(\t\022\031\n\021us",
-      "erGroupParentId\030\002 \001(\t\022\037\n\027isUserGroupPare" +
-      "ntIsNull\030\003 \001(\010\022\023\n\013isRecursion\030\004 \001(\010\022\026\n\016u" +
-      "serGroupTopId\030\005 \001(\t\022\026\n\016userGroupState\030\006 " +
-      "\001(\005\022\023\n\013currentPage\030\007 \001(\005\022\020\n\010pageSize\030\010 \001" +
-      "(\005\022&\n\036userGroupCreateTimeGreaterThan\030\t \001" +
-      "(\t\022#\n\033userGroupCreateTimeLessThan\030\n \001(\t\022" +
-      "&\n\036userGroupUpdateTimeGreaterThan\030\013 \001(\t\022" +
-      "#\n\033userGroupUpdateTimeLessThan\030\014 \001(\t\"\256\001\n" +
-      "\021GetUserGroupListS\022\017\n\007hOpCode\030\001 \001(\t\022>\n\tu" +
-      "serGroup\030\002 \003(\0132+.org.startpoint.protobuf",
-      ".http.UserGroupData\022\023\n\013currentPage\030\003 \001(\005" +
-      "\022\020\n\010pageSize\030\004 \001(\005\022\021\n\ttotalPage\030\005 \001(\005\022\016\n" +
-      "\006allNum\030\006 \001(\005\"\313\001\n\013CreateUserC\022\017\n\007hOpCode" +
-      "\030\001 \001(\t\022\020\n\010userName\030\002 \001(\t\022\024\n\014userPassword" +
-      "\030\003 \001(\t\022\021\n\tuserPhone\030\004 \001(\t\022\021\n\tuserEmail\030\005" +
-      " \001(\t\022\023\n\013userGroupId\030\006 \001(\t\022\024\n\014userRealNam" +
-      "e\030\007 \001(\t\022\017\n\007userSex\030\010 \001(\005\022\017\n\007userAge\030\t \001(" +
-      "\005\022\020\n\010userRole\030\n \001(\005\"T\n\013CreateUserS\022\017\n\007hO" +
-      "pCode\030\001 \001(\t\0224\n\004user\030\002 \001(\0132&.org.startpoi" +
-      "nt.protobuf.http.UserData\"+\n\010GetUserC\022\017\n",
-      "\007hOpCode\030\001 \001(\t\022\016\n\006userId\030\002 \001(\t\"Q\n\010GetUse" +
-      "rS\022\017\n\007hOpCode\030\001 \001(\t\0224\n\004user\030\002 \001(\0132&.org." +
-      "startpoint.protobuf.http.UserData\"5\n\017Get" +
-      "UserByEmailC\022\017\n\007hOpCode\030\001 \001(\t\022\021\n\tuserEma" +
-      "il\030\002 \001(\t\"X\n\017GetUserByEmailS\022\017\n\007hOpCode\030\001" +
-      " \001(\t\0224\n\004user\030\002 \001(\0132&.org.startpoint.prot" +
-      "obuf.http.UserData\"\367\001\n\013UpdateUserC\022\017\n\007hO" +
-      "pCode\030\001 \001(\t\022\016\n\006userId\030\002 \001(\t\022\024\n\014userPassw" +
-      "ord\030\003 \001(\t\022\021\n\tuserPhone\030\004 \001(\t\022\021\n\tuserEmai" +
-      "l\030\005 \001(\t\022\021\n\tuserState\030\006 \001(\005\022\031\n\021isUpdateUs",
-      "erGroup\030\007 \001(\010\022\023\n\013userGroupId\030\010 \001(\t\022\024\n\014us" +
-      "erRealName\030\t \001(\t\022\017\n\007userSex\030\n \001(\005\022\017\n\007use" +
-      "rAge\030\013 \001(\005\022\020\n\010userRole\030\014 \001(\005\"T\n\013UpdateUs" +
-      "erS\022\017\n\007hOpCode\030\001 \001(\t\0224\n\004user\030\002 \001(\0132&.org" +
-      ".startpoint.protobuf.http.UserData\"\361\002\n\014G" +
-      "etUserListC\022\017\n\007hOpCode\030\001 \001(\t\022\023\n\013userGrou" +
-      "pId\030\002 \001(\t\022\031\n\021isUserGroupIsNull\030\003 \001(\010\022\023\n\013" +
-      "isRecursion\030\004 \001(\010\022\021\n\tuserState\030\005 \001(\005\022\017\n\007" +
-      "userSex\030\006 \001(\005\022\020\n\010userRole\030\007 \001(\005\022\026\n\016userG" +
-      "roupTopId\030\010 \001(\t\022\020\n\010userName\030\t \001(\t\022!\n\031use",
-      "rCreateTimeGreaterThan\030\n \001(\t\022\036\n\026userCrea" +
-      "teTimeLessThan\030\013 \001(\t\022!\n\031userUpdateTimeGr" +
-      "eaterThan\030\014 \001(\t\022\036\n\026userUpdateTimeLessTha" +
-      "n\030\r \001(\t\022\023\n\013currentPage\030\016 \001(\005\022\020\n\010pageSize" +
-      "\030\017 \001(\005\"\237\001\n\014GetUserListS\022\017\n\007hOpCode\030\001 \001(\t" +
-      "\0224\n\004user\030\002 \003(\0132&.org.startpoint.protobuf" +
-      ".http.UserData\022\023\n\013currentPage\030\003 \001(\005\022\020\n\010p" +
-      "ageSize\030\004 \001(\005\022\021\n\ttotalPage\030\005 \001(\005\022\016\n\006allN" +
-      "um\030\006 \001(\005\"D\n\tGetTokenC\022\017\n\007hOpCode\030\001 \001(\t\022\020" +
-      "\n\010userName\030\002 \001(\t\022\024\n\014userPassword\030\003 \001(\t\"|",
-      "\n\tGetTokenS\022\017\n\007hOpCode\030\001 \001(\t\022\017\n\007tokenId\030" +
-      "\002 \001(\t\022\027\n\017tokenExpireTime\030\003 \001(\t\0224\n\004user\030\004" +
-      " \001(\0132&.org.startpoint.protobuf.http.User" +
-      "Data\"\037\n\014UpdateTokenC\022\017\n\007hOpCode\030\001 \001(\t\"\177\n" +
-      "\014UpdateTokenS\022\017\n\007hOpCode\030\001 \001(\t\022\017\n\007tokenI" +
-      "d\030\002 \001(\t\022\027\n\017tokenExpireTime\030\003 \001(\t\0224\n\004user" +
-      "\030\004 \001(\0132&.org.startpoint.protobuf.http.Us" +
-      "erData\"\037\n\014DeleteTokenC\022\017\n\007hOpCode\030\001 \001(\t\"" +
-      "\037\n\014DeleteTokenS\022\017\n\007hOpCode\030\001 \001(\t\".\n\013GetU" +
-      "serImgC\022\017\n\007hOpCode\030\001 \001(\t\022\016\n\006userId\030\002 \001(\t",
-      "\"9\n\024CheckUserByUserNameC\022\017\n\007hOpCode\030\001 \001(" +
-      "\t\022\020\n\010userName\030\002 \001(\t\"6\n\024CheckUserByUserNa" +
-      "meS\022\017\n\007hOpCode\030\001 \001(\t\022\r\n\005exist\030\002 \001(\010\"\261\002\n\010" +
-      "UserData\022\016\n\006userId\030\001 \001(\t\022\020\n\010userName\030\002 \001" +
-      "(\t\022\021\n\tuserPhone\030\003 \001(\t\022\021\n\tuserEmail\030\004 \001(\t" +
-      "\022\026\n\016userCreateTime\030\005 \001(\t\022\026\n\016userUpdateTi" +
-      "me\030\006 \001(\t\022\021\n\tuserState\030\007 \001(\005\022\023\n\013userGroup" +
-      "Id\030\010 \001(\t\022\024\n\014userRealName\030\t \001(\t\022\017\n\007userSe" +
-      "x\030\n \001(\005\022\017\n\007userAge\030\013 \001(\005\022\026\n\016userGroupTop" +
-      "Id\030\014 \001(\t\022\020\n\010userRole\030\r \001(\005\022\017\n\007userImg\030\016 ",
-      "\001(\t\022\022\n\nuserImgUrl\030\017 \001(\t\"\300\001\n\rUserGroupDat" +
-      "a\022\023\n\013userGroupId\030\001 \001(\t\022\025\n\ruserGroupName\030" +
-      "\002 \001(\t\022\031\n\021userGroupParentId\030\003 \001(\t\022\033\n\023user" +
-      "GroupCreateTime\030\004 \001(\t\022\033\n\023userGroupUpdate" +
-      "Time\030\005 \001(\t\022\026\n\016userGroupState\030\006 \001(\005\022\026\n\016us" +
-      "erGroupTopId\030\007 \001(\t\"5\n\017CheckUserPhoneC\022\017\n" +
-      "\007hOpCode\030\001 \001(\t\022\021\n\tuserPhone\030\002 \001(\t\"1\n\017Che" +
-      "ckUserPhoneS\022\017\n\007hOpCode\030\001 \001(\t\022\r\n\005exist\030\002" +
-      " \001(\010b\006proto3"
+      "\022\017\n\007hOpCode\030\001 \001(\t\022\023\n\013userGroupId\030\002 \001(\t\"c" +
+      "\n\020DeleteUserGroupS\022\017\n\007hOpCode\030\001 \001(\t\022>\n\tu" +
+      "serGroup\030\002 \001(\0132+.org.startpoint.protobuf",
+      ".http.UserGroupData\"\346\002\n\021GetUserGroupList" +
+      "C\022\017\n\007hOpCode\030\001 \001(\t\022\031\n\021userGroupParentId\030" +
+      "\002 \001(\t\022\037\n\027isUserGroupParentIsNull\030\003 \001(\010\022\023" +
+      "\n\013isRecursion\030\004 \001(\010\022\026\n\016userGroupTopId\030\005 " +
+      "\001(\t\022\026\n\016userGroupState\030\006 \001(\005\022\023\n\013currentPa" +
+      "ge\030\007 \001(\005\022\020\n\010pageSize\030\010 \001(\005\022&\n\036userGroupC" +
+      "reateTimeGreaterThan\030\t \001(\t\022#\n\033userGroupC" +
+      "reateTimeLessThan\030\n \001(\t\022&\n\036userGroupUpda" +
+      "teTimeGreaterThan\030\013 \001(\t\022#\n\033userGroupUpda" +
+      "teTimeLessThan\030\014 \001(\t\"\256\001\n\021GetUserGroupLis",
+      "tS\022\017\n\007hOpCode\030\001 \001(\t\022>\n\tuserGroup\030\002 \003(\0132+" +
+      ".org.startpoint.protobuf.http.UserGroupD" +
+      "ata\022\023\n\013currentPage\030\003 \001(\005\022\020\n\010pageSize\030\004 \001" +
+      "(\005\022\021\n\ttotalPage\030\005 \001(\005\022\016\n\006allNum\030\006 \001(\005\"?\n" +
+      "\021GetUserGroupTreeC\022\017\n\007hOpCode\030\001 \001(\t\022\031\n\021u" +
+      "serGroupParentId\030\002 \001(\t\"d\n\021GetUserGroupTr" +
+      "eeS\022\017\n\007hOpCode\030\001 \001(\t\022>\n\tuserGroup\030\002 \003(\0132" +
+      "+.org.startpoint.protobuf.http.UserGroup" +
+      "Data\">\n\026GetUserGroupRecursionC\022\017\n\007hOpCod" +
+      "e\030\001 \001(\t\022\023\n\013userGroupId\030\002 \001(\t\"\213\001\n\026GetUser",
+      "GroupRecursionS\022\017\n\007hOpCode\030\001 \001(\t\022\023\n\013user" +
+      "GroupId\030\002 \001(\t\022K\n\026recursionUserGroupList\030" +
+      "\003 \003(\0132+.org.startpoint.protobuf.http.Use" +
+      "rGroupData\"\313\001\n\013CreateUserC\022\017\n\007hOpCode\030\001 " +
+      "\001(\t\022\020\n\010userName\030\002 \001(\t\022\024\n\014userPassword\030\003 " +
+      "\001(\t\022\021\n\tuserPhone\030\004 \001(\t\022\021\n\tuserEmail\030\005 \001(" +
+      "\t\022\023\n\013userGroupId\030\006 \001(\t\022\024\n\014userRealName\030\007" +
+      " \001(\t\022\017\n\007userSex\030\010 \001(\005\022\017\n\007userAge\030\t \001(\005\022\020" +
+      "\n\010userRole\030\n \001(\005\"T\n\013CreateUserS\022\017\n\007hOpCo" +
+      "de\030\001 \001(\t\0224\n\004user\030\002 \001(\0132&.org.startpoint.",
+      "protobuf.http.UserData\"+\n\010GetUserC\022\017\n\007hO" +
+      "pCode\030\001 \001(\t\022\016\n\006userId\030\002 \001(\t\"Q\n\010GetUserS\022" +
+      "\017\n\007hOpCode\030\001 \001(\t\0224\n\004user\030\002 \001(\0132&.org.sta" +
+      "rtpoint.protobuf.http.UserData\"5\n\017GetUse" +
+      "rByEmailC\022\017\n\007hOpCode\030\001 \001(\t\022\021\n\tuserEmail\030" +
+      "\002 \001(\t\"X\n\017GetUserByEmailS\022\017\n\007hOpCode\030\001 \001(" +
+      "\t\0224\n\004user\030\002 \001(\0132&.org.startpoint.protobu" +
+      "f.http.UserData\"\367\001\n\013UpdateUserC\022\017\n\007hOpCo" +
+      "de\030\001 \001(\t\022\016\n\006userId\030\002 \001(\t\022\024\n\014userPassword" +
+      "\030\003 \001(\t\022\021\n\tuserPhone\030\004 \001(\t\022\021\n\tuserEmail\030\005",
+      " \001(\t\022\021\n\tuserState\030\006 \001(\005\022\031\n\021isUpdateUserG" +
+      "roup\030\007 \001(\010\022\023\n\013userGroupId\030\010 \001(\t\022\024\n\014userR" +
+      "ealName\030\t \001(\t\022\017\n\007userSex\030\n \001(\005\022\017\n\007userAg" +
+      "e\030\013 \001(\005\022\020\n\010userRole\030\014 \001(\005\"T\n\013UpdateUserS" +
+      "\022\017\n\007hOpCode\030\001 \001(\t\0224\n\004user\030\002 \001(\0132&.org.st" +
+      "artpoint.protobuf.http.UserData\"\361\002\n\014GetU" +
+      "serListC\022\017\n\007hOpCode\030\001 \001(\t\022\023\n\013userGroupId" +
+      "\030\002 \001(\t\022\031\n\021isUserGroupIsNull\030\003 \001(\010\022\023\n\013isR" +
+      "ecursion\030\004 \001(\010\022\021\n\tuserState\030\005 \001(\005\022\017\n\007use" +
+      "rSex\030\006 \001(\005\022\020\n\010userRole\030\007 \001(\005\022\026\n\016userGrou",
+      "pTopId\030\010 \001(\t\022\020\n\010userName\030\t \001(\t\022!\n\031userCr" +
+      "eateTimeGreaterThan\030\n \001(\t\022\036\n\026userCreateT" +
+      "imeLessThan\030\013 \001(\t\022!\n\031userUpdateTimeGreat" +
+      "erThan\030\014 \001(\t\022\036\n\026userUpdateTimeLessThan\030\r" +
+      " \001(\t\022\023\n\013currentPage\030\016 \001(\005\022\020\n\010pageSize\030\017 " +
+      "\001(\005\"\237\001\n\014GetUserListS\022\017\n\007hOpCode\030\001 \001(\t\0224\n" +
+      "\004user\030\002 \003(\0132&.org.startpoint.protobuf.ht" +
+      "tp.UserData\022\023\n\013currentPage\030\003 \001(\005\022\020\n\010page" +
+      "Size\030\004 \001(\005\022\021\n\ttotalPage\030\005 \001(\005\022\016\n\006allNum\030" +
+      "\006 \001(\005\"D\n\tGetTokenC\022\017\n\007hOpCode\030\001 \001(\t\022\020\n\010u",
+      "serName\030\002 \001(\t\022\024\n\014userPassword\030\003 \001(\t\"|\n\tG" +
+      "etTokenS\022\017\n\007hOpCode\030\001 \001(\t\022\017\n\007tokenId\030\002 \001" +
+      "(\t\022\027\n\017tokenExpireTime\030\003 \001(\t\0224\n\004user\030\004 \001(" +
+      "\0132&.org.startpoint.protobuf.http.UserDat" +
+      "a\"\037\n\014UpdateTokenC\022\017\n\007hOpCode\030\001 \001(\t\"\177\n\014Up" +
+      "dateTokenS\022\017\n\007hOpCode\030\001 \001(\t\022\017\n\007tokenId\030\002" +
+      " \001(\t\022\027\n\017tokenExpireTime\030\003 \001(\t\0224\n\004user\030\004 " +
+      "\001(\0132&.org.startpoint.protobuf.http.UserD" +
+      "ata\"\037\n\014DeleteTokenC\022\017\n\007hOpCode\030\001 \001(\t\"\037\n\014" +
+      "DeleteTokenS\022\017\n\007hOpCode\030\001 \001(\t\".\n\013GetUser",
+      "ImgC\022\017\n\007hOpCode\030\001 \001(\t\022\016\n\006userId\030\002 \001(\t\"9\n" +
+      "\024CheckUserByUserNameC\022\017\n\007hOpCode\030\001 \001(\t\022\020" +
+      "\n\010userName\030\002 \001(\t\"6\n\024CheckUserByUserNameS" +
+      "\022\017\n\007hOpCode\030\001 \001(\t\022\r\n\005exist\030\002 \001(\010\"\261\002\n\010Use" +
+      "rData\022\016\n\006userId\030\001 \001(\t\022\020\n\010userName\030\002 \001(\t\022" +
+      "\021\n\tuserPhone\030\003 \001(\t\022\021\n\tuserEmail\030\004 \001(\t\022\026\n" +
+      "\016userCreateTime\030\005 \001(\t\022\026\n\016userUpdateTime\030" +
+      "\006 \001(\t\022\021\n\tuserState\030\007 \001(\005\022\023\n\013userGroupId\030" +
+      "\010 \001(\t\022\024\n\014userRealName\030\t \001(\t\022\017\n\007userSex\030\n" +
+      " \001(\005\022\017\n\007userAge\030\013 \001(\005\022\026\n\016userGroupTopId\030",
+      "\014 \001(\t\022\020\n\010userRole\030\r \001(\005\022\017\n\007userImg\030\016 \001(\t" +
+      "\022\022\n\nuserImgUrl\030\017 \001(\t\"\325\001\n\rUserGroupData\022\023" +
+      "\n\013userGroupId\030\001 \001(\t\022\025\n\ruserGroupName\030\002 \001" +
+      "(\t\022\031\n\021userGroupParentId\030\003 \001(\t\022\033\n\023userGro" +
+      "upCreateTime\030\004 \001(\t\022\033\n\023userGroupUpdateTim" +
+      "e\030\005 \001(\t\022\026\n\016userGroupState\030\006 \001(\005\022\026\n\016userG" +
+      "roupTopId\030\007 \001(\t\022\023\n\013childrenNum\030\010 \001(\005\"5\n\017" +
+      "CheckUserPhoneC\022\017\n\007hOpCode\030\001 \001(\t\022\021\n\tuser" +
+      "Phone\030\002 \001(\t\"1\n\017CheckUserPhoneS\022\017\n\007hOpCod" +
+      "e\030\001 \001(\t\022\r\n\005exist\030\002 \001(\010b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -30728,7 +34523,7 @@ public final class UserGroupProto {
     internal_static_org_startpoint_protobuf_http_DeleteUserGroupS_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_startpoint_protobuf_http_DeleteUserGroupS_descriptor,
-        new java.lang.String[] { "HOpCode", });
+        new java.lang.String[] { "HOpCode", "UserGroup", });
     internal_static_org_startpoint_protobuf_http_GetUserGroupListC_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_org_startpoint_protobuf_http_GetUserGroupListC_fieldAccessorTable = new
@@ -30741,140 +34536,164 @@ public final class UserGroupProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_startpoint_protobuf_http_GetUserGroupListS_descriptor,
         new java.lang.String[] { "HOpCode", "UserGroup", "CurrentPage", "PageSize", "TotalPage", "AllNum", });
-    internal_static_org_startpoint_protobuf_http_CreateUserC_descriptor =
+    internal_static_org_startpoint_protobuf_http_GetUserGroupTreeC_descriptor =
       getDescriptor().getMessageTypes().get(10);
+    internal_static_org_startpoint_protobuf_http_GetUserGroupTreeC_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_org_startpoint_protobuf_http_GetUserGroupTreeC_descriptor,
+        new java.lang.String[] { "HOpCode", "UserGroupParentId", });
+    internal_static_org_startpoint_protobuf_http_GetUserGroupTreeS_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_org_startpoint_protobuf_http_GetUserGroupTreeS_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_org_startpoint_protobuf_http_GetUserGroupTreeS_descriptor,
+        new java.lang.String[] { "HOpCode", "UserGroup", });
+    internal_static_org_startpoint_protobuf_http_GetUserGroupRecursionC_descriptor =
+      getDescriptor().getMessageTypes().get(12);
+    internal_static_org_startpoint_protobuf_http_GetUserGroupRecursionC_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_org_startpoint_protobuf_http_GetUserGroupRecursionC_descriptor,
+        new java.lang.String[] { "HOpCode", "UserGroupId", });
+    internal_static_org_startpoint_protobuf_http_GetUserGroupRecursionS_descriptor =
+      getDescriptor().getMessageTypes().get(13);
+    internal_static_org_startpoint_protobuf_http_GetUserGroupRecursionS_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_org_startpoint_protobuf_http_GetUserGroupRecursionS_descriptor,
+        new java.lang.String[] { "HOpCode", "UserGroupId", "RecursionUserGroupList", });
+    internal_static_org_startpoint_protobuf_http_CreateUserC_descriptor =
+      getDescriptor().getMessageTypes().get(14);
     internal_static_org_startpoint_protobuf_http_CreateUserC_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_startpoint_protobuf_http_CreateUserC_descriptor,
         new java.lang.String[] { "HOpCode", "UserName", "UserPassword", "UserPhone", "UserEmail", "UserGroupId", "UserRealName", "UserSex", "UserAge", "UserRole", });
     internal_static_org_startpoint_protobuf_http_CreateUserS_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_org_startpoint_protobuf_http_CreateUserS_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_startpoint_protobuf_http_CreateUserS_descriptor,
         new java.lang.String[] { "HOpCode", "User", });
     internal_static_org_startpoint_protobuf_http_GetUserC_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_org_startpoint_protobuf_http_GetUserC_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_startpoint_protobuf_http_GetUserC_descriptor,
         new java.lang.String[] { "HOpCode", "UserId", });
     internal_static_org_startpoint_protobuf_http_GetUserS_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_org_startpoint_protobuf_http_GetUserS_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_startpoint_protobuf_http_GetUserS_descriptor,
         new java.lang.String[] { "HOpCode", "User", });
     internal_static_org_startpoint_protobuf_http_GetUserByEmailC_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_org_startpoint_protobuf_http_GetUserByEmailC_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_startpoint_protobuf_http_GetUserByEmailC_descriptor,
         new java.lang.String[] { "HOpCode", "UserEmail", });
     internal_static_org_startpoint_protobuf_http_GetUserByEmailS_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_org_startpoint_protobuf_http_GetUserByEmailS_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_startpoint_protobuf_http_GetUserByEmailS_descriptor,
         new java.lang.String[] { "HOpCode", "User", });
     internal_static_org_startpoint_protobuf_http_UpdateUserC_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_org_startpoint_protobuf_http_UpdateUserC_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_startpoint_protobuf_http_UpdateUserC_descriptor,
         new java.lang.String[] { "HOpCode", "UserId", "UserPassword", "UserPhone", "UserEmail", "UserState", "IsUpdateUserGroup", "UserGroupId", "UserRealName", "UserSex", "UserAge", "UserRole", });
     internal_static_org_startpoint_protobuf_http_UpdateUserS_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_org_startpoint_protobuf_http_UpdateUserS_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_startpoint_protobuf_http_UpdateUserS_descriptor,
         new java.lang.String[] { "HOpCode", "User", });
     internal_static_org_startpoint_protobuf_http_GetUserListC_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_org_startpoint_protobuf_http_GetUserListC_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_startpoint_protobuf_http_GetUserListC_descriptor,
         new java.lang.String[] { "HOpCode", "UserGroupId", "IsUserGroupIsNull", "IsRecursion", "UserState", "UserSex", "UserRole", "UserGroupTopId", "UserName", "UserCreateTimeGreaterThan", "UserCreateTimeLessThan", "UserUpdateTimeGreaterThan", "UserUpdateTimeLessThan", "CurrentPage", "PageSize", });
     internal_static_org_startpoint_protobuf_http_GetUserListS_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(23);
     internal_static_org_startpoint_protobuf_http_GetUserListS_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_startpoint_protobuf_http_GetUserListS_descriptor,
         new java.lang.String[] { "HOpCode", "User", "CurrentPage", "PageSize", "TotalPage", "AllNum", });
     internal_static_org_startpoint_protobuf_http_GetTokenC_descriptor =
-      getDescriptor().getMessageTypes().get(20);
+      getDescriptor().getMessageTypes().get(24);
     internal_static_org_startpoint_protobuf_http_GetTokenC_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_startpoint_protobuf_http_GetTokenC_descriptor,
         new java.lang.String[] { "HOpCode", "UserName", "UserPassword", });
     internal_static_org_startpoint_protobuf_http_GetTokenS_descriptor =
-      getDescriptor().getMessageTypes().get(21);
+      getDescriptor().getMessageTypes().get(25);
     internal_static_org_startpoint_protobuf_http_GetTokenS_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_startpoint_protobuf_http_GetTokenS_descriptor,
         new java.lang.String[] { "HOpCode", "TokenId", "TokenExpireTime", "User", });
     internal_static_org_startpoint_protobuf_http_UpdateTokenC_descriptor =
-      getDescriptor().getMessageTypes().get(22);
+      getDescriptor().getMessageTypes().get(26);
     internal_static_org_startpoint_protobuf_http_UpdateTokenC_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_startpoint_protobuf_http_UpdateTokenC_descriptor,
         new java.lang.String[] { "HOpCode", });
     internal_static_org_startpoint_protobuf_http_UpdateTokenS_descriptor =
-      getDescriptor().getMessageTypes().get(23);
+      getDescriptor().getMessageTypes().get(27);
     internal_static_org_startpoint_protobuf_http_UpdateTokenS_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_startpoint_protobuf_http_UpdateTokenS_descriptor,
         new java.lang.String[] { "HOpCode", "TokenId", "TokenExpireTime", "User", });
     internal_static_org_startpoint_protobuf_http_DeleteTokenC_descriptor =
-      getDescriptor().getMessageTypes().get(24);
+      getDescriptor().getMessageTypes().get(28);
     internal_static_org_startpoint_protobuf_http_DeleteTokenC_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_startpoint_protobuf_http_DeleteTokenC_descriptor,
         new java.lang.String[] { "HOpCode", });
     internal_static_org_startpoint_protobuf_http_DeleteTokenS_descriptor =
-      getDescriptor().getMessageTypes().get(25);
+      getDescriptor().getMessageTypes().get(29);
     internal_static_org_startpoint_protobuf_http_DeleteTokenS_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_startpoint_protobuf_http_DeleteTokenS_descriptor,
         new java.lang.String[] { "HOpCode", });
     internal_static_org_startpoint_protobuf_http_GetUserImgC_descriptor =
-      getDescriptor().getMessageTypes().get(26);
+      getDescriptor().getMessageTypes().get(30);
     internal_static_org_startpoint_protobuf_http_GetUserImgC_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_startpoint_protobuf_http_GetUserImgC_descriptor,
         new java.lang.String[] { "HOpCode", "UserId", });
     internal_static_org_startpoint_protobuf_http_CheckUserByUserNameC_descriptor =
-      getDescriptor().getMessageTypes().get(27);
+      getDescriptor().getMessageTypes().get(31);
     internal_static_org_startpoint_protobuf_http_CheckUserByUserNameC_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_startpoint_protobuf_http_CheckUserByUserNameC_descriptor,
         new java.lang.String[] { "HOpCode", "UserName", });
     internal_static_org_startpoint_protobuf_http_CheckUserByUserNameS_descriptor =
-      getDescriptor().getMessageTypes().get(28);
+      getDescriptor().getMessageTypes().get(32);
     internal_static_org_startpoint_protobuf_http_CheckUserByUserNameS_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_startpoint_protobuf_http_CheckUserByUserNameS_descriptor,
         new java.lang.String[] { "HOpCode", "Exist", });
     internal_static_org_startpoint_protobuf_http_UserData_descriptor =
-      getDescriptor().getMessageTypes().get(29);
+      getDescriptor().getMessageTypes().get(33);
     internal_static_org_startpoint_protobuf_http_UserData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_startpoint_protobuf_http_UserData_descriptor,
         new java.lang.String[] { "UserId", "UserName", "UserPhone", "UserEmail", "UserCreateTime", "UserUpdateTime", "UserState", "UserGroupId", "UserRealName", "UserSex", "UserAge", "UserGroupTopId", "UserRole", "UserImg", "UserImgUrl", });
     internal_static_org_startpoint_protobuf_http_UserGroupData_descriptor =
-      getDescriptor().getMessageTypes().get(30);
+      getDescriptor().getMessageTypes().get(34);
     internal_static_org_startpoint_protobuf_http_UserGroupData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_startpoint_protobuf_http_UserGroupData_descriptor,
-        new java.lang.String[] { "UserGroupId", "UserGroupName", "UserGroupParentId", "UserGroupCreateTime", "UserGroupUpdateTime", "UserGroupState", "UserGroupTopId", });
+        new java.lang.String[] { "UserGroupId", "UserGroupName", "UserGroupParentId", "UserGroupCreateTime", "UserGroupUpdateTime", "UserGroupState", "UserGroupTopId", "ChildrenNum", });
     internal_static_org_startpoint_protobuf_http_CheckUserPhoneC_descriptor =
-      getDescriptor().getMessageTypes().get(31);
+      getDescriptor().getMessageTypes().get(35);
     internal_static_org_startpoint_protobuf_http_CheckUserPhoneC_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_startpoint_protobuf_http_CheckUserPhoneC_descriptor,
         new java.lang.String[] { "HOpCode", "UserPhone", });
     internal_static_org_startpoint_protobuf_http_CheckUserPhoneS_descriptor =
-      getDescriptor().getMessageTypes().get(32);
+      getDescriptor().getMessageTypes().get(36);
     internal_static_org_startpoint_protobuf_http_CheckUserPhoneS_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_startpoint_protobuf_http_CheckUserPhoneS_descriptor,

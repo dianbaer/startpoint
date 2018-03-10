@@ -11,11 +11,13 @@ import org.startpoint.config.UserConfig;
 import org.startpoint.config.UserGroupConfig;
 import org.startpoint.dao.base.UserGroupMapper;
 import org.startpoint.dao.base.UserMapper;
+import org.startpoint.dao.ext.UserGroupMapperExt;
 import org.startpoint.keylock.UCenterKeyLockType;
 import org.startpoint.model.base.User;
 import org.startpoint.model.base.UserCriteria;
 import org.startpoint.model.base.UserGroup;
 import org.startpoint.model.base.UserGroupCriteria;
+import org.startpoint.model.ext.UserGroupExt;
 import org.startpoint.protobuf.http.UserGroupProto.UserGroupData;
 import org.startpoint.tool.StringUtil;
 import org.startpoint.tool.TimeUtils;
@@ -469,6 +471,63 @@ public class UserGroupAction {
 		return true;
 	}
 
+	public static List<UserGroupExt> getUserGroupTree(String userGroupParentId) {
+		SqlSession sqlSession = null;
+		List<UserGroupExt> list;
+		try {
+			sqlSession = MybatisManager.getSqlSession();
+			UserGroupMapperExt userGroupMapperExt = sqlSession.getMapper(UserGroupMapperExt.class);
+			if (StringUtil.stringIsNull(userGroupParentId)) {
+				list = userGroupMapperExt.selectTopUserGroup();
+			} else {
+				list = userGroupMapperExt.selectByUserGroupParentId(userGroupParentId);
+			}
+			if (list == null) {
+				MybatisManager.log.warn("获取用户组树形结构失败");
+			}
+			return list;
+		} catch (Exception e) {
+			if (sqlSession != null) {
+				sqlSession.rollback();
+			}
+			MybatisManager.log.error("获取用户组树形结构异常", e);
+			return null;
+		} finally {
+			if (sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+	}
+
+	public static List<UserGroup> getRecursionUserGroupList(String userGroupId) {
+		if (StringUtil.stringIsNull(userGroupId)) {
+			return null;
+		}
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = MybatisManager.getSqlSession();
+			UserGroupMapper userGroupMapper = sqlSession.getMapper(UserGroupMapper.class);
+			List<UserGroup> list = new ArrayList<UserGroup>();
+			UserGroup userGroup = userGroupMapper.selectByPrimaryKey(userGroupId);
+			list.add(userGroup);
+			while (userGroup.getUserGroupTopId() != null) {
+				userGroup = userGroupMapper.selectByPrimaryKey(userGroup.getUserGroupParentId());
+				list.add(userGroup);
+			}
+			return list;
+		} catch (Exception e) {
+			if (sqlSession != null) {
+				sqlSession.rollback();
+			}
+			MybatisManager.log.error("查询文件夹子集失败", e);
+			return null;
+		} finally {
+			if (sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+	}
+
 	public static UserGroupData.Builder getUserGroupDataBuilder(UserGroup userGroup) {
 		UserGroupData.Builder dataBuilder = UserGroupData.newBuilder();
 		dataBuilder.setUserGroupId(userGroup.getUserGroupId());
@@ -482,6 +541,23 @@ public class UserGroupAction {
 		if (userGroup.getUserGroupTopId() != null) {
 			dataBuilder.setUserGroupTopId(userGroup.getUserGroupTopId());
 		}
+		return dataBuilder;
+	}
+
+	public static UserGroupData.Builder getUserGroupDataBuilder(UserGroupExt userGroup) {
+		UserGroupData.Builder dataBuilder = UserGroupData.newBuilder();
+		dataBuilder.setUserGroupId(userGroup.getUserGroupId());
+		dataBuilder.setUserGroupName(userGroup.getUserGroupName());
+		if (userGroup.getUserGroupParentId() != null) {
+			dataBuilder.setUserGroupParentId(userGroup.getUserGroupParentId());
+		}
+		dataBuilder.setUserGroupCreateTime(TimeUtils.dateToString(userGroup.getUserGroupCreateTime()));
+		dataBuilder.setUserGroupUpdateTime(TimeUtils.dateToString(userGroup.getUserGroupUpdateTime()));
+		dataBuilder.setUserGroupState(userGroup.getUserGroupState());
+		if (userGroup.getUserGroupTopId() != null) {
+			dataBuilder.setUserGroupTopId(userGroup.getUserGroupTopId());
+		}
+		dataBuilder.setChildrenNum(userGroup.getChildrenNum());
 		return dataBuilder;
 	}
 }

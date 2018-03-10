@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <script src="js/lib/juggle-all.js"></script>
+    <script src="js/lib/jquery.min.js"></script>
+    <script src="js/lib/jquery.cookie.js"></script>
+
+    <script src="js/app/Url.js"></script>
+    <script src="js/app/NotificationExt.js"></script>
+
+    <script src="js/app/CookieName.js"></script>
+    <script src="js/app/CookieParam.js"></script>
+
+    <script src="js/app/UCErrorMsg.js"></script>
+    <script src="js/app/UCErrorFilter.js"></script>
+
+    <script src="js/app/data/TokenProxy.js"></script>
+
+    <script src="js/app/LoginMediator.js"></script>
+    <link rel="stylesheet" href="css/login.css">
+    <title>用户管理中心-登录</title>
+</head>
+<script type="text/javascript">
+    window.onload = function () {
+        juggle.httpFilter.addFilter(new uca.UCErrorFilter());
+        var mediator = new uca.LoginMediator();
+        mediator.initView();
+    }
+</script>
+<body>
+<div class="login_wrapper">
+    <img src="images/bg.png" alt=""/>
+</div>
+<div class="login_main">
+    <div class="login_logo ml20">卓朗用户管理中心</div>
+    <img src="images/bj1.png" alt="" class="fl"/>
+    <div class="login_box fr">
+        <p class="login_tit">用户登录</p>
+        <div class="form_box">
+            <div class="login_inp_box mt24">
+                <i class="login_icon user"></i>
+                <span>请输入用户名</span>
+                <input type="text" id="username"/>
+            </div>
+            <div class="login_inp_box mt10">
+                <i class="login_icon pwd"></i>
+                <span>请输入密码</span>
+                <input type="text" id="password"/>
+            </div>
+            <!--没有错误提示时加hide类即可-->
+            <div class="login_tips wrong mt10 ml10" id="loginerror">
+
+            </div>
+        </div>
+        <a href="#" class="login_btn mt24" id="loginBtn">登录</a>
+    </div>
+</div>
+<div class="login_footer">天津卓朗科技有限公司 版权所有</div>
+</body>
+</html>

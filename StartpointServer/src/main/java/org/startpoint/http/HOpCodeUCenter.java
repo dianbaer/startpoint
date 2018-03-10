@@ -22,7 +22,11 @@ import org.startpoint.protobuf.http.UserGroupProto.GetUserC;
 import org.startpoint.protobuf.http.UserGroupProto.GetUserGroupC;
 import org.startpoint.protobuf.http.UserGroupProto.GetUserGroupListC;
 import org.startpoint.protobuf.http.UserGroupProto.GetUserGroupListS;
+import org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionC;
+import org.startpoint.protobuf.http.UserGroupProto.GetUserGroupRecursionS;
 import org.startpoint.protobuf.http.UserGroupProto.GetUserGroupS;
+import org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeC;
+import org.startpoint.protobuf.http.UserGroupProto.GetUserGroupTreeS;
 import org.startpoint.protobuf.http.UserGroupProto.GetUserImgC;
 import org.startpoint.protobuf.http.UserGroupProto.GetUserListC;
 import org.startpoint.protobuf.http.UserGroupProto.GetUserListS;
@@ -42,6 +46,8 @@ public class HOpCodeUCenter {
 	public static String GET_USER_GROUP = "3";
 	public static String GET_USER_GROUP_LIST = "4";
 	public static String DELETE_USER_GROUP = "5";
+	public static String GET_USER_GROUP_TREE = "6";
+	public static String GET_USER_GROUP_RECURSION = "7";
 
 	public static String CREATE_USER = "10";
 	public static String GET_USER = "11";
@@ -55,6 +61,7 @@ public class HOpCodeUCenter {
 	public static String GET_TOKEN = "20";
 	public static String UPDATE_TOKEN = "21";
 	public static String DELETE_TOKEN = "22";
+	public static String GET_ADMIN_TOKEN = "23";
 
 	public static void init() {
 
@@ -64,6 +71,8 @@ public class HOpCodeUCenter {
 		HttpManager.addMapping(GET_USER_GROUP, GetUserGroupC.class, GetUserGroupS.class);
 		HttpManager.addMapping(GET_USER_GROUP_LIST, GetUserGroupListC.class, GetUserGroupListS.class);
 		HttpManager.addMapping(DELETE_USER_GROUP, DeleteUserGroupC.class, DeleteUserGroupS.class);
+		HttpManager.addMapping(GET_USER_GROUP_TREE, GetUserGroupTreeC.class, GetUserGroupTreeS.class);
+		HttpManager.addMapping(GET_USER_GROUP_RECURSION, GetUserGroupRecursionC.class, GetUserGroupRecursionS.class);
 		HttpManager.addMapping(CREATE_USER, CreateUserC.class, CreateUserS.class);
 		HttpManager.addMapping(GET_USER, GetUserC.class, GetUserS.class);
 		HttpManager.addMapping(UPDATE_USER, UpdateUserC.class, UpdateUserS.class);
@@ -75,6 +84,7 @@ public class HOpCodeUCenter {
 		HttpManager.addMapping(GET_TOKEN, GetTokenC.class, GetTokenS.class);
 		HttpManager.addMapping(UPDATE_TOKEN, UpdateTokenC.class, UpdateTokenS.class);
 		HttpManager.addMapping(DELETE_TOKEN, DeleteTokenC.class, DeleteTokenS.class);
+		HttpManager.addMapping(GET_ADMIN_TOKEN, GetTokenC.class, GetTokenS.class);
 
 	}
 }

@@ -30,6 +30,7 @@ public class TokenService implements IHttpListener {
 		map.put(HOpCodeUCenter.GET_TOKEN, "getTokenHandle");
 		map.put(HOpCodeUCenter.UPDATE_TOKEN, "updateTokenHandle");
 		map.put(HOpCodeUCenter.DELETE_TOKEN, "deleteTokenHandle");
+		map.put(HOpCodeUCenter.GET_ADMIN_TOKEN, "getAdminTokenHandle");
 		return map;
 	}
 
@@ -47,6 +48,58 @@ public class TokenService implements IHttpListener {
 		// 判断密码
 		if (!user.getUserPassword().equals(message.getUserPassword())) {
 			UCError errorPack = UCErrorPack.create(UCErrorCode.ERROR_CODE_6, httpPacket.hSession.headParam.hOpCode);
+			throw new HttpException(HOpCodeUCenter.UC_ERROR, errorPack);
+		}
+		Token token = TokenAction.getTokenByUserId(user.getUserId());
+		if (token == null) {
+			token = TokenAction.createToken(user.getUserId());
+			if (token == null) {
+				token = TokenAction.getTokenByUserId(user.getUserId());
+			}
+		} else {
+			Date date = new Date();
+			// 判断是否过期
+			if (date.getTime() > token.getTokenExpireTime().getTime()) {
+				TokenAction.deleteToken(token.getTokenId());
+				token = TokenAction.createToken(user.getUserId());
+				if (token == null) {
+					token = TokenAction.getTokenByUserId(user.getUserId());
+				}
+			} else {
+				TokenAction.updateToken(token.getTokenId());
+			}
+		}
+		if (token == null) {
+			UCError errorPack = UCErrorPack.create(UCErrorCode.ERROR_CODE_7, httpPacket.hSession.headParam.hOpCode);
+			throw new HttpException(HOpCodeUCenter.UC_ERROR, errorPack);
+		}
+		GetTokenS.Builder builder = GetTokenS.newBuilder();
+		builder.setHOpCode(httpPacket.hSession.headParam.hOpCode);
+		builder.setTokenId(token.getTokenId());
+		builder.setTokenExpireTime(TimeUtils.dateToString(token.getTokenExpireTime()));
+		builder.setUser(UserAction.getUserDataBuilder(user, token.getTokenId()));
+		HttpPacket packet = new HttpPacket(httpPacket.hSession.headParam.hOpCode, builder.build());
+		return packet;
+	}
+
+	public HttpPacket getAdminTokenHandle(HttpPacket httpPacket) throws HttpException {
+		GetTokenC message = (GetTokenC) httpPacket.getData();
+		User user = UserAction.getUserByName(message.getUserName());
+		if (user == null) {
+			UCError errorPack = UCErrorPack.create(UCErrorCode.ERROR_CODE_4, httpPacket.hSession.headParam.hOpCode);
+			throw new HttpException(HOpCodeUCenter.UC_ERROR, errorPack);
+		}
+		if (user.getUserState().intValue() != UserConfig.STATE_USABLE) {
+			UCError errorPack = UCErrorPack.create(UCErrorCode.ERROR_CODE_5, httpPacket.hSession.headParam.hOpCode);
+			throw new HttpException(HOpCodeUCenter.UC_ERROR, errorPack);
+		}
+		// 判断密码
+		if (!user.getUserPassword().equals(message.getUserPassword())) {
+			UCError errorPack = UCErrorPack.create(UCErrorCode.ERROR_CODE_6, httpPacket.hSession.headParam.hOpCode);
+			throw new HttpException(HOpCodeUCenter.UC_ERROR, errorPack);
+		}
+		if (user.getUserRole().intValue() != UserConfig.ROLE_UCENTER_MANAGER) {
+			UCError errorPack = UCErrorPack.create(UCErrorCode.ERROR_CODE_16, httpPacket.hSession.headParam.hOpCode);
 			throw new HttpException(HOpCodeUCenter.UC_ERROR, errorPack);
 		}
 		Token token = TokenAction.getTokenByUserId(user.getUserId());
