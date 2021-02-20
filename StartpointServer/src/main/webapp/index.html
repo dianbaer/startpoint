@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <!--all in one-->
+    <!--
+    <script src="js/lib/juggle-all.js" type="text/javascript"></script>
+    -->
+    <!--最小依赖-->
+
+    <script src="js/lib/juggle-help.js" type="text/javascript"></script>
+    <script src="js/lib/juggle-event.js" type="text/javascript"></script>
+    <script src="js/lib/juggle-http.js" type="text/javascript"></script>
+    <script src="js/lib/juggle-resource.js" type="text/javascript"></script>
+    <script src="js/lib/juggle-module.js" type="text/javascript"></script>
+    <script src="js/lib/juggle-mv.js" type="text/javascript"></script>
+
+    <script src="js/lib/jquery.min.js" type="text/javascript"></script>
+    <script src="js/lib/jquery.cookie.js" type="text/javascript"></script>
+
+    <script src="js/app/NotificationExt.js" type="text/javascript"></script>
+    <script src="js/app/Url.js" type="text/javascript"></script>
+    <script src="js/app/CookieParam.js" type="text/javascript"></script>
+    <script src="js/app/CookieName.js" type="text/javascript"></script>
+
+    <script src="js/app/data/http/UserGroupProxy.js" type="text/javascript"></script>
+    <script src="js/app/data/http/UserProxy.js" type="text/javascript"></script>
+    <script src="js/app/data/http/TokenProxy.js" type="text/javascript"></script>
+
+    <script src="js/app/module/TokenMediator.js" type="text/javascript"></script>
+    <script src="js/app/module/UpdateUserMediator.js" type="text/javascript"></script>
+    <script src="js/app/module/UserMediator.js" type="text/javascript"></script>
+    <script src="js/app/module/CreateUserGroupMediator.js" type="text/javascript"></script>
+    <script src="js/app/module/UpdateUserGroupMediator.js" type="text/javascript"></script>
+
+    <script src="js/app/module/TopMediator.js" type="text/javascript"></script>
+    <script src="js/app/module/LeftMediator.js" type="text/javascript"></script>
+    <script src="js/app/module/BodyMediator.js" type="text/javascript"></script>
+    <script src="js/app/module/BottomMediator.js" type="text/javascript"></script>
+    <script src="js/app/IndexMediator.js" type="text/javascript"></script>
+
+</head>
+<script type="text/javascript">
+
+    window.onload = function () {
+        startpoint.url.url = "http://localhost:8080/StartpointServer/s";
+        var indexMediator = new startpoint.IndexMediator();
+        indexMediator.initView();
+    }
+</script>
+<body>
+<div>
+    <div id="index_top"></div>
+    <div id="index_left"></div>
+    <div id="index_body"></div>
+    <div id="index_bottom"></div>
+</div>
+</body>
+</html>

@@ -31,9 +31,9 @@
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
 				<property name="driver" value="org.mariadb.jdbc.Driver" />
-				<property name="url" value="jdbc:mysql://localhost:3306/startpoint?useUnicode=true&amp;characterEncoding=utf8" />
+				<property name="url" value="jdbc:mysql://192.168.4.48:3306/startpoint?useUnicode=true&amp;characterEncoding=utf8" />
 				<property name="username" value="root" />
-				<property name="password" value="xp1986124A" />
+				<property name="password" value="123456" />
 				<property name="poolMaximumActiveConnections" value="20" />
 				<property name="poolMaximumIdleConnections" value="5" />
 				<property name="poolMaximumCheckoutTime" value="20000" />
@@ -46,9 +46,9 @@
 	</environments>
 
     <mappers>
-        <mapper resource="org/startpoint/mappers/base/UserMapper.xml" />
-        <mapper resource="org/startpoint/mappers/base/UserGroupMapper.xml" />
-		<mapper resource="org/startpoint/mappers/ext/UserGroupMapperExt.xml" />
-        <mapper resource="org/startpoint/mappers/base/TokenMapper.xml" />
+        <mapper resource="mappers/base/UserMapper.xml" />
+        <mapper resource="mappers/base/UserGroupMapper.xml" />
+		<mapper resource="mappers/ext/UserGroupMapperExt.xml" />
+        <mapper resource="mappers/base/TokenMapper.xml" />
 	</mappers>
 </configuration> 
